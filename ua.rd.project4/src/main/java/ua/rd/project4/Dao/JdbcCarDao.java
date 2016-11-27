@@ -117,7 +117,7 @@ class JdbcCarDao extends CarDao {
 
     @Override
     public List<Car> findAll() {
-        List<Car> allCars = new ArrayList<>();
+        List<Car> foundCars = new ArrayList<>();
         try (Connection connection = ConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `cars`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -131,13 +131,14 @@ class JdbcCarDao extends CarDao {
                         resultSet.getInt("price"),
                         resultSet.getInt("rentPricePerDay"));
                 car.setId(resultSet.getInt("id"));
-                allCars.add(car);
+                foundCars.add(car);
             }
         } catch (SQLException e) {
             logger.error(e.toString());
         }
-        return allCars;
+        return foundCars;
     }
+
 
     @Override
     public Integer findId(Car car) {

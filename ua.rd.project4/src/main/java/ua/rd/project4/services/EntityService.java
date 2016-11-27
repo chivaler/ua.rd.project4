@@ -5,21 +5,16 @@ import ua.rd.project4.entities.Entity;
 
 import java.util.List;
 
-class ExceptionEntityInUse extends Exception {
-    public ExceptionEntityInUse(String message) {
-        super(message);
-    }
-}
-
 abstract class EntityService<T extends Entity> {
     abstract EntityDao<T> getDao();
+
     abstract AbstractServiceFactory getServiceFactory();
 
     public boolean insert(T t) {
         return getDao().insert(t);
     }
 
-    public boolean update(int id, T t){
+    public boolean update(int id, T t) {
         return getDao().update(id, t);
     }
 
@@ -27,15 +22,15 @@ abstract class EntityService<T extends Entity> {
         return getDao().delete(id);
     }
 
-    public T getById(int id){
+    public T getById(int id) {
         return getDao().getById(id);
     }
 
-    public List<T> findAll(){
+    public List<T> findAll() {
         return getDao().findAll();
     }
 
-    public Integer findId(T t){
+    public Integer findId(T t) {
         return getDao().findId(t);
     }
 }

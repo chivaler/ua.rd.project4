@@ -14,15 +14,20 @@ public class MainController extends HttpServlet {
     private Logger logger = LogManager.getLogger(MainController.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String commandName = req.getParameter("command");
         try {
             Command command = commandList.valueOf(commandName).getCommand();
             String jspUrl = command.execute(req, resp);
             req.getRequestDispatcher(jspUrl).forward(req, resp);
         } catch (Exception e) {
-            logger.info("Exception in command: "+e.toString());
+            logger.info("Exception in command: " + e.toString());
             // TODO error to user here
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
     }
 }

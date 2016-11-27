@@ -4,6 +4,8 @@ import ua.rd.project4.Dao.EntityDao;
 import ua.rd.project4.Dao.JdbcDaoFactory;
 import ua.rd.project4.entities.Car;
 
+import java.util.List;
+
 class JdbcCarSevice extends CarService {
     private static final JdbcCarSevice instance = new JdbcCarSevice();
 

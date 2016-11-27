@@ -113,7 +113,7 @@ public class JdbcClientDao extends ClientDao {
 
     @Override
     public List<Client> findAll() {
-        List<Client> allClients = new ArrayList<>();
+        List<Client> foundClients = new ArrayList<>();
         Client client;
         try (Connection connection = ConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `clients`")) {
@@ -127,12 +127,12 @@ public class JdbcClientDao extends ClientDao {
                         resultSet.getString("email"),
                         resultSet.getString("idCard"));
                 client.setId(resultSet.getInt("id"));
-                allClients.add(client);
+                foundClients.add(client);
             }
         } catch (SQLException e) {
             logger.error(e.toString());
         }
-        return allClients;
+        return foundClients;
     }
 
     @Override

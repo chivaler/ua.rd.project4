@@ -2,6 +2,7 @@ package ua.rd.project4.Dao;
 
 import ua.rd.project4.entities.CarRequest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class CarRequestDao implements EntityDao<CarRequest> {

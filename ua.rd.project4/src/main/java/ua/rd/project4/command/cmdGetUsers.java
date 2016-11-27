@@ -3,7 +3,9 @@ package ua.rd.project4.command;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.Attributes;
+import ua.rd.project4.services.ClientService;
 import ua.rd.project4.services.ServiceFactory;
+import ua.rd.project4.services.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,11 +25,9 @@ class cmdGetUsers implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        ClientService s = ServiceFactory.getInstance().getClientService();
-
-        request.setAttribute(Attributes.CLIENTS,
-                ServiceFactory.getInstance().getClientService().findAll());
-        logger.debug("findAll Clients");
-        return "jsp/admin/clients.jsp";
+        UserService userService = ServiceFactory.getInstance().getUserService();
+        request.setAttribute("users", userService.findAll());
+        logger.debug("findAll Users");
+        return "jsp/admin/users.jsp";
     }
 }

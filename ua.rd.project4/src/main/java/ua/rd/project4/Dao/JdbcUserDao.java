@@ -29,7 +29,7 @@ public class JdbcUserDao extends UserDao {
                     "id INT PRIMARY KEY auto_increment," +
                     "isAdmin BOOLEAN," +
                     "login VARCHAR(16)," +
-                    "password VARCHAR(16)," +
+                    "password VARCHAR(32)," +
                     "client INT," +
                     "FOREIGN KEY (client) REFERENCES clients(id))");
         } catch (SQLException e) {
