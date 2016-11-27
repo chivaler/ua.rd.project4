@@ -8,6 +8,7 @@ import java.util.List;
 
 class JdbcInvoiceSevice extends InvoiceService {
     private static final JdbcInvoiceSevice instance = new JdbcInvoiceSevice();
+
     private JdbcInvoiceSevice() {
     }
 
@@ -21,16 +22,17 @@ class JdbcInvoiceSevice extends InvoiceService {
     }
 
     @Override
-    public boolean delete(int id) throws ExceptionEntityInUse {
-        boolean inUse = findInvoicesByClientId(id).size()>0;
-        if (inUse)
-            throw new ExceptionEntityInUse();
-        else
-            return super.delete(id);
+    AbstractServiceFactory getServiceFactory() {
+        return ServiceFactory.getInstance();
     }
 
     @Override
-    List<Invoice> findInvoicesByClientId(int idClient) {
+    public boolean delete(int id) throws ExceptionEntityInUse {
+        return super.delete(id);
+    }
+
+    @Override
+    public List<Invoice> findInvoicesByClientId(int idClient) {
         return getDao().findInvoicesByClientId(idClient);
     }
 }

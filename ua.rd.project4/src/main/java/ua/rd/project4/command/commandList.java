@@ -1,7 +1,8 @@
 package ua.rd.project4.command;
 
 public enum commandList {
-    SHOW_CLIENTS(GetAllClients.getInstance());
+    GET_CLIENTS(GetAllClients.getInstance()),
+    GET_USERS(GetAllClients.getInstance());;
 
     final Command command;
 

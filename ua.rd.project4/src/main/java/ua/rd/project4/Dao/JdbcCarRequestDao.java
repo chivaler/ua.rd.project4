@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class JdbcCarRequestDao extends CarRequestDao {
     final private static JdbcCarRequestDao instance = new JdbcCarRequestDao();
@@ -100,31 +101,13 @@ public class JdbcCarRequestDao extends CarRequestDao {
 
     @Override
     public CarRequest getById(int id) {
-        CarRequest carRequest = null;
-        try (PreparedStatement preparedStatement = ConnectionFactory.getInstance().getConnection().
-                prepareStatement("SELECT * FROM `car_request` WHERE id=? LIMIT 1")) {
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                carRequest = new CarRequest(
-                        carDao.getById(resultSet.getInt("car")),
-                        clientDao.getById(resultSet.getInt("client")),
-                        resultSet.getDate("dateFrom"),
-                        resultSet.getDate("dateTo"),
-                        resultSet.getInt("totalCost"),
-                        resultSet.getBoolean("approved"),
-                        invoiceDao.getById(resultSet.getInt("invoice")));
-                carRequest.setId(resultSet.getInt("id"));
-            }
-        } catch (SQLException e) {
-            logger.error(e.toString());
-        }
-        return carRequest;
+        return findCarRequestsByIdField(id, "id").stream().findFirst().orElse(null);
     }
+
 
     @Override
     public List<CarRequest> findAll() {
-        List<CarRequest> allCarsRequests = new ArrayList<>();
+        List<CarRequest> foundCarsRequests = new ArrayList<>();
         CarRequest carRequest;
         try (Connection connection = ConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request`")) {
@@ -139,12 +122,12 @@ public class JdbcCarRequestDao extends CarRequestDao {
                         resultSet.getBoolean("approved"),
                         invoiceDao.getById(resultSet.getInt("invoice")));
                 carRequest.setId(resultSet.getInt("id"));
-                allCarsRequests.add(carRequest);
+                foundCarsRequests.add(carRequest);
             }
         } catch (SQLException e) {
             logger.error(e.toString());
         }
-        return allCarsRequests;
+        return foundCarsRequests;
     }
 
     @Override
@@ -155,5 +138,47 @@ public class JdbcCarRequestDao extends CarRequestDao {
             if (sqlRequest.equals(carRequest))
                 return sqlRequest.getId();
         return null;
+    }
+
+    private List<CarRequest> findCarRequestsByIdField(int id, String field) {
+        if (!(field.equals("car") || field.equals("id") || field.equals("client") || field.equals("invoice")))
+            throw new IllegalArgumentException();
+        List<CarRequest> foundCarsRequests = new ArrayList<>();
+        CarRequest carRequest;
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE "+field+"=?")) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                carRequest = new CarRequest(
+                        carDao.getById(resultSet.getInt("car")),
+                        clientDao.getById(resultSet.getInt("client")),
+                        resultSet.getDate("dateFrom"),
+                        resultSet.getDate("dateTo"),
+                        resultSet.getInt("totalCost"),
+                        resultSet.getBoolean("approved"),
+                        invoiceDao.getById(resultSet.getInt("invoice")));
+                carRequest.setId(resultSet.getInt("id"));
+                foundCarsRequests.add(carRequest);
+            }
+        } catch (SQLException e) {
+            logger.error(e.toString());
+        }
+        return foundCarsRequests;
+    }
+
+    @Override
+    public List<CarRequest> findCarRequestsByClientId(int clientId) {
+        return findCarRequestsByIdField(clientId, "client");
+    }
+
+    @Override
+    public List<CarRequest> findCarRequestsByCarId(int carId) {
+        return findCarRequestsByIdField(carId, "car");
+    }
+
+    @Override
+    public List<CarRequest> findCarRequestsByInvoiceId(int invoiceId) {
+        return findCarRequestsByIdField(invoiceId, "invoice");
     }
 }

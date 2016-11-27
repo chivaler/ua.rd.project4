@@ -138,4 +138,27 @@ public class JdbcUserDao extends UserDao {
                 return sqlUser.getId();
         return null;
     }
+
+    @Override
+    public List<SystemUser> findUsersByClientId(int clientId) {
+        List<SystemUser> allUsers = new ArrayList<>();
+        SystemUser user;
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users` WHERE client=?")) {
+            preparedStatement.setInt(1, clientId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                user = new SystemUser(
+                        resultSet.getBoolean("isAdmin"),
+                        resultSet.getString("login"),
+                        resultSet.getString("password"),
+                        clientDao.getById(resultSet.getInt("client")));
+                user.setId(resultSet.getInt("id"));
+                allUsers.add(user);
+            }
+        } catch (SQLException e) {
+            logger.error(e.toString());
+        }
+        return allUsers;
+    }
 }

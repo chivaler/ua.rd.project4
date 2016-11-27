@@ -32,7 +32,8 @@ public abstract class EntityDaoTest<T extends Entity> {
     @Test
     public void insert_delete() throws Exception {
         int prevCount = dao.findAll().size();
-        if (dao.findId(elem1) != null) {
+        Integer findelem1 = dao.findId(elem1);
+        if (findelem1 == null) {
             assertThat(dao.insert(elem1), is(true));
             assertThat(dao.findAll().size(), is(prevCount + 1));
             assertThat(dao.findAll().contains(elem1), is(true));
@@ -53,6 +54,7 @@ public abstract class EntityDaoTest<T extends Entity> {
 
     @Test
     public void get_update() throws Exception {
+        // TODO rewrite
         int prevCount = dao.findAll().size();
         assertThat(dao.insert(elem1), is(true));
         int id = dao.findAll().get(0).getId();

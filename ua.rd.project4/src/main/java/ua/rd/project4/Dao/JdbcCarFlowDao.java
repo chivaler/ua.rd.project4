@@ -137,7 +137,7 @@ public class JdbcCarFlowDao extends CarFlowDao {
 
     @Override
     public List<CarFlow> findAll() {
-        List<CarFlow> allCarFlows = new ArrayList<>();
+        List<CarFlow> foundCarFlows = new ArrayList<>();
         CarFlow carFlow;
         try (Connection connection = ConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow`")) {
@@ -152,12 +152,61 @@ public class JdbcCarFlowDao extends CarFlowDao {
                         invoiceDao.getById(resultSet.getInt("invoice")),
                         resultSet.getString("supplement"));
                 carFlow.setId(resultSet.getInt("id"));
-                allCarFlows.add(carFlow);
+                foundCarFlows.add(carFlow);
             }
         } catch (SQLException e) {
             logger.error(e.toString());
         }
-        return allCarFlows;
+        return foundCarFlows;
     }
 
+    private List<CarFlow> findCarFlowsByIdField(int id, String field) {
+        List<CarFlow> foundCarFlows = new ArrayList<>();
+        CarFlow carFlow;
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow` WHERE "+field+"=?")) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                carFlow = new CarFlow(
+                        carDao.getById(resultSet.getInt("car")),
+                        CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
+                        clientDao.getById(resultSet.getInt("client")),
+                        carRequestDao.getById(resultSet.getInt("carRequest")),
+                        userDao.getById(resultSet.getInt("responsiblePerson")),
+                        invoiceDao.getById(resultSet.getInt("invoice")),
+                        resultSet.getString("supplement"));
+                carFlow.setId(resultSet.getInt("id"));
+                foundCarFlows.add(carFlow);
+            }
+        } catch (SQLException e) {
+            logger.error(e.toString());
+        }
+        return foundCarFlows;
+    }
+
+    @Override
+    public List<CarFlow> findCarFlowsByClientId(int clientId) {
+        return findCarFlowsByIdField(clientId, "client");
+    }
+
+    @Override
+    public List<CarFlow> findCarFlowsByCarId(int carId) {
+        return findCarFlowsByIdField(carId, "car");
+    }
+
+    @Override
+    public List<CarFlow> findCarFlowsByCarRequestId(int carRequestId) {
+        return findCarFlowsByIdField(carRequestId, "carRequest");
+    }
+
+    @Override
+    public List<CarFlow> findCarFlowsByUserId(int userId) {
+        return findCarFlowsByIdField(userId, "user");
+    }
+
+    @Override
+    public List<CarFlow> findCarFlowsByInvoiceId(int invoiceId) {
+        return findCarFlowsByIdField(invoiceId, "invoice");
+    }
 }

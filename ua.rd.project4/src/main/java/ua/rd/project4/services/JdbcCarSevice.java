@@ -6,6 +6,7 @@ import ua.rd.project4.entities.Car;
 
 class JdbcCarSevice extends CarService {
     private static final JdbcCarSevice instance = new JdbcCarSevice();
+
     private JdbcCarSevice() {
     }
 
@@ -16,6 +17,11 @@ class JdbcCarSevice extends CarService {
     @Override
     EntityDao<Car> getDao() {
         return JdbcDaoFactory.getInstance().getCarDao();
+    }
+
+    @Override
+    AbstractServiceFactory getServiceFactory() {
+        return ServiceFactory.getInstance();
     }
 
     @Override

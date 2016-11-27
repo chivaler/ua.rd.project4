@@ -6,11 +6,14 @@ import ua.rd.project4.entities.Entity;
 import java.util.List;
 
 class ExceptionEntityInUse extends Exception {
-
+    public ExceptionEntityInUse(String message) {
+        super(message);
+    }
 }
 
 abstract class EntityService<T extends Entity> {
     abstract EntityDao<T> getDao();
+    abstract AbstractServiceFactory getServiceFactory();
 
     public boolean insert(T t) {
         return getDao().insert(t);
