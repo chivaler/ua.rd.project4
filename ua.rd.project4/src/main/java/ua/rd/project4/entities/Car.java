@@ -87,4 +87,18 @@ public class Car implements Entity {
     public int hashCode() {
         return Objects.hash(id, model, color, carType, registrationNumber, description, price, rentPricePerDay);
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", carType=" + carType +
+                ", registrationNumber='" + registrationNumber + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", rentPricePerDay=" + rentPricePerDay +
+                '}';
+    }
 }

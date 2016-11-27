@@ -10,7 +10,7 @@ import java.util.List;
 
 public class JdbcCarRequestDao extends CarRequestDao {
     final private static JdbcCarRequestDao instance = new JdbcCarRequestDao();
-    private static Logger logger = LogManager.getLogger(JdbcCarRequestDao.class);
+    private Logger logger = LogManager.getLogger(JdbcCarRequestDao.class);
     private ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
     private CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
     private InvoiceDao invoiceDao = JdbcDaoFactory.getInstance().getInvoiceDao();
@@ -49,9 +49,9 @@ public class JdbcCarRequestDao extends CarRequestDao {
     public boolean insert(CarRequest carRequest) {
         Connection connection = ConnectionFactory.getInstance().getConnection();
         boolean wasInserted = false;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `car_request` " +
-                    "(car, client, dateFrom, dateTo, totalCost, approved, invoice) VALUES(?,?,?,?,?,?,?)");
+        try (PreparedStatement preparedStatement = ConnectionFactory.getInstance().getConnection().prepareStatement("INSERT INTO `car_request` " +
+                "(car, client, dateFrom, dateTo, totalCost, approved, invoice) VALUES(?,?,?,?,?,?,?)");){
+
             preparedStatement.setObject(1, carDao.findId(carRequest.getCar()));
             preparedStatement.setObject(2, clientDao.findId(carRequest.getClient()));
             preparedStatement.setDate(3, carRequest.getDateFrom());

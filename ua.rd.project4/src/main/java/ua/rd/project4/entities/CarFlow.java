@@ -29,12 +29,14 @@ public class CarFlow implements Entity {
             switch (value) {
                 case 1:
                     return IN;
-                case 2:
+                case -1:
                     return OUT;
                 case 0:
                     return null;
+//                case null:
+//                    return null;
                 default:
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Expected 1,-1: Recieved"+value);
             }
         }
     }

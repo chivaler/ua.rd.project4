@@ -40,21 +40,3 @@ public abstract class AbstractDaoFactory {
     }
 }
 
-abstract class CarDao implements EntityDao<Car> {
-}
-
-abstract class ClientDao implements EntityDao<Client> {
-}
-
-abstract class UserDao implements EntityDao<SystemUser> {
-}
-
-abstract class InvoiceDao implements EntityDao<Invoice> {
-}
-
-abstract class CarRequestDao implements EntityDao<CarRequest> {
-}
-
-abstract class CarFlowDao implements EntityDao<CarFlow> {
-}
-

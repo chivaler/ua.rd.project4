@@ -1,6 +1,7 @@
 package ua.rd.project4.Dao;
 
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -8,8 +9,9 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class ConnectionFactory {
-    static ConnectionFactory instance = new ConnectionFactory();
+class ConnectionFactory {
+    private static final ConnectionFactory instance = new ConnectionFactory();
+    private Logger logger = LogManager.getLogger(ConnectionFactory.class);
     DataSource dataSource = null;
     String jdbcDriver;
     String jdbcUrl;
@@ -19,15 +21,22 @@ public class ConnectionFactory {
     private ConnectionFactory() {
         setJdbcParameters(
                 "com.mysql.jdbc.Driver",
-                "jdbc:mysql://localhost:3306/car_rent?verifyServerCertificate=false&useSSL=false&autoReconnect=true",
+//                "com.mysql.cj.jdbc.Driver",
+                "jdbc:mysql://localhost:3306/car_rent?verifyServerCertificate=false&useSSL=false",
                 "root",
                 "925060");
+
+//        setJdbcParameters(
+//                "org.h2.Driver",
+//                "jdbc:h2:mem:test",
+//                "sa",
+//                "");
 
         try {
             InitialContext ic = new InitialContext();
             dataSource = (DataSource) ic.lookup("java:comp/env/jdbc/epam4_2");
         } catch (NamingException e) {
-            LogManager.getLogger(JdbcDaoFactory.class).debug(e.toString());
+            logger.debug(e.toString());
         }
 
     }
@@ -48,15 +57,15 @@ public class ConnectionFactory {
         try {
             connection = getPoolConnection();
         } catch (Exception e) {
-//            LogManager.getLogger(JdbcDaoFactory.class).debug(e.toString());
+//            logger.debug(e.toString());
             try {
                 connection = getSingleConnection();
             } catch (Exception e1) {
-                LogManager.getLogger(JdbcDaoFactory.class).warn(e1.toString());
+                logger.error(e1.toString());
             }
         }
         if (connection == null) {
-            LogManager.getLogger(JdbcDaoFactory.class).error("Couln't create connection");
+            logger.error("Couln't create connection");
             throw new RuntimeException("Couln't create connection");
         }
         return connection;
