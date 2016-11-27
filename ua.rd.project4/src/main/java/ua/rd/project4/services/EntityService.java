@@ -5,7 +5,11 @@ import ua.rd.project4.entities.Entity;
 
 import java.util.List;
 
-public abstract class EntityService<T extends Entity> {
+class ExceptionEntityInUse extends Exception {
+
+}
+
+abstract class EntityService<T extends Entity> {
     abstract EntityDao<T> getDao();
 
     public boolean insert(T t) {
@@ -16,7 +20,7 @@ public abstract class EntityService<T extends Entity> {
         return getDao().update(id, t);
     }
 
-    public boolean delete(int id){
+    public boolean delete(int id) throws ExceptionEntityInUse {
         return getDao().delete(id);
     }
 

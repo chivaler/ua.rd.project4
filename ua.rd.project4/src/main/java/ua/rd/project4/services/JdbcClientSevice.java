@@ -17,4 +17,9 @@ class JdbcClientSevice extends ClientService {
     EntityDao<Client> getDao() {
         return JdbcDaoFactory.getInstance().getClientDao();
     }
+
+    @Override
+    public boolean delete(int id) throws ExceptionEntityInUse {
+        return super.delete(id);
+    }
 }
