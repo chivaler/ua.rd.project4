@@ -3,11 +3,11 @@ package ua.rd.project4.entities;
 import java.util.Objects;
 
 public class Invoice implements Entity {
-    int id;
-    Client client;
-    int total;
-    boolean paid;
-    String description;
+    private int id;
+    private Client client;
+    private int total;
+    private boolean paid;
+    private String description;
 
     public Invoice(Client client, int total, boolean paid, String description) {
         this.client = client;

@@ -38,11 +38,10 @@ public class JdbcClientDao extends ClientDao {
 
     @Override
     public boolean insert(Client client) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         boolean wasInserted = false;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `clients` " +
-                    "(firstName, lastName, address, telephone, email, idCard) VALUES(?,?,?,?,?,?)");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `clients` " +
+                     "(firstName, lastName, address, telephone, email, idCard) VALUES(?,?,?,?,?,?)")) {
             preparedStatement.setString(1, client.getFirstName());
             preparedStatement.setString(2, client.getLastName());
             preparedStatement.setString(3, client.getAddress());
@@ -58,11 +57,10 @@ public class JdbcClientDao extends ClientDao {
 
     @Override
     public boolean update(int id, Client client) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         boolean wasUpdated = false;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `clients` SET " +
-                    "firstName=?, lastName=?, address=?, telephone=?, email=?, idCard=? WHERE id=?");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `clients` SET " +
+                     "firstName=?, lastName=?, address=?, telephone=?, email=?, idCard=? WHERE id=?")) {
             preparedStatement.setString(1, client.getFirstName());
             preparedStatement.setString(2, client.getLastName());
             preparedStatement.setString(3, client.getAddress());
@@ -79,10 +77,9 @@ public class JdbcClientDao extends ClientDao {
 
     @Override
     public boolean delete(int id) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         boolean wasDeleted = false;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `clients` WHERE id=?");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `clients` WHERE id=?")) {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -93,10 +90,9 @@ public class JdbcClientDao extends ClientDao {
 
     @Override
     public Client getById(int id) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         Client client = null;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `clients` WHERE id=? LIMIT 1");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `clients` WHERE id=? LIMIT 1")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -117,11 +113,10 @@ public class JdbcClientDao extends ClientDao {
 
     @Override
     public List<Client> findAll() {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         List<Client> allClients = new ArrayList<>();
         Client client;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `clients`");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `clients`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 client = new Client(

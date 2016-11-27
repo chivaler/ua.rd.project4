@@ -11,12 +11,12 @@ import java.sql.DriverManager;
 
 class ConnectionFactory {
     private static final ConnectionFactory instance = new ConnectionFactory();
-    private Logger logger = LogManager.getLogger(ConnectionFactory.class);
-    DataSource dataSource = null;
-    String jdbcDriver;
-    String jdbcUrl;
-    String jdbcUser;
-    String jdbcPassword;
+    private final Logger logger = LogManager.getLogger(ConnectionFactory.class);
+    private DataSource dataSource = null;
+    private String jdbcDriver;
+    private String jdbcUrl;
+    private String jdbcUser;
+    private String jdbcPassword;
 
     private ConnectionFactory() {
         setJdbcParameters(

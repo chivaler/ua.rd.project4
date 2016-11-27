@@ -4,18 +4,18 @@ import java.util.Objects;
 
 
 public class CarFlow implements Entity {
-    int id;
-    Car car;
-    CarFlowType carFlowType;
-    Client client;
-    CarRequest carRequest;
-    SystemUser responsiblePerson;
-    Invoice invoice;
-    String supplement;
+    private int id;
+    private Car car;
+    private CarFlowType carFlowType;
+    private Client client;
+    private CarRequest carRequest;
+    private SystemUser responsiblePerson;
+    private Invoice invoice;
+    private String supplement;
 
     public enum CarFlowType {
         IN(1), OUT(-1);
-        int value;
+        final int value;
 
         CarFlowType(int value) {
             this.value = value;

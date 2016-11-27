@@ -6,11 +6,9 @@ import ua.rd.project4.command.*;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class MainController extends HttpServlet {
     private Logger logger = LogManager.getLogger(MainController.class);

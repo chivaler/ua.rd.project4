@@ -20,7 +20,7 @@ public abstract class EntityDaoTest<T extends Entity> {
     T elem2;
     T elem3;
 
-    public void setClass(Class c) {
+    void setClass(Class c) {
         dao = JdbcDaoFactory.getInstance().getGenericDao(c);
     }
 

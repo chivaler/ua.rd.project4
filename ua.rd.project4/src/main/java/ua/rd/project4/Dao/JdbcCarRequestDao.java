@@ -47,11 +47,9 @@ public class JdbcCarRequestDao extends CarRequestDao {
 
     @Override
     public boolean insert(CarRequest carRequest) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         boolean wasInserted = false;
         try (PreparedStatement preparedStatement = ConnectionFactory.getInstance().getConnection().prepareStatement("INSERT INTO `car_request` " +
-                "(car, client, dateFrom, dateTo, totalCost, approved, invoice) VALUES(?,?,?,?,?,?,?)");){
-
+                "(car, client, dateFrom, dateTo, totalCost, approved, invoice) VALUES(?,?,?,?,?,?,?)")) {
             preparedStatement.setObject(1, carDao.findId(carRequest.getCar()));
             preparedStatement.setObject(2, clientDao.findId(carRequest.getClient()));
             preparedStatement.setDate(3, carRequest.getDateFrom());
@@ -68,11 +66,10 @@ public class JdbcCarRequestDao extends CarRequestDao {
 
     @Override
     public boolean update(int id, CarRequest carRequest) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         boolean wasUpdated = false;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `car_request` SET " +
-                    "car=?, client=?, dateFrom=?, dateTo=?, totalCost=?, approved=?, invoice=? WHERE id=?");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `car_request` SET " +
+                     "car=?, client=?, dateFrom=?, dateTo=?, totalCost=?, approved=?, invoice=? WHERE id=?")) {
             preparedStatement.setObject(1, carDao.findId(carRequest.getCar()));
             preparedStatement.setObject(2, clientDao.findId(carRequest.getClient()));
             preparedStatement.setDate(3, carRequest.getDateFrom());
@@ -90,10 +87,9 @@ public class JdbcCarRequestDao extends CarRequestDao {
 
     @Override
     public boolean delete(int id) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         boolean wasDeleted = false;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `car_request` WHERE id=?");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `car_request` WHERE id=?")) {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -105,9 +101,8 @@ public class JdbcCarRequestDao extends CarRequestDao {
     @Override
     public CarRequest getById(int id) {
         CarRequest carRequest = null;
-        try {
-            PreparedStatement preparedStatement = ConnectionFactory.getInstance().getConnection().
-                    prepareStatement("SELECT * FROM `car_request` WHERE id=? LIMIT 1");
+        try (PreparedStatement preparedStatement = ConnectionFactory.getInstance().getConnection().
+                prepareStatement("SELECT * FROM `car_request` WHERE id=? LIMIT 1")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -129,11 +124,10 @@ public class JdbcCarRequestDao extends CarRequestDao {
 
     @Override
     public List<CarRequest> findAll() {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         List<CarRequest> allCarsRequests = new ArrayList<>();
         CarRequest carRequest;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request`");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 carRequest = new CarRequest(

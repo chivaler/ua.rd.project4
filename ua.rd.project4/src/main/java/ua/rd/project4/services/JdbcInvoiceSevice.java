@@ -1,9 +1,10 @@
 package ua.rd.project4.services;
 
-import ua.rd.project4.Dao.EntityDao;
+import ua.rd.project4.Dao.InvoiceDao;
 import ua.rd.project4.Dao.JdbcDaoFactory;
-import ua.rd.project4.entities.Car;
 import ua.rd.project4.entities.Invoice;
+
+import java.util.List;
 
 class JdbcInvoiceSevice extends InvoiceService {
     private static final JdbcInvoiceSevice instance = new JdbcInvoiceSevice();
@@ -15,12 +16,21 @@ class JdbcInvoiceSevice extends InvoiceService {
     }
 
     @Override
-    EntityDao<Invoice> getDao() {
+    InvoiceDao getDao() {
         return JdbcDaoFactory.getInstance().getInvoiceDao();
     }
 
     @Override
     public boolean delete(int id) throws ExceptionEntityInUse {
-        return super.delete(id);
+        boolean inUse = findInvoicesByClientId(id).size()>0;
+        if (inUse)
+            throw new ExceptionEntityInUse();
+        else
+            return super.delete(id);
+    }
+
+    @Override
+    List<Invoice> findInvoicesByClientId(int idClient) {
+        return getDao().findInvoicesByClientId(idClient);
     }
 }

@@ -1,17 +1,15 @@
 package ua.rd.project4.command;
 
 public enum commandList {
-    SHOW_CLIENTS(GetAllClients.getInstance(), "jsp/admin/clients.jsp");
+    SHOW_CLIENTS(GetAllClients.getInstance());
 
-    Command command;
-    String url;
+    final Command command;
 
     public Command getCommand() {
         return command;
     }
 
-    commandList(Command instance, String url) {
+    commandList(Command instance) {
         this.command = instance;
-        this.url = url;
     }
 }

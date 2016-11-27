@@ -7,7 +7,7 @@ public class SystemUser implements Entity {
     private boolean isAdmin;
     private String login;
     private String password;
-    Client client;
+    private Client client;
 
     public SystemUser(boolean isAdmin, String login, String password, Client client) {
         this.isAdmin = isAdmin;

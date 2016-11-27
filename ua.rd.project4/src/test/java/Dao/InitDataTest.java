@@ -1,6 +1,5 @@
 package Dao;
 
-import org.junit.Before;
 import org.junit.Test;
 import ua.rd.project4.Dao.*;
 import ua.rd.project4.entities.*;
@@ -47,7 +46,7 @@ public class InitDataTest {
         assertThat(client1.getId()==client3.getId(),is(false));
 
         Invoice invoice1 = new Invoice(client1, 0, true, "Bla");
-        Invoice invoice2 = new Invoice(client1, 0, false, "Bla");;
+        Invoice invoice2 = new Invoice(client1, 0, false, "Bla");
         Invoice invoice3 = new Invoice(client3, 2, true, "Bla");
 
         invoiceDao.insert(invoice1);

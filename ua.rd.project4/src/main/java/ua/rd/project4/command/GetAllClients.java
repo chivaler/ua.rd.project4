@@ -2,9 +2,7 @@ package ua.rd.project4.command;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ua.rd.project4.Dao.JdbcDaoFactory;
 import ua.rd.project4.controller.Attributes;
-import ua.rd.project4.services.ClientService;
 import ua.rd.project4.services.ServiceFactory;
 
 import javax.servlet.ServletException;
@@ -14,7 +12,7 @@ import java.io.IOException;
 
 class GetAllClients implements Command {
     private static final GetAllClients instance = new GetAllClients();
-    private Logger logger = LogManager.getLogger(GetAllClients.class);
+    private final Logger logger = LogManager.getLogger(GetAllClients.class);
 
     private GetAllClients() {
     }

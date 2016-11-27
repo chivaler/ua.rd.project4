@@ -2,7 +2,6 @@ package ua.rd.project4.services;
 
 import ua.rd.project4.Dao.EntityDao;
 import ua.rd.project4.Dao.JdbcDaoFactory;
-import ua.rd.project4.entities.CarFlow;
 import ua.rd.project4.entities.SystemUser;
 
 class JdbcUserSevice extends UserService {

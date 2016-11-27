@@ -23,8 +23,8 @@ public class JdbcUserDao extends UserDao {
     @Override
     public void createTable() {
         clientDao.createTable();
-        Connection connection = ConnectionFactory.getInstance().getConnection();
-        try (Statement statement = connection.createStatement()) {
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             Statement statement = connection.createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `users` (" +
                     "id INT PRIMARY KEY auto_increment," +
                     "isAdmin BOOLEAN," +
@@ -39,11 +39,10 @@ public class JdbcUserDao extends UserDao {
 
     @Override
     public boolean insert(SystemUser user) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         boolean wasInserted = false;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `users` " +
-                    "(isAdmin, login, password, client) VALUES(?,?,?,?)");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `users` " +
+                     "(isAdmin, login, password, client) VALUES(?,?,?,?)")) {
             preparedStatement.setBoolean(1, user.isAdmin());
             preparedStatement.setString(2, user.getLogin());
             preparedStatement.setString(3, user.getPassword());
@@ -57,11 +56,10 @@ public class JdbcUserDao extends UserDao {
 
     @Override
     public boolean update(int id, SystemUser user) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         boolean wasUpdated = false;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `users` SET " +
-                    "isAdmin=?, login=?, password=?, client=? WHERE id=?");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `users` SET "
+                     + "isAdmin=?, login=?, password=?, client=? WHERE id=?")) {
             preparedStatement.setBoolean(1, user.isAdmin());
             preparedStatement.setString(2, user.getLogin());
             preparedStatement.setString(3, user.getPassword());
@@ -76,10 +74,10 @@ public class JdbcUserDao extends UserDao {
 
     @Override
     public boolean delete(int id) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
+
         boolean wasDeleted = false;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `users` WHERE id=?");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `users` WHERE id=?")) {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -90,10 +88,9 @@ public class JdbcUserDao extends UserDao {
 
     @Override
     public SystemUser getById(int id) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         SystemUser user = null;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users` WHERE id=? LIMIT 1");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users` WHERE id=? LIMIT 1")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -112,11 +109,10 @@ public class JdbcUserDao extends UserDao {
 
     @Override
     public List<SystemUser> findAll() {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         List<SystemUser> allUsers = new ArrayList<>();
         SystemUser user;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users`");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 user = new SystemUser(

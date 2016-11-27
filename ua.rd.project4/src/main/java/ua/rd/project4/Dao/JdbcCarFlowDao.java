@@ -37,13 +37,13 @@ public class JdbcCarFlowDao extends CarFlowDao {
                     "car INT," +
                     "carFlowType INT," +
                     "client INT," +
-                    "carRequest INT,"+
-                    "responsiblePerson INT,"+
+                    "carRequest INT," +
+                    "responsiblePerson INT," +
                     "invoice INT," +
                     "supplement VARCHAR(240)," +
                     "FOREIGN KEY (car) REFERENCES cars(id)," +
                     "FOREIGN KEY (client) REFERENCES clients(id)," +
-                    "FOREIGN KEY (invoice) REFERENCES invoices(id),"+
+                    "FOREIGN KEY (invoice) REFERENCES invoices(id)," +
                     "FOREIGN KEY (responsiblePerson) REFERENCES users(id)," +
                     "FOREIGN KEY (carRequest) REFERENCES car_request(id))");
         } catch (SQLException e) {
@@ -53,11 +53,10 @@ public class JdbcCarFlowDao extends CarFlowDao {
 
     @Override
     public boolean insert(CarFlow carFlow) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         boolean wasInserted = false;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `car_flow` " +
-                    "(car, carFlowType, client, carRequest, responsiblePerson, invoice, supplement) VALUES(?,?,?,?,?,?,?)");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `car_flow` " +
+                     "(car, carFlowType, client, carRequest, responsiblePerson, invoice, supplement) VALUES(?,?,?,?,?,?,?)")) {
             preparedStatement.setObject(1, carDao.findId(carFlow.getCar()));
             if (carFlow.getCarFlowType() == null)
                 preparedStatement.setObject(2, null);
@@ -77,11 +76,10 @@ public class JdbcCarFlowDao extends CarFlowDao {
 
     @Override
     public boolean update(int id, CarFlow carFlow) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         boolean wasUpdated = false;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `car_flow` SET " +
-                    "car=?, carFlowType=?, client=?, carRequest=?, responsiblePerson=?, invoice=?, supplement=? WHERE id=?");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `car_flow` SET " +
+                     "car=?, carFlowType=?, client=?, carRequest=?, responsiblePerson=?, invoice=?, supplement=? WHERE id=?")) {
             preparedStatement.setObject(1, carDao.findId(carFlow.getCar()));
             if (carFlow.getCarFlowType() == null)
                 preparedStatement.setObject(2, null);
@@ -102,10 +100,9 @@ public class JdbcCarFlowDao extends CarFlowDao {
 
     @Override
     public boolean delete(int id) {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         boolean wasDeleted = false;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `car_flow` WHERE id=?");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `car_flow` WHERE id=?")) {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -115,11 +112,10 @@ public class JdbcCarFlowDao extends CarFlowDao {
     }
 
     @Override
-    public CarFlow getById(int id) {;
+    public CarFlow getById(int id) {
         CarFlow carFlow = null;
-        try {
-            PreparedStatement preparedStatement = ConnectionFactory.getInstance().getConnection().
-                    prepareStatement("SELECT * FROM `car_flow` WHERE id=? LIMIT 1");
+        try (PreparedStatement preparedStatement = ConnectionFactory.getInstance().getConnection().
+                prepareStatement("SELECT * FROM `car_flow` WHERE id=? LIMIT 1")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -141,11 +137,10 @@ public class JdbcCarFlowDao extends CarFlowDao {
 
     @Override
     public List<CarFlow> findAll() {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
         List<CarFlow> allCarFlows = new ArrayList<>();
         CarFlow carFlow;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow`");
+        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 carFlow = new CarFlow(
