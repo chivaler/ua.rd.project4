@@ -19,7 +19,7 @@ class cmdCrudClients extends cmdCrudGeneric<Client> {
     private cmdCrudClients() {
     }
 
-    public static cmdCrudClients getInstance() {
+    static cmdCrudClients getInstance() {
         return instance;
     }
 

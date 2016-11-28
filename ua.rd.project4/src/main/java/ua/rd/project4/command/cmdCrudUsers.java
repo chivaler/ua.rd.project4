@@ -19,7 +19,7 @@ class cmdCrudUsers extends cmdCrudGeneric<SystemUser> {
     private cmdCrudUsers() {
     }
 
-    public static cmdCrudUsers getInstance() {
+    static cmdCrudUsers getInstance() {
         return instance;
     }
 
@@ -78,71 +78,3 @@ class cmdCrudUsers extends cmdCrudGeneric<SystemUser> {
         return new SystemUser(isAdmin, login, passwordToSave, client);
     }
 }
-
-//    @Override
-//    public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String doCommand = req.getParameter("do");
-//        int parsedId;
-//        try {
-//            parsedId = Integer.valueOf(req.getParameter("id"));
-//        } catch (NumberFormatException e) {
-//            parsedId=0;
-//        }
-//        final int id = parsedId;
-//        if ((id == 0) && ("get".equals(doCommand) || "delete".equals(doCommand))) {
-//            logger.debug("Users:" + doCommand + " id:" + req.getParameter("id"));
-//            req.setAttribute("error", "Unknown id");
-//            req.setAttribute("users", userService.findAll());
-//            return LIST_USERS_JSP;
-//        }
-//        switch (doCommand) {
-//            case "update":
-//                try {
-//                    SystemUser user = parseToEntity(req);
-//                    if (userService.findAll().stream().
-//                            filter(s -> (s.getLogin().equals(user.getLogin()) && s.getId() != id)).
-//                            count() > 0)
-//                        throw new ExceptionLoginExists();
-//                    if (id > 0)
-//                        userService.update(id, user);
-//                    else
-//                        userService.insert(user);
-//                } catch (InvalidParameterException e) {
-//                    req.setAttribute("error", "Check entered data in field " + e.getMessage());
-//                    logger.debug("Users:" + doCommand + " id:" + req.getParameter("id") + " wrond field:" + e.getMessage());
-//                    return EDIT_USER_JSP;
-//                } catch (ExceptionLoginExists e) {
-//                    req.setAttribute("error", "User with such login already exists in database");
-//                    logger.debug("Users:" + doCommand + " id:" + req.getParameter("id") + " login already exists");
-//                    return EDIT_USER_JSP;
-//                }
-//                break;
-//            case "get":
-//                if (userService.getById(id) != null) {
-//                    req.setAttribute("user", userService.getById(id));
-//                    return EDIT_USER_JSP;
-//                } else {
-//                    req.setAttribute("error", "Users: Couldn't find User with id");
-//                    logger.debug("Users:" + doCommand + " id:" + req.getParameter("id"));
-//                }
-//                break;
-//            case "delete":
-//                try {
-//                    userService.delete(id);
-//                    req.setAttribute("result", "User with id:" + id + " deleted.");
-//                } catch (ExceptionEntityInUse exceptionEntityInUse) {
-//                    logger.warn(exceptionEntityInUse.toString());
-//                    req.setAttribute("error", "Couldn't remove user with id:" + id + " " + exceptionEntityInUse.getMessage());
-//                }
-//                break;
-//            case "list":
-//                break;
-//            default:
-//                req.setAttribute("error", "Users: Unknown command");
-//                logger.debug("Users:" + doCommand + " id:" + req.getParameter("id"));
-//                break;
-//        }
-//        req.setAttribute("users", userService.findAll());
-//        return LIST_USERS_JSP;
-//    }
-//}

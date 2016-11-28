@@ -2,11 +2,6 @@ package ua.rd.project4.entities;
 
 import java.util.Objects;
 
-/**
- * Car class
- *
- * @author Igor Podgurski
- */
 public class Car implements Entity {
     private int id = -1;
     private String model;
