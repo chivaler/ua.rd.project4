@@ -93,4 +93,11 @@ public class Client implements Entity {
     public void setIdCard(String idCard) {
         this.idCard = idCard;
     }
+
+    @Override
+    public String toString() {
+        return  "id=" + id +
+                ", " + firstName +
+                ", " + lastName;
+    }
 }

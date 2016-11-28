@@ -5,16 +5,16 @@ import ua.rd.project4.entities.Entity;
 
 import java.util.List;
 
-abstract class EntityService<T extends Entity> {
+public abstract class EntityService<T extends Entity> {
     abstract EntityDao<T> getDao();
 
     abstract AbstractServiceFactory getServiceFactory();
 
-    public boolean insert(T t) {
+    public boolean insert(T t) throws UniqueViolationException {
         return getDao().insert(t);
     }
 
-    public boolean update(int id, T t) {
+    public boolean update(int id, T t) throws UniqueViolationException {
         return getDao().update(id, t);
     }
 

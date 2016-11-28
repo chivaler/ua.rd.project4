@@ -20,7 +20,9 @@ public class MainController extends HttpServlet {
             Command command = commandList.valueOf(commandName).getCommand();
             String jspUrl = command.execute(req, resp);
             req.getRequestDispatcher(jspUrl).forward(req, resp);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e){
+            //TODO back on previosn error
+        }catch (Exception e) {
             logger.info("Exception in command: " + e.toString());
             // TODO error to user here
         }

@@ -9,6 +9,7 @@ import java.util.List;
 
 class JdbcUserSevice extends UserService {
     private static final JdbcUserSevice instance = new JdbcUserSevice();
+
     private JdbcUserSevice() {
     }
 
@@ -34,5 +35,28 @@ class JdbcUserSevice extends UserService {
     @Override
     public List<SystemUser> findUsersByClientId(int clientId) {
         return getDao().findUsersByClientId(clientId);
+    }
+
+    @Override
+    public boolean insert(SystemUser systemUser) throws UniqueViolationException {
+        if (checkExistUsersWithTheSameLogin(systemUser, 0))
+            throw new LoginExistsException();
+        return super.insert(systemUser);
+    }
+
+    @Override
+    public boolean update(int id, SystemUser systemUser) throws UniqueViolationException {
+        if (checkExistUsersWithTheSameLogin(systemUser, id))
+            throw new LoginExistsException();
+        return super.update(id, systemUser);
+    }
+
+    private boolean checkExistUsersWithTheSameLogin(SystemUser systemUser, int id) {
+        return (findAll().stream().
+
+                filter(s -> (s.getLogin().equals(systemUser.getLogin()))).
+                filter(s -> (s.getId() != id)).
+                count() > 0);
+
     }
 }

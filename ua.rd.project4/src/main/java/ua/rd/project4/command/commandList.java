@@ -1,10 +1,8 @@
 package ua.rd.project4.command;
 
 public enum commandList {
-    GET_CLIENTS(cmdGetClients.getInstance()),
-    GET_USERS(cmdGetUsers.getInstance()),
-    EDIT_USER(cmdGetUsers.getInstance()),
-    CRUD_USERS(cmdCrudUsers.getInstance());
+    USERS(cmdCrudUsers.getInstance()),
+    CLIENTS(cmdCrudClients.getInstance());
 
     final Command command;
 

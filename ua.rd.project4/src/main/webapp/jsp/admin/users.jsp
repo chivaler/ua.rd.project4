@@ -9,8 +9,11 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-<c:if test="${pageScope.adm eq true}">
-    <th><fmt:message key="ClientID" bundle="${bundle}" /></th>
+<c:if test="${not empty result}">
+    <div id="result"><c:out value="${result}"/></div>
+</c:if>
+<c:if test="${not empty error}">
+    <div id="error"><c:out value="${error}"/></div>
 </c:if>
     <table>
         <tr>
@@ -23,16 +26,16 @@
             <th><fmt:message key="Delete" bundle="${bundle}"/></th>
         </tr>
 
-        <c:forEach var="user" items="${users}">
+        <c:forEach var="user" items="${entities}">
             <tr>
                 <td align="center"><c:out value="${user.getId()}"/></td>
                 <td align="center"><c:out value="${user.isAdmin()}"/></td>
                 <td align="center"><c:out value="${user.getLogin()}"/></td>
                 <td align="center"><c:out value="${user.getPassword()}"/></td>
-                <td align="center"><c:out value="${user.getClient().getId()}"/></td>
+                <td align="center"><c:out value="${user.getClient().toString()}"/></td>
                 <td align="center">
                     <form action="/Controller" method="post">
-                        <INPUT type="hidden" name="command" value="CRUD_USERS"/>
+                        <INPUT type="hidden" name="command" value="USERS"/>
                         <INPUT type="hidden" name="do" value="get"/>
                         <INPUT type="hidden" name="id" value="${user.getId()}"/>
                         <INPUT type="submit" value="Edit">
@@ -40,7 +43,7 @@
                 </td>
                 <td align="center">
                     <form action="/Controller" method="post">
-                        <INPUT type="hidden" name="command" value="CRUD_USERS"/>
+                        <INPUT type="hidden" name="command" value="USERS"/>
                         <INPUT type="hidden" name="do" value="delete"/>
                         <INPUT type="hidden" name="id" value="${user.getId()}"/>
                         <INPUT type="submit" value="Delete">

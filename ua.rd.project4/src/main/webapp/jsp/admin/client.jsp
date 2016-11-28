@@ -17,14 +17,14 @@
 </c:if>
 
 <form action="/Controller" method="post">
-    <INPUT type="hidden" name="command" value="USERS"/>
+    <INPUT type="hidden" name="command" value="CLIENTS"/>
     <INPUT type="hidden" name="do" value="update"/>
     <table>
         <c:if test="${not empty entity}">
             <c:if test="${not empty entity.getId()}">
                 <tr>
-                    <td>ID</td>
-                    <td><INPUT type=text class="readonly" readonly="readonly" name="id" value="${empty entity ? '' : entity.getId()}"/>
+                    <td><div id="readonly">ID</div>></td>
+                    <td><INPUT type=text id="readonly" readonly="readonly" name="id" value="${empty entity ? '' : entity.getId()}"/>
                     </td>
                 </tr>
             </c:if>
@@ -44,7 +44,7 @@
         <c:if test="${not empty entity}">
             <tr>
                 <td>HashedPassword</td>
-                <td><INPUT type=text class="readonly" readonly="readonly" name="password"
+                <td><INPUT type=text readonly="readonly" name="password"
                            value="${empty entity ? '' : entity.getPassword()}"/>
                 </td>
             </tr>
