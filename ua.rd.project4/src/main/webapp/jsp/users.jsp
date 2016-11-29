@@ -9,12 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-<c:if test="${not empty result}">
-    <div id="result"><c:out value="${result}"/></div>
-</c:if>
-<c:if test="${not empty error}">
-    <div id="error"><c:out value="${error}"/></div>
-</c:if>
+<%@include file="includes/header.jspf" %>
 <table class="list">
     <tr>
         <th>ID</th>
@@ -58,7 +53,7 @@
     </c:forEach>
     <tr>
         <td colspan="7">
-            <form action="/jsp/admin/client.jsp" method="get">
+            <form action="/jsp/client.jsp" method="get">
                 <INPUT type="submit" value="Create New">
             </form>
         </td>

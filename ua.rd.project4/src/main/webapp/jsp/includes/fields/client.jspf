@@ -1,0 +1,19 @@
+<tr>
+    <td><label for="client">idClient</td>
+    <td>
+        <c:choose>
+            <c:when test="${not empty listClients}">
+                <select  name="client">
+                    <option></option>
+                    <c:forEach var="client" items="${listClients}">
+                        <option value="${client.key}" ${client.key == (empty entity ? '' : entity.getClientId()) ? 'selected="selected"' : ''}>${client.value}</option>
+                    </c:forEach>
+                </select>
+            </c:when>
+            <c:otherwise>
+                <INPUT type=text name="client"
+                       value="${empty entity ? '' : entity.getClient() != null ? entity.getClient().getId() : ''}"/>
+            </c:otherwise>
+        </c:choose>
+    </td>
+</tr>

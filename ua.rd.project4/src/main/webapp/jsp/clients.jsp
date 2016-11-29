@@ -56,14 +56,14 @@
                 </form>
             </td>
         </tr>
-        <tr>
-            <td colspan="9">
-                <form action="/jsp/admin/client.jsp" method="get">
-                    <INPUT type="submit" value="Create New">
-                </form>
-            </td>
-        </tr>
     </c:forEach>
+    <tr>
+        <td colspan="9">
+            <form action="/jsp/client.jsp" method="get">
+                <INPUT type="submit" value="Create New">
+            </form>
+        </td>
+    </tr>
 </table>
 <br>
 </body>

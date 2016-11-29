@@ -1,0 +1,10 @@
+<c:if test="${not empty entity}">
+    <c:if test="${not empty entity.getId()}">
+        <tr>
+            <td>ID</td>
+            <td><INPUT type=text class="readonly" readonly="readonly" name="id"
+                       value="${empty entity ? '' : entity.getId()}"/>
+            </td>
+        </tr>
+    </c:if>
+</c:if>

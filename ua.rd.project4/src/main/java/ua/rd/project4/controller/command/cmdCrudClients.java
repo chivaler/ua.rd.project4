@@ -12,8 +12,8 @@ class cmdCrudClients extends cmdCrudGeneric<Client> {
     private static final cmdCrudClients instance = new cmdCrudClients();
     private final Logger logger = LogManager.getLogger(cmdCrudClients.class);
     private final ClientService clientService = getServiceFactory().getClientService();
-    final String LIST_CLIENTS_JSP = "jsp/admin/clients.jsp";
-    final String EDIT_CLIENT_JSP = "jsp/admin/client.jsp";
+    final String LIST_CLIENTS_JSP = "jsp/clients.jsp";
+    final String EDIT_CLIENT_JSP = "jsp/client.jsp";
 
     private cmdCrudClients() {
     }

@@ -36,7 +36,6 @@ ua\rd\project4\model\services\JdbcServiceFactory.class
 ua\rd\project4\model\dao\JdbcInvoiceDao.class
 ua\rd\project4\controller\command\commandList.class
 ua\rd\project4\controller\command\Command.class
-ua\rd\project4\domain\SystemUser.class
 ua\rd\project4\model\dao\JdbcUserDao.class
 ua\rd\project4\model\dao\UserDao.class
 ua\rd\project4\model\holders\Holder.class

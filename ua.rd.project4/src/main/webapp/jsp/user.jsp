@@ -9,27 +9,17 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-<c:if test="${not empty result}">
-    <div id="result"><c:out value="${result}"/></div>
-</c:if>
-<c:if test="${not empty error}">
-    <div id="error"><c:out value="${error}"/></div>
-</c:if>
+<%@include file="includes/header.jspf" %>
 
 <form action="/Controller" method="post">
     <INPUT type="hidden" name="command" value="USERS"/>
     <INPUT type="hidden" name="do" value="update"/>
     <table class="edit">
-        <c:if test="${not empty entity}">
-            <c:if test="${not empty entity.getId()}">
-                <tr>
-                    <td>ID</td>
-                    <td><INPUT type=text class="readonly" readonly="readonly" name="id"
-                               value="${empty entity ? '' : entity.getId()}"/>
-                    </td>
-                </tr>
-            </c:if>
-        </c:if>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+        <%@include file="includes/fields/id.jspf" %>
         <tr>
             <td>isAdmin</td>
             <td><INPUT type=checkbox name="isAdmin" ${empty entity ? '' : entity.isAdmin()? 'checked': ''}/></td>
@@ -50,25 +40,7 @@
                 </td>
             </tr>
         </c:if>
-        <tr>
-            <td>idClient</td>
-            <td>
-                <c:choose>
-                    <c:when test="${not empty listClients}">
-                        <select  name="client">
-                            <option></option>
-                            <c:forEach var="client" items="${listClients}">
-                                <option value="${client.key}" ${client.key == (empty entity ? '' : entity.getClientId()) ? 'selected="selected"' : ''}>${client.value}</option>
-                            </c:forEach>
-                        </select>
-                    </c:when>
-                    <c:otherwise>
-                        <INPUT type=text name="client"
-                               value="${empty entity ? '' : entity.getClient() != null ? entity.getClient().getId() : ''}"/>
-                    </c:otherwise>
-                </c:choose>
-            </td>
-        </tr>
+        <%@include file="includes/fields/client.jspf" %>
         <tr>
             <td></td>
             <td><INPUT type="submit" value="Save">

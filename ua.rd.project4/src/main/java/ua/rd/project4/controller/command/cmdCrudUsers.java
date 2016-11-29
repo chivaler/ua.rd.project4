@@ -13,8 +13,8 @@ class cmdCrudUsers extends cmdCrudGeneric<User> {
     private final Logger logger = LogManager.getLogger(cmdCrudUsers.class);
     private final UserService userService = getServiceFactory().getUserService();
     private final ClientService clientService = getServiceFactory().getClientService();
-    private final String LIST_USERS_JSP = "jsp/admin/users.jsp";
-    private final String EDIT_USER_JSP = "jsp/admin/user.jsp";
+    private final String LIST_USERS_JSP = "jsp/users.jsp";
+    private final String EDIT_USER_JSP = "jsp/user.jsp";
 
     private cmdCrudUsers() {
     }
