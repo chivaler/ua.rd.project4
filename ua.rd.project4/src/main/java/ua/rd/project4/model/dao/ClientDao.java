@@ -1,0 +1,6 @@
+package ua.rd.project4.model.dao;
+
+import ua.rd.project4.domain.Client;
+
+public abstract class ClientDao implements EntityDao<Client> {
+}

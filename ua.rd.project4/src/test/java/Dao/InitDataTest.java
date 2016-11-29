@@ -1,8 +1,8 @@
 package Dao;
 
 import org.junit.Test;
-import ua.rd.project4.Dao.*;
-import ua.rd.project4.entities.*;
+import ua.rd.project4.model.dao.*;
+import ua.rd.project4.domain.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;

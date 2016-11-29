@@ -2,6 +2,10 @@ table {
     width: 80%;
 }
 
+td {
+    text-align: center;
+}
+
 th {
     height: 50px;
 }

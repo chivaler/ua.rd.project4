@@ -29,28 +29,28 @@
         <th><fmt:message key="Email" bundle="${bundle}"/></th>
     </tr>
 
-    <c:forEach var="client" items="${entities}">
+    <c:forEach var="invoice" items="${entities}">
         <tr>
-            <td><c:out value="${client.getId()}"/></td>
-            <td><c:out value="${client.getFirstName()}"/></td>
-            <td><c:out value="${client.getLastName()}"/></td>
-            <td><c:out value="${client.getAddress()}"/></td>
-            <td><c:out value="${client.getTelephone()}"/></td>
-            <td><c:out value="${client.getEmail()}"/></td>
-            <td>
+            <td align="center"><c:out value="${invoice.getId()}"/></td>
+            <td align="center"><c:out value="${invoice.getFirstName()}"/></td>
+            <td align="center"><c:out value="${invoice.getLastName()}"/></td>
+            <td align="center"><c:out value="${invoice.getAddress()}"/></td>
+            <td align="center"><c:out value="${invoice.getTelephone()}"/></td>
+            <td align="center"><c:out value="${invoice.getEmail()}"/></td>
+            <td align="center">
                 <form action="/Controller" method="post">
                     <INPUT type="hidden" name="command" value="CLIENTS"/>
-                    <INPUT type="hidden" name="id" value="${client.getId()}"/>
+                    <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
                     <INPUT type="hidden" name="do" value="get"/>
-                    <INPUT type="hidden" name="id" value="${client.getId()}"/>
+                    <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
                     <INPUT type="submit" value="Edit">
                 </form>
             </td>
-            <td>
+            <td align="center">
                 <form action="/Controller" method="post">
                     <INPUT type="hidden" name="command" value="CLIENTS"/>
                     <INPUT type="hidden" name="do" value="delete"/>
-                    <INPUT type="hidden" name="id" value="${client.getId()}"/>
+                    <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
                     <INPUT type="submit" value="Delete">
                 </form>
             </td>

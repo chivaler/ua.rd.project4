@@ -2,7 +2,7 @@ package ua.rd.project4.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ua.rd.project4.command.*;
+import ua.rd.project4.controller.command.*;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.ServletException;
