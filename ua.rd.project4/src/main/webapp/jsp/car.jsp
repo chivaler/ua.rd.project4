@@ -48,7 +48,7 @@
             <td><fmt:message key="carType" bundle="${bundle}"/></td>
             <td><select name="carType">
                 <option disabled>Select CarType</option>
-                <option value="PICKUP"  ${'PICKUP' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>PICKUP</option>
+                <option value="PICKUP"  ${'PICKUP' == entity.getCarType() ? 'selected="selected"' : ''}>PICKUP</option>
                 <option value="SEDAN" ${'SEDAN' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>SEDAN</option>
                 <option value="SPORT" ${'SPORT' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>SPORT</option
                 <option value="LIMO" ${'LIMO' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>LIMO</option>

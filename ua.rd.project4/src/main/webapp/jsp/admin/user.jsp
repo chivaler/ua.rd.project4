@@ -24,7 +24,8 @@
             <c:if test="${not empty entity.getId()}">
                 <tr>
                     <td>ID</td>
-                    <td><INPUT type=text class="readonly" readonly="readonly" name="id" value="${empty entity ? '' : entity.getId()}"/>
+                    <td><INPUT type=text class="readonly" readonly="readonly" name="id"
+                               value="${empty entity ? '' : entity.getId()}"/>
                     </td>
                 </tr>
             </c:if>
@@ -51,8 +52,21 @@
         </c:if>
         <tr>
             <td>idClient</td>
-            <td><INPUT type=text name="client"
-                       value="${empty entity ? '' : entity.getClient() != null ? entity.getClient().getId() : ''}"/>
+            <td>
+                <c:choose>
+                    <c:when test="${not empty listClients}">
+                        <select  name="client">
+                            <option></option>
+                            <c:forEach var="client" items="${listClients}">
+                                <option value="${client.key}" ${client.key == (empty entity ? '' : entity.getClientId()) ? 'selected="selected"' : ''}>${client.value}</option>
+                            </c:forEach>
+                        </select>
+                    </c:when>
+                    <c:otherwise>
+                        <INPUT type=text name="client"
+                               value="${empty entity ? '' : entity.getClient() != null ? entity.getClient().getId() : ''}"/>
+                    </c:otherwise>
+                </c:choose>
             </td>
         </tr>
         <tr>
