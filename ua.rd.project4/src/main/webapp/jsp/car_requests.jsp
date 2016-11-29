@@ -77,6 +77,13 @@
             </td>
         </tr>
     </c:forEach>
+    <tr>
+        <td colspan="90">
+            <form action="/jsp/car_request.jsp" method="get">
+                <INPUT type="submit" value="Create New">
+            </form>
+        </td>
+    </tr>
 </table>
 <br>
 </body>

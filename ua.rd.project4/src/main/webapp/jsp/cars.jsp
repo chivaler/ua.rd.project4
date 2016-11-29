@@ -59,6 +59,13 @@
             </td>
         </tr>
     </c:forEach>
+    <tr>
+        <td colspan="10">
+            <form action="/jsp/car.jsp" method="get">
+                <INPUT type="submit" value="Create New">
+            </form>
+        </td>
+    </tr>
 </table>
 <br>
 </body>

@@ -26,6 +26,7 @@ public class MainController extends HttpServlet {
             logger.info("Exception in command: " + e.toString());
             // TODO error to user here
         }
+
     }
 
     @Override

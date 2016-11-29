@@ -43,8 +43,12 @@
             <td><fmt:message key="carFlowType" bundle="${bundle}"/></td>
             <td><select name="carFlowType">
                 <option disabled>Select direction</option>
-                <option value="IN"  ${'IN' == (empty entity ? '' : entity.getCarFlowType()) ? 'selected="selected"' : ''}>IN</option>
-                <option value="OUT" ${'OUT' == (empty entity ? '' : entity.getCarFlowType()) ? 'selected="selected"' : ''}>OUT</option>
+                <option value="IN"  ${'IN' == (empty entity ? '' : entity.getCarFlowType()) ? 'selected="selected"' : ''}>
+                    IN
+                </option>
+                <option value="OUT" ${'OUT' == (empty entity ? '' : entity.getCarFlowType()) ? 'selected="selected"' : ''}>
+                    OUT
+                </option>
             </select>
         </tr>
         <tr>

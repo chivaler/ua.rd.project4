@@ -20,10 +20,10 @@
 <table class="list">
     <tr>
         <th>ID</th>
-        <th><fmt:message key="Client" bundle="${bundle}"/></th>
-        <th><fmt:message key="Total" bundle="${bundle}"/></th>
-        <th><fmt:message key="Paid" bundle="${bundle}"/></th>
-        <th><fmt:message key="Description" bundle="${bundle}"/></th>
+        <th><fmt:message key="client" bundle="${bundle}"/></th>
+        <th><fmt:message key="total" bundle="${bundle}"/></th>
+        <th><fmt:message key="paid" bundle="${bundle}"/></th>
+        <th><fmt:message key="description" bundle="${bundle}"/></th>
         <th><fmt:message key="EDIT" bundle="${bundle}"/></th>
         <th><fmt:message key="DELETE" bundle="${bundle}"/></th>
     </tr>
@@ -59,6 +59,13 @@
             </td>
         </tr>
     </c:forEach>
+    <tr>
+        <td colspan="7">
+            <form action="/jsp/invoice.jsp" method="get">
+                <INPUT type="submit" value="Create New">
+            </form>
+        </td>
+    </tr>
 </table>
 <br>
 </body>

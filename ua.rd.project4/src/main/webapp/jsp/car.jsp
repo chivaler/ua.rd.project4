@@ -1,3 +1,4 @@
+<%@ page import="ua.rd.project4.domain.Car" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -45,8 +46,14 @@
         </tr>
         <tr>
             <td><fmt:message key="carType" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="carType"
-                       value="${empty entity ? '' : entity.getCarType()}"/></td>
+            <td><select name="carType">
+                <option disabled>Select CarType</option>
+                <option value="PICKUP"  ${'PICKUP' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>PICKUP</option>
+                <option value="SEDAN" ${'SEDAN' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>SEDAN</option>
+                <option value="SPORT" ${'SPORT' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>SPORT</option
+                <option value="LIMO" ${'LIMO' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>LIMO</option>
+                <option value="MINI" ${'MINI' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>MINI</option>
+            </select>
         </tr>
         <tr>
             <td><fmt:message key="description" bundle="${bundle}"/></td>
