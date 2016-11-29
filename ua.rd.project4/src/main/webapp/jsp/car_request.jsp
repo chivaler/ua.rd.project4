@@ -40,32 +40,34 @@
                        value="${empty entity ? '' : entity.getCarId()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="carFlowType" bundle="${bundle}"/></td>
-            <td><select name="carFlowType">
-                <option disabled>Select direction</option>
-                <option value="IN"  ${'IN' == (empty entity ? '' : entity.getCarFlowType()) ? 'selected="selected"' : ''}>IN</option>
-                <option value="OUT" ${'OUT' == (empty entity ? '' : entity.getCarFlowType()) ? 'selected="selected"' : ''}>OUT</option>
-            </select>
+            <td><fmt:message key="client" bundle="${bundle}"/></td>
+            <td><INPUT type=text name="client"
+                       value="${empty entity ? '' : entity.getClientId()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="carRequest" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="carRequest"
-                       value="${empty entity ? '' : entity.getCarRequestId()}"/></td>
+            <td><fmt:message key="dateFrom" bundle="${bundle}"/></td>
+            <td><INPUT type="date" name="dateFrom"
+                       value="${empty entity ? '' : entity.getDateFrom()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="responsiblePerson" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="responsiblePerson"
-                       value="${empty entity ? '' : entity.getResponsiblePersonId()}"/></td>
+            <td><fmt:message key="dateTo" bundle="${bundle}"/></td>
+            <td><INPUT type="date" name="dateTo"
+                       value="${empty entity ? '' : entity.getDateTo()}"/></td>
+        </tr>
+        <tr>
+            <td><fmt:message key="totalCost" bundle="${bundle}"/></td>
+            <td><INPUT type=text name="totalCost"
+                       value="${empty entity ? '' : entity.getTotalCost()}"/></td>
+        </tr>
+        <tr>
+            <td><fmt:message key="approved" bundle="${bundle}"/></td>
+            <td><INPUT type=text name="approved"
+                       value="${empty entity ? '' : entity.isApproved()}"/></td>
         </tr>
         <tr>
             <td><fmt:message key="invoice" bundle="${bundle}"/></td>
             <td><INPUT type=text name="invoice"
                        value="${empty entity ? '' : entity.getInvoiceId()}"/></td>
-        </tr>
-        <tr>
-            <td><fmt:message key="supplement" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="supplement"
-                       value="${empty entity ? '' : entity.getSupplement()}"/></td>
         </tr>
         <tr>
             <td colspan="2">

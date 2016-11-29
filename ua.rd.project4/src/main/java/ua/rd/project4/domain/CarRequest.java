@@ -41,11 +41,11 @@ public class CarRequest implements Entity {
     public int hashCode() {
         return Objects.hash(car, client, dateFrom, dateTo, totalCost, approved, invoice);
     }
-
+    @Override
     public int getId() {
         return id;
     }
-
+    @Override
     public void setId(int id) {
         this.id = id;
     }
