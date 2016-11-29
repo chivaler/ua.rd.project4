@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-class JdbcCarDao extends CarDao {
+class JdbcCarDao implements CarDao {
     private static final JdbcCarDao instance = new JdbcCarDao();
     private final Logger logger = LogManager.getLogger(JdbcCarDao.class);
 

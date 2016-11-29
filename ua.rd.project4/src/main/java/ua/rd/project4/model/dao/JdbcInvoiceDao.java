@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-class JdbcInvoiceDao extends InvoiceDao {
+class JdbcInvoiceDao implements InvoiceDao {
     private static final JdbcInvoiceDao instance = new JdbcInvoiceDao();
     private Logger logger = LogManager.getLogger(JdbcInvoiceDao.class);
     private ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();

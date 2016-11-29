@@ -37,7 +37,7 @@ class JdbcClientSevice extends ClientService {
             throw new ExceptionEntityInUse("There is CarRequests for this client. Delete them before deleting client.");
         if (!(getServiceFactory().getUserService().
                 findUsersByClientId(id).isEmpty()))
-            throw new ExceptionEntityInUse("There is SystemUser for this client. Delete them before deleting client.");
+            throw new ExceptionEntityInUse("There is User for this client. Delete them before deleting client.");
         return super.delete(id);
     }
 }

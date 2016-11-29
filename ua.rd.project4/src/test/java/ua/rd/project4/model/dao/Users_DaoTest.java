@@ -1,32 +1,31 @@
 package ua.rd.project4.model.dao;
 
 import org.junit.BeforeClass;
-import ua.rd.project4.domain.SystemUser;
-import org.junit.Before;
+import ua.rd.project4.domain.User;
 
-public class Users_DaoTest extends EntityDaoTest<SystemUser> {
+public class Users_DaoTest extends EntityDaoTest<User> {
     @BeforeClass
     public static void setParams() {
         JdbcDaoFactory.getInstance().getUserDao().createTable();
     }
 
     @Override
-    SystemUser initElem1() {
-        return new SystemUser(true,"admin","bla",null);
+    User initElem1() {
+        return new User(true,"admin","bla",null);
     }
 
     @Override
-    SystemUser initElem2() {
-        return new SystemUser(true,"user1","",null);
+    User initElem2() {
+        return new User(true,"user1","",null);
     }
 
     @Override
-    SystemUser initElem3() {
-        return new SystemUser(false,"user1","",null);
+    User initElem3() {
+        return new User(false,"user1","",null);
     }
 
     @Override
-    EntityDao<SystemUser> getDao() {
+    EntityDao<User> getDao() {
         return JdbcDaoFactory.getInstance().getUserDao();
     }
 }

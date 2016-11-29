@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcClientDao extends ClientDao {
+public class JdbcClientDao implements ClientDao {
     final private static JdbcClientDao instance = new JdbcClientDao();
     private static Logger logger = LogManager.getLogger(JdbcClientDao.class);
 

@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.domain.Invoice;
 import ua.rd.project4.model.services.*;
-import ua.rd.project4.model.services.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
 

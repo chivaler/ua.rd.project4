@@ -2,10 +2,9 @@ package ua.rd.project4.model.services;
 
 import ua.rd.project4.model.dao.JdbcDaoFactory;
 import ua.rd.project4.model.dao.UserDao;
-import ua.rd.project4.domain.SystemUser;
+import ua.rd.project4.domain.User;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 class JdbcUserSevice extends UserService {
     private static final JdbcUserSevice instance = new JdbcUserSevice();
@@ -33,29 +32,29 @@ class JdbcUserSevice extends UserService {
     }
 
     @Override
-    public List<SystemUser> findUsersByClientId(int clientId) {
+    public List<User> findUsersByClientId(int clientId) {
         return getDao().findUsersByClientId(clientId);
     }
 
     @Override
-    public boolean insert(SystemUser systemUser) throws UniqueViolationException {
-        if (checkExistUsersWithTheSameLogin(systemUser, 0))
+    public boolean insert(User user) throws UniqueViolationException {
+        if (checkExistUsersWithTheSameLogin(user, 0))
             throw new LoginExistsException();
-        return super.insert(systemUser);
+        return super.insert(user);
     }
 
     @Override
-    public boolean update(int id, SystemUser systemUser) throws UniqueViolationException {
-        if (checkExistUsersWithTheSameLogin(systemUser, id))
+    public boolean update(int id, User user) throws UniqueViolationException {
+        if (checkExistUsersWithTheSameLogin(user, id))
             throw new LoginExistsException();
-        return super.update(id, systemUser);
+        return super.update(id, user);
     }
 
-    private boolean checkExistUsersWithTheSameLogin(SystemUser systemUser, int id) {
-        return (findAll().stream().
-                filter(s -> (s.getLogin().equals(systemUser.getLogin()))).
-                filter(s -> (s.getId() != id)).
-                count() > 0);
+    private boolean checkExistUsersWithTheSameLogin(User user, int id) {
+        return findAll().stream().
+                filter(s -> s.getLogin().equals(user.getLogin())).
+                filter(s -> s.getId() != id).
+                count() > 0;
 
     }
 }

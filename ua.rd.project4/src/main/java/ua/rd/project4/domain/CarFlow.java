@@ -9,7 +9,7 @@ public class CarFlow implements Entity {
     private CarFlowType carFlowType;
     private Client client;
     private CarRequest carRequest;
-    private SystemUser responsiblePerson;
+    private User responsiblePerson;
     private Invoice invoice;
     private String supplement;
 
@@ -41,7 +41,7 @@ public class CarFlow implements Entity {
         }
     }
 
-    public CarFlow(Car car, CarFlowType carFlowType, Client client, CarRequest carRequest, SystemUser responsiblePerson, Invoice invoice, String supplement) {
+    public CarFlow(Car car, CarFlowType carFlowType, Client client, CarRequest carRequest, User responsiblePerson, Invoice invoice, String supplement) {
         this.car = car;
         this.carFlowType = carFlowType;
         this.client = client;
@@ -81,11 +81,11 @@ public class CarFlow implements Entity {
         return Objects.hash(id, getCarId(), getCarFlowType(), getCarRequestId(),
                 getResponsiblePersonId(), getInvoiceId(), getSupplement());
     }
-
+    @Override
     public int getId() {
         return id;
     }
-
+    @Override
     public void setId(int id) {
         this.id = id;
     }
@@ -122,11 +122,11 @@ public class CarFlow implements Entity {
         this.carRequest = carRequest;
     }
 
-    public SystemUser getResponsiblePerson() {
+    public User getResponsiblePerson() {
         return responsiblePerson;
     }
 
-    public void setResponsiblePerson(SystemUser responsiblePerson) {
+    public void setResponsiblePerson(User responsiblePerson) {
         this.responsiblePerson = responsiblePerson;
     }
 

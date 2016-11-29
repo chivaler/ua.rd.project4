@@ -1,14 +1,14 @@
 package ua.rd.project4.model.services;
 
-import ua.rd.project4.domain.SystemUser;
+import ua.rd.project4.domain.User;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-public abstract class UserService extends EntityService<SystemUser> {
-    public abstract List<SystemUser> findUsersByClientId(int clientId);
+public abstract class UserService extends EntityService<User> {
+    public abstract List<User> findUsersByClientId(int clientId);
     public String getHashPassword(String nakedPassword) {
         final String CRYPTO_ALGORITHM ="MD5";
         MessageDigest messageDigest;

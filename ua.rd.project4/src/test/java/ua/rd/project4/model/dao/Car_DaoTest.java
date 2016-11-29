@@ -2,8 +2,6 @@ package ua.rd.project4.model.dao;
 
 import org.junit.BeforeClass;
 import ua.rd.project4.domain.Car;
-import org.junit.Before;
-
 
 
 public class Car_DaoTest extends EntityDaoTest<Car> {

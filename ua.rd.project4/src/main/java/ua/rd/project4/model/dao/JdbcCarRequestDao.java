@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcCarRequestDao extends CarRequestDao {
+public class JdbcCarRequestDao implements CarRequestDao {
     final private static JdbcCarRequestDao instance = new JdbcCarRequestDao();
     private Logger logger = LogManager.getLogger(JdbcCarRequestDao.class);
     private ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();

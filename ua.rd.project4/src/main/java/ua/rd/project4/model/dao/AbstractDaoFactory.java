@@ -26,15 +26,5 @@ public abstract class AbstractDaoFactory {
         }
     }
 
-    EntityDao getGenericDao(Class c){
-        switch (c.getName()) {
-            case "ua.rd.project4.domain.Car": return getCarDao();
-            case "ua.rd.project4.domain.Client": return getClientDao();
-            case "ua.rd.project4.domain.SystemUser": return getUserDao();
-            case "ua.rd.project4.domain.Invoice": return getInvoiceDao();
-            case "ua.rd.project4.domain.CarRequest": return getCarRequestDao();
-            default: return getCarFlowDao();
-        }
-    }
 }
 

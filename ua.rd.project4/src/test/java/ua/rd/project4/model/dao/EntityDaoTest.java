@@ -2,7 +2,6 @@ package ua.rd.project4.model.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.BeforeClass;
 import ua.rd.project4.domain.Entity;
 import org.junit.Test;
 

@@ -1,10 +1,10 @@
 package ua.rd.project4.model.holders;
 
 import ua.rd.project4.domain.Client;
-import ua.rd.project4.domain.SystemUser;
+import ua.rd.project4.domain.User;
 import ua.rd.project4.model.dao.AbstractDaoFactory;
 
-public class UserHolder extends SystemUser implements Holder<SystemUser> {
+public class UserHolder extends User implements Holder<User> {
     final AbstractDaoFactory daoFactory;
     private int clientId;
 

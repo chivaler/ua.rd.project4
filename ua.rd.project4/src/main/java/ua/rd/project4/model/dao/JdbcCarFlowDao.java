@@ -8,8 +8,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcCarFlowDao extends CarFlowDao {
-    final private static JdbcCarFlowDao instance = new JdbcCarFlowDao();
+class JdbcCarFlowDao implements CarFlowDao {
+    private static final JdbcCarFlowDao instance = new JdbcCarFlowDao();
     private static Logger logger = LogManager.getLogger(JdbcCarFlowDao.class);
     private ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
     private CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
@@ -47,7 +47,7 @@ public class JdbcCarFlowDao extends CarFlowDao {
                     "FOREIGN KEY (responsiblePerson) REFERENCES users(id)," +
                     "FOREIGN KEY (carRequest) REFERENCES car_request(id))");
         } catch (SQLException e) {
-            logger.error("Table `car_flow` didn't created: " + e.toString());
+            logger.error("Table `car_flow` didn't created: ", e);
         }
     }
 
@@ -69,7 +69,7 @@ public class JdbcCarFlowDao extends CarFlowDao {
             preparedStatement.setString(7, carFlow.getSupplement());
             wasInserted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasInserted;
     }
@@ -93,7 +93,7 @@ public class JdbcCarFlowDao extends CarFlowDao {
             preparedStatement.setInt(8, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasUpdated;
     }
@@ -106,7 +106,7 @@ public class JdbcCarFlowDao extends CarFlowDao {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasDeleted;
     }
@@ -130,7 +130,7 @@ public class JdbcCarFlowDao extends CarFlowDao {
                 carFlow.setId(resultSet.getInt("id"));
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return carFlow;
     }
@@ -155,18 +155,18 @@ public class JdbcCarFlowDao extends CarFlowDao {
                 foundCarFlows.add(carFlow);
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return foundCarFlows;
     }
 
     private List<CarFlow> findCarFlowsByIdField(int id, String field) {
+        String sqlQuery = "SELECT * FROM `car_flow` WHERE " + field + "=" + id;
         List<CarFlow> foundCarFlows = new ArrayList<>();
         CarFlow carFlow;
         try (Connection connection = ConnectionFactory.getInstance().getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow` WHERE "+field+"=?")) {
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sqlQuery)) {
             while (resultSet.next()) {
                 carFlow = new CarFlow(
                         carDao.getById(resultSet.getInt("car")),
@@ -180,7 +180,7 @@ public class JdbcCarFlowDao extends CarFlowDao {
                 foundCarFlows.add(carFlow);
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return foundCarFlows;
     }

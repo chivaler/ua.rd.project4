@@ -65,7 +65,7 @@ public class CarFlowHolder extends CarFlow implements Holder<CarFlow> {
 
     @Override
     public Client getClient() {
-        return (clientId > 0)? daoFactory.getClientDao().getById(clientId) : null;
+        return (clientId > 0) ? daoFactory.getClientDao().getById(clientId) : null;
     }
 
     @Override
@@ -75,7 +75,7 @@ public class CarFlowHolder extends CarFlow implements Holder<CarFlow> {
 
     @Override
     public CarRequest getCarRequest() {
-        return (carRequestId > 0)? daoFactory.getCarRequestDao().getById(carRequestId) : null;
+        return (carRequestId > 0) ? daoFactory.getCarRequestDao().getById(carRequestId) : null;
     }
 
     @Override
@@ -84,18 +84,18 @@ public class CarFlowHolder extends CarFlow implements Holder<CarFlow> {
     }
 
     @Override
-    public SystemUser getResponsiblePerson() {
-        return (responsiblePersonId > 0)? daoFactory.getUserDao().getById(responsiblePersonId) : null;
+    public User getResponsiblePerson() {
+        return (responsiblePersonId > 0) ? daoFactory.getUserDao().getById(responsiblePersonId) : null;
     }
 
     @Override
-    public void setResponsiblePerson(SystemUser responsiblePerson) {
+    public void setResponsiblePerson(User responsiblePerson) {
         this.responsiblePersonId = (responsiblePerson == null) ? 0 : responsiblePerson.getId();
     }
 
     @Override
     public Invoice getInvoice() {
-        return (invoiceId > 0)? daoFactory.getInvoiceDao().getById(invoiceId) : null;
+        return (invoiceId > 0) ? daoFactory.getInvoiceDao().getById(invoiceId) : null;
     }
 
     @Override

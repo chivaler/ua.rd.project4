@@ -2,7 +2,6 @@ package ua.rd.project4.model.dao;
 
 import org.junit.BeforeClass;
 import ua.rd.project4.domain.Invoice;
-import org.junit.Before;
 
 public class Invoice_DaoTest extends EntityDaoTest<Invoice> {
     @BeforeClass

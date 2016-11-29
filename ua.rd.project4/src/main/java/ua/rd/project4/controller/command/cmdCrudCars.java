@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.domain.Car;
 import ua.rd.project4.model.services.*;
-import ua.rd.project4.model.services.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
@@ -13,8 +12,8 @@ class cmdCrudCars extends cmdCrudGeneric<Car> {
     private static final cmdCrudCars instance = new cmdCrudCars();
     private final Logger logger = LogManager.getLogger(cmdCrudCars.class);
     private final CarService clientService = getServiceFactory().getCarService();
-    final String LIST_CARS_JSP = "jsp/cars.jsp";
-    final String EDIT_CAR_JSP = "jsp/car.jsp";
+    static final String LIST_CARS_JSP = "jsp/cars.jsp";
+    static final  String EDIT_CAR_JSP = "jsp/car.jsp";
 
     private cmdCrudCars() {
     }
@@ -48,10 +47,11 @@ class cmdCrudCars extends cmdCrudGeneric<Car> {
         return clientService;
     }
 
+    @Override
     Car parseToEntity(HttpServletRequest req) throws InvalidParameterException {
-        Car.CarType carType = null;
-        int rentPricePerDay = -1;
-        int price = -1;
+        Car.CarType carType;
+        int rentPricePerDay;
+        int price;
         String model = Optional.ofNullable(req.getParameter("model")).orElse("");
         String color = Optional.ofNullable(req.getParameter("color")).orElse("");
         String registrationNumber = Optional.ofNullable(req.getParameter("registrationNumber")).orElse("");

@@ -59,9 +59,9 @@ public class InitDataTest {
         assertThat(invoice3.getId()==invoice2.getId(),is(false));
         assertThat(invoice1.getId()==invoice3.getId(),is(false));
 
-        SystemUser user1 = new SystemUser(true,"admin","admin",null);
-        SystemUser user2 = new SystemUser(false,"user1","",client1);
-        SystemUser user3 = new SystemUser(false,"user2","",client2);
+        User user1 = new User(true,"admin","admin",null);
+        User user2 = new User(false,"user1","",client1);
+        User user3 = new User(false,"user2","",client2);
         UserDao userDao = JdbcDaoFactory.getInstance().getUserDao();
         userDao.insert(user1);
         user1.setId(userDao.findId(user1));

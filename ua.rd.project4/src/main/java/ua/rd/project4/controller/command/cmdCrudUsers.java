@@ -3,12 +3,12 @@ package ua.rd.project4.controller.command;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.domain.Client;
-import ua.rd.project4.domain.SystemUser;
+import ua.rd.project4.domain.User;
 import ua.rd.project4.model.services.*;
 
 import javax.servlet.http.HttpServletRequest;
 
-class cmdCrudUsers extends cmdCrudGeneric<SystemUser> {
+class cmdCrudUsers extends cmdCrudGeneric<User> {
     private static final cmdCrudUsers instance = new cmdCrudUsers();
     private final Logger logger = LogManager.getLogger(cmdCrudUsers.class);
     private final UserService userService = getServiceFactory().getUserService();
@@ -44,11 +44,11 @@ class cmdCrudUsers extends cmdCrudGeneric<SystemUser> {
     }
 
     @Override
-    EntityService<SystemUser> getEntityService() {
+    EntityService<User> getEntityService() {
         return userService;
     }
 
-    SystemUser parseToEntity(HttpServletRequest req) throws InvalidParameterException {
+    User parseToEntity(HttpServletRequest req) throws InvalidParameterException {
         boolean isAdmin;
         String login = req.getParameter("login");
         String pass = req.getParameter("pass");
@@ -75,6 +75,6 @@ class cmdCrudUsers extends cmdCrudGeneric<SystemUser> {
             throw new InvalidParameterException("pass");
 
         isAdmin = req.getParameter("isAdmin") != null;
-        return new SystemUser(isAdmin, login, passwordToSave, client);
+        return new User(isAdmin, login, passwordToSave, client);
     }
 }

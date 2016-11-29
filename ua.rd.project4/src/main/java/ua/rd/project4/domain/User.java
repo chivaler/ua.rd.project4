@@ -2,14 +2,14 @@ package ua.rd.project4.domain;
 
 import java.util.Objects;
 
-public class SystemUser implements Entity {
+public class User implements Entity {
     private int id = -1;
     private boolean isAdmin;
     private String login;
     private String password;
     private Client client;
 
-    public SystemUser(boolean isAdmin, String login, String password, Client client) {
+    public User(boolean isAdmin, String login, String password, Client client) {
         this.isAdmin = isAdmin;
         this.login = login;
         this.password = password;
@@ -22,7 +22,7 @@ public class SystemUser implements Entity {
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
-        SystemUser that = (SystemUser) o;
+        User that = (User) o;
         return isAdmin == that.isAdmin &&
                 Objects.equals(login, that.login) &&
                 Objects.equals(password, that.password) &&

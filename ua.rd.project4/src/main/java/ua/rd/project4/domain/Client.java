@@ -38,10 +38,12 @@ public class Client implements Entity {
         return Objects.hash(firstName, lastName, address, telephone, email, idCard);
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }
@@ -96,7 +98,7 @@ public class Client implements Entity {
 
     @Override
     public String toString() {
-        return  firstName +
+        return firstName +
                 ", " + lastName + " (" + id + ")";
     }
 }
