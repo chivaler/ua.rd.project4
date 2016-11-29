@@ -12,8 +12,8 @@ class cmdCrudCarFlow extends cmdCrudGeneric<CarFlow> {
     private static final cmdCrudCarFlow instance = new cmdCrudCarFlow();
     private final Logger logger = LogManager.getLogger(cmdCrudCarFlow.class);
     private final CarFlowService carFlowService = getServiceFactory().getCarFlowService();
-    final String LIST_CARFLOW_JSP = "jsp/carflows.jsp";
-    final String EDIT_CARFLOW_JSP = "jsp/carflow.jsp";
+    final String LIST_CARFLOW_JSP = "jsp/car_flows.jsp";
+    final String EDIT_CARFLOW_JSP = "jsp/car_flow.jsp";
 
     private cmdCrudCarFlow() {
     }

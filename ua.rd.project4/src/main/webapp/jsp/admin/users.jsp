@@ -15,7 +15,7 @@
 <c:if test="${not empty error}">
     <div id="error"><c:out value="${error}"/></div>
 </c:if>
-<table>
+<table class="list">
     <tr>
         <th>ID</th>
         <th><fmt:message key="isAdmin" bundle="${bundle}"/></th>
@@ -25,7 +25,6 @@
         <th><fmt:message key="Edit" bundle="${bundle}"/></th>
         <th><fmt:message key="Delete" bundle="${bundle}"/></th>
     </tr>
-
     <c:forEach var="user" items="${entities}">
         <tr>
             <td align="center"><c:out value="${user.getId()}"/></td>

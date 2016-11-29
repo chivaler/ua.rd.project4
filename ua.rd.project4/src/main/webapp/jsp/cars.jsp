@@ -17,16 +17,16 @@
 <h1>
     <fmt:message key="CarList" bundle="${bundle}"/>
 </h1>
-<table>
+<table class="list">
     <tr>
         <th>ID</th>
-        <th><fmt:message key="Model" bundle="${bundle}"/></th>
-        <th><fmt:message key="Color" bundle="${bundle}"/></th>
-        <th><fmt:message key="CarType" bundle="${bundle}"/></th>
-        <th><fmt:message key="RegistrationNumber" bundle="${bundle}"/></th>
-        <th><fmt:message key="Description" bundle="${bundle}"/></th>
-        <th><fmt:message key="Price" bundle="${bundle}"/></th>
-        <th><fmt:message key="RentPricePerDay" bundle="${bundle}"/></th>
+        <th><fmt:message key="model" bundle="${bundle}"/></th>
+        <th><fmt:message key="color" bundle="${bundle}"/></th>
+        <th><fmt:message key="carType" bundle="${bundle}"/></th>
+        <th><fmt:message key="registrationNumber" bundle="${bundle}"/></th>
+        <th><fmt:message key="description" bundle="${bundle}"/></th>
+        <th><fmt:message key="price" bundle="${bundle}"/></th>
+        <th><fmt:message key="rentPricePerDay" bundle="${bundle}"/></th>
         <th><fmt:message key="EDIT" bundle="${bundle}"/></th>
         <th><fmt:message key="DELETE" bundle="${bundle}"/></th>
     </tr>

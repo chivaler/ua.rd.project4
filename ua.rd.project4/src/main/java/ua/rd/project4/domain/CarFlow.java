@@ -165,4 +165,9 @@ public class CarFlow implements Entity {
     public int getInvoiceId() {
         return (invoice == null) ? 0 : invoice.getId();
     }
+
+    @Override
+    public String toString() {
+        return "Car(" + getCarId() + ")_" + carFlowType + "(" + id + ")";
+    }
 }

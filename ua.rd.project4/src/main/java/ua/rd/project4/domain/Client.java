@@ -96,8 +96,7 @@ public class Client implements Entity {
 
     @Override
     public String toString() {
-        return  "id=" + id +
-                ", " + firstName +
-                ", " + lastName;
+        return  firstName +
+                ", " + lastName + " (" + id + ")";
     }
 }

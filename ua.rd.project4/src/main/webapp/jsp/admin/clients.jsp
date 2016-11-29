@@ -17,18 +17,18 @@
 <h1>
     <fmt:message key="TheClientList" bundle="${bundle}"/>
 </h1>
-<table>
+<table class="list">
     <tr>
-        <th><fmt:message key="ClientID" bundle="${bundle}"/></th>
+        <th><fmt:message key="ID" bundle="${bundle}"/></th>
         <th><fmt:message key="FirstName" bundle="${bundle}"/></th>
         <th><fmt:message key="LastName" bundle="${bundle}"/></th>
         <th><fmt:message key="Address" bundle="${bundle}"/></th>
         <th><fmt:message key="Telephone" bundle="${bundle}"/></th>
         <th><fmt:message key="Email" bundle="${bundle}"/></th>
-        <th><fmt:message key="Telephone" bundle="${bundle}"/></th>
-        <th><fmt:message key="Email" bundle="${bundle}"/></th>
+        <th><fmt:message key="IDCard" bundle="${bundle}"/></th>
+        <th><fmt:message key="EDIT" bundle="${bundle}"/></th>
+        <th><fmt:message key="DELETE" bundle="${bundle}"/></th>
     </tr>
-
     <c:forEach var="client" items="${entities}">
         <tr>
             <td><c:out value="${client.getId()}"/></td>
@@ -37,6 +37,7 @@
             <td><c:out value="${client.getAddress()}"/></td>
             <td><c:out value="${client.getTelephone()}"/></td>
             <td><c:out value="${client.getEmail()}"/></td>
+            <td><c:out value="${client.getIdCard()}"/></td>
             <td>
                 <form action="/Controller" method="post">
                     <INPUT type="hidden" name="command" value="CLIENTS"/>
@@ -52,6 +53,13 @@
                     <INPUT type="hidden" name="do" value="delete"/>
                     <INPUT type="hidden" name="id" value="${client.getId()}"/>
                     <INPUT type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9">
+                <form action="/jsp/admin/client.jsp" method="get">
+                    <INPUT type="submit" value="Create New">
                 </form>
             </td>
         </tr>

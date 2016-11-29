@@ -75,4 +75,9 @@ public class Invoice implements Entity {
     public int getClientId() {
         return (client == null) ? 0 : client.getId();
     }
+
+    @Override
+    public String toString() {
+        return "Invoice_" + id;
+    }
 }

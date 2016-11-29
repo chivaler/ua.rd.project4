@@ -12,8 +12,8 @@ class cmdCrudCarRequest extends cmdCrudGeneric<CarRequest> {
     private static final cmdCrudCarRequest instance = new cmdCrudCarRequest();
     private final Logger logger = LogManager.getLogger(cmdCrudCarRequest.class);
     private final CarRequestService carRequestService = getServiceFactory().getCarRequestService();
-    final String LIST_CARREQUESTS_JSP = "jsp/carrequests.jsp";
-    final String EDIT_CARREQUEST_JSP = "jsp/carrequest.jsp";
+    final String LIST_CARREQUESTS_JSP = "jsp/car_requests.jsp";
+    final String EDIT_CARREQUEST_JSP = "jsp/car_request.jsp";
 
     private cmdCrudCarRequest() {
     }

@@ -17,8 +17,9 @@
 </c:if>
 
 <form action="/Controller" method="post">
-    <INPUT type="hidden" name="command" value="CLIENTS"/>
+    <INPUT type="hidden" name="command" value="CARFLOWS"/>
     <INPUT type="hidden" name="do" value="update"/>
+
     <table class="edit">
         <tr>
             <th>Field</th>
@@ -34,34 +35,34 @@
             </c:if>
         </c:if>
         <tr>
-            <td><fmt:message key="firstName" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="firstName"
-                       value="${empty entity ? '' : entity.getFirstName()}"/></td>
+            <td><fmt:message key="car" bundle="${bundle}"/></td>
+            <td><INPUT type=text name="car"
+                       value="${empty entity ? '' : entity.getCarId()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="lastName" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="lastName"
-                       value="${empty entity ? '' : entity.getLastName()}"/></td>
+            <td><fmt:message key="carFlowType" bundle="${bundle}"/></td>
+            <td><INPUT type=text name="carFlowType"
+                       value="${empty entity ? '' : entity.getCarFlowType()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="address" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="address"
-                       value="${empty entity ? '' : entity.getAddress()}"/></td>
+            <td><fmt:message key="carRequest" bundle="${bundle}"/></td>
+            <td><INPUT type=text name="carRequest"
+                       value="${empty entity ? '' : entity.getCarRequestId()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="telephone" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="telephone"
-                       value="${empty entity ? '' : entity.getTelephone()}"/></td>
+            <td><fmt:message key="responsiblePerson" bundle="${bundle}"/></td>
+            <td><INPUT type=text name="responsiblePerson"
+                       value="${empty entity ? '' : entity.getResponsiblePersonId()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="email" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="email"
-                       value="${empty entity ? '' : entity.getEmail()}"/></td>
+            <td><fmt:message key="invoice" bundle="${bundle}"/></td>
+            <td><INPUT type=text name="invoice"
+                       value="${empty entity ? '' : entity.getInvoiceId()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="idCard" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="idCard"
-                       value="${empty entity ? '' : entity.getIdCard()}"/></td>
+            <td><fmt:message key="supplement" bundle="${bundle}"/></td>
+            <td><INPUT type=text name="supplement"
+                       value="${empty entity ? '' : entity.getSupplement()}"/></td>
         </tr>
         <tr>
             <td colspan="2">

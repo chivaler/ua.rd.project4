@@ -7,8 +7,8 @@ public class CarRequest implements Entity {
     private int id = -1;
     private Car car;
     private Client client;
-    private Date DateFrom;
-    private Date DateTo;
+    private Date dateFrom;
+    private Date dateTo;
     private int totalCost;
     private boolean approved;
     private Invoice invoice;
@@ -16,8 +16,8 @@ public class CarRequest implements Entity {
     public CarRequest(Car car, Client client, Date dateFrom, Date dateTo, int totalCost, boolean approved, Invoice invoice) {
         this.car = car;
         this.client = client;
-        DateFrom = dateFrom;
-        DateTo = dateTo;
+        this.dateFrom = dateFrom;
+        this.dateTo = dateTo;
         this.totalCost = totalCost;
         this.approved = approved;
         this.invoice = invoice;
@@ -32,14 +32,14 @@ public class CarRequest implements Entity {
                 approved == that.approved &&
                 Objects.equals(car, that.car) &&
                 Objects.equals(client, that.client) &&
-                Objects.equals(DateFrom, that.DateFrom) &&
-                Objects.equals(DateTo, that.DateTo) &&
+                Objects.equals(dateFrom, that.dateFrom) &&
+                Objects.equals(dateTo, that.dateTo) &&
                 Objects.equals(invoice, that.invoice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(car, client, DateFrom, DateTo, totalCost, approved, invoice);
+        return Objects.hash(car, client, dateFrom, dateTo, totalCost, approved, invoice);
     }
 
     public int getId() {
@@ -67,19 +67,19 @@ public class CarRequest implements Entity {
     }
 
     public Date getDateFrom() {
-        return DateFrom;
+        return dateFrom;
     }
 
     public void setDateFrom(Date dateFrom) {
-        DateFrom = dateFrom;
+        this.dateFrom = dateFrom;
     }
 
     public Date getDateTo() {
-        return DateTo;
+        return dateTo;
     }
 
     public void setDateTo(Date dateTo) {
-        DateTo = dateTo;
+        this.dateTo = dateTo;
     }
 
     public int getTotalCost() {
@@ -104,5 +104,22 @@ public class CarRequest implements Entity {
 
     public void setInvoice(Invoice invoice) {
         this.invoice = invoice;
+    }
+
+    public int getCarId() {
+        return (car == null) ? 0 : car.getId();
+    }
+
+    public int getClientId() {
+        return (client == null) ? 0 : client.getId();
+    }
+
+    public int getInvoiceId() {
+        return (invoice == null) ? 0 : invoice.getId();
+    }
+
+    @Override
+    public String toString() {
+        return "CarRequest_" + id;
     }
 }

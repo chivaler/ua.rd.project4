@@ -17,7 +17,7 @@
 <h1>
     <fmt:message key="Invoices" bundle="${bundle}"/>
 </h1>
-<table>
+<table class="list">
     <tr>
         <th>ID</th>
         <th><fmt:message key="Client" bundle="${bundle}"/></th>

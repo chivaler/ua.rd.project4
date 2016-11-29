@@ -19,7 +19,7 @@
 <form action="/Controller" method="post">
     <INPUT type="hidden" name="command" value="USERS"/>
     <INPUT type="hidden" name="do" value="update"/>
-    <table>
+    <table class="edit">
         <c:if test="${not empty entity}">
             <c:if test="${not empty entity.getId()}">
                 <tr>

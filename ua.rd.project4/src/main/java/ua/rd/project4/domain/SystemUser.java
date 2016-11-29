@@ -79,4 +79,9 @@ public class SystemUser implements Entity {
     public int getClientId() {
         return (client == null) ? 0 : client.getId();
     }
+
+    @Override
+    public String toString() {
+        return login + "("+id+")";
+    }
 }
