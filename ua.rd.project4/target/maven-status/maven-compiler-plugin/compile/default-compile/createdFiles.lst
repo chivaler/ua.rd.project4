@@ -18,8 +18,10 @@ ua\rd\project4\domain\Invoice.class
 ua\rd\project4\model\dao\JdbcCarDao.class
 ua\rd\project4\model\services\LoginExistsException.class
 ua\rd\project4\model\services\InvoiceService.class
+ua\rd\project4\model\holders\InvoiceHolder.class
 ua\rd\project4\model\dao\JdbcDaoFactory.class
 ua\rd\project4\model\services\JdbcCarRequestSevice.class
+ua\rd\project4\model\holders\ClientHolder.class
 ua\rd\project4\model\services\JdbcCarSevice.class
 ua\rd\project4\domain\Client.class
 ua\rd\project4\model\services\JdbcClientSevice.class
@@ -29,6 +31,7 @@ ua\rd\project4\controller\MainController.class
 ua\rd\project4\controller\command\cmdCrudClients.class
 ua\rd\project4\model\services\CarFlowService.class
 ua\rd\project4\model\services\JdbcInvoiceSevice.class
+ua\rd\project4\model\holders\UserHolder.class
 ua\rd\project4\model\services\JdbcServiceFactory.class
 ua\rd\project4\model\dao\JdbcInvoiceDao.class
 ua\rd\project4\controller\command\commandList.class
@@ -36,6 +39,7 @@ ua\rd\project4\controller\command\Command.class
 ua\rd\project4\domain\SystemUser.class
 ua\rd\project4\model\dao\JdbcUserDao.class
 ua\rd\project4\model\dao\UserDao.class
+ua\rd\project4\model\holders\Holder.class
 ua\rd\project4\model\services\CarRequestService.class
 ua\rd\project4\domain\Entity.class
 ua\rd\project4\model\dao\CarDao.class
@@ -47,13 +51,12 @@ ua\rd\project4\model\dao\JdbcCarFlowDao.class
 ua\rd\project4\model\dao\AbstractDaoFactory$DaoType.class
 ua\rd\project4\model\dao\AbstractDaoFactory.class
 ua\rd\project4\model\dao\ClientDao.class
-ua\rd\project4\domain\CarFlowHolder.class
 ua\rd\project4\model\services\UserService.class
 ua\rd\project4\model\dao\CarFlowDao.class
-ua\rd\project4\domain\CarHolder.class
 ua\rd\project4\model\dao\InvoiceDao.class
 ua\rd\project4\controller\command\RequiredParameterException.class
 ua\rd\project4\domain\CarFlow$CarFlowType.class
+ua\rd\project4\model\holders\CarRequestHolder.class
 ua\rd\project4\controller\command\cmdCrudUsers.class
 ua\rd\project4\model\services\ClientService.class
 ua\rd\project4\model\dao\JdbcClientDao.class

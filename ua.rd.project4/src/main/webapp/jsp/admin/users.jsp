@@ -33,9 +33,11 @@
             <td align="center"><c:out value="${user.getLogin()}"/></td>
             <td align="center"><c:out value="${user.getPassword()}"/></td>
             <td align="center">
-                <a href="/Controller?command=CLIENTS&do=get&id=${user.getClient().getId()}">
-                    <c:out value="${user.getClient().toString()}"/>
-                </a>
+                <c:if test="${user.getClientId() > 0}">
+                    <a href="/Controller?command=CLIENTS&do=get&id=${user.getClientId()}">
+                        <c:out value="${user.getClient().toString()}"/>
+                    </a>
+                </c:if>
             </td>
             <td align="center">
                 <form action="/Controller" method="post">

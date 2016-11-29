@@ -15,31 +15,34 @@
     <div id="error"><c:out value="${error}"/></div>
 </c:if>
 <h1>
-    <fmt:message key="TheClientList" bundle="${bundle}"/>
+    <fmt:message key="Invoices" bundle="${bundle}"/>
 </h1>
 <table>
     <tr>
-        <th><fmt:message key="ClientID" bundle="${bundle}"/></th>
-        <th><fmt:message key="FirstName" bundle="${bundle}"/></th>
-        <th><fmt:message key="LastName" bundle="${bundle}"/></th>
-        <th><fmt:message key="Address" bundle="${bundle}"/></th>
-        <th><fmt:message key="Telephone" bundle="${bundle}"/></th>
-        <th><fmt:message key="Email" bundle="${bundle}"/></th>
-        <th><fmt:message key="Telephone" bundle="${bundle}"/></th>
-        <th><fmt:message key="Email" bundle="${bundle}"/></th>
+        <th>ID</th>
+        <th><fmt:message key="Client" bundle="${bundle}"/></th>
+        <th><fmt:message key="Total" bundle="${bundle}"/></th>
+        <th><fmt:message key="Paid" bundle="${bundle}"/></th>
+        <th><fmt:message key="Description" bundle="${bundle}"/></th>
+        <th><fmt:message key="EDIT" bundle="${bundle}"/></th>
+        <th><fmt:message key="DELETE" bundle="${bundle}"/></th>
     </tr>
-
     <c:forEach var="invoice" items="${entities}">
         <tr>
             <td align="center"><c:out value="${invoice.getId()}"/></td>
-            <td align="center"><c:out value="${invoice.getFirstName()}"/></td>
-            <td align="center"><c:out value="${invoice.getLastName()}"/></td>
-            <td align="center"><c:out value="${invoice.getAddress()}"/></td>
-            <td align="center"><c:out value="${invoice.getTelephone()}"/></td>
-            <td align="center"><c:out value="${invoice.getEmail()}"/></td>
+            <td>
+                <c:if test="${invoice.getClientId() > 0}">
+                    <a href="/Controller?command=CLIENTS&do=get&id=${invoice.getClientId()}">
+                        <c:out value="${invoice.getClient().toString()}"/>
+                    </a>
+                </c:if>
+            </td>
+            <td align="center"><c:out value="${invoice.getTotal()}"/></td>
+            <td align="center"><c:out value="${invoice.isPaid()}"/></td>
+            <td align="center"><c:out value="${invoice.getDescription()}"/></td>
             <td align="center">
                 <form action="/Controller" method="post">
-                    <INPUT type="hidden" name="command" value="CLIENTS"/>
+                    <INPUT type="hidden" name="command" value="INVOICES"/>
                     <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
                     <INPUT type="hidden" name="do" value="get"/>
                     <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
@@ -48,7 +51,7 @@
             </td>
             <td align="center">
                 <form action="/Controller" method="post">
-                    <INPUT type="hidden" name="command" value="CLIENTS"/>
+                    <INPUT type="hidden" name="command" value="INVOICES"/>
                     <INPUT type="hidden" name="do" value="delete"/>
                     <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
                     <INPUT type="submit" value="Delete">

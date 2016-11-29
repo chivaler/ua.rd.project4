@@ -36,7 +36,7 @@ public class CarFlow implements Entity {
 //                case null:
 //                    return null;
                 default:
-                    throw new IllegalArgumentException("Expected 1,-1: Recieved"+value);
+                    throw new IllegalArgumentException("Expected 1,-1: Recieved" + value);
             }
         }
     }
@@ -53,21 +53,33 @@ public class CarFlow implements Entity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof CarFlow))
+            return false;
+
         CarFlow carFlow = (CarFlow) o;
-        return Objects.equals(car, carFlow.car) &&
-                carFlowType == carFlow.carFlowType &&
-                Objects.equals(client, carFlow.client) &&
-                Objects.equals(carRequest, carFlow.carRequest) &&
-                Objects.equals(responsiblePerson, carFlow.responsiblePerson) &&
-                Objects.equals(invoice, carFlow.invoice) &&
-                Objects.equals(supplement, carFlow.supplement);
+
+        if (getCarId() != carFlow.getCarId())
+            return false;
+        if (getCarFlowType() != carFlow.getCarFlowType())
+            return false;
+        if (getClientId() != carFlow.getClientId())
+            return false;
+        if (getCarRequestId() != carFlow.getCarRequestId())
+            return false;
+        if (getResponsiblePersonId() != carFlow.getResponsiblePersonId())
+            return false;
+        if (getInvoiceId() != carFlow.getInvoiceId())
+            return false;
+        return getSupplement() != null ? getSupplement().equals(carFlow.getSupplement()) : carFlow.getSupplement() == null;
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(car, carFlowType, client, carRequest, responsiblePerson, invoice, supplement);
+        return Objects.hash(id, getCarId(), getCarFlowType(), getCarRequestId(),
+                getResponsiblePersonId(), getInvoiceId(), getSupplement());
     }
 
     public int getId() {
@@ -127,10 +139,30 @@ public class CarFlow implements Entity {
     }
 
     public String getSupplement() {
-        return supplement;
+        return (supplement != null) ? supplement : "";
     }
 
     public void setSupplement(String supplement) {
         this.supplement = supplement;
+    }
+
+    public int getCarId() {
+        return (car == null) ? 0 : car.getId();
+    }
+
+    public int getClientId() {
+        return (client == null) ? 0 : client.getId();
+    }
+
+    public int getCarRequestId() {
+        return (carRequest == null) ? 0 : carRequest.getId();
+    }
+
+    public int getResponsiblePersonId() {
+        return (responsiblePerson == null) ? 0 : responsiblePerson.getId();
+    }
+
+    public int getInvoiceId() {
+        return (invoice == null) ? 0 : invoice.getId();
     }
 }

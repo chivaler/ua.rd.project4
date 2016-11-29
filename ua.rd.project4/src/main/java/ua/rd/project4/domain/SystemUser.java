@@ -75,4 +75,8 @@ public class SystemUser implements Entity {
     public void setClient(Client client) {
         this.client = client;
     }
+
+    public int getClientId() {
+        return (client == null) ? 0 : client.getId();
+    }
 }

@@ -71,4 +71,8 @@ public class Invoice implements Entity {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public int getClientId() {
+        return (client == null) ? 0 : client.getId();
+    }
 }

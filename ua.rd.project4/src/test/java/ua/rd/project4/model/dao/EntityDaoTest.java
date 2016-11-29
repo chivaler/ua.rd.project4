@@ -2,6 +2,7 @@ package ua.rd.project4.model.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.BeforeClass;
 import ua.rd.project4.domain.Entity;
 import org.junit.Test;
 
@@ -15,14 +16,15 @@ import static org.hamcrest.core.Is.is;
 
 public abstract class EntityDaoTest<T extends Entity> {
     private Logger logger = LogManager.getLogger(JdbcCarFlowDao.class);
-    EntityDao<T> dao;
-    T elem1;
-    T elem2;
-    T elem3;
+    EntityDao<T> dao = getDao();
+    T elem1 = initElem1();
+    T elem2  = initElem2();
+    T elem3 = initElem3();
 
-    void setClass(Class c) {
-        dao = JdbcDaoFactory.getInstance().getGenericDao(c);
-    }
+    abstract T initElem1();
+    abstract T initElem2();
+    abstract T initElem3();
+    abstract EntityDao<T> getDao();
 
     @Test
     public void createTable() throws Exception {

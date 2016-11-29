@@ -3,7 +3,7 @@ package ua.rd.project4.model.holders;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.dao.AbstractDaoFactory;
 
-public class CarFlowHolder extends CarFlow {
+public class CarFlowHolder extends CarFlow implements Holder<CarFlow> {
     final AbstractDaoFactory daoFactory;
     private int carId;
     private int clientId;
@@ -26,6 +26,31 @@ public class CarFlowHolder extends CarFlow {
         this.invoiceId = invoiceId;
         this.carRequestId = carRequestId;
         this.daoFactory = daoFactory;
+    }
+
+    @Override
+    public int getCarId() {
+        return carId;
+    }
+
+    @Override
+    public int getClientId() {
+        return clientId;
+    }
+
+    @Override
+    public int getCarRequestId() {
+        return carRequestId;
+    }
+
+    @Override
+    public int getResponsiblePersonId() {
+        return responsiblePersonId;
+    }
+
+    @Override
+    public int getInvoiceId() {
+        return invoiceId;
     }
 
     @Override
