@@ -1,9 +1,9 @@
 <tr>
-    <td><label for="client">idClient</td>
+    <td><label for="client">client</td>
     <td>
         <c:choose>
             <c:when test="${not empty listClients}">
-                <select  name="client">
+                <select name="client" id="client">
                     <option></option>
                     <c:forEach var="client" items="${listClients}">
                         <option value="${client.key}" ${client.key == (empty entity ? '' : entity.getClientId()) ? 'selected="selected"' : ''}>${client.value}</option>

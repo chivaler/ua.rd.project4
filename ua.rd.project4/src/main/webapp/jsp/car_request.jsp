@@ -9,12 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-<c:if test="${not empty result}">
-    <div id="result"><c:out value="${result}"/></div>
-</c:if>
-<c:if test="${not empty error}">
-    <div id="error"><c:out value="${error}"/></div>
-</c:if>
+<%@include file="includes/header.jspf" %>
 
 <form action="/Controller" method="post">
     <INPUT type="hidden" name="command" value="CARREQUESTS"/>
@@ -25,25 +20,9 @@
             <th>Field</th>
             <th>Value</th>
         </tr>
-        <c:if test="${not empty entity}">
-            <c:if test="${not empty entity.getId()}">
-                <tr>
-                    <td><fmt:message key="ID" bundle="${bundle}"/></td>
-                    <td><INPUT type=text class="readonly" readonly="readonly" name="id"
-                               value="${empty entity ? '' : entity.getId()}"/></td>
-                </tr>
-            </c:if>
-        </c:if>
-        <tr>
-            <td><fmt:message key="car" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="car"
-                       value="${empty entity ? '' : entity.getCarId()}"/></td>
-        </tr>
-        <tr>
-            <td><fmt:message key="client" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="client"
-                       value="${empty entity ? '' : entity.getClientId()}"/></td>
-        </tr>
+        <%@include file="includes/fields/id.jspf" %>
+        <%@include file="includes/fields/car.jspf" %>
+        <%@include file="includes/fields/client.jspf" %>
         <tr>
             <td><fmt:message key="dateFrom" bundle="${bundle}"/></td>
             <td><INPUT type="date" name="dateFrom"
@@ -64,11 +43,7 @@
             <td><INPUT type=text name="approved"
                        value="${empty entity ? '' : entity.isApproved()}"/></td>
         </tr>
-        <tr>
-            <td><fmt:message key="invoice" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="invoice"
-                       value="${empty entity ? '' : entity.getInvoiceId()}"/></td>
-        </tr>
+        <%@include file="includes/fields/invoice.jspf" %>
         <tr>
             <td colspan="2">
                 <INPUT type="submit" value="${empty entity ? 'Create' : 'Save'}">

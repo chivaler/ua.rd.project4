@@ -1,8 +1,7 @@
 package ua.rd.project4.controller.command;
 
 import org.apache.logging.log4j.Logger;
-import ua.rd.project4.domain.Client;
-import ua.rd.project4.domain.Entity;
+import ua.rd.project4.domain.*;
 import ua.rd.project4.model.services.*;
 
 import javax.servlet.ServletException;
@@ -40,6 +39,18 @@ abstract class cmdCrudGeneric<T extends Entity> implements Command {
         req.setAttribute("listClients", getServiceFactory().
                 getClientService().findAll().stream().
                 collect(Collectors.toMap(Entity::getId, Client::toString)));
+        req.setAttribute("listUsers", getServiceFactory().
+                getUserService().findAll().stream().
+                collect(Collectors.toMap(Entity::getId, User::toString)));
+        req.setAttribute("listInvoices", getServiceFactory().
+                getInvoiceService().findAll().stream().
+                collect(Collectors.toMap(Entity::getId, Invoice::toString)));
+        req.setAttribute("listCarRequests", getServiceFactory().
+                getCarRequestService().findAll().stream().
+                collect(Collectors.toMap(Entity::getId, CarRequest::toString)));
+        req.setAttribute("listCars", getServiceFactory().
+                getCarService().findAll().stream().
+                collect(Collectors.toMap(Entity::getId, Car::toString)));
     }
 
     String executeUpdate(HttpServletRequest req, int id) {

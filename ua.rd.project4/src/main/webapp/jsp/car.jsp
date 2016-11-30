@@ -10,13 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-<c:if test="${not empty result}">
-    <div id="result"><c:out value="${result}"/></div>
-</c:if>
-<c:if test="${not empty error}">
-    <div id="error"><c:out value="${error}"/></div>
-</c:if>
-
+<%@include file="includes/header.jspf" %>
 <form action="/Controller" method="post">
     <INPUT type="hidden" name="command" value="CARS"/>
     <INPUT type="hidden" name="do" value="update"/>

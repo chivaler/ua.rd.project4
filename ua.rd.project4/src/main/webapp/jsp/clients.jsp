@@ -7,13 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-<fmt:setBundle basename="localization/messages" var="bundle"/>
-<c:if test="${not empty result}">
-    <div id="result"><c:out value="${result}"/></div>
-</c:if>
-<c:if test="${not empty error}">
-    <div id="error"><c:out value="${error}"/></div>
-</c:if>
+<%@include file="includes/header.jspf" %>
 <h1>
     <fmt:message key="TheClientList" bundle="${bundle}"/>
 </h1>
