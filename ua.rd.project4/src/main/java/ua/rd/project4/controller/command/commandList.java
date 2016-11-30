@@ -6,7 +6,8 @@ public enum commandList {
     CARS(cmdCrudCars.getInstance()),
     CARFLOWS(cmdCrudCarFlow.getInstance()),
     CARREQUESTS(cmdCrudCarRequest.getInstance()),
-    INVOICES(cmdCrudInvoice.getInstance());
+    INVOICES(cmdCrudInvoice.getInstance()),
+    ADMIN(Admin.getInstance());
 
     final Command command;
 

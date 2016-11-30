@@ -1,17 +1,20 @@
-package ua.rd.project4.model.dao;
+package ua.rd.project4.model.dao.impl;
 
 import ua.rd.project4.domain.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ua.rd.project4.model.dao.ClientDao;
+import ua.rd.project4.model.dao.ConnectionFactory;
+import ua.rd.project4.model.dao.UserDao;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcUserDao implements UserDao {
-    final private static JdbcUserDao instance = new JdbcUserDao();
-    private static Logger logger = LogManager.getLogger(JdbcUserDao.class);
-    private ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
+class JdbcUserDao implements UserDao {
+    private final static JdbcUserDao instance = new JdbcUserDao();
+    private static final Logger logger = LogManager.getLogger(JdbcUserDao.class);
+    private final ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
 
     private JdbcUserDao() {
     }

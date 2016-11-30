@@ -2,12 +2,13 @@ package ua.rd.project4.controller.command;
 
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.domain.*;
+import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
+import ua.rd.project4.model.exceptions.LoginExistsException;
+import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.services.*;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -108,7 +109,7 @@ abstract class cmdCrudGeneric<T extends Entity> implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public String execute(HttpServletRequest req, HttpServletResponse resp) {
         String doCommand = Optional.ofNullable(req.getParameter("do")).orElse("");
         final int id = getIdFromRequest(req);
         if ((id == 0) && ("get".equals(doCommand) || "delete".equals(doCommand))) {

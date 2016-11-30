@@ -1,8 +1,11 @@
-package ua.rd.project4.model.dao;
+package ua.rd.project4.model.dao.impl;
 
 import ua.rd.project4.domain.Invoice;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ua.rd.project4.model.dao.ClientDao;
+import ua.rd.project4.model.dao.ConnectionFactory;
+import ua.rd.project4.model.dao.InvoiceDao;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,8 +13,8 @@ import java.util.List;
 
 class JdbcInvoiceDao implements InvoiceDao {
     private static final JdbcInvoiceDao instance = new JdbcInvoiceDao();
-    private Logger logger = LogManager.getLogger(JdbcInvoiceDao.class);
-    private ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
+    private final Logger logger = LogManager.getLogger(JdbcInvoiceDao.class);
+    private final ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
 
     private JdbcInvoiceDao() {
     }

@@ -1,12 +1,15 @@
-package ua.rd.project4.model.services;
+package ua.rd.project4.model.services.impl;
 
 import ua.rd.project4.model.dao.InvoiceDao;
-import ua.rd.project4.model.dao.JdbcDaoFactory;
+import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.domain.Invoice;
+import ua.rd.project4.model.services.AbstractServiceFactory;
+import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
+import ua.rd.project4.model.services.InvoiceService;
 
 import java.util.List;
 
-class JdbcInvoiceSevice extends InvoiceService {
+class JdbcInvoiceSevice extends AbstractEntityService<Invoice> implements InvoiceService {
     private static final JdbcInvoiceSevice instance = new JdbcInvoiceSevice();
 
     private JdbcInvoiceSevice() {

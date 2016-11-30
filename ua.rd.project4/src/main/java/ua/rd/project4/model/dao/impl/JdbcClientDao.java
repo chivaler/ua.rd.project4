@@ -1,8 +1,10 @@
-package ua.rd.project4.model.dao;
+package ua.rd.project4.model.dao.impl;
 
 import ua.rd.project4.domain.Client;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ua.rd.project4.model.dao.ClientDao;
+import ua.rd.project4.model.dao.ConnectionFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.List;
 
 public class JdbcClientDao implements ClientDao {
     final private static JdbcClientDao instance = new JdbcClientDao();
-    private static Logger logger = LogManager.getLogger(JdbcClientDao.class);
+    private static final Logger logger = LogManager.getLogger(JdbcClientDao.class);
 
     private JdbcClientDao() {
     }

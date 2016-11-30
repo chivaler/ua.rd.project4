@@ -1,5 +1,7 @@
 package ua.rd.project4.model.dao;
 
+import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
+
 public abstract class AbstractDaoFactory {
     public enum DaoType {
         JDBC

@@ -1,36 +1,22 @@
 package ua.rd.project4.model.services;
 
-import ua.rd.project4.model.dao.EntityDao;
 import ua.rd.project4.domain.Entity;
+import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
+import ua.rd.project4.model.exceptions.UniqueViolationException;
 
 import java.util.List;
 
-public abstract class EntityService<T extends Entity> {
-    abstract EntityDao<T> getDao();
+public interface EntityService<T extends Entity> {
 
-    abstract AbstractServiceFactory getServiceFactory();
+    boolean insert(T t) throws UniqueViolationException;
 
-    public boolean insert(T t) throws UniqueViolationException {
-        return getDao().insert(t);
-    }
+    boolean update(int id, T t) throws UniqueViolationException;
 
-    public boolean update(int id, T t) throws UniqueViolationException {
-        return getDao().update(id, t);
-    }
+    boolean delete(int id) throws ExceptionEntityInUse;
 
-    public boolean delete(int id) throws ExceptionEntityInUse {
-        return getDao().delete(id);
-    }
+    T getById(int id);
 
-    public T getById(int id) {
-        return getDao().getById(id);
-    }
+    List<T> findAll();
 
-    public List<T> findAll() {
-        return getDao().findAll();
-    }
-
-    public Integer findId(T t) {
-        return getDao().findId(t);
-    }
+    Integer findId(T t);
 }

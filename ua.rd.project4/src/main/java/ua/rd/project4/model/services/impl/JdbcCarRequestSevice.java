@@ -1,12 +1,14 @@
-package ua.rd.project4.model.services;
+package ua.rd.project4.model.services.impl;
 
 import ua.rd.project4.model.dao.CarRequestDao;
-import ua.rd.project4.model.dao.JdbcDaoFactory;
+import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.domain.CarRequest;
+import ua.rd.project4.model.services.AbstractServiceFactory;
+import ua.rd.project4.model.services.CarRequestService;
 
 import java.util.List;
 
-class JdbcCarRequestSevice extends CarRequestService {
+class JdbcCarRequestSevice extends  AbstractEntityService<CarRequest> implements CarRequestService {
     private static final JdbcCarRequestSevice instance = new JdbcCarRequestSevice();
 
     private JdbcCarRequestSevice() {
@@ -24,11 +26,6 @@ class JdbcCarRequestSevice extends CarRequestService {
     @Override
     AbstractServiceFactory getServiceFactory() {
         return JdbcServiceFactory.getInstance();
-    }
-
-    @Override
-    public boolean delete(int id) throws ExceptionEntityInUse {
-        return super.delete(id);
     }
 
     @Override

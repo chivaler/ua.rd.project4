@@ -14,11 +14,11 @@ import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.core.Is.is;
 
 public abstract class EntityDaoTest<T extends Entity> {
-    private Logger logger = LogManager.getLogger(JdbcCarFlowDao.class);
-    EntityDao<T> dao = getDao();
-    T elem1 = initElem1();
-    T elem2  = initElem2();
-    T elem3 = initElem3();
+    private Logger logger = LogManager.getLogger(EntityDaoTest.class);
+    private final EntityDao<T> dao = getDao();
+    private final T elem1 = initElem1();
+    private final T elem2  = initElem2();
+    private final T elem3 = initElem3();
 
     abstract T initElem1();
     abstract T initElem2();

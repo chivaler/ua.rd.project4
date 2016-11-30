@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-class ConnectionFactory {
+public class ConnectionFactory {
     private static final ConnectionFactory instance = new ConnectionFactory();
     private final Logger logger = LogManager.getLogger(ConnectionFactory.class);
     private DataSource dataSource = null;
@@ -45,7 +45,7 @@ class ConnectionFactory {
         return instance;
     }
 
-    public void setJdbcParameters(String jdbcDriver, String jdbcUrl, String jdbcUser, String jdbcPassword) {
+    private void setJdbcParameters(String jdbcDriver, String jdbcUrl, String jdbcUser, String jdbcPassword) {
         this.jdbcDriver = jdbcDriver;
         this.jdbcUrl = jdbcUrl;
         this.jdbcUser = jdbcUser;

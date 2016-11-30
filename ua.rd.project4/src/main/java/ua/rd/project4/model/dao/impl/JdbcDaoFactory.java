@@ -1,7 +1,8 @@
-package ua.rd.project4.model.dao;
+package ua.rd.project4.model.dao.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ua.rd.project4.model.dao.*;
 
 public class JdbcDaoFactory extends AbstractDaoFactory {
     private static final JdbcDaoFactory instance = new JdbcDaoFactory();

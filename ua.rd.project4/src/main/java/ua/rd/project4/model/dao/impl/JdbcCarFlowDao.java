@@ -1,8 +1,9 @@
-package ua.rd.project4.model.dao;
+package ua.rd.project4.model.dao.impl;
 
 import ua.rd.project4.domain.CarFlow;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ua.rd.project4.model.dao.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,12 +11,12 @@ import java.util.List;
 
 class JdbcCarFlowDao implements CarFlowDao {
     private static final JdbcCarFlowDao instance = new JdbcCarFlowDao();
-    private static Logger logger = LogManager.getLogger(JdbcCarFlowDao.class);
-    private ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
-    private CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
-    private InvoiceDao invoiceDao = JdbcDaoFactory.getInstance().getInvoiceDao();
-    private CarRequestDao carRequestDao = JdbcDaoFactory.getInstance().getCarRequestDao();
-    private UserDao userDao = JdbcDaoFactory.getInstance().getUserDao();
+    private static final Logger logger = LogManager.getLogger(JdbcCarFlowDao.class);
+    private final ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
+    private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
+    private final InvoiceDao invoiceDao = JdbcDaoFactory.getInstance().getInvoiceDao();
+    private final CarRequestDao carRequestDao = JdbcDaoFactory.getInstance().getCarRequestDao();
+    private final UserDao userDao = JdbcDaoFactory.getInstance().getUserDao();
 
     private JdbcCarFlowDao() {
     }

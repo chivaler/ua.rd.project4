@@ -5,16 +5,18 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.services.*;
+import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
 
 class cmdCrudUsers extends cmdCrudGeneric<User> {
     private static final cmdCrudUsers instance = new cmdCrudUsers();
+    private static final String LIST_USERS_JSP = "jsp/users.jsp";
+    private static final String EDIT_USER_JSP = "jsp/user.jsp";
     private final Logger logger = LogManager.getLogger(cmdCrudUsers.class);
     private final UserService userService = getServiceFactory().getUserService();
     private final ClientService clientService = getServiceFactory().getClientService();
-    private final String LIST_USERS_JSP = "jsp/users.jsp";
-    private final String EDIT_USER_JSP = "jsp/user.jsp";
+
 
     private cmdCrudUsers() {
     }
@@ -58,7 +60,7 @@ class cmdCrudUsers extends cmdCrudGeneric<User> {
         int idClient;
         try {
             idClient = Integer.valueOf(strClient);
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             idClient = 0;
         }
         Client client = clientService.getById(idClient);

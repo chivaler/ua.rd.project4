@@ -1,7 +1,9 @@
-package ua.rd.project4.model.dao;
+package ua.rd.project4.model.dao.impl;
 
 import ua.rd.project4.domain.Car;
 import org.apache.logging.log4j.*;
+import ua.rd.project4.model.dao.CarDao;
+import ua.rd.project4.model.dao.ConnectionFactory;
 
 import java.sql.*;
 import java.util.ArrayList;

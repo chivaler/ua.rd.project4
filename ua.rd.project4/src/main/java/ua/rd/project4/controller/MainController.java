@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class MainController extends HttpServlet {
-    private Logger logger = LogManager.getLogger(MainController.class);
+    private final transient Logger logger = LogManager.getLogger(MainController.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,9 +21,10 @@ public class MainController extends HttpServlet {
             String jspUrl = command.execute(req, resp);
             req.getRequestDispatcher(jspUrl).forward(req, resp);
         } catch (IllegalArgumentException e){
+            logger.debug(e);
             //TODO back on previosn error
         }catch (Exception e) {
-            logger.info("Exception in command: " + e.toString());
+            logger.info("Exception in command: ",e);
             // TODO error to user here
         }
 

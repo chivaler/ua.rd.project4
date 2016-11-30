@@ -1,12 +1,16 @@
-package ua.rd.project4.model.services;
+package ua.rd.project4.model.services.impl;
 
-import ua.rd.project4.model.dao.JdbcDaoFactory;
+import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.dao.UserDao;
 import ua.rd.project4.domain.User;
+import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
+import ua.rd.project4.model.exceptions.LoginExistsException;
+import ua.rd.project4.model.exceptions.UniqueViolationException;
+import ua.rd.project4.model.services.*;
 
 import java.util.List;
 
-class JdbcUserSevice extends UserService {
+class JdbcUserSevice extends AbstractEntityService<User> implements UserService {
     private static final JdbcUserSevice instance = new JdbcUserSevice();
 
     private JdbcUserSevice() {

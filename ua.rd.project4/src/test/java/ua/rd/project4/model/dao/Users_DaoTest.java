@@ -2,6 +2,7 @@ package ua.rd.project4.model.dao;
 
 import org.junit.BeforeClass;
 import ua.rd.project4.domain.User;
+import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 
 public class Users_DaoTest extends EntityDaoTest<User> {
     @BeforeClass

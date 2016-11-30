@@ -1,4 +1,4 @@
-package ua.rd.project4.model.services;
+package ua.rd.project4.model.exceptions;
 
 public class ExceptionEntityInUse extends Exception {
     public ExceptionEntityInUse(String message) {

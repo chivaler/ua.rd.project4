@@ -32,10 +32,12 @@ public class Invoice implements Entity {
         return Objects.hash(client, total, paid, description);
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }

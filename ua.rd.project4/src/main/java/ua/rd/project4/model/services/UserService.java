@@ -7,9 +7,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-public abstract class UserService extends EntityService<User> {
-    public abstract List<User> findUsersByClientId(int clientId);
-    public String getHashPassword(String nakedPassword) {
+public interface UserService extends EntityService<User> {
+    List<User> findUsersByClientId(int clientId);
+    default String getHashPassword(String nakedPassword) {
         final String CRYPTO_ALGORITHM ="MD5";
         MessageDigest messageDigest;
         byte[] digest = new byte[0];

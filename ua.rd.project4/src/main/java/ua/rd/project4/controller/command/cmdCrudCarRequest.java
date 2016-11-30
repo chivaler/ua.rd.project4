@@ -4,15 +4,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.domain.CarRequest;
 import ua.rd.project4.model.services.*;
+import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
 
 class cmdCrudCarRequest extends cmdCrudGeneric<CarRequest> {
     private static final cmdCrudCarRequest instance = new cmdCrudCarRequest();
+    private static final String LIST_CARREQUESTS_JSP = "jsp/car_requests.jsp";
+    private static final String EDIT_CARREQUEST_JSP = "jsp/car_request.jsp";
     private final Logger logger = LogManager.getLogger(cmdCrudCarRequest.class);
     private final CarRequestService carRequestService = getServiceFactory().getCarRequestService();
-    final String LIST_CARREQUESTS_JSP = "jsp/car_requests.jsp";
-    final String EDIT_CARREQUEST_JSP = "jsp/car_request.jsp";
+
 
     private cmdCrudCarRequest() {
     }
@@ -46,6 +48,7 @@ class cmdCrudCarRequest extends cmdCrudGeneric<CarRequest> {
         return carRequestService;
     }
 
+    @Override
     CarRequest parseToEntity(HttpServletRequest req) throws InvalidParameterException {
 //        Car.CarType carType = null;
 //        int rentPricePerDay = -1;

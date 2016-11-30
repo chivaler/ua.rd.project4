@@ -2,6 +2,7 @@ package ua.rd.project4.model.dao;
 
 import org.junit.BeforeClass;
 import ua.rd.project4.domain.CarRequest;
+import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 
 public class CarRequest_DaoTest extends EntityDaoTest<CarRequest> {
     @BeforeClass

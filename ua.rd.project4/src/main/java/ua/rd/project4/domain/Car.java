@@ -26,6 +26,7 @@ public class Car implements Entity {
         this.rentPricePerDay = rentPricePerDay;
     }
 
+    @Override
     public int getId() {
         return id;
     }
@@ -58,6 +59,7 @@ public class Car implements Entity {
         return rentPricePerDay;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
 

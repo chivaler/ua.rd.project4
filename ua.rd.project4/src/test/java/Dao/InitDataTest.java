@@ -3,6 +3,7 @@ package Dao;
 import org.junit.Test;
 import ua.rd.project4.model.dao.*;
 import ua.rd.project4.domain.*;
+import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;

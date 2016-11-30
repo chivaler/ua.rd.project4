@@ -7,7 +7,7 @@ public class CarFlowHolder extends CarFlow implements Holder<CarFlow> {
     final AbstractDaoFactory daoFactory;
     private int carId;
     private int clientId;
-    private int carRequestId;
+    private final int carRequestId;
     private int responsiblePersonId;
     private int invoiceId;
 

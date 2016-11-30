@@ -5,7 +5,7 @@ import ua.rd.project4.domain.User;
 import ua.rd.project4.model.dao.AbstractDaoFactory;
 
 public class UserHolder extends User implements Holder<User> {
-    final AbstractDaoFactory daoFactory;
+    private final AbstractDaoFactory daoFactory;
     private int clientId;
 
     public UserHolder(boolean isAdmin, String login, String password, int clientId, AbstractDaoFactory daoFactory) {

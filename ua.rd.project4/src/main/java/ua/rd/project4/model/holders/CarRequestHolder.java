@@ -9,7 +9,7 @@ import ua.rd.project4.model.dao.AbstractDaoFactory;
 import java.sql.Date;
 
 public class CarRequestHolder extends CarRequest implements Holder<CarRequest>  {
-    final AbstractDaoFactory daoFactory;
+    private final AbstractDaoFactory daoFactory;
     private int carId;
     private int clientId;
     private int carRequestId;

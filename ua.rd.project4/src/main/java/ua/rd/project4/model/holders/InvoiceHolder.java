@@ -5,7 +5,7 @@ import ua.rd.project4.domain.Invoice;
 import ua.rd.project4.model.dao.AbstractDaoFactory;
 
 public class InvoiceHolder extends Invoice implements Holder<Invoice> {
-    final AbstractDaoFactory daoFactory;
+    private final AbstractDaoFactory daoFactory;
     private int clientId;
 
     @Override

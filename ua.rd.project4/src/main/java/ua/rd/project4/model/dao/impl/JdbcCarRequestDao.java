@@ -1,8 +1,9 @@
-package ua.rd.project4.model.dao;
+package ua.rd.project4.model.dao.impl;
 
 import ua.rd.project4.domain.CarRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ua.rd.project4.model.dao.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,10 +11,10 @@ import java.util.List;
 
 public class JdbcCarRequestDao implements CarRequestDao {
     final private static JdbcCarRequestDao instance = new JdbcCarRequestDao();
-    private Logger logger = LogManager.getLogger(JdbcCarRequestDao.class);
-    private ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
-    private CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
-    private InvoiceDao invoiceDao = JdbcDaoFactory.getInstance().getInvoiceDao();
+    private final Logger logger = LogManager.getLogger(JdbcCarRequestDao.class);
+    private final ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
+    private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
+    private final InvoiceDao invoiceDao = JdbcDaoFactory.getInstance().getInvoiceDao();
 
     private JdbcCarRequestDao() {
     }
