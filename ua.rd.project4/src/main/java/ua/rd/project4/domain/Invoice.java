@@ -1,17 +1,18 @@
 package ua.rd.project4.domain;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 public class Invoice implements Entity {
     private int id;
     private Client client;
-    private Date dateCreated;
+    private Timestamp dateCreated;
     private int total;
     private boolean paid;
     private String description;
 
-    public Invoice(Client client, Date dateCreated, int total, boolean paid, String description) {
+    public Invoice(Client client, Timestamp dateCreated, int total, boolean paid, String description) {
         this.client = client;
         this.dateCreated = dateCreated;
         this.total = total;
@@ -81,11 +82,11 @@ public class Invoice implements Entity {
         return (client == null) ? 0 : client.getId();
     }
 
-    public Date getDateCreated() {
+    public Timestamp getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(Timestamp dateCreated) {
         this.dateCreated = dateCreated;
     }
 

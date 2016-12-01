@@ -1,6 +1,7 @@
 package ua.rd.project4.domain;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 
@@ -8,7 +9,7 @@ public class CarFlow implements Entity {
     private int id;
     private Car car;
     private CarFlowType carFlowType;
-    private Date dateCreated;
+    private Timestamp dateCreated;
     private CarRequest carRequest;
     private User responsiblePerson;
     private Invoice invoice;
@@ -42,7 +43,7 @@ public class CarFlow implements Entity {
         }
     }
 
-    public CarFlow(Car car, CarFlowType carFlowType, Date dateCreated, CarRequest carRequest, User responsiblePerson, Invoice invoice, String supplement) {
+    public CarFlow(Car car, CarFlowType carFlowType, Timestamp dateCreated, CarRequest carRequest, User responsiblePerson, Invoice invoice, String supplement) {
         this.car = car;
         this.carFlowType = carFlowType;
         this.dateCreated = dateCreated;
@@ -107,11 +108,11 @@ public class CarFlow implements Entity {
         this.carFlowType = carFlowType;
     }
 
-    public Date getDateCreated() {
+    public Timestamp getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(Timestamp dateCreated) {
         this.dateCreated = dateCreated;
     }
 

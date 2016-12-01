@@ -48,7 +48,7 @@ class JdbcInvoiceDao implements InvoiceDao {
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `invoices` " +
                      "(client, dateCreated, total, paid, description) VALUES(?,?,?,?,?)")) {
             preparedStatement.setObject(1, clientDao.findId(invoice.getClient()));
-            preparedStatement.setDate(2, invoice.getDateCreated());
+            preparedStatement.setTimestamp(2, invoice.getDateCreated());
             preparedStatement.setInt(3, invoice.getTotal());
             preparedStatement.setBoolean(4, invoice.isPaid());
             preparedStatement.setString(5, invoice.getDescription());
@@ -66,7 +66,7 @@ class JdbcInvoiceDao implements InvoiceDao {
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `invoices` SET " +
                      "client=?, dateCreated=?, total=?, paid=?, description=? WHERE id=?")) {
             preparedStatement.setObject(1, clientDao.findId(invoice.getClient()));
-            preparedStatement.setDate(2, invoice.getDateCreated());
+            preparedStatement.setTimestamp(2, invoice.getDateCreated());
             preparedStatement.setInt(3, invoice.getTotal());
             preparedStatement.setBoolean(4, invoice.isPaid());
             preparedStatement.setString(5, invoice.getDescription());
@@ -101,7 +101,7 @@ class JdbcInvoiceDao implements InvoiceDao {
             if (resultSet.next()) {
                 invoice = new Invoice(
                         clientDao.getById(resultSet.getInt("client")),
-                        resultSet.getDate("dateCreated"),
+                        resultSet.getTimestamp("dateCreated"),
                         resultSet.getInt("total"),
                         resultSet.getBoolean("paid"),
                         resultSet.getString("description"));
@@ -122,7 +122,7 @@ class JdbcInvoiceDao implements InvoiceDao {
             while (resultSet.next()) {
                 Invoice invoice = new Invoice(
                         clientDao.getById(resultSet.getInt("client")),
-                        resultSet.getDate("dateCreated"),
+                        resultSet.getTimestamp("dateCreated"),
                         resultSet.getInt("total"),
                         resultSet.getBoolean("paid"),
                         resultSet.getString("description"));
@@ -156,7 +156,7 @@ class JdbcInvoiceDao implements InvoiceDao {
             while (resultSet.next()) {
                 invoice = new Invoice(
                         clientDao.getById(resultSet.getInt("client")),
-                        resultSet.getDate("dateCreated"),
+                        resultSet.getTimestamp("dateCreated"),
                         resultSet.getInt("total"),
                         resultSet.getBoolean("paid"),
                         resultSet.getString("description"));

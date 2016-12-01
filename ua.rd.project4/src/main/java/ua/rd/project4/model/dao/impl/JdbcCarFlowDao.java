@@ -38,7 +38,7 @@ class JdbcCarFlowDao implements CarFlowDao {
                     "id INT PRIMARY KEY auto_increment," +
                     "car INT," +
                     "carFlowType INT," +
-                    "dateCreated DATE," +
+                    "dateCreated TIMESTAMP," +
                     "carRequest INT," +
                     "responsiblePerson INT," +
                     "invoice INT," +
@@ -64,7 +64,7 @@ class JdbcCarFlowDao implements CarFlowDao {
                 preparedStatement.setObject(2, null);
             else
                 preparedStatement.setObject(2, carFlow.getCarFlowType().getValue());
-            preparedStatement.setDate(3, carFlow.getDateCreated());
+            preparedStatement.setTimestamp(3, carFlow.getDateCreated());
             preparedStatement.setObject(4, carRequestDao.findId(carFlow.getCarRequest()));
             preparedStatement.setObject(5, userDao.findId(carFlow.getResponsiblePerson()));
             preparedStatement.setObject(6, invoiceDao.findId(carFlow.getInvoice()));
@@ -87,7 +87,7 @@ class JdbcCarFlowDao implements CarFlowDao {
                 preparedStatement.setObject(2, null);
             else
                 preparedStatement.setObject(2, carFlow.getCarFlowType().getValue());
-            preparedStatement.setDate(3, carFlow.getDateCreated());
+            preparedStatement.setTimestamp(3, carFlow.getDateCreated());
             preparedStatement.setObject(4, carRequestDao.findId(carFlow.getCarRequest()));
             preparedStatement.setObject(5, userDao.findId(carFlow.getResponsiblePerson()));
             preparedStatement.setObject(6, invoiceDao.findId(carFlow.getInvoice()));
@@ -124,7 +124,7 @@ class JdbcCarFlowDao implements CarFlowDao {
                 carFlow = new CarFlow(
                         carDao.getById(resultSet.getInt("car")),
                         CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
-                        resultSet.getDate("dateCreated"),
+                        resultSet.getTimestamp("dateCreated"),
                         carRequestDao.getById(resultSet.getInt("carRequest")),
                         userDao.getById(resultSet.getInt("responsiblePerson")),
                         invoiceDao.getById(resultSet.getInt("invoice")),
@@ -148,7 +148,7 @@ class JdbcCarFlowDao implements CarFlowDao {
                 carFlow = new CarFlow(
                         carDao.getById(resultSet.getInt("car")),
                         CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
-                        resultSet.getDate("dateCreated"),
+                        resultSet.getTimestamp("dateCreated"),
                         carRequestDao.getById(resultSet.getInt("carRequest")),
                         userDao.getById(resultSet.getInt("responsiblePerson")),
                         invoiceDao.getById(resultSet.getInt("invoice")),
@@ -173,7 +173,7 @@ class JdbcCarFlowDao implements CarFlowDao {
                 carFlow = new CarFlow(
                         carDao.getById(resultSet.getInt("car")),
                         CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
-                        resultSet.getDate("dateCreated"),
+                        resultSet.getTimestamp("dateCreated"),
                         carRequestDao.getById(resultSet.getInt("carRequest")),
                         userDao.getById(resultSet.getInt("responsiblePerson")),
                         invoiceDao.getById(resultSet.getInt("invoice")),
