@@ -1,7 +1,8 @@
-package ua.rd.project4.model.dao;
+package ua.rd.project4.model.dao.connection.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ua.rd.project4.model.dao.connection.ConnectionFactory;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -9,16 +10,16 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class ConnectionFactory {
-    private static final ConnectionFactory instance = new ConnectionFactory();
-    private final Logger logger = LogManager.getLogger(ConnectionFactory.class);
+public class JdbcConnectionFactory implements ConnectionFactory {
+    private static final JdbcConnectionFactory instance = new JdbcConnectionFactory();
+    private final Logger logger = LogManager.getLogger(JdbcConnectionFactory.class);
     private DataSource dataSource = null;
     private String jdbcDriver;
     private String jdbcUrl;
     private String jdbcUser;
     private String jdbcPassword;
 
-    private ConnectionFactory() {
+    private JdbcConnectionFactory() {
         setJdbcParameters(
                 "com.mysql.jdbc.Driver",
 //                "com.mysql.cj.jdbc.Driver",
@@ -36,12 +37,12 @@ public class ConnectionFactory {
             InitialContext ic = new InitialContext();
             dataSource = (DataSource) ic.lookup("java:comp/env/jdbc/epam4_2");
         } catch (NamingException e) {
-            logger.debug(e.toString());
+            logger.debug(e);
         }
 
     }
 
-    public static ConnectionFactory getInstance() {
+    public static JdbcConnectionFactory getInstance() {
         return instance;
     }
 
@@ -57,11 +58,11 @@ public class ConnectionFactory {
         try {
             connection = getPoolConnection();
         } catch (Exception e) {
-//            logger.debug(e.toString());
+            logger.debug(e);
             try {
                 connection = getSingleConnection();
             } catch (Exception e1) {
-                logger.error(e1.toString());
+                logger.error(e1);
             }
         }
         if (connection == null) {

@@ -1,7 +1,8 @@
-package ua.rd.project4.controller.command;
+package ua.rd.project4.controller.command.impl;
 
+import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.domain.*;
-import ua.rd.project4.model.services.AbstractServiceFactory;
+import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ public class Admin implements Command {
         return "jsp/admin.jsp";
     }
 
-    AbstractServiceFactory getServiceFactory() {
+    ServiceFactory getServiceFactory() {
         return JdbcServiceFactory.getInstance();
     }
 
@@ -35,8 +36,12 @@ public class Admin implements Command {
                 getCarService().findAll());
         req.setAttribute("listCarsOut", getServiceFactory().
                 getCarService().findAll());
-        req.setAttribute("listCarRequests", getServiceFactory().
-                getCarRequestService().findAll());
+        req.setAttribute("mapsCarRequests", getServiceFactory().
+                getCarRequestService().getCarRequestsWithStatuses());
+        System.out.println(req.getAttribute("mapsCarRequests"));
+//        req.setAttribute("listCarFlows", getServiceFactory().
+//                getCarFlowService().findAll().stream().
+//                collect(Collectors.toMap(Entity::getId, CarFlow::toString)));
         req.setAttribute("listCarFlows", getServiceFactory().
                 getCarFlowService().findAll());
     }

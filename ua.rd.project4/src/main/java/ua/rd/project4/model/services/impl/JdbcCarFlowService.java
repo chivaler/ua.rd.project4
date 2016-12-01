@@ -3,7 +3,7 @@ package ua.rd.project4.model.services.impl;
 import ua.rd.project4.model.dao.CarFlowDao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.domain.CarFlow;
-import ua.rd.project4.model.services.AbstractServiceFactory;
+import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.CarFlowService;
 
 import java.util.List;
@@ -24,7 +24,7 @@ class JdbcCarFlowService extends  AbstractEntityService<CarFlow> implements CarF
     }
 
     @Override
-    AbstractServiceFactory getServiceFactory() {
+    ServiceFactory getServiceFactory() {
         return JdbcServiceFactory.getInstance();
     }
 

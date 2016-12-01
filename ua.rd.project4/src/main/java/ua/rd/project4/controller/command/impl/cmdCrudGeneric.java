@@ -1,6 +1,9 @@
-package ua.rd.project4.controller.command;
+package ua.rd.project4.controller.command.impl;
 
 import org.apache.logging.log4j.Logger;
+import ua.rd.project4.controller.command.Command;
+import ua.rd.project4.controller.exceptions.InvalidParameterException;
+import ua.rd.project4.controller.exceptions.RequiredParameterException;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
 import ua.rd.project4.model.exceptions.LoginExistsException;
@@ -16,7 +19,7 @@ import java.util.stream.Collectors;
 abstract class cmdCrudGeneric<T extends Entity> implements Command {
     abstract Logger getLogger();
 
-    abstract AbstractServiceFactory getServiceFactory();
+    abstract ServiceFactory getServiceFactory();
 
     abstract String getEntityJsp();
 
@@ -49,6 +52,9 @@ abstract class cmdCrudGeneric<T extends Entity> implements Command {
         req.setAttribute("listCarRequests", getServiceFactory().
                 getCarRequestService().findAll().stream().
                 collect(Collectors.toMap(Entity::getId, CarRequest::toString)));
+        req.setAttribute("listCarFlows", getServiceFactory().
+                getCarFlowService().findAll().stream().
+                collect(Collectors.toMap(Entity::getId, CarFlow::toString)));
         req.setAttribute("listCars", getServiceFactory().
                 getCarService().findAll().stream().
                 collect(Collectors.toMap(Entity::getId, Car::toString)));

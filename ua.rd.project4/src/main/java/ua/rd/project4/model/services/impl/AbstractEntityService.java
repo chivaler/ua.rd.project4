@@ -2,7 +2,7 @@ package ua.rd.project4.model.services.impl;
 
 import ua.rd.project4.domain.Entity;
 import ua.rd.project4.model.dao.EntityDao;
-import ua.rd.project4.model.services.AbstractServiceFactory;
+import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.EntityService;
 import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
 import ua.rd.project4.model.exceptions.UniqueViolationException;
@@ -12,7 +12,7 @@ import java.util.List;
 abstract class AbstractEntityService<T extends Entity> implements EntityService<T>{
     abstract EntityDao<T> getDao();
 
-    abstract AbstractServiceFactory getServiceFactory();
+    abstract ServiceFactory getServiceFactory();
 
     public boolean insert(T t) throws UniqueViolationException {
         return getDao().insert(t);

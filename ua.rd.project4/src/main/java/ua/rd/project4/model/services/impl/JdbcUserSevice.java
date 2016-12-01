@@ -26,7 +26,7 @@ class JdbcUserSevice extends AbstractEntityService<User> implements UserService 
     }
 
     @Override
-    AbstractServiceFactory getServiceFactory() {
+    ServiceFactory getServiceFactory() {
         return JdbcServiceFactory.getInstance();
     }
 

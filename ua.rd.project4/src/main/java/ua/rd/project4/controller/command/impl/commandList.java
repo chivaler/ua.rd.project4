@@ -1,4 +1,6 @@
-package ua.rd.project4.controller.command;
+package ua.rd.project4.controller.command.impl;
+
+import ua.rd.project4.controller.command.Command;
 
 public enum commandList {
     USERS(cmdCrudUsers.getInstance()),

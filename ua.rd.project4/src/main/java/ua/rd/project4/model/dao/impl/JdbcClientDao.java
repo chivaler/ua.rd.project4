@@ -4,7 +4,7 @@ import ua.rd.project4.domain.Client;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.ClientDao;
-import ua.rd.project4.model.dao.ConnectionFactory;
+import ua.rd.project4.model.dao.connection.impl.JdbcConnectionFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class JdbcClientDao implements ClientDao {
 
     @Override
     public void createTable() {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
+        Connection connection = JdbcConnectionFactory.getInstance().getConnection();
         try (Statement statement = connection.createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `clients` (" +
                     "id INT PRIMARY KEY auto_increment," +
@@ -41,7 +41,7 @@ public class JdbcClientDao implements ClientDao {
     @Override
     public boolean insert(Client client) {
         boolean wasInserted = false;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `clients` " +
                      "(firstName, lastName, address, telephone, email, idCard) VALUES(?,?,?,?,?,?)")) {
             preparedStatement.setString(1, client.getFirstName());
@@ -60,7 +60,7 @@ public class JdbcClientDao implements ClientDao {
     @Override
     public boolean update(int id, Client client) {
         boolean wasUpdated = false;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `clients` SET " +
                      "firstName=?, lastName=?, address=?, telephone=?, email=?, idCard=? WHERE id=?")) {
             preparedStatement.setString(1, client.getFirstName());
@@ -80,7 +80,7 @@ public class JdbcClientDao implements ClientDao {
     @Override
     public boolean delete(int id) {
         boolean wasDeleted = false;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `clients` WHERE id=?")) {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
@@ -93,7 +93,7 @@ public class JdbcClientDao implements ClientDao {
     @Override
     public Client getById(int id) {
         Client client = null;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `clients` WHERE id=? LIMIT 1")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -117,7 +117,7 @@ public class JdbcClientDao implements ClientDao {
     public List<Client> findAll() {
         List<Client> foundClients = new ArrayList<>();
         Client client;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `clients`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

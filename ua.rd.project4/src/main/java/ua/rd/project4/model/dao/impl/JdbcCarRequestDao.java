@@ -4,6 +4,7 @@ import ua.rd.project4.domain.CarRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.*;
+import ua.rd.project4.model.dao.connection.impl.JdbcConnectionFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
         clientDao.createTable();
         carDao.createTable();
         invoiceDao.createTable();
-        try (Statement statement = ConnectionFactory.getInstance().getConnection().createStatement()) {
+        try (Statement statement = JdbcConnectionFactory.getInstance().getConnection().createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `car_request` (" +
                     "id INT PRIMARY KEY auto_increment," +
                     "car INT," +
@@ -49,7 +50,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
     @Override
     public boolean insert(CarRequest carRequest) {
         boolean wasInserted = false;
-        try (PreparedStatement preparedStatement = ConnectionFactory.getInstance().getConnection().prepareStatement("INSERT INTO `car_request` " +
+        try (PreparedStatement preparedStatement = JdbcConnectionFactory.getInstance().getConnection().prepareStatement("INSERT INTO `car_request` " +
                 "(car, client, dateFrom, dateTo, totalCost, approved, invoice) VALUES(?,?,?,?,?,?,?)")) {
             preparedStatement.setObject(1, carDao.findId(carRequest.getCar()));
             preparedStatement.setObject(2, clientDao.findId(carRequest.getClient()));
@@ -68,7 +69,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
     @Override
     public boolean update(int id, CarRequest carRequest) {
         boolean wasUpdated = false;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `car_request` SET " +
                      "car=?, client=?, dateFrom=?, dateTo=?, totalCost=?, approved=?, invoice=? WHERE id=?")) {
             preparedStatement.setObject(1, carDao.findId(carRequest.getCar()));
@@ -89,7 +90,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
     @Override
     public boolean delete(int id) {
         boolean wasDeleted = false;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `car_request` WHERE id=?")) {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
@@ -109,7 +110,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
     public List<CarRequest> findAll() {
         List<CarRequest> foundCarsRequests = new ArrayList<>();
         CarRequest carRequest;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -145,7 +146,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
             throw new IllegalArgumentException();
         List<CarRequest> foundCarsRequests = new ArrayList<>();
         CarRequest carRequest;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE "+field+"=?")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();

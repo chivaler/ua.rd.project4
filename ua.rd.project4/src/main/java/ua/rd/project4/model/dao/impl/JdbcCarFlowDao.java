@@ -4,6 +4,7 @@ import ua.rd.project4.domain.CarFlow;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.*;
+import ua.rd.project4.model.dao.connection.impl.JdbcConnectionFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ class JdbcCarFlowDao implements CarFlowDao {
         invoiceDao.createTable();
         userDao.createTable();
         carRequestDao.createTable();
-        try (Statement statement = ConnectionFactory.getInstance().getConnection().createStatement()) {
+        try (Statement statement = JdbcConnectionFactory.getInstance().getConnection().createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `car_flow` (" +
                     "id INT PRIMARY KEY auto_increment," +
                     "car INT," +
@@ -55,7 +56,7 @@ class JdbcCarFlowDao implements CarFlowDao {
     @Override
     public boolean insert(CarFlow carFlow) {
         boolean wasInserted = false;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `car_flow` " +
                      "(car, carFlowType, client, carRequest, responsiblePerson, invoice, supplement) VALUES(?,?,?,?,?,?,?)")) {
             preparedStatement.setObject(1, carDao.findId(carFlow.getCar()));
@@ -78,7 +79,7 @@ class JdbcCarFlowDao implements CarFlowDao {
     @Override
     public boolean update(int id, CarFlow carFlow) {
         boolean wasUpdated = false;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `car_flow` SET " +
                      "car=?, carFlowType=?, client=?, carRequest=?, responsiblePerson=?, invoice=?, supplement=? WHERE id=?")) {
             preparedStatement.setObject(1, carDao.findId(carFlow.getCar()));
@@ -102,7 +103,7 @@ class JdbcCarFlowDao implements CarFlowDao {
     @Override
     public boolean delete(int id) {
         boolean wasDeleted = false;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `car_flow` WHERE id=?")) {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
@@ -115,7 +116,7 @@ class JdbcCarFlowDao implements CarFlowDao {
     @Override
     public CarFlow getById(int id) {
         CarFlow carFlow = null;
-        try (PreparedStatement preparedStatement = ConnectionFactory.getInstance().getConnection().
+        try (PreparedStatement preparedStatement = JdbcConnectionFactory.getInstance().getConnection().
                 prepareStatement("SELECT * FROM `car_flow` WHERE id=? LIMIT 1")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -140,7 +141,7 @@ class JdbcCarFlowDao implements CarFlowDao {
     public List<CarFlow> findAll() {
         List<CarFlow> foundCarFlows = new ArrayList<>();
         CarFlow carFlow;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -165,7 +166,7 @@ class JdbcCarFlowDao implements CarFlowDao {
         String sqlQuery = "SELECT * FROM `car_flow` WHERE " + field + "=" + id;
         List<CarFlow> foundCarFlows = new ArrayList<>();
         CarFlow carFlow;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(sqlQuery)) {
             while (resultSet.next()) {

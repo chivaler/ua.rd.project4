@@ -3,7 +3,7 @@ package ua.rd.project4.model.services.impl;
 import ua.rd.project4.model.dao.InvoiceDao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.domain.Invoice;
-import ua.rd.project4.model.services.AbstractServiceFactory;
+import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
 import ua.rd.project4.model.services.InvoiceService;
 
@@ -25,7 +25,7 @@ class JdbcInvoiceSevice extends AbstractEntityService<Invoice> implements Invoic
     }
 
     @Override
-    AbstractServiceFactory getServiceFactory() {
+    ServiceFactory getServiceFactory() {
         return JdbcServiceFactory.getInstance();
     }
 

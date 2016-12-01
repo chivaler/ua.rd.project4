@@ -1,7 +1,8 @@
-package ua.rd.project4.controller.command;
+package ua.rd.project4.controller.command.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.services.*;
@@ -31,7 +32,7 @@ class cmdCrudUsers extends cmdCrudGeneric<User> {
     }
 
     @Override
-    AbstractServiceFactory getServiceFactory() {
+    ServiceFactory getServiceFactory() {
         return JdbcServiceFactory.getInstance();
     }
 

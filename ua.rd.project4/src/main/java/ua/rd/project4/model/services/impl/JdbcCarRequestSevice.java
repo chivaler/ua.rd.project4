@@ -3,7 +3,7 @@ package ua.rd.project4.model.services.impl;
 import ua.rd.project4.model.dao.CarRequestDao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.domain.CarRequest;
-import ua.rd.project4.model.services.AbstractServiceFactory;
+import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.CarRequestService;
 
 import java.util.List;
@@ -24,7 +24,7 @@ class JdbcCarRequestSevice extends  AbstractEntityService<CarRequest> implements
     }
 
     @Override
-    AbstractServiceFactory getServiceFactory() {
+    ServiceFactory getServiceFactory() {
         return JdbcServiceFactory.getInstance();
     }
 

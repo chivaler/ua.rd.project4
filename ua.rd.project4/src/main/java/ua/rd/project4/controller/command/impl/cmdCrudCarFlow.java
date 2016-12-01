@@ -1,26 +1,26 @@
-package ua.rd.project4.controller.command;
+package ua.rd.project4.controller.command.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ua.rd.project4.domain.Invoice;
+import ua.rd.project4.controller.exceptions.InvalidParameterException;
+import ua.rd.project4.domain.CarFlow;
 import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
 
-class cmdCrudInvoice extends cmdCrudGeneric<Invoice> {
-    private static final cmdCrudInvoice instance = new cmdCrudInvoice();
-    private static final String LIST_INVOICES_JSP = "jsp/invoices.jsp";
-    private static final String EDIT_INVOICE_JSP = "jsp/invoice.jsp";
-    private final Logger logger = LogManager.getLogger(cmdCrudInvoice.class);
-    private final CarService clientService = getServiceFactory().getCarService();
-    private final InvoiceService invoiceService = getServiceFactory().getInvoiceService();
+class cmdCrudCarFlow extends cmdCrudGeneric<CarFlow> {
+    private static final cmdCrudCarFlow instance = new cmdCrudCarFlow();
+    private static final String LIST_CARFLOW_JSP = "jsp/car_flows.jsp";
+    private static final String EDIT_CARFLOW_JSP = "jsp/car_flow.jsp";
+    private final Logger logger = LogManager.getLogger(cmdCrudCarFlow.class);
+    private final CarFlowService carFlowService = getServiceFactory().getCarFlowService();
 
 
-    private cmdCrudInvoice() {
+    private cmdCrudCarFlow() {
     }
 
-    static cmdCrudInvoice getInstance() {
+    static cmdCrudCarFlow getInstance() {
         return instance;
     }
 
@@ -30,27 +30,27 @@ class cmdCrudInvoice extends cmdCrudGeneric<Invoice> {
     }
 
     @Override
-    AbstractServiceFactory getServiceFactory() {
+    ServiceFactory getServiceFactory() {
         return JdbcServiceFactory.getInstance();
     }
 
     @Override
     String getEntityJsp() {
-        return EDIT_INVOICE_JSP;
+        return EDIT_CARFLOW_JSP;
     }
 
     @Override
     String getEntityListJsp() {
-        return LIST_INVOICES_JSP;
+        return LIST_CARFLOW_JSP;
     }
 
     @Override
-    EntityService<Invoice> getEntityService() {
-        return invoiceService;
+    EntityService<CarFlow> getEntityService() {
+        return carFlowService;
     }
 
     @Override
-    Invoice parseToEntity(HttpServletRequest req) throws InvalidParameterException {
+    CarFlow parseToEntity(HttpServletRequest req) throws InvalidParameterException {
 //        Car.CarType carType = null;
 //        int rentPricePerDay = -1;
 //        int price = -1;

@@ -2,7 +2,7 @@ package ua.rd.project4.model.services.impl;
 
 import ua.rd.project4.model.services.*;
 
-public class JdbcServiceFactory implements AbstractServiceFactory {
+public class JdbcServiceFactory implements ServiceFactory {
     private static final JdbcServiceFactory instance = new JdbcServiceFactory();
 
     private JdbcServiceFactory() {

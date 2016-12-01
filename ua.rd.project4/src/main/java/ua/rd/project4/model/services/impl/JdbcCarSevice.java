@@ -3,7 +3,7 @@ package ua.rd.project4.model.services.impl;
 import ua.rd.project4.model.dao.EntityDao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.domain.Car;
-import ua.rd.project4.model.services.AbstractServiceFactory;
+import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.CarService;
 import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
 
@@ -23,7 +23,7 @@ class JdbcCarSevice extends AbstractEntityService<Car> implements CarService {
     }
 
     @Override
-    AbstractServiceFactory getServiceFactory() {
+    ServiceFactory getServiceFactory() {
         return JdbcServiceFactory.getInstance();
     }
 

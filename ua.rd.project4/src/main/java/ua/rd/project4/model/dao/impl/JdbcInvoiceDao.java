@@ -4,7 +4,7 @@ import ua.rd.project4.domain.Invoice;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.ClientDao;
-import ua.rd.project4.model.dao.ConnectionFactory;
+import ua.rd.project4.model.dao.connection.impl.JdbcConnectionFactory;
 import ua.rd.project4.model.dao.InvoiceDao;
 
 import java.sql.*;
@@ -26,7 +26,7 @@ class JdbcInvoiceDao implements InvoiceDao {
     @Override
     public void createTable() {
         clientDao.createTable();
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              Statement statement = connection.createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `invoices` (" +
                     "id INT PRIMARY KEY auto_increment," +
@@ -43,7 +43,7 @@ class JdbcInvoiceDao implements InvoiceDao {
     @Override
     public boolean insert(Invoice invoice) {
         boolean wasInserted = false;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `invoices` " +
                      "(client, total, paid, description) VALUES(?,?,?,?)")) {
             preparedStatement.setObject(1, clientDao.findId(invoice.getClient()));
@@ -60,7 +60,7 @@ class JdbcInvoiceDao implements InvoiceDao {
     @Override
     public boolean update(int id, Invoice invoice) {
         boolean wasUpdated = false;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `invoices` SET " +
                      "client=?, total=?, paid=?, description=? WHERE id=?")) {
             preparedStatement.setObject(1, clientDao.findId(invoice.getClient()));
@@ -78,7 +78,7 @@ class JdbcInvoiceDao implements InvoiceDao {
     @Override
     public boolean delete(int id) {
         boolean wasDeleted = false;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `invoices` WHERE id=?")) {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
@@ -91,7 +91,7 @@ class JdbcInvoiceDao implements InvoiceDao {
     @Override
     public Invoice getById(int id) {
         Invoice invoice = null;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `invoices` WHERE id=? LIMIT 1")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -112,7 +112,7 @@ class JdbcInvoiceDao implements InvoiceDao {
     @Override
     public List<Invoice> findAll() {
         List<Invoice> foundInvoices = new ArrayList<>();
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `invoices` ")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -144,7 +144,7 @@ class JdbcInvoiceDao implements InvoiceDao {
     public List<Invoice> findInvoicesByClientId(int idClient) {
         List<Invoice> foundInvoices = new ArrayList<>();
         Invoice invoice;
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `invoices` WHERE client=?")) {
             preparedStatement.setInt(1, idClient);
             ResultSet resultSet = preparedStatement.executeQuery();
