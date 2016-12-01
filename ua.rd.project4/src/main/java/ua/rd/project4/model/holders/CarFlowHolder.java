@@ -3,25 +3,25 @@ package ua.rd.project4.model.holders;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.dao.AbstractDaoFactory;
 
+import java.sql.Date;
+
 public class CarFlowHolder extends CarFlow implements Holder<CarFlow> {
     final AbstractDaoFactory daoFactory;
     private int carId;
-    private int clientId;
-    private final int carRequestId;
+    private int carRequestId;
     private int responsiblePersonId;
     private int invoiceId;
 
     public CarFlowHolder(int carId,
                          CarFlowType carFlowType,
-                         int clientId,
+                         Date dateCreated,
                          int carRequestId,
                          int responsiblePersonId,
                          int invoiceId,
                          String supplement,
                          AbstractDaoFactory daoFactory) {
-        super(null, carFlowType, null, null, null, null, supplement);
+        super(null, carFlowType, dateCreated, null, null, null, supplement);
         this.carId = carId;
-        this.clientId = clientId;
         this.responsiblePersonId = responsiblePersonId;
         this.invoiceId = invoiceId;
         this.carRequestId = carRequestId;
@@ -31,11 +31,6 @@ public class CarFlowHolder extends CarFlow implements Holder<CarFlow> {
     @Override
     public int getCarId() {
         return carId;
-    }
-
-    @Override
-    public int getClientId() {
-        return clientId;
     }
 
     @Override
@@ -64,23 +59,13 @@ public class CarFlowHolder extends CarFlow implements Holder<CarFlow> {
     }
 
     @Override
-    public Client getClient() {
-        return (clientId > 0) ? daoFactory.getClientDao().getById(clientId) : null;
-    }
-
-    @Override
-    public void setClient(Client client) {
-        this.clientId = (client == null) ? 0 : client.getId();
-    }
-
-    @Override
     public CarRequest getCarRequest() {
         return (carRequestId > 0) ? daoFactory.getCarRequestDao().getById(carRequestId) : null;
     }
 
     @Override
     public void setCarRequest(CarRequest carRequest) {
-        this.clientId = (carRequest == null) ? 0 : carRequest.getId();
+        this.carRequestId = (carRequest == null) ? 0 : carRequest.getId();
     }
 
     @Override

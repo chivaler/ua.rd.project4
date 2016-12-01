@@ -1,5 +1,6 @@
 package ua.rd.project4.domain;
 
+import java.sql.Date;
 import java.util.Objects;
 
 
@@ -7,7 +8,7 @@ public class CarFlow implements Entity {
     private int id;
     private Car car;
     private CarFlowType carFlowType;
-    private Client client;
+    private Date dateCreated;
     private CarRequest carRequest;
     private User responsiblePerson;
     private Invoice invoice;
@@ -41,10 +42,10 @@ public class CarFlow implements Entity {
         }
     }
 
-    public CarFlow(Car car, CarFlowType carFlowType, Client client, CarRequest carRequest, User responsiblePerson, Invoice invoice, String supplement) {
+    public CarFlow(Car car, CarFlowType carFlowType, Date dateCreated, CarRequest carRequest, User responsiblePerson, Invoice invoice, String supplement) {
         this.car = car;
         this.carFlowType = carFlowType;
-        this.client = client;
+        this.dateCreated = dateCreated;
         this.carRequest = carRequest;
         this.responsiblePerson = responsiblePerson;
         this.invoice = invoice;
@@ -64,7 +65,7 @@ public class CarFlow implements Entity {
             return false;
         if (getCarFlowType() != carFlow.getCarFlowType())
             return false;
-        if (getClientId() != carFlow.getClientId())
+        if (dateCreated != carFlow.dateCreated)
             return false;
         if (getCarRequestId() != carFlow.getCarRequestId())
             return false;
@@ -106,12 +107,12 @@ public class CarFlow implements Entity {
         this.carFlowType = carFlowType;
     }
 
-    public Client getClient() {
-        return client;
+    public Date getDateCreated() {
+        return dateCreated;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     public CarRequest getCarRequest() {
@@ -150,9 +151,6 @@ public class CarFlow implements Entity {
         return (car == null) ? 0 : car.getId();
     }
 
-    public int getClientId() {
-        return (client == null) ? 0 : client.getId();
-    }
 
     public int getCarRequestId() {
         return (carRequest == null) ? 0 : carRequest.getId();

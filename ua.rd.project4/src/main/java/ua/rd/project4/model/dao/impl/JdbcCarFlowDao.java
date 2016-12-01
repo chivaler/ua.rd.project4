@@ -38,7 +38,7 @@ class JdbcCarFlowDao implements CarFlowDao {
                     "id INT PRIMARY KEY auto_increment," +
                     "car INT," +
                     "carFlowType INT," +
-                    "client INT," +
+                    "dateCreated DATE," +
                     "carRequest INT," +
                     "responsiblePerson INT," +
                     "invoice INT," +
@@ -58,13 +58,13 @@ class JdbcCarFlowDao implements CarFlowDao {
         boolean wasInserted = false;
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `car_flow` " +
-                     "(car, carFlowType, client, carRequest, responsiblePerson, invoice, supplement) VALUES(?,?,?,?,?,?,?)")) {
+                     "(car, carFlowType, dateCreated, carRequest, responsiblePerson, invoice, supplement) VALUES(?,?,?,?,?,?,?)")) {
             preparedStatement.setObject(1, carDao.findId(carFlow.getCar()));
             if (carFlow.getCarFlowType() == null)
                 preparedStatement.setObject(2, null);
             else
                 preparedStatement.setObject(2, carFlow.getCarFlowType().getValue());
-            preparedStatement.setObject(3, clientDao.findId(carFlow.getClient()));
+            preparedStatement.setDate(3, carFlow.getDateCreated());
             preparedStatement.setObject(4, carRequestDao.findId(carFlow.getCarRequest()));
             preparedStatement.setObject(5, userDao.findId(carFlow.getResponsiblePerson()));
             preparedStatement.setObject(6, invoiceDao.findId(carFlow.getInvoice()));
@@ -87,7 +87,7 @@ class JdbcCarFlowDao implements CarFlowDao {
                 preparedStatement.setObject(2, null);
             else
                 preparedStatement.setObject(2, carFlow.getCarFlowType().getValue());
-            preparedStatement.setObject(3, clientDao.findId(carFlow.getClient()));
+            preparedStatement.setDate(3, carFlow.getDateCreated());
             preparedStatement.setObject(4, carRequestDao.findId(carFlow.getCarRequest()));
             preparedStatement.setObject(5, userDao.findId(carFlow.getResponsiblePerson()));
             preparedStatement.setObject(6, invoiceDao.findId(carFlow.getInvoice()));
@@ -124,7 +124,7 @@ class JdbcCarFlowDao implements CarFlowDao {
                 carFlow = new CarFlow(
                         carDao.getById(resultSet.getInt("car")),
                         CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
-                        clientDao.getById(resultSet.getInt("client")),
+                        resultSet.getDate("dateCreated"),
                         carRequestDao.getById(resultSet.getInt("carRequest")),
                         userDao.getById(resultSet.getInt("responsiblePerson")),
                         invoiceDao.getById(resultSet.getInt("invoice")),
@@ -148,7 +148,7 @@ class JdbcCarFlowDao implements CarFlowDao {
                 carFlow = new CarFlow(
                         carDao.getById(resultSet.getInt("car")),
                         CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
-                        clientDao.getById(resultSet.getInt("client")),
+                        resultSet.getDate("dateCreated"),
                         carRequestDao.getById(resultSet.getInt("carRequest")),
                         userDao.getById(resultSet.getInt("responsiblePerson")),
                         invoiceDao.getById(resultSet.getInt("invoice")),
@@ -173,7 +173,7 @@ class JdbcCarFlowDao implements CarFlowDao {
                 carFlow = new CarFlow(
                         carDao.getById(resultSet.getInt("car")),
                         CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
-                        clientDao.getById(resultSet.getInt("client")),
+                        resultSet.getDate("dateCreated"),
                         carRequestDao.getById(resultSet.getInt("carRequest")),
                         userDao.getById(resultSet.getInt("responsiblePerson")),
                         invoiceDao.getById(resultSet.getInt("invoice")),
