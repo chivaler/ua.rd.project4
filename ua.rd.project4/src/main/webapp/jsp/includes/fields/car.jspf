@@ -1,5 +1,5 @@
 <tr>
-    <td><label for="car">car</td>
+    <td><label for="car">car</label></td>
     <td>
         <c:choose>
             <c:when test="${not empty listCars}">

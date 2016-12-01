@@ -1,5 +1,5 @@
 <tr>
-    <td><label for="client">client</td>
+    <td><label for="client">client</label></td>
     <td>
         <c:choose>
             <c:when test="${not empty listClients}">

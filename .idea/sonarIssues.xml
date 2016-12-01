@@ -3,11 +3,6 @@
   <component name="issues">
     <option name="index">
       <map>
-        <entry key="$PROJECT_DIR$/ua.rd.project4/pom.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/Dao/AbstractDaoFactory.java">
           <value>
             <set />
@@ -49,6 +44,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/entities/SystemUser.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarRequestService.java">
           <value>
             <set />
           </value>
