@@ -31,12 +31,13 @@ class JdbcInvoiceDao implements InvoiceDao {
             statement.execute("CREATE TABLE IF NOT EXISTS `invoices` (" +
                     "id INT PRIMARY KEY auto_increment," +
                     "client INT," +
+                    "dateCreated DATE," +
                     "total INT," +
                     "paid BOOLEAN," +
                     "description VARCHAR(16)," +
                     "FOREIGN KEY (client) REFERENCES clients(id))");
         } catch (SQLException e) {
-            logger.error("Table `invoices` didn't created: " + e.toString());
+            logger.error("Table `invoices` didn't created: ",e);
         }
     }
 
@@ -45,14 +46,15 @@ class JdbcInvoiceDao implements InvoiceDao {
         boolean wasInserted = false;
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `invoices` " +
-                     "(client, total, paid, description) VALUES(?,?,?,?)")) {
+                     "(client, dateCreated, total, paid, description) VALUES(?,?,?,?,?)")) {
             preparedStatement.setObject(1, clientDao.findId(invoice.getClient()));
-            preparedStatement.setInt(2, invoice.getTotal());
-            preparedStatement.setBoolean(3, invoice.isPaid());
-            preparedStatement.setString(4, invoice.getDescription());
+            preparedStatement.setDate(2, invoice.getDateCreated());
+            preparedStatement.setInt(3, invoice.getTotal());
+            preparedStatement.setBoolean(4, invoice.isPaid());
+            preparedStatement.setString(5, invoice.getDescription());
             wasInserted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasInserted;
     }
@@ -62,15 +64,16 @@ class JdbcInvoiceDao implements InvoiceDao {
         boolean wasUpdated = false;
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `invoices` SET " +
-                     "client=?, total=?, paid=?, description=? WHERE id=?")) {
+                     "client=?, dateCreated=?, total=?, paid=?, description=? WHERE id=?")) {
             preparedStatement.setObject(1, clientDao.findId(invoice.getClient()));
-            preparedStatement.setInt(2, invoice.getTotal());
-            preparedStatement.setBoolean(3, invoice.isPaid());
-            preparedStatement.setString(4, invoice.getDescription());
-            preparedStatement.setInt(5, id);
+            preparedStatement.setDate(2, invoice.getDateCreated());
+            preparedStatement.setInt(3, invoice.getTotal());
+            preparedStatement.setBoolean(4, invoice.isPaid());
+            preparedStatement.setString(5, invoice.getDescription());
+            preparedStatement.setInt(6, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasUpdated;
     }
@@ -83,7 +86,7 @@ class JdbcInvoiceDao implements InvoiceDao {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasDeleted;
     }
@@ -98,13 +101,14 @@ class JdbcInvoiceDao implements InvoiceDao {
             if (resultSet.next()) {
                 invoice = new Invoice(
                         clientDao.getById(resultSet.getInt("client")),
+                        resultSet.getDate("dateCreated"),
                         resultSet.getInt("total"),
                         resultSet.getBoolean("paid"),
                         resultSet.getString("description"));
                 invoice.setId(resultSet.getInt("id"));
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return invoice;
     }
@@ -118,6 +122,7 @@ class JdbcInvoiceDao implements InvoiceDao {
             while (resultSet.next()) {
                 Invoice invoice = new Invoice(
                         clientDao.getById(resultSet.getInt("client")),
+                        resultSet.getDate("dateCreated"),
                         resultSet.getInt("total"),
                         resultSet.getBoolean("paid"),
                         resultSet.getString("description"));
@@ -125,7 +130,7 @@ class JdbcInvoiceDao implements InvoiceDao {
                 foundInvoices.add(invoice);
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return foundInvoices;
     }
@@ -151,6 +156,7 @@ class JdbcInvoiceDao implements InvoiceDao {
             while (resultSet.next()) {
                 invoice = new Invoice(
                         clientDao.getById(resultSet.getInt("client")),
+                        resultSet.getDate("dateCreated"),
                         resultSet.getInt("total"),
                         resultSet.getBoolean("paid"),
                         resultSet.getString("description"));
@@ -158,7 +164,7 @@ class JdbcInvoiceDao implements InvoiceDao {
                 foundInvoices.add(invoice);
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return foundInvoices;
     }
