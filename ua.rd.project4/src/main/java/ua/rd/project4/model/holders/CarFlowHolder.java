@@ -4,6 +4,7 @@ import ua.rd.project4.domain.*;
 import ua.rd.project4.model.dao.AbstractDaoFactory;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class CarFlowHolder extends CarFlow implements Holder<CarFlow> {
     final AbstractDaoFactory daoFactory;
@@ -14,7 +15,7 @@ public class CarFlowHolder extends CarFlow implements Holder<CarFlow> {
 
     public CarFlowHolder(int carId,
                          CarFlowType carFlowType,
-                         Date dateCreated,
+                         Timestamp dateCreated,
                          int carRequestId,
                          int responsiblePersonId,
                          int invoiceId,

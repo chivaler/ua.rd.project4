@@ -4,7 +4,9 @@ import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.Invoice;
 import ua.rd.project4.model.dao.AbstractDaoFactory;
 
-public class InvoiceHolder extends Invoice implements Holder<Invoice> {
+import java.sql.Timestamp;
+
+public class InvoiceHolder extends Invoice {
     private final AbstractDaoFactory daoFactory;
     private int clientId;
 
@@ -13,8 +15,8 @@ public class InvoiceHolder extends Invoice implements Holder<Invoice> {
         return clientId;
     }
 
-    public InvoiceHolder(int clientId, int total, boolean paid, String description, AbstractDaoFactory daoFactory) {
-        super(null, total, paid, description);
+    public InvoiceHolder(int clientId, Timestamp dateCreated, int total, boolean paid, String description, AbstractDaoFactory daoFactory) {
+        super(null, dateCreated, total, paid, description);
         this.daoFactory = daoFactory;
         this.clientId = clientId;
     }

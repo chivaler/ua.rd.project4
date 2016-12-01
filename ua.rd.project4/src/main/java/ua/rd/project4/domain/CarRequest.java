@@ -10,8 +10,15 @@ public class CarRequest implements Entity {
     private Date dateFrom;
     private Date dateTo;
     private int totalCost;
-    private boolean approved;
+    private RequestStatus status;
+    boolean approved;
     private Invoice invoice;
+    private String rejectReason;
+
+
+    enum RequestStatus {
+        NEW, APPROVED, REJECTED, DONE;
+    }
 
     public CarRequest(Car car, Client client, Date dateFrom, Date dateTo, int totalCost, boolean approved, Invoice invoice) {
         this.car = car;
@@ -20,7 +27,10 @@ public class CarRequest implements Entity {
         this.dateTo = dateTo;
         this.totalCost = totalCost;
         this.approved = approved;
+
+//  this.status = status;
         this.invoice = invoice;
+
     }
 
     @Override
