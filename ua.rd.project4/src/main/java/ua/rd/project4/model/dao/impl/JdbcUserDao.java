@@ -36,7 +36,7 @@ class JdbcUserDao implements UserDao {
                     "client INT," +
                     "FOREIGN KEY (client) REFERENCES clients(id))");
         } catch (SQLException e) {
-            logger.error("Table `users` didn't created: " + e.toString());
+            logger.error("Table `users` didn't created: ",e);
         }
     }
 
@@ -52,7 +52,7 @@ class JdbcUserDao implements UserDao {
             preparedStatement.setObject(4, clientDao.findId(user.getClient()));
             wasInserted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasInserted;
     }
@@ -70,7 +70,7 @@ class JdbcUserDao implements UserDao {
             preparedStatement.setInt(5, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasUpdated;
     }
@@ -84,7 +84,7 @@ class JdbcUserDao implements UserDao {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasDeleted;
     }
@@ -105,7 +105,7 @@ class JdbcUserDao implements UserDao {
                 user.setId(resultSet.getInt("id"));
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return user;
     }
@@ -127,7 +127,7 @@ class JdbcUserDao implements UserDao {
                 allUsers.add(user);
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return allUsers;
     }
@@ -160,7 +160,7 @@ class JdbcUserDao implements UserDao {
                 allUsers.add(user);
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return allUsers;
     }

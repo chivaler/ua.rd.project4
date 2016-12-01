@@ -34,7 +34,7 @@ public class JdbcClientDao implements ClientDao {
                     "email VARCHAR(24)," +
                     "idCard VARCHAR(100))");
         } catch (SQLException e) {
-            logger.error("Table `clients` didn't created:" + e.toString());
+            logger.error("Table `clients` didn't created:",e);
         }
     }
 
@@ -52,7 +52,7 @@ public class JdbcClientDao implements ClientDao {
             preparedStatement.setString(6, client.getIdCard());
             wasInserted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasInserted;
     }
@@ -72,7 +72,7 @@ public class JdbcClientDao implements ClientDao {
             preparedStatement.setInt(7, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasUpdated;
     }
@@ -85,7 +85,7 @@ public class JdbcClientDao implements ClientDao {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasDeleted;
     }
@@ -108,7 +108,7 @@ public class JdbcClientDao implements ClientDao {
                 client.setId(resultSet.getInt("id"));
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return client;
     }
@@ -132,7 +132,7 @@ public class JdbcClientDao implements ClientDao {
                 foundClients.add(client);
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return foundClients;
     }

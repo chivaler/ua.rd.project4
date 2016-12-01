@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b6ca6b15-2d8d-4825-a483-4297d64caaf2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/Invoice.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/Invoice.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcInvoiceDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcInvoiceDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcUserDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcUserDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
     </list>
     <ignored path="project4.iws" />
@@ -49,30 +51,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarFlowHolder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarFlowHolder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarFlowDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarFlowDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="JdbcCarFlowDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
+            <state relative-caret-position="442">
               <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="67" />
               <folding>
                 <marker date="1480590258174" expanded="true" signature="1439:2184" ph="CREATE TABLE... IF" />
@@ -83,6 +65,52 @@
                 <marker date="1480590258174" expanded="true" signature="6882:6906" ph="SELECT * FRO... car_flow" />
                 <marker date="1480590258174" expanded="true" signature="7889:7934" ph="SELECT * FRO... car_flow" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JdbcCarRequestDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="123">
+              <caret line="149" column="62" selection-start-line="149" selection-start-column="62" selection-end-line="149" selection-end-column="62" />
+              <folding>
+                <element signature="e#4699#4700#0" expanded="true" />
+                <element signature="e#4790#4791#0" expanded="true" />
+                <marker date="1480591648857" expanded="true" signature="1218:1785" ph="CREATE TABLE... IF" />
+                <marker date="1480591648857" expanded="true" signature="2133:2263" ph="INSERT INTO `car_request`... " />
+                <marker date="1480591648857" expanded="true" signature="3248:3383" ph="UPDATE `car_... " />
+                <marker date="1480591648857" expanded="true" signature="4388:4424" ph="DELETE FROM " />
+                <marker date="1480591648857" expanded="true" signature="5113:5140" ph="SELECT * FRO... car_request" />
+                <marker date="1480591648857" expanded="true" signature="6759:6804" ph="SELECT * FRO... car_request" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JdbcClientDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="36" column="59" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="59" />
+              <folding>
+                <marker date="1480591892621" expanded="true" signature="899:1269" ph="CREATE TABLE... IF" />
+                <marker date="1480591892621" expanded="true" signature="1652:1776" ph="INSERT INTO `clients`... " />
+                <marker date="1480591892621" expanded="true" signature="2619:2743" ph="UPDATE `clie... " />
+                <marker date="1480591892621" expanded="true" signature="3614:3646" ph="DELETE FROM " />
+                <marker date="1480591892621" expanded="true" signature="4119:4161" ph="SELECT * FRO... clients" />
+                <marker date="1480591892621" expanded="true" signature="5162:5185" ph="SELECT * FRO... clients" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JdbcDaoFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcDaoFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -103,10 +131,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JdbcInvoiceDao.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JdbcInvoiceDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcInvoiceDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="-340">
               <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
               <folding>
                 <marker date="1480591482454" expanded="true" signature="1060:1194" ph="CREATE TABLE... IF" />
@@ -122,30 +150,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JdbcUserDao.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JdbcUserDao.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcUserDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+            <state relative-caret-position="-510">
+              <caret line="38" column="58" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="58" />
               <folding>
-                <marker date="1480524501614" expanded="true" signature="1040:1370" ph="CREATE TABLE... IF" />
-                <marker date="1480524501614" expanded="true" signature="1761:1857" ph="INSERT INTO `users`... " />
-                <marker date="1480524501614" expanded="true" signature="2581:2677" ph="UPDATE `user... " />
-                <marker date="1480524501614" expanded="true" signature="3434:3464" ph="DELETE FROM " />
-                <marker date="1480524501614" expanded="true" signature="3942:3982" ph="SELECT * FRO... users" />
-                <marker date="1480524501614" expanded="true" signature="4875:4896" ph="SELECT * FRO... users" />
-                <marker date="1480524501614" expanded="true" signature="6060:6096" ph="SELECT * FRO... users" />
+                <marker date="1480591913110" expanded="true" signature="1040:1370" ph="CREATE TABLE... IF" />
+                <marker date="1480591913110" expanded="true" signature="1748:1844" ph="INSERT INTO `users`... " />
+                <marker date="1480591913110" expanded="true" signature="2557:2653" ph="UPDATE `user... " />
+                <marker date="1480591913110" expanded="true" signature="3399:3429" ph="DELETE FROM " />
+                <marker date="1480591913110" expanded="true" signature="3896:3936" ph="SELECT * FRO... users" />
+                <marker date="1480591913110" expanded="true" signature="4818:4839" ph="SELECT * FRO... users" />
+                <marker date="1480591913110" expanded="true" signature="5992:6028" ph="SELECT * FRO... users" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarDao.java">
+      <file leaf-file-name="JdbcCarDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="-1231">
+              <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+              <folding>
+                <marker date="1480591625124" expanded="true" signature="836:1304" ph="CREATE TABLE... IF" />
+                <marker date="1480591625124" expanded="true" signature="1679:1826" ph="INSERT INTO `cars`... " />
+                <marker date="1480591625124" expanded="true" signature="2755:2902" ph="UPDATE `cars... " />
+                <marker date="1480591625124" expanded="true" signature="3865:3894" ph="DELETE FROM " />
+                <marker date="1480591625124" expanded="true" signature="4358:4397" ph="SELECT * FRO... cars" />
+                <marker date="1480591625124" expanded="true" signature="5440:5460" ph="SELECT * FRO... cars" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,16 +190,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarRequest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -199,7 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/cmdCrudUsers.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/Car.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/cmdCrudCarFlow.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/cmdCrudCarRequest.java" />
@@ -208,8 +232,6 @@
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/Command.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/commandList.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/Admin.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcUserDao.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/cmdCrudGeneric.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/dao/EntityDaoTest.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/JdbcCarSevice.java" />
@@ -228,7 +250,6 @@
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcInvoiceSevice.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/LoginExistsException.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarService.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/ConnectionFactory.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/impl/ConnectionFactory.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/ConnectionFactory.java" />
@@ -250,6 +271,10 @@
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/Invoice.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcInvoiceDao.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcUserDao.java" />
       </list>
     </option>
   </component>
@@ -1832,7 +1857,7 @@
       <workItem from="1480234701314" duration="45026000" />
       <workItem from="1480289259931" duration="78936000" />
       <workItem from="1480496874436" duration="2547000" />
-      <workItem from="1480500947727" duration="33696000" />
+      <workItem from="1480500947727" duration="34104000" />
     </task>
     <task id="LOCAL-00001" summary="+allservices">
       <created>1480247341265</created>
@@ -1988,7 +2013,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480590320463</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Invoice: added dateFrom">
+      <created>1480591559785</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1480591559785</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2024,7 +2056,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193419000" />
+    <option name="totallyTimeSpent" value="193827000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -2104,7 +2136,8 @@
     <MESSAGE value="implementations to impl" />
     <MESSAGE value="refactoring, +admin.jsp" />
     <MESSAGE value="CarFlow: removed client, added dateFrom" />
-    <option name="LAST_COMMIT_MESSAGE" value="CarFlow: removed client, added dateFrom" />
+    <MESSAGE value="Invoice: added dateFrom" />
+    <option name="LAST_COMMIT_MESSAGE" value="Invoice: added dateFrom" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2155,30 +2188,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcUserSevice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarFlowService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="75" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarRequestSevice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -2256,21 +2265,6 @@
         <state relative-caret-position="58">
           <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-          <folding>
-            <marker date="1480524501661" expanded="true" signature="1218:1785" ph="CREATE TABLE... IF" />
-            <marker date="1480524501661" expanded="true" signature="2145:2275" ph="INSERT INTO `car_request`... " />
-            <marker date="1480524501661" expanded="true" signature="3271:3406" ph="UPDATE `car_... " />
-            <marker date="1480524501661" expanded="true" signature="4422:4458" ph="DELETE FROM " />
-            <marker date="1480524501661" expanded="true" signature="5158:5185" ph="SELECT * FRO... car_request" />
-            <marker date="1480524501661" expanded="true" signature="6815:6860" ph="SELECT * FRO... car_request" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2528,22 +2522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcUserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding>
-            <marker date="1480524501614" expanded="true" signature="1040:1370" ph="CREATE TABLE... IF" />
-            <marker date="1480524501614" expanded="true" signature="1761:1857" ph="INSERT INTO `users`... " />
-            <marker date="1480524501614" expanded="true" signature="2581:2677" ph="UPDATE `user... " />
-            <marker date="1480524501614" expanded="true" signature="3434:3464" ph="DELETE FROM " />
-            <marker date="1480524501614" expanded="true" signature="3942:3982" ph="SELECT * FRO... users" />
-            <marker date="1480524501614" expanded="true" signature="4875:4896" ph="SELECT * FRO... users" />
-            <marker date="1480524501614" expanded="true" signature="6060:6096" ph="SELECT * FRO... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -2586,9 +2564,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1231">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding>
+            <marker date="1480591625124" expanded="true" signature="836:1304" ph="CREATE TABLE... IF" />
+            <marker date="1480591625124" expanded="true" signature="1679:1826" ph="INSERT INTO `cars`... " />
+            <marker date="1480591625124" expanded="true" signature="2755:2902" ph="UPDATE `cars... " />
+            <marker date="1480591625124" expanded="true" signature="3865:3894" ph="DELETE FROM " />
+            <marker date="1480591625124" expanded="true" signature="4358:4397" ph="SELECT * FRO... cars" />
+            <marker date="1480591625124" expanded="true" signature="5440:5460" ph="SELECT * FRO... cars" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
+        <state relative-caret-position="442">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="67" />
           <folding>
             <marker date="1480590258174" expanded="true" signature="1439:2184" ph="CREATE TABLE... IF" />
@@ -2602,9 +2595,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="149" column="62" selection-start-line="149" selection-start-column="62" selection-end-line="149" selection-end-column="62" />
+          <folding>
+            <element signature="e#4699#4700#0" expanded="true" />
+            <element signature="e#4790#4791#0" expanded="true" />
+            <marker date="1480591648857" expanded="true" signature="1218:1785" ph="CREATE TABLE... IF" />
+            <marker date="1480591648857" expanded="true" signature="2133:2263" ph="INSERT INTO `car_request`... " />
+            <marker date="1480591648857" expanded="true" signature="3248:3383" ph="UPDATE `car_... " />
+            <marker date="1480591648857" expanded="true" signature="4388:4424" ph="DELETE FROM " />
+            <marker date="1480591648857" expanded="true" signature="5113:5140" ph="SELECT * FRO... car_request" />
+            <marker date="1480591648857" expanded="true" signature="6759:6804" ph="SELECT * FRO... car_request" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="36" column="59" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="59" />
+          <folding>
+            <marker date="1480591892621" expanded="true" signature="899:1269" ph="CREATE TABLE... IF" />
+            <marker date="1480591892621" expanded="true" signature="1652:1776" ph="INSERT INTO `clients`... " />
+            <marker date="1480591892621" expanded="true" signature="2619:2743" ph="UPDATE `clie... " />
+            <marker date="1480591892621" expanded="true" signature="3614:3646" ph="DELETE FROM " />
+            <marker date="1480591892621" expanded="true" signature="4119:4161" ph="SELECT * FRO... clients" />
+            <marker date="1480591892621" expanded="true" signature="5162:5185" ph="SELECT * FRO... clients" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcDaoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcInvoiceDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="-340">
           <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding>
             <marker date="1480591482454" expanded="true" signature="1060:1194" ph="CREATE TABLE... IF" />
@@ -2615,6 +2648,22 @@
             <marker date="1480591482454" expanded="true" signature="4173:4216" ph="SELECT * FRO... invoices" />
             <marker date="1480591482454" expanded="true" signature="5157:5181" ph="SELECT * FRO... invoices" />
             <marker date="1480591482454" expanded="true" signature="6464:6503" ph="SELECT * FRO... invoices" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcUserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="38" column="58" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="58" />
+          <folding>
+            <marker date="1480591913110" expanded="true" signature="1040:1370" ph="CREATE TABLE... IF" />
+            <marker date="1480591913110" expanded="true" signature="1748:1844" ph="INSERT INTO `users`... " />
+            <marker date="1480591913110" expanded="true" signature="2557:2653" ph="UPDATE `user... " />
+            <marker date="1480591913110" expanded="true" signature="3399:3429" ph="DELETE FROM " />
+            <marker date="1480591913110" expanded="true" signature="3896:3936" ph="SELECT * FRO... users" />
+            <marker date="1480591913110" expanded="true" signature="4818:4839" ph="SELECT * FRO... users" />
+            <marker date="1480591913110" expanded="true" signature="5992:6028" ph="SELECT * FRO... users" />
           </folding>
         </state>
       </provider>

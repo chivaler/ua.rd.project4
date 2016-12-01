@@ -35,7 +35,7 @@ class JdbcCarDao implements CarDao {
                     "price INT," +
                     "rentPricePerDay INT)");
         } catch (SQLException e) {
-            logger.error("Table `car` didn't created: " + e.toString());
+            logger.error("Table `car` didn't created: ", e);
         }
     }
 
@@ -54,7 +54,7 @@ class JdbcCarDao implements CarDao {
             preparedStatement.setInt(7, car.getRentPricePerDay());
             wasInserted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasInserted;
     }
@@ -75,7 +75,7 @@ class JdbcCarDao implements CarDao {
             preparedStatement.setInt(8, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasUpdated;
     }
@@ -88,7 +88,7 @@ class JdbcCarDao implements CarDao {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasDeleted;
     }
@@ -112,7 +112,7 @@ class JdbcCarDao implements CarDao {
                 car.setId(resultSet.getInt("id"));
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return car;
     }
@@ -136,7 +136,7 @@ class JdbcCarDao implements CarDao {
                 foundCars.add(car);
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return foundCars;
     }

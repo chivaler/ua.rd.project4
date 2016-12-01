@@ -43,7 +43,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
                     "FOREIGN KEY (client) REFERENCES clients(id)," +
                     "FOREIGN KEY (invoice) REFERENCES invoices(id))");
         } catch (SQLException e) {
-            logger.error("Table `car_request` didn't created: " + e.toString());
+            logger.error("Table `car_request` didn't created: ", e);
         }
     }
 
@@ -61,7 +61,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
             preparedStatement.setObject(7, invoiceDao.findId(carRequest.getInvoice()));
             wasInserted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasInserted;
     }
@@ -82,7 +82,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
             preparedStatement.setInt(8, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasUpdated;
     }
@@ -95,7 +95,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return wasDeleted;
     }
@@ -126,7 +126,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
                 foundCarsRequests.add(carRequest);
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return foundCarsRequests;
     }
@@ -163,7 +163,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
                 foundCarsRequests.add(carRequest);
             }
         } catch (SQLException e) {
-            logger.error(e.toString());
+            logger.error(e);
         }
         return foundCarsRequests;
     }
