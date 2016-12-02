@@ -10,8 +10,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcClientDao implements ClientDao {
-    final private static JdbcClientDao instance = new JdbcClientDao();
+class JdbcClientDao implements ClientDao {
+    private final static JdbcClientDao instance = new JdbcClientDao();
     private static final Logger logger = LogManager.getLogger(JdbcClientDao.class);
 
     private JdbcClientDao() {
@@ -34,7 +34,7 @@ public class JdbcClientDao implements ClientDao {
                     "email VARCHAR(24)," +
                     "idCard VARCHAR(100))");
         } catch (SQLException e) {
-            logger.error("Table `clients` didn't created:",e);
+            logger.error("Table `clients` didn't created:", e);
         }
     }
 

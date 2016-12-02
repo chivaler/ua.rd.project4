@@ -10,8 +10,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcCarRequestDao implements CarRequestDao {
-    final private static JdbcCarRequestDao instance = new JdbcCarRequestDao();
+class JdbcCarRequestDao implements CarRequestDao {
+    private final static JdbcCarRequestDao instance = new JdbcCarRequestDao();
     private final Logger logger = LogManager.getLogger(JdbcCarRequestDao.class);
     private final ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
     private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
@@ -147,7 +147,7 @@ public class JdbcCarRequestDao implements CarRequestDao {
         List<CarRequest> foundCarsRequests = new ArrayList<>();
         CarRequest carRequest;
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE "+field+"=?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE " + field + "=?")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

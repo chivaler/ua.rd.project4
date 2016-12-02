@@ -8,15 +8,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-enum CarRequestStatus{
-    POSSIBLE, CONFLICT, IMPOSSIBLE;
-}
-
 public interface CarRequestService extends EntityService<CarRequest> {
     List<CarRequest> findCarRequestsByClientId(int clientId);
     List<CarRequest> findCarRequestsByCarId(int carId);
     List<CarRequest> findCarRequestsByInvoiceId(int invoiceId);
 
+    enum CarRequestStatus{
+        POSSIBLE, CONFLICT, IMPOSSIBLE;
+    }
     default CarRequestStatus isPossible(int carRequestId) {
         return CarRequestStatus.POSSIBLE;
     }
