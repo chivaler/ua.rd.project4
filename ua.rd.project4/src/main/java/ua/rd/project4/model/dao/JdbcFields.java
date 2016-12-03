@@ -1,7 +1,7 @@
-package ua.rd.project4.model.dao.impl;
+package ua.rd.project4.model.dao;
 
 public enum JdbcFields {
-    ID("id"), CAR("car"), INVOICE("invoice"), CLIENT("client");
+    ID("id"), CAR("car"), INVOICE("invoice"), CLIENT("client"), CARREQUEST("carRequest"), RESPONSIBLEUSER("responsiblePerson");
 
     String fieldName;
 

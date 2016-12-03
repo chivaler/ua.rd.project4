@@ -15,7 +15,6 @@ public class CarFlowHolder extends CarFlow {
 
     public CarFlowHolder(int carId,
                          CarFlowType carFlowType,
-                         Timestamp dateCreated,
                          int carRequestId,
                          int responsiblePersonId,
                          int invoiceId,

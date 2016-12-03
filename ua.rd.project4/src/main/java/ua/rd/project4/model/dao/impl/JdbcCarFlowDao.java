@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.*;
 import ua.rd.project4.model.dao.connection.impl.JdbcConnectionFactory;
+import ua.rd.project4.model.holders.CarFlowHolder;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -44,7 +45,6 @@ class JdbcCarFlowDao implements CarFlowDao {
                     "supplement VARCHAR(240)," +
                     "dateCreated TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP," +
                     "FOREIGN KEY (car) REFERENCES cars(id)," +
-                    "FOREIGN KEY (client) REFERENCES clients(id)," +
                     "FOREIGN KEY (invoice) REFERENCES invoices(id)," +
                     "FOREIGN KEY (responsiblePerson) REFERENCES users(id)," +
                     "FOREIGN KEY (carRequest) REFERENCES car_request(id))");
@@ -58,17 +58,13 @@ class JdbcCarFlowDao implements CarFlowDao {
         boolean wasInserted = false;
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `car_flow` " +
-                     "(car, carFlowType, dateCreated, carRequest, responsiblePerson, invoice, supplement) VALUES(?,?,?,?,?,?,?)")) {
-            preparedStatement.setObject(1, carDao.findId(carFlow.getCar()));
-            if (carFlow.getCarFlowType() == null)
-                preparedStatement.setObject(2, null);
-            else
-                preparedStatement.setObject(2, carFlow.getCarFlowType().getValue());
-            preparedStatement.setTimestamp(3, carFlow.getDateCreated());
-            preparedStatement.setObject(4, carRequestDao.findId(carFlow.getCarRequest()));
-            preparedStatement.setObject(5, userDao.findId(carFlow.getResponsiblePerson()));
-            preparedStatement.setObject(6, invoiceDao.findId(carFlow.getInvoice()));
-            preparedStatement.setString(7, carFlow.getSupplement());
+                     "(car, carFlowType, carRequest, responsiblePerson, invoice, supplement) VALUES(?,?,?,?,?,?)")) {
+            preparedStatement.setObject(1, carFlow.getCarId() == 0 ? null : carFlow.getCarId());
+            preparedStatement.setObject(2, carFlow.getCarFlowType() == null ? null : carFlow.getCarFlowType().getValue());
+            preparedStatement.setObject(3, carFlow.getCarRequestId() == 0 ? null : carFlow.getCarRequestId());
+            preparedStatement.setObject(4, carFlow.getResponsiblePersonId() == 0 ? null : carFlow.getResponsiblePersonId());
+            preparedStatement.setObject(5, carFlow.getInvoiceId() == 0 ? null : carFlow.getInvoiceId());
+            preparedStatement.setString(6, carFlow.getSupplement());
             wasInserted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             logger.error(e);
@@ -81,18 +77,14 @@ class JdbcCarFlowDao implements CarFlowDao {
         boolean wasUpdated = false;
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `car_flow` SET " +
-                     "car=?, carFlowType=?, client=?, carRequest=?, responsiblePerson=?, invoice=?, supplement=? WHERE id=?")) {
-            preparedStatement.setObject(1, carDao.findId(carFlow.getCar()));
-            if (carFlow.getCarFlowType() == null)
-                preparedStatement.setObject(2, null);
-            else
-                preparedStatement.setObject(2, carFlow.getCarFlowType().getValue());
-            preparedStatement.setTimestamp(3, carFlow.getDateCreated());
-            preparedStatement.setObject(4, carRequestDao.findId(carFlow.getCarRequest()));
-            preparedStatement.setObject(5, userDao.findId(carFlow.getResponsiblePerson()));
-            preparedStatement.setObject(6, invoiceDao.findId(carFlow.getInvoice()));
-            preparedStatement.setString(7, carFlow.getSupplement());
-            preparedStatement.setInt(8, id);
+                     "car=?, carFlowType=?, carRequest=?, responsiblePerson=?, invoice=?, supplement=? WHERE id=?")) {
+            preparedStatement.setObject(1, carFlow.getCarId() == 0 ? null : carFlow.getCarId());
+            preparedStatement.setObject(2, carFlow.getCarFlowType() == null ? null : carFlow.getCarFlowType().getValue());
+            preparedStatement.setObject(3, carFlow.getCarRequestId() == 0 ? null : carFlow.getCarRequestId());
+            preparedStatement.setObject(4, carFlow.getResponsiblePersonId() == 0 ? null : carFlow.getResponsiblePersonId());
+            preparedStatement.setObject(5, carFlow.getInvoiceId() == 0 ? null : carFlow.getInvoiceId());
+            preparedStatement.setString(6, carFlow.getSupplement());
+            preparedStatement.setInt(7, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             logger.error(e);
@@ -113,28 +105,18 @@ class JdbcCarFlowDao implements CarFlowDao {
         return wasDeleted;
     }
 
-    @Override
-    public CarFlow getById(int id) {
-        CarFlow carFlow = null;
-        try (PreparedStatement preparedStatement = JdbcConnectionFactory.getInstance().getConnection().
-                prepareStatement("SELECT * FROM `car_flow` WHERE id=? LIMIT 1")) {
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                carFlow = new CarFlow(
-                        carDao.getById(resultSet.getInt("car")),
-                        CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
-                        carRequestDao.getById(resultSet.getInt("carRequest")),
-                        userDao.getById(resultSet.getInt("responsiblePerson")),
-                        invoiceDao.getById(resultSet.getInt("invoice")),
-                        resultSet.getString("supplement"));
-                carFlow.setId(resultSet.getInt("id"));
-                carFlow.setDateCreated(resultSet.getTimestamp("dateCreated"));
-                carFlow.setDateCreated(resultSet.getTimestamp("dateCreated"));
-            }
-        } catch (SQLException e) {
-            logger.error(e);
-        }
+
+    private CarFlow getEntityFromResultSet(ResultSet resultSet) throws SQLException {
+        CarFlow carFlow = new CarFlowHolder(
+                resultSet.getInt("car"),
+                CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
+                resultSet.getInt("carRequest"),
+                resultSet.getInt("responsiblePerson"),
+                resultSet.getInt("invoice"),
+                resultSet.getString("supplement"),
+                JdbcDaoFactory.getInstance());
+        carFlow.setId(resultSet.getInt("id"));
+        carFlow.setDateCreated(resultSet.getTimestamp("dateCreated"));
         return carFlow;
     }
 
@@ -146,15 +128,7 @@ class JdbcCarFlowDao implements CarFlowDao {
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                carFlow = new CarFlow(
-                        carDao.getById(resultSet.getInt("car")),
-                        CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
-                        carRequestDao.getById(resultSet.getInt("carRequest")),
-                        userDao.getById(resultSet.getInt("responsiblePerson")),
-                        invoiceDao.getById(resultSet.getInt("invoice")),
-                        resultSet.getString("supplement"));
-                carFlow.setId(resultSet.getInt("id"));
-                carFlow.setDateCreated(resultSet.getTimestamp("dateCreated"));
+                carFlow = getEntityFromResultSet(resultSet);
                 foundCarFlows.add(carFlow);
             }
         } catch (SQLException e) {
@@ -163,23 +137,15 @@ class JdbcCarFlowDao implements CarFlowDao {
         return foundCarFlows;
     }
 
-    private List<CarFlow> findCarFlowsByIdField(int id, String field) {
-        String sqlQuery = "SELECT * FROM `car_flow` WHERE " + field + "=" + id;
+    private List<CarFlow> findCarFlowsByIdField(int id, JdbcFields field) {
+        String sqlQuery = "SELECT * FROM `car_flow` WHERE " + field.getFieldName() + "=" + id;
         List<CarFlow> foundCarFlows = new ArrayList<>();
         CarFlow carFlow;
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(sqlQuery)) {
             while (resultSet.next()) {
-                carFlow = new CarFlow(
-                        carDao.getById(resultSet.getInt("car")),
-                        CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
-                        carRequestDao.getById(resultSet.getInt("carRequest")),
-                        userDao.getById(resultSet.getInt("responsiblePerson")),
-                        invoiceDao.getById(resultSet.getInt("invoice")),
-                        resultSet.getString("supplement"));
-                carFlow.setId(resultSet.getInt("id"));
-                carFlow.setDateCreated(resultSet.getTimestamp("dateCreated"));
+                carFlow = getEntityFromResultSet(resultSet);
                 foundCarFlows.add(carFlow);
             }
         } catch (SQLException e) {
@@ -190,26 +156,31 @@ class JdbcCarFlowDao implements CarFlowDao {
 
     @Override
     public List<CarFlow> findCarFlowsByClientId(int clientId) {
-        return findCarFlowsByIdField(clientId, "client");
+        return findCarFlowsByIdField(clientId, JdbcFields.CLIENT);
     }
 
     @Override
     public List<CarFlow> findCarFlowsByCarId(int carId) {
-        return findCarFlowsByIdField(carId, "car");
+        return findCarFlowsByIdField(carId, JdbcFields.CAR);
     }
 
     @Override
     public List<CarFlow> findCarFlowsByCarRequestId(int carRequestId) {
-        return findCarFlowsByIdField(carRequestId, "carRequest");
+        return findCarFlowsByIdField(carRequestId, JdbcFields.CARREQUEST);
     }
 
     @Override
     public List<CarFlow> findCarFlowsByUserId(int userId) {
-        return findCarFlowsByIdField(userId, "user");
+        return findCarFlowsByIdField(userId,  JdbcFields.RESPONSIBLEUSER);
     }
 
     @Override
     public List<CarFlow> findCarFlowsByInvoiceId(int invoiceId) {
-        return findCarFlowsByIdField(invoiceId, "invoice");
+        return findCarFlowsByIdField(invoiceId,  JdbcFields.INVOICE);
+    }
+
+    @Override
+    public CarFlow getById(int id) {
+        return findCarFlowsByIdField(id,  JdbcFields.ID).stream().findFirst().orElse(null);
     }
 }
