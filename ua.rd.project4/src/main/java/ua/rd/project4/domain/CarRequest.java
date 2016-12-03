@@ -21,7 +21,14 @@ public class CarRequest implements Entity {
         NEW, APPROVED, REJECTED, DONE;
     }
 
-    public CarRequest(Car car, Client client, Date dateFrom, Date dateTo, BigDecimal totalCost, RequestStatus status, Invoice invoice) {
+    public CarRequest(Car car,
+                      Client client,
+                      Date dateFrom,
+                      Date dateTo,
+                      BigDecimal totalCost,
+                      RequestStatus status,
+                      Invoice invoice,
+                      String rejectReason) {
         this.car = car;
         this.client = client;
         this.dateFrom = dateFrom;
@@ -29,26 +36,30 @@ public class CarRequest implements Entity {
         this.totalCost = totalCost;
         this.status = status;
         this.invoice = invoice;
+        this.rejectReason = rejectReason;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof CarRequest)) return false;
         CarRequest that = (CarRequest) o;
-        return totalCost == that.totalCost &&
-//                approved == that.approved &&
-                Objects.equals(car, that.car) &&
-                Objects.equals(client, that.client) &&
-                Objects.equals(dateFrom, that.dateFrom) &&
-                Objects.equals(dateTo, that.dateTo) &&
-                Objects.equals(invoice, that.invoice);
+        return Objects.equals(getCarId(), that.getCarId()) &&
+                Objects.equals(getClientId(), that.getClientId()) &&
+                Objects.equals(getDateFrom(), that.getDateFrom()) &&
+                Objects.equals(getDateTo(), that.getDateTo()) &&
+                (totalCost == null ? that.totalCost == null : that.totalCost != null
+                        && totalCost.compareTo(that.totalCost) == 0) &&
+                getStatus() == that.getStatus() &&
+                Objects.equals(getInvoiceId(), that.getInvoiceId()) &&
+                Objects.equals(getRejectReason(), that.getRejectReason());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(car, client, dateFrom, dateTo, totalCost, status, invoice);
+        return Objects.hash(getCar(), getClient(), getDateFrom(), getDateTo(), getStatus(), getInvoice(), getRejectReason());
     }
+
     @Override
     public int getId() {
         return id;

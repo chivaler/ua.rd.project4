@@ -21,8 +21,9 @@ public class CarRequestHolder extends CarRequest  {
                             BigDecimal totalCost,
                             CarRequest.RequestStatus status,
                             int invoiceId,
+                            String rejectReason,
                             AbstractDaoFactory daoFactory) {
-        super(null, null, dateFrom, dateTo, totalCost, status, null);
+        super(null, null, dateFrom, dateTo, totalCost, status, null,rejectReason);
         this.carId = carId;
         this.clientId = clientId;
         this.invoiceId = invoiceId;

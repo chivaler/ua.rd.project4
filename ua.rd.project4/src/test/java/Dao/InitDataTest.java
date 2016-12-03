@@ -77,9 +77,9 @@ public class InitDataTest {
         assertThat(user3.getId()==user2.getId(),is(false));
         assertThat(user1.getId()==user3.getId(),is(false));
 
-        CarRequest carRequest1 = new CarRequest(car1, client1, java.sql.Date.valueOf("2016-11-25"), java.sql.Date.valueOf("2016-11-26"), new BigDecimal(0), CarRequest.RequestStatus.APPROVED, invoice3);
-        CarRequest carRequest2 = new CarRequest(car1, client2, java.sql.Date.valueOf("2016-11-26"), java.sql.Date.valueOf("2016-11-27"), new BigDecimal(0), CarRequest.RequestStatus.NEW, null);
-        CarRequest carRequest3 = new CarRequest(car3, client3, java.sql.Date.valueOf("2016-11-27"), java.sql.Date.valueOf("2016-11-28"), new BigDecimal(0), CarRequest.RequestStatus.DONE, invoice2);
+        CarRequest carRequest1 = new CarRequest(car1, client1, java.sql.Date.valueOf("2016-11-25"), java.sql.Date.valueOf("2016-11-26"), new BigDecimal(0), CarRequest.RequestStatus.APPROVED, invoice3,"");
+        CarRequest carRequest2 = new CarRequest(car1, client2, java.sql.Date.valueOf("2016-11-26"), java.sql.Date.valueOf("2016-11-27"), new BigDecimal(0), CarRequest.RequestStatus.NEW, null, "");
+        CarRequest carRequest3 = new CarRequest(car3, client3, java.sql.Date.valueOf("2016-11-27"), java.sql.Date.valueOf("2016-11-28"), new BigDecimal(0), CarRequest.RequestStatus.DONE, invoice2, "");
         CarRequestDao carRequestDao = JdbcDaoFactory.getInstance().getCarRequestDao();
         carRequestDao.insert(carRequest1);
         carRequest1.setId(carRequestDao.findId(carRequest1));

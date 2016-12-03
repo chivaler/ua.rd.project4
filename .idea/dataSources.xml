@@ -15,17 +15,19 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="mem:car_rent" uuid="5fb2c09f-4237-448c-8d8c-d20c372785b9">
-      <driver-ref>h2.unified</driver-ref>
+    <data-source source="LOCAL" name="car_rent_test@localhost" uuid="aa218517-7e59-4062-8b9f-573f851213f1">
+      <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.h2.Driver</jdbc-driver>
-      <jdbc-url>jdbc:h2:mem:car_rent</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="ua.rd.project4" uuid="72a07a16-af8b-4f2e-a969-59b4cd44acca">
-      <driver-ref>h2.unified</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.h2.Driver</jdbc-driver>
-      <jdbc-url>jdbc:h2:file:F:\EPAM\ua.rd.project4</jdbc-url>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/car_rent_test</jdbc-url>
+      <driver-properties>
+        <property name="autoReconnect" value="true" />
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+      </driver-properties>
     </data-source>
   </component>
 </project>

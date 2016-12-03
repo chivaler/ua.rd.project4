@@ -76,15 +76,15 @@ public class Car implements Entity {
                 carType == car.carType &&
                 Objects.equals(registrationNumber, car.registrationNumber) &&
                 Objects.equals(description, car.description) &&
-                (price.compareTo(car.price)==0) &&
-                (rentPricePerDay.compareTo(car.rentPricePerDay)==0);
+                (price == null ? car.price == null : car.price != null && price.compareTo(car.price) == 0) &&
+                (rentPricePerDay == null ? car.rentPricePerDay == null :
+                        car.rentPricePerDay != null && rentPricePerDay.compareTo(car.rentPricePerDay) == 0);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(model, color, carType, registrationNumber, description);
     }
-
 
 
     @Override

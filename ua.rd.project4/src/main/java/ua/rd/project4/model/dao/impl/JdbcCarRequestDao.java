@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.*;
 import ua.rd.project4.model.dao.connection.impl.JdbcConnectionFactory;
+import ua.rd.project4.model.holders.CarRequestHolder;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -37,9 +38,10 @@ class JdbcCarRequestDao implements CarRequestDao {
                     "client INT," +
                     "dateFrom DATE," +
                     "dateTo DATE," +
-                    "totalCost INT," +
-                    "approved BOOLEAN," +
+                    "totalCost DECIMAL(10,2)," +
                     "invoice INT," +
+                    "status enum('NEW','APPROVED','REJECTED','DONE') NOT NULL DEFAULT 'NEW'," +
+                    "rejectReason VARCHAR(16)," +
                     "dateCreated TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP," +
                     "FOREIGN KEY (car) REFERENCES cars(id)," +
                     "FOREIGN KEY (client) REFERENCES clients(id)," +
@@ -47,20 +49,22 @@ class JdbcCarRequestDao implements CarRequestDao {
         } catch (SQLException e) {
             logger.error("Table `car_request` didn't created: ", e);
         }
+
     }
 
     @Override
     public boolean insert(CarRequest carRequest) {
         boolean wasInserted = false;
         try (PreparedStatement preparedStatement = JdbcConnectionFactory.getInstance().getConnection().prepareStatement("INSERT INTO `car_request` " +
-                "(car, client, dateFrom, dateTo, totalCost, approved, invoice) VALUES(?,?,?,?,?,?,?)")) {
-            preparedStatement.setObject(1, carDao.findId(carRequest.getCar()));
-            preparedStatement.setObject(2, clientDao.findId(carRequest.getClient()));
+                "(car, client, dateFrom, dateTo, totalCost, invoice, status, rejectReason) VALUES(?,?,?,?,?,?,?,?)")) {
+            preparedStatement.setObject(1, carRequest.getCarId() == 0 ? null : carRequest.getCarId());
+            preparedStatement.setObject(2, carRequest.getClientId() == 0 ? null : carRequest.getClientId());
             preparedStatement.setDate(3, carRequest.getDateFrom());
             preparedStatement.setDate(4, carRequest.getDateTo());
             preparedStatement.setBigDecimal(5, carRequest.getTotalCost());
-            preparedStatement.setBoolean(6, carRequest.isApproved());
-            preparedStatement.setObject(7, invoiceDao.findId(carRequest.getInvoice()));
+            preparedStatement.setObject(6, carRequest.getInvoiceId() == 0 ? null : carRequest.getInvoiceId());
+            preparedStatement.setString(7, carRequest.getStatus().toString());
+            preparedStatement.setString(8, carRequest.getRejectReason());
             wasInserted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             logger.error(e);
@@ -73,15 +77,16 @@ class JdbcCarRequestDao implements CarRequestDao {
         boolean wasUpdated = false;
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `car_request` SET " +
-                     "car=?, client=?, dateFrom=?, dateTo=?, totalCost=?, approved=?, invoice=? WHERE id=?")) {
-            preparedStatement.setObject(1, carDao.findId(carRequest.getCar()));
-            preparedStatement.setObject(2, clientDao.findId(carRequest.getClient()));
+                     "car=?, client=?, dateFrom=?, dateTo=?, totalCost=?, invoice=?, status=?, rejectReason=? WHERE id=?")) {
+            preparedStatement.setObject(1, carRequest.getCarId() == 0 ? null : carRequest.getCarId());
+            preparedStatement.setObject(2, carRequest.getClientId() == 0 ? null : carRequest.getClientId());
             preparedStatement.setDate(3, carRequest.getDateFrom());
             preparedStatement.setDate(4, carRequest.getDateTo());
             preparedStatement.setBigDecimal(5, carRequest.getTotalCost());
-            preparedStatement.setString(6, carRequest.getStatus().toString());
-            preparedStatement.setObject(7, invoiceDao.findId(carRequest.getInvoice()));
-            preparedStatement.setInt(8, id);
+            preparedStatement.setObject(6, carRequest.getInvoiceId() == 0 ? null : carRequest.getInvoiceId());
+            preparedStatement.setString(7, carRequest.getStatus().toString());
+            preparedStatement.setString(8, carRequest.getRejectReason());
+            preparedStatement.setInt(9, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             logger.error(e);
@@ -104,9 +109,24 @@ class JdbcCarRequestDao implements CarRequestDao {
 
     @Override
     public CarRequest getById(int id) {
-        return findCarRequestsByIdField(id, "id").stream().findFirst().orElse(null);
+        return findCarRequestsByIdField(id, JdbcFields.ID).stream().findFirst().orElse(null);
     }
 
+    private CarRequest getEntityFromResultSet(ResultSet resultSet) throws SQLException {
+        CarRequest carRequest = new CarRequestHolder(
+                resultSet.getInt("car"),
+                resultSet.getInt("client"),
+                resultSet.getDate("dateFrom"),
+                resultSet.getDate("dateTo"),
+                resultSet.getBigDecimal("totalCost"),
+                CarRequest.RequestStatus.valueOf(Optional.ofNullable(resultSet.getString("status")).orElse("NEW")),
+                resultSet.getInt("invoice"),
+                resultSet.getString("rejectReason"),
+                JdbcDaoFactory.getInstance());
+        carRequest.setId(resultSet.getInt("id"));
+        carRequest.setDateCreated(resultSet.getTimestamp("dateCreated"));
+        return carRequest;
+    }
 
     @Override
     public List<CarRequest> findAll() {
@@ -116,16 +136,9 @@ class JdbcCarRequestDao implements CarRequestDao {
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                carRequest = new CarRequest(
-                        carDao.getById(resultSet.getInt("car")),
-                        clientDao.getById(resultSet.getInt("client")),
-                        resultSet.getDate("dateFrom"),
-                        resultSet.getDate("dateTo"),
-                        resultSet.getBigDecimal("totalCost"),
-                        Optional.ofNullable(CarRequest.RequestStatus.valueOf(resultSet.getString("status"))).orElse(CarRequest.RequestStatus.NEW),
-                        invoiceDao.getById(resultSet.getInt("invoice")));
-                carRequest.setId(resultSet.getInt("id"));
-                foundCarsRequests.add(carRequest);
+                carRequest = getEntityFromResultSet(resultSet);
+                if (carRequest != null)
+                    foundCarsRequests.add(carRequest);
             }
         } catch (SQLException e) {
             logger.error(e);
@@ -143,26 +156,17 @@ class JdbcCarRequestDao implements CarRequestDao {
         return null;
     }
 
-    private List<CarRequest> findCarRequestsByIdField(int id, String field) {
-        if (!(field.equals("car") || field.equals("id") || field.equals("client") || field.equals("invoice")))
-            throw new IllegalArgumentException();
+    private List<CarRequest> findCarRequestsByIdField(int id, JdbcFields field) {
         List<CarRequest> foundCarsRequests = new ArrayList<>();
         CarRequest carRequest;
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE " + field + "=?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE " + field.getFieldName() + "=?")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                carRequest = new CarRequest(
-                        carDao.getById(resultSet.getInt("car")),
-                        clientDao.getById(resultSet.getInt("client")),
-                        resultSet.getDate("dateFrom"),
-                        resultSet.getDate("dateTo"),
-                        resultSet.getBigDecimal("totalCost"),
-                        Optional.ofNullable(CarRequest.RequestStatus.valueOf(resultSet.getString("status"))).orElse(CarRequest.RequestStatus.NEW),
-                        invoiceDao.getById(resultSet.getInt("invoice")));
-                carRequest.setId(resultSet.getInt("id"));
-                foundCarsRequests.add(carRequest);
+                carRequest = getEntityFromResultSet(resultSet);
+                if (carRequest != null)
+                    foundCarsRequests.add(carRequest);
             }
         } catch (SQLException e) {
             logger.error(e);
@@ -172,16 +176,16 @@ class JdbcCarRequestDao implements CarRequestDao {
 
     @Override
     public List<CarRequest> findCarRequestsByClientId(int clientId) {
-        return findCarRequestsByIdField(clientId, "client");
+        return findCarRequestsByIdField(clientId, JdbcFields.CLIENT);
     }
 
     @Override
     public List<CarRequest> findCarRequestsByCarId(int carId) {
-        return findCarRequestsByIdField(carId, "car");
+        return findCarRequestsByIdField(carId, JdbcFields.CAR);
     }
 
     @Override
     public List<CarRequest> findCarRequestsByInvoiceId(int invoiceId) {
-        return findCarRequestsByIdField(invoiceId, "invoice");
+        return findCarRequestsByIdField(invoiceId, JdbcFields.INVOICE);
     }
 }
