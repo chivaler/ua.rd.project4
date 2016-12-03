@@ -7,7 +7,7 @@ import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 public class Client_DaoTest extends EntityDaoTest<Client> {
     @BeforeClass
     public static void setParams() {
-        JdbcDaoFactory.getInstance().getClientDao().createTable();
+        JdbcDaoFactory.getInstance().getClientDao().createTableIfNotExist();
     }
 
     @Override

@@ -32,9 +32,6 @@ class JdbcClientSevice extends AbstractEntityService<Client> implements ClientSe
         if (!(getServiceFactory().getInvoiceService().
                 findInvoicesByClientId(id).isEmpty()))
             throw new ExceptionEntityInUse("There is invoices for this client. Delete them before deleting client.");
-        if (!(getServiceFactory().getCarFlowService().
-                findCarFlowsByClientId(id).isEmpty()))
-            throw new ExceptionEntityInUse("There is CarFlows for this client. Delete them before deleting client.");
         if (!(getServiceFactory().getCarRequestService().
                 findCarRequestsByClientId(id).isEmpty()))
             throw new ExceptionEntityInUse("There is CarRequests for this client. Delete them before deleting client.");

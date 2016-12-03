@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 public class CarRequest_DaoTest extends EntityDaoTest<CarRequest> {
     @BeforeClass
     public static void setParams() {
-        JdbcDaoFactory.getInstance().getCarRequestDao().createTable();
+        JdbcDaoFactory.getInstance().getCarRequestDao().createTableIfNotExist();
     }
 
     @Override

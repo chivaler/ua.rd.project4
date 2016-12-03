@@ -22,7 +22,7 @@
                 <tr>
                     <td>
                         <table>
-                            <c:forEach var="car" items="${listCarsOut}">
+                            <c:forEach var="car" items="${listCarsIn}">
                                 <tr>
                                     <td><c:out value="${car.getId()}"/></td>
                                     <td><c:out value="${car.getModel()}"/></td>

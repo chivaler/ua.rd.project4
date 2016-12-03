@@ -28,12 +28,12 @@ class JdbcCarFlowDao implements CarFlowDao {
     }
 
     @Override
-    public void createTable() {
-        userDao.createTable();
-        clientDao.createTable();
-        invoiceDao.createTable();
-        userDao.createTable();
-        carRequestDao.createTable();
+    public void createTableIfNotExist() {
+        userDao.createTableIfNotExist();
+        clientDao.createTableIfNotExist();
+        invoiceDao.createTableIfNotExist();
+        userDao.createTableIfNotExist();
+        carRequestDao.createTableIfNotExist();
         try (Statement statement = JdbcConnectionFactory.getInstance().getConnection().createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `car_flow` (" +
                     "id INT PRIMARY KEY auto_increment," +
@@ -152,11 +152,6 @@ class JdbcCarFlowDao implements CarFlowDao {
             logger.error(e);
         }
         return foundCarFlows;
-    }
-
-    @Override
-    public List<CarFlow> findCarFlowsByClientId(int clientId) {
-        return findCarFlowsByIdField(clientId, JdbcFields.CLIENT);
     }
 
     @Override

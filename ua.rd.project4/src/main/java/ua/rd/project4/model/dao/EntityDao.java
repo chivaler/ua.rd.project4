@@ -6,7 +6,7 @@ import ua.rd.project4.domain.Entity;
 import java.util.List;
 
 public interface EntityDao<T extends Entity> {
-    void createTable();
+    void createTableIfNotExist();
 
     boolean insert(T t);
 

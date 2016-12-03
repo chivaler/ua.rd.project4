@@ -1,6 +1,5 @@
 package Dao;
 
-import org.junit.Test;
 import ua.rd.project4.model.dao.*;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
@@ -19,7 +18,7 @@ public class InitDataTest {
         ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
         InvoiceDao invoiceDao = JdbcDaoFactory.getInstance().getInvoiceDao();
         CarFlowDao carFlowDao = JdbcDaoFactory.getInstance().getCarFlowDao();
-        carFlowDao.createTable();
+        carFlowDao.createTableIfNotExist();
 
         Car car1 = new Car("Mersedes", "black", Car.CarType.SEDAN, "FFJJ", "heavy.", new BigDecimal(17000), new BigDecimal(300));
         Car car2 = new Car("BENZ", "white", Car.CarType.MINI, "JJKK", "light.", new BigDecimal(16000), new BigDecimal(250));

@@ -27,10 +27,10 @@ class JdbcCarRequestDao implements CarRequestDao {
     }
 
     @Override
-    public void createTable() {
-        clientDao.createTable();
-        carDao.createTable();
-        invoiceDao.createTable();
+    public void createTableIfNotExist() {
+        clientDao.createTableIfNotExist();
+        carDao.createTableIfNotExist();
+        invoiceDao.createTableIfNotExist();
         try (Statement statement = JdbcConnectionFactory.getInstance().getConnection().createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `car_request` (" +
                     "id INT PRIMARY KEY auto_increment," +

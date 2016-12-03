@@ -25,12 +25,12 @@
         <%@include file="includes/fields/client.jspf" %>
         <tr>
             <td><fmt:message key="dateFrom" bundle="${bundle}"/></td>
-            <td><INPUT type="dateCreated" name="dateFrom"
+            <td><INPUT type="date" name="dateFrom"
                        value="${empty entity ? '' : entity.getDateFrom()}"/></td>
         </tr>
         <tr>
             <td><fmt:message key="dateTo" bundle="${bundle}"/></td>
-            <td><INPUT type="dateCreated" name="dateTo"
+            <td><INPUT type="date" name="dateTo"
                        value="${empty entity ? '' : entity.getDateTo()}"/></td>
         </tr>
         <tr>

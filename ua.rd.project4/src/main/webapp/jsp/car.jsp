@@ -43,7 +43,7 @@
                 <option disabled>Select CarType</option>
                 <option value="PICKUP"  ${'PICKUP' == entity.getCarType() ? 'selected="selected"' : ''}>PICKUP</option>
                 <option value="SEDAN" ${'SEDAN' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>SEDAN</option>
-                <option value="SPORT" ${'SPORT' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>SPORT</option
+                <option value="SPORT" ${'SPORT' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>SPORT</option>
                 <option value="LIMO" ${'LIMO' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>LIMO</option>
                 <option value="MINI" ${'MINI' == (empty entity ? '' : entity.getCarType()) ? 'selected="selected"' : ''}>MINI</option>
             </select>

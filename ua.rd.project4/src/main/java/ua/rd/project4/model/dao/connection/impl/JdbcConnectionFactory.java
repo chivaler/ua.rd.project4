@@ -2,16 +2,13 @@ package ua.rd.project4.model.dao.connection.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.h2.jdbcx.JdbcDataSource;
 import ua.rd.project4.model.dao.connection.ConnectionFactory;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Properties;
@@ -24,10 +21,10 @@ public class JdbcConnectionFactory implements ConnectionFactory {
     private String jdbcUrl;
     private String jdbcUser;
     private String jdbcPassword;
-    private ConnectionType connectionType = ConnectionType.POOLPREFFERED;
+    private ConnectionType connectionType = ConnectionType.POOL_PREFERRED;
 
     enum ConnectionType {
-        POOLPREFFERED, SINGLE;
+        POOL_PREFERRED, SINGLE;
     }
 
     private JdbcConnectionFactory() {
@@ -63,7 +60,7 @@ public class JdbcConnectionFactory implements ConnectionFactory {
 
     public Connection getConnection() {
         Connection connection = null;
-        if (connectionType == ConnectionType.POOLPREFFERED)
+        if (connectionType == ConnectionType.POOL_PREFERRED)
             try {
                 connection = getPoolConnection();
             } catch (Exception e) {

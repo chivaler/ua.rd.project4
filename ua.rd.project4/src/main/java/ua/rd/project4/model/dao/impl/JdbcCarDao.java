@@ -22,7 +22,7 @@ class JdbcCarDao implements CarDao {
     }
 
     @Override
-    public void createTable() {
+    public void createTableIfNotExist() {
         Connection connection = JdbcConnectionFactory.getInstance().getConnection();
         try (Statement statement = connection.createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `cars` (" +

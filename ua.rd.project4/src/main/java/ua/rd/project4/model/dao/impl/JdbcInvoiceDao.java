@@ -25,8 +25,8 @@ class JdbcInvoiceDao implements InvoiceDao {
     }
 
     @Override
-    public void createTable() {
-        clientDao.createTable();
+    public void createTableIfNotExist() {
+        clientDao.createTableIfNotExist();
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              Statement statement = connection.createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `invoices` (" +

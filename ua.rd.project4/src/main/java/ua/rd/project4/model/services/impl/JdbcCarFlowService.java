@@ -29,27 +29,23 @@ class JdbcCarFlowService extends  AbstractEntityService<CarFlow> implements CarF
     }
 
     @Override
-    public List<CarFlow> findCarFlowsByClientId(int idClient) {
-        return getDao().findCarFlowsByClientId(idClient);
-    }
-
-    @Override
     public List<CarFlow> findCarFlowsByCarId(int carId) {
-        return getDao().findCarFlowsByClientId(carId);
+        return getDao().findCarFlowsByCarId(carId);
     }
 
     @Override
     public List<CarFlow> findCarFlowsByCarRequestId(int carRequestId) {
-        return getDao().findCarFlowsByClientId(carRequestId);
+        return getDao().findCarFlowsByCarRequestId(carRequestId);
     }
 
     @Override
     public List<CarFlow> findCarFlowsByUserId(int userId) {
-        return getDao().findCarFlowsByClientId(userId);
+        return getDao().findCarFlowsByUserId(userId);
     }
 
     @Override
     public List<CarFlow> findCarFlowsByInvoiceId(int invoiceId) {
-        return getDao().findCarFlowsByClientId(invoiceId);
+        return getDao().findCarFlowsByInvoiceId(invoiceId);
     }
+
 }

@@ -73,7 +73,9 @@
     </c:forEach>
     <tr>
         <td colspan="90">
-            <form action="/jsp/car_request.jsp" method="get">
+            <form action="/Controller" method="get">
+                <INPUT type="hidden" name="command" value="CARREQUESTS"/>
+                <INPUT type="hidden" name="do" value="new"/>
                 <INPUT type="submit" value="Create New">
             </form>
         </td>

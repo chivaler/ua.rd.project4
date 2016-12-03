@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 public class Car_DaoTest extends EntityDaoTest<Car> {
     @BeforeClass
     public static void setParams() {
-        JdbcDaoFactory.getInstance().getCarDao().createTable();
+        JdbcDaoFactory.getInstance().getCarDao().createTableIfNotExist();
     }
 
     @Override

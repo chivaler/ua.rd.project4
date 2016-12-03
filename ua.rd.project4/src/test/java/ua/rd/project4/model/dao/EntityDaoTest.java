@@ -27,7 +27,7 @@ public abstract class EntityDaoTest<T extends Entity> {
 
     @Test
     public void createTable() throws Exception {
-        dao.createTable();
+        dao.createTableIfNotExist();
     }
 
     @Test

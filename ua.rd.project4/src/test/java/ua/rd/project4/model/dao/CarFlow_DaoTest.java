@@ -7,7 +7,7 @@ import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 public class CarFlow_DaoTest extends EntityDaoTest<CarFlow> {
     @BeforeClass
     public static void setParams() {
-        JdbcDaoFactory.getInstance().getCarFlowDao().createTable();
+        JdbcDaoFactory.getInstance().getCarFlowDao().createTableIfNotExist();
     }
 
     @Override

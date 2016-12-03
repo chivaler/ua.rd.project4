@@ -10,6 +10,9 @@ import ua.rd.project4.model.exceptions.UniqueViolationException;
 import java.util.List;
 
 abstract class AbstractEntityService<T extends Entity> implements EntityService<T>{
+    {
+        getDao().createTableIfNotExist();
+    }
     abstract EntityDao<T> getDao();
 
     abstract ServiceFactory getServiceFactory();
