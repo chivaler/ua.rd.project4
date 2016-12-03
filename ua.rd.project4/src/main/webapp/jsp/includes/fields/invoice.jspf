@@ -1,5 +1,5 @@
 <tr>
-    <td><label for="invoice">invoice</td>
+    <td><label for="invoice">invoice</label></td>
     <td>
         <c:choose>
             <c:when test="${not empty listInvoices}">

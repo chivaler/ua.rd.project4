@@ -46,9 +46,9 @@ public class InitDataTest {
         assertThat(client3.getId()==client2.getId(),is(false));
         assertThat(client1.getId()==client3.getId(),is(false));
 
-        Invoice invoice1 = new Invoice(client1, 0, true, "Bla");
-        Invoice invoice2 = new Invoice(client1, 0, false, "Bla");
-        Invoice invoice3 = new Invoice(client3, 2, true, "Bla");
+        Invoice invoice1 = new Invoice(client1, null,0, true, "Bla");
+        Invoice invoice2 = new Invoice(client1, null, 0, false, "Bla");
+        Invoice invoice3 = new Invoice(client3, null, 2, true, "Bla");
 
         invoiceDao.insert(invoice1);
         invoice1.setId(invoiceDao.findId(invoice1));
@@ -88,9 +88,9 @@ public class InitDataTest {
         assertThat(carRequest3.getId()==carRequest2.getId(),is(false));
         assertThat(carRequest1.getId()==carRequest3.getId(),is(false));
 
-        CarFlow carFlow1 = new CarFlow(car1, CarFlow.CarFlowType.OUT, client1, carRequest1, user1, null, "xyz");
-        CarFlow carFlow2= new CarFlow(car2, CarFlow.CarFlowType.OUT, client2, carRequest2, user1, invoice1, "bolbol");
-        CarFlow carFlow3 = new CarFlow(car1, CarFlow.CarFlowType.IN, client1, carRequest1, user1, invoice2, "x");
+        CarFlow carFlow1 = new CarFlow(car1, CarFlow.CarFlowType.OUT, null, carRequest1, user1, null, "xyz");
+        CarFlow carFlow2= new CarFlow(car2, CarFlow.CarFlowType.OUT, null, carRequest2, user1, invoice1, "bolbol");
+        CarFlow carFlow3 = new CarFlow(car1, CarFlow.CarFlowType.IN, null, carRequest1, user1, invoice2, "x");
 
         carFlowDao.insert(carFlow1);
         carFlow1.setId(carFlowDao.findId(carFlow1));

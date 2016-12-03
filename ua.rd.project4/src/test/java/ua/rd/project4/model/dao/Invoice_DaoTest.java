@@ -12,17 +12,17 @@ public class Invoice_DaoTest extends EntityDaoTest<Invoice> {
 
     @Override
     Invoice initElem1() {
-        return new Invoice(null, 0, true, "Bla");
+        return new Invoice(null, null, 0, true, "Bla");
     }
 
     @Override
     Invoice initElem2() {
-        return new Invoice(null, 0, false, "Bla");
+        return new Invoice(null,null, 0, false, "Bla");
     }
 
     @Override
     Invoice initElem3() {
-        return new Invoice(null, 2, true, "Bla");
+        return new Invoice(null,null, 2, true, "Bla");
     }
 
     @Override

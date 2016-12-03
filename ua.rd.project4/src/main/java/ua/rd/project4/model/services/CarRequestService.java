@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
+
 public interface CarRequestService extends EntityService<CarRequest> {
     List<CarRequest> findCarRequestsByClientId(int clientId);
     List<CarRequest> findCarRequestsByCarId(int carId);
@@ -16,6 +18,7 @@ public interface CarRequestService extends EntityService<CarRequest> {
     enum CarRequestStatus{
         POSSIBLE, CONFLICT, IMPOSSIBLE;
     }
+
     default CarRequestStatus isPossible(int carRequestId) {
         return CarRequestStatus.POSSIBLE;
     }
