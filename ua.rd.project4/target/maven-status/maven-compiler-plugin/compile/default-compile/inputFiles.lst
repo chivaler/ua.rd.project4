@@ -11,7 +11,6 @@ F:\EPAM\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\imp
 F:\EPAM\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\impl\JdbcCarRequestDao.java
 F:\EPAM\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\UserDao.java
 F:\EPAM\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\holders\CarHolder.java
-F:\EPAM\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\holders\Holder.java
 F:\EPAM\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\services\impl\JdbcInvoiceSevice.java
 F:\EPAM\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\exceptions\LoginExistsException.java
 F:\EPAM\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\services\UserService.java

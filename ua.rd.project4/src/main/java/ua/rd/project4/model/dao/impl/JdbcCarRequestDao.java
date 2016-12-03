@@ -40,6 +40,7 @@ class JdbcCarRequestDao implements CarRequestDao {
                     "totalCost INT," +
                     "approved BOOLEAN," +
                     "invoice INT," +
+                    "dateCreated TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP," +
                     "FOREIGN KEY (car) REFERENCES cars(id)," +
                     "FOREIGN KEY (client) REFERENCES clients(id)," +
                     "FOREIGN KEY (invoice) REFERENCES invoices(id))");

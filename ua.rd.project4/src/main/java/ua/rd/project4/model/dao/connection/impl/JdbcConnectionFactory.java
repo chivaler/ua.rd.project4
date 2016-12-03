@@ -2,13 +2,19 @@ package ua.rd.project4.model.dao.connection.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.h2.jdbcx.JdbcDataSource;
 import ua.rd.project4.model.dao.connection.ConnectionFactory;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Properties;
 
 public class JdbcConnectionFactory implements ConnectionFactory {
     private static final JdbcConnectionFactory instance = new JdbcConnectionFactory();
@@ -21,12 +27,12 @@ public class JdbcConnectionFactory implements ConnectionFactory {
 
     private JdbcConnectionFactory() {
         //TODO Jdbc from file, different from tests
-        setJdbcParameters(
-                "com.mysql.jdbc.Driver",
-//                "com.mysql.cj.jdbc.Driver",
-                "jdbc:mysql://localhost:3306/car_rent?verifyServerCertificate=false&useSSL=false",
-                "root",
-                "925060");
+//        setJdbcParameters(
+//                "com.mysql.jdbc.Driver",
+////                "com.mysql.cj.jdbc.Driver",
+//                "jdbc:mysql://localhost:3306/car_rent?verifyServerCertificate=false&useSSL=false",
+//                "root",
+//                "925060");
 
 //        setJdbcParameters(
 //                "org.h2.Driver",
@@ -34,13 +40,25 @@ public class JdbcConnectionFactory implements ConnectionFactory {
 //                "sa",
 //                "");
 
-        try {
-            InitialContext ic = new InitialContext();
-            dataSource = (DataSource) ic.lookup("java:comp/env/jdbc/epam4_2");
-        } catch (NamingException e) {
-            logger.debug(e);
+//        try {
+//            InitialContext ic = new InitialContext();
+//            dataSource = (DataSource) ic.lookup("java:comp/env/jdbc/carRentService");
+//        } catch (NamingException e) {
+//            logger.debug(e);
+//        }
+        ClassLoader loader = Thread.currentThread().getContextClassLoader();
+        Properties prop = new Properties();
+        try(InputStream input = loader.getResourceAsStream("db.properties")) {
+//        try (InputStream input = new FileInputStream("db.properties")) {
+            prop.load(input);
+            jdbcDriver =prop.getProperty("driver");
+            jdbcUser = prop.getProperty("dbUser");
+            jdbcUrl = prop.getProperty("dbUrl");
+            jdbcPassword = prop.getProperty("dbPassword");
+        } catch (IOException e) {
+            logger.error(e);
         }
-
+//        dataSource = new JdbcDataSource( );
     }
 
     public static JdbcConnectionFactory getInstance() {

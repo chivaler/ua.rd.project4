@@ -31,10 +31,10 @@ class JdbcInvoiceDao implements InvoiceDao {
             statement.execute("CREATE TABLE IF NOT EXISTS `invoices` (" +
                     "id INT PRIMARY KEY auto_increment," +
                     "client INT," +
-                    "dateCreated DATE," +
-                    "total INT," +
+                    "total DECIMAL(10,2)," +
                     "paid BOOLEAN," +
                     "description VARCHAR(16)," +
+                    "dateCreated TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP," +
                     "FOREIGN KEY (client) REFERENCES clients(id))");
         } catch (SQLException e) {
             logger.error("Table `invoices` didn't created: ",e);

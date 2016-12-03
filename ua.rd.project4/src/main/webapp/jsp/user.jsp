@@ -30,12 +30,12 @@
         </tr>
         <tr>
             <td>Password</td>
-            <td><INPUT type=password name="pass" value=""/></td>
+            <td><INPUT type=passwordHash name="pass" value=""/></td>
         </tr>
         <c:if test="${not empty entity}">
             <tr>
                 <td>HashedPassword</td>
-                <td><INPUT type=text class="readonly" readonly="readonly" name="password"
+                <td><INPUT type=text class="readonly" readonly="readonly" name="passwordHash"
                            value="${empty entity ? '' : entity.getPassword()}"/>
                 </td>
             </tr>

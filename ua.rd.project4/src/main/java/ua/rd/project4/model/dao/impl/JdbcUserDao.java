@@ -32,7 +32,7 @@ class JdbcUserDao implements UserDao {
                     "id INT PRIMARY KEY auto_increment," +
                     "isAdmin BOOLEAN," +
                     "login VARCHAR(16)," +
-                    "password VARCHAR(32)," +
+                    "passwordHash VARCHAR(32)," +
                     "client INT," +
                     "FOREIGN KEY (client) REFERENCES clients(id))");
         } catch (SQLException e) {
@@ -45,10 +45,10 @@ class JdbcUserDao implements UserDao {
         boolean wasInserted = false;
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `users` " +
-                     "(isAdmin, login, password, client) VALUES(?,?,?,?)")) {
+                     "(isAdmin, login, passwordHash, client) VALUES(?,?,?,?)")) {
             preparedStatement.setBoolean(1, user.isAdmin());
             preparedStatement.setString(2, user.getLogin());
-            preparedStatement.setString(3, user.getPassword());
+            preparedStatement.setString(3, user.getPasswordHash());
             preparedStatement.setObject(4, clientDao.findId(user.getClient()));
             wasInserted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -62,10 +62,10 @@ class JdbcUserDao implements UserDao {
         boolean wasUpdated = false;
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `users` SET "
-                     + "isAdmin=?, login=?, password=?, client=? WHERE id=?")) {
+                     + "isAdmin=?, login=?, passwordHash=?, client=? WHERE id=?")) {
             preparedStatement.setBoolean(1, user.isAdmin());
             preparedStatement.setString(2, user.getLogin());
-            preparedStatement.setString(3, user.getPassword());
+            preparedStatement.setString(3, user.getPasswordHash());
             preparedStatement.setObject(4, clientDao.findId(user.getClient()));
             preparedStatement.setInt(5, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
@@ -100,7 +100,7 @@ class JdbcUserDao implements UserDao {
                 user = new User(
                         resultSet.getBoolean("isAdmin"),
                         resultSet.getString("login"),
-                        resultSet.getString("password"),
+                        resultSet.getString("passwordHash"),
                         clientDao.getById(resultSet.getInt("client")));
                 user.setId(resultSet.getInt("id"));
             }
@@ -121,7 +121,7 @@ class JdbcUserDao implements UserDao {
                 user = new User(
                         resultSet.getBoolean("isAdmin"),
                         resultSet.getString("login"),
-                        resultSet.getString("password"),
+                        resultSet.getString("passwordHash"),
                         clientDao.getById(resultSet.getInt("client")));
                 user.setId(resultSet.getInt("id"));
                 allUsers.add(user);
@@ -154,7 +154,7 @@ class JdbcUserDao implements UserDao {
                 user = new User(
                         resultSet.getBoolean("isAdmin"),
                         resultSet.getString("login"),
-                        resultSet.getString("password"),
+                        resultSet.getString("passwordHash"),
                         clientDao.getById(resultSet.getInt("client")));
                 user.setId(resultSet.getInt("id"));
                 allUsers.add(user);

@@ -15,5 +15,17 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="mem:car_rent" uuid="5fb2c09f-4237-448c-8d8c-d20c372785b9">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:mem:car_rent</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="ua.rd.project4" uuid="72a07a16-af8b-4f2e-a969-59b4cd44acca">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:file:F:\EPAM\ua.rd.project4</jdbc-url>
+    </data-source>
   </component>
 </project>

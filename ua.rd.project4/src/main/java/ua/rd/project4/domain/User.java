@@ -6,13 +6,13 @@ public class User implements Entity {
     private int id = -1;
     private boolean isAdmin;
     private String login;
-    private String password;
+    private String passwordHash;
     private Client client;
 
-    public User(boolean isAdmin, String login, String password, Client client) {
+    public User(boolean isAdmin, String login, String passwordHash, Client client) {
         this.isAdmin = isAdmin;
         this.login = login;
-        this.password = password;
+        this.passwordHash = passwordHash;
         this.client = client;
     }
 
@@ -25,13 +25,13 @@ public class User implements Entity {
         User that = (User) o;
         return isAdmin == that.isAdmin &&
                 Objects.equals(login, that.login) &&
-                Objects.equals(password, that.password) &&
+                Objects.equals(passwordHash, that.passwordHash) &&
                 Objects.equals(client, that.client);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isAdmin, login, password, client);
+        return Objects.hash(isAdmin, login, passwordHash, client);
     }
 
     @Override
@@ -60,12 +60,12 @@ public class User implements Entity {
         this.login = login;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
     public Client getClient() {

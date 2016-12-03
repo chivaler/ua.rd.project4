@@ -80,10 +80,10 @@ public abstract class EntityDaoTest<T extends Entity> {
         listToAdd.add(elem3);
         listToAdd.forEach(s -> dao.insert(s));
 
-        List<T> listAll = new ArrayList<>(listToAdd);
-        listAll.addAll(listOfExistBeforeTest);
+        List<T> listAll = new ArrayList<>(listOfExistBeforeTest);
+        listAll.addAll(listToAdd);
         List<T> listResultFromDaoAfterInsert = dao.findAll();
-        assertThat(listResultFromDaoAfterInsert, containsInAnyOrder(listAll.toArray()));
+        assertThat(listResultFromDaoAfterInsert, is(listAll));
 
         listToAdd.forEach(s -> assertThat(dao.findId(s)>0,is(true)));
         listToAdd.forEach(s -> s.setId(dao.findId(s)));

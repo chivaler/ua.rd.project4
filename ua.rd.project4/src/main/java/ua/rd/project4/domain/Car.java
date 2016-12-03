@@ -69,22 +69,23 @@ public class Car implements Entity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Car)) return false;
         Car car = (Car) o;
-        return // id == car.id &&
-                price == car.price &&
-                        rentPricePerDay == car.rentPricePerDay &&
-                        Objects.equals(model, car.model) &&
-                        Objects.equals(color, car.color) &&
-                        carType == car.carType &&
-                        Objects.equals(registrationNumber, car.registrationNumber) &&
-                        Objects.equals(description, car.description);
+        return Objects.equals(model, car.model) &&
+                Objects.equals(color, car.color) &&
+                carType == car.carType &&
+                Objects.equals(registrationNumber, car.registrationNumber) &&
+                Objects.equals(description, car.description) &&
+                (price.compareTo(car.price)==0) &&
+                (rentPricePerDay.compareTo(car.rentPricePerDay)==0);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, model, color, carType, registrationNumber, description, price, rentPricePerDay);
+        return Objects.hash(model, color, carType, registrationNumber, description);
     }
+
+
 
     @Override
     public String toString() {
