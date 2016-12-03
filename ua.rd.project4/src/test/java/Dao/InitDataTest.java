@@ -12,7 +12,7 @@ import static org.hamcrest.core.Is.is;
 
 
 public class InitDataTest {
-    @Test
+
     public void initData() {
         //TODO Futher tests
         CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();

@@ -50,7 +50,6 @@ public abstract class EntityDaoTest<T extends Entity> {
             assertThat(dao.delete(0), is(false));
             assertThat(dao.delete(-1), is(false));
         }
-
     }
 
     @Test

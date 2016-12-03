@@ -24,64 +24,56 @@ public class JdbcConnectionFactory implements ConnectionFactory {
     private String jdbcUrl;
     private String jdbcUser;
     private String jdbcPassword;
+    private ConnectionType connectionType = ConnectionType.POOLPREFFERED;
+
+    enum ConnectionType {
+        POOLPREFFERED, SINGLE;
+    }
 
     private JdbcConnectionFactory() {
         //TODO Jdbc from file, different from tests
-//        setJdbcParameters(
-//                "com.mysql.jdbc.Driver",
-////                "com.mysql.cj.jdbc.Driver",
-//                "jdbc:mysql://localhost:3306/car_rent?verifyServerCertificate=false&useSSL=false",
-//                "root",
-//                "925060");
-
-//        setJdbcParameters(
-//                "org.h2.Driver",
-//                "jdbc:h2:mem:test",
-//                "sa",
-//                "");
-
-//        try {
-//            InitialContext ic = new InitialContext();
-//            dataSource = (DataSource) ic.lookup("java:comp/env/jdbc/carRentService");
-//        } catch (NamingException e) {
-//            logger.debug(e);
-//        }
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         Properties prop = new Properties();
-        try(InputStream input = loader.getResourceAsStream("db.properties")) {
-//        try (InputStream input = new FileInputStream("db.properties")) {
+        try (InputStream input = loader.getResourceAsStream("db.properties")) {
             prop.load(input);
-            jdbcDriver =prop.getProperty("driver");
+            jdbcDriver = prop.getProperty("driver");
             jdbcUser = prop.getProperty("dbUser");
             jdbcUrl = prop.getProperty("dbUrl");
             jdbcPassword = prop.getProperty("dbPassword");
+            Class.forName(jdbcDriver);
         } catch (IOException e) {
             logger.error(e);
+        } catch (ClassNotFoundException e) {
+            logger.error(e);
         }
-//        dataSource = new JdbcDataSource( );
+
+        try {
+            InitialContext ic = new InitialContext();
+            dataSource = (DataSource) ic.lookup("java:comp/env/jdbc/carRentService");
+        } catch (NamingException e) {
+            logger.debug(e);
+            connectionType = ConnectionType.SINGLE;
+        }
+
     }
 
     public static JdbcConnectionFactory getInstance() {
         return instance;
     }
 
-    private void setJdbcParameters(String jdbcDriver, String jdbcUrl, String jdbcUser, String jdbcPassword) {
-        this.jdbcDriver = jdbcDriver;
-        this.jdbcUrl = jdbcUrl;
-        this.jdbcUser = jdbcUser;
-        this.jdbcPassword = jdbcPassword;
-    }
-
     public Connection getConnection() {
         Connection connection = null;
-        try {
-            connection = getPoolConnection();
-        } catch (Exception e) {
-            logger.debug(e);
+        if (connectionType == ConnectionType.POOLPREFFERED)
+            try {
+                connection = getPoolConnection();
+            } catch (Exception e) {
+                logger.debug(e);
+            }
+        if (connection == null) {
             try {
                 connection = getSingleConnection();
-            } catch (Exception e1) {
-                logger.error(e1);
+            } catch (Exception e) {
+                logger.debug(e);
             }
         }
         if (connection == null) {
@@ -96,7 +88,6 @@ public class JdbcConnectionFactory implements ConnectionFactory {
     }
 
     private Connection getSingleConnection() throws Exception {
-        Class.forName(jdbcDriver);
         return DriverManager.getConnection(jdbcUrl, jdbcUser, jdbcPassword);
     }
 
