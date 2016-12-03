@@ -12,17 +12,17 @@ public class CarFlow_DaoTest extends EntityDaoTest<CarFlow> {
 
     @Override
     CarFlow initElem1() {
-        return  new CarFlow(null, null, null, null, null, null, "1");
+        return  new CarFlow(null, null, null, null, null, "1");
     }
 
     @Override
     CarFlow initElem2() {
-        return  new CarFlow(null, null, null, null, null, null, "2");
+        return  new CarFlow(null, null, null, null, null,  "2");
     }
 
     @Override
     CarFlow initElem3() {
-        return new CarFlow(null, null, null, null, null, null, "3");
+        return new CarFlow(null, null, null, null, null,  "3");
     }
 
     @Override

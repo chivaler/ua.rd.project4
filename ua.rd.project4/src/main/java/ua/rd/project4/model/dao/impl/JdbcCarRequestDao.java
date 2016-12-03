@@ -9,6 +9,7 @@ import ua.rd.project4.model.dao.connection.impl.JdbcConnectionFactory;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 class JdbcCarRequestDao implements CarRequestDao {
     private final static JdbcCarRequestDao instance = new JdbcCarRequestDao();
@@ -56,7 +57,7 @@ class JdbcCarRequestDao implements CarRequestDao {
             preparedStatement.setObject(2, clientDao.findId(carRequest.getClient()));
             preparedStatement.setDate(3, carRequest.getDateFrom());
             preparedStatement.setDate(4, carRequest.getDateTo());
-            preparedStatement.setInt(5, carRequest.getTotalCost());
+            preparedStatement.setBigDecimal(5, carRequest.getTotalCost());
             preparedStatement.setBoolean(6, carRequest.isApproved());
             preparedStatement.setObject(7, invoiceDao.findId(carRequest.getInvoice()));
             wasInserted = preparedStatement.executeUpdate() > 0;
@@ -76,8 +77,8 @@ class JdbcCarRequestDao implements CarRequestDao {
             preparedStatement.setObject(2, clientDao.findId(carRequest.getClient()));
             preparedStatement.setDate(3, carRequest.getDateFrom());
             preparedStatement.setDate(4, carRequest.getDateTo());
-            preparedStatement.setInt(5, carRequest.getTotalCost());
-            preparedStatement.setBoolean(6, carRequest.isApproved());
+            preparedStatement.setBigDecimal(5, carRequest.getTotalCost());
+            preparedStatement.setString(6, carRequest.getStatus().toString());
             preparedStatement.setObject(7, invoiceDao.findId(carRequest.getInvoice()));
             preparedStatement.setInt(8, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
@@ -119,8 +120,8 @@ class JdbcCarRequestDao implements CarRequestDao {
                         clientDao.getById(resultSet.getInt("client")),
                         resultSet.getDate("dateFrom"),
                         resultSet.getDate("dateTo"),
-                        resultSet.getInt("totalCost"),
-                        resultSet.getBoolean("approved"),
+                        resultSet.getBigDecimal("totalCost"),
+                        Optional.ofNullable(CarRequest.RequestStatus.valueOf(resultSet.getString("status"))).orElse(CarRequest.RequestStatus.NEW),
                         invoiceDao.getById(resultSet.getInt("invoice")));
                 carRequest.setId(resultSet.getInt("id"));
                 foundCarsRequests.add(carRequest);
@@ -156,8 +157,8 @@ class JdbcCarRequestDao implements CarRequestDao {
                         clientDao.getById(resultSet.getInt("client")),
                         resultSet.getDate("dateFrom"),
                         resultSet.getDate("dateTo"),
-                        resultSet.getInt("totalCost"),
-                        resultSet.getBoolean("approved"),
+                        resultSet.getBigDecimal("totalCost"),
+                        Optional.ofNullable(CarRequest.RequestStatus.valueOf(resultSet.getString("status"))).orElse(CarRequest.RequestStatus.NEW),
                         invoiceDao.getById(resultSet.getInt("invoice")));
                 carRequest.setId(resultSet.getInt("id"));
                 foundCarsRequests.add(carRequest);

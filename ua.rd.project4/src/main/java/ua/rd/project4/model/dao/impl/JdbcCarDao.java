@@ -32,8 +32,8 @@ class JdbcCarDao implements CarDao {
                     "carType enum('LIMO','SPORT','MINI','PICKUP','SEDAN') NOT NULL DEFAULT 'SEDAN'," +
                     "registrationNumber VARCHAR(16)," +
                     "description VARCHAR(60)," +
-                    "price INT," +
-                    "rentPricePerDay INT)");
+                    "price DECIMAL(10,2)," +
+                    "rentPricePerDay DECIMAL(10,2))");
         } catch (SQLException e) {
             logger.error("Table `car` didn't created: ", e);
         }
@@ -50,8 +50,8 @@ class JdbcCarDao implements CarDao {
             preparedStatement.setString(3, Optional.of(car.getCarType().toString()).orElse("NULL"));
             preparedStatement.setString(4, car.getRegistrationNumber());
             preparedStatement.setString(5, car.getDescription());
-            preparedStatement.setInt(6, car.getPrice());
-            preparedStatement.setInt(7, car.getRentPricePerDay());
+            preparedStatement.setBigDecimal(6, car.getPrice());
+            preparedStatement.setBigDecimal(7, car.getRentPricePerDay());
             wasInserted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             logger.error(e);
@@ -70,8 +70,8 @@ class JdbcCarDao implements CarDao {
             preparedStatement.setString(3, Optional.of(car.getCarType().toString()).orElse("NULL"));
             preparedStatement.setString(4, car.getRegistrationNumber());
             preparedStatement.setString(5, car.getDescription());
-            preparedStatement.setInt(6, car.getPrice());
-            preparedStatement.setInt(7, car.getRentPricePerDay());
+            preparedStatement.setBigDecimal(6, car.getPrice());
+            preparedStatement.setBigDecimal(7, car.getRentPricePerDay());
             preparedStatement.setInt(8, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -107,8 +107,8 @@ class JdbcCarDao implements CarDao {
                         Car.CarType.valueOf(resultSet.getString("carType")),
                         resultSet.getString("registrationNumber"),
                         resultSet.getString("description"),
-                        resultSet.getInt("price"),
-                        resultSet.getInt("rentPricePerDay"));
+                        resultSet.getBigDecimal("price"),
+                        resultSet.getBigDecimal("rentPricePerDay"));
                 car.setId(resultSet.getInt("id"));
             }
         } catch (SQLException e) {
@@ -130,8 +130,8 @@ class JdbcCarDao implements CarDao {
                         Car.CarType.valueOf(resultSet.getString("carType")),
                         resultSet.getString("registrationNumber"),
                         resultSet.getString("description"),
-                        resultSet.getInt("price"),
-                        resultSet.getInt("rentPricePerDay"));
+                        resultSet.getBigDecimal("price"),
+                        resultSet.getBigDecimal("rentPricePerDay"));
                 car.setId(resultSet.getInt("id"));
                 foundCars.add(car);
             }

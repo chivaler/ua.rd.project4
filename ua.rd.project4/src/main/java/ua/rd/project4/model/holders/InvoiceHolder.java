@@ -4,6 +4,7 @@ import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.Invoice;
 import ua.rd.project4.model.dao.AbstractDaoFactory;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 public class InvoiceHolder extends Invoice {
@@ -15,7 +16,7 @@ public class InvoiceHolder extends Invoice {
         return clientId;
     }
 
-    public InvoiceHolder(int clientId, int total, boolean paid, String description, AbstractDaoFactory daoFactory) {
+    public InvoiceHolder(int clientId, BigDecimal total, boolean paid, String description, AbstractDaoFactory daoFactory) {
         super(null, total, paid, description);
         this.daoFactory = daoFactory;
         this.clientId = clientId;

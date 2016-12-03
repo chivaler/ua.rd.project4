@@ -38,11 +38,11 @@ class JdbcCarFlowDao implements CarFlowDao {
                     "id INT PRIMARY KEY auto_increment," +
                     "car INT," +
                     "carFlowType INT," +
-                    "dateCreated TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP," +
                     "carRequest INT," +
                     "responsiblePerson INT," +
                     "invoice INT," +
                     "supplement VARCHAR(240)," +
+                    "dateCreated TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP," +
                     "FOREIGN KEY (car) REFERENCES cars(id)," +
                     "FOREIGN KEY (client) REFERENCES clients(id)," +
                     "FOREIGN KEY (invoice) REFERENCES invoices(id)," +
@@ -124,12 +124,13 @@ class JdbcCarFlowDao implements CarFlowDao {
                 carFlow = new CarFlow(
                         carDao.getById(resultSet.getInt("car")),
                         CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
-                        resultSet.getTimestamp("dateCreated"),
                         carRequestDao.getById(resultSet.getInt("carRequest")),
                         userDao.getById(resultSet.getInt("responsiblePerson")),
                         invoiceDao.getById(resultSet.getInt("invoice")),
                         resultSet.getString("supplement"));
                 carFlow.setId(resultSet.getInt("id"));
+                carFlow.setDateCreated(resultSet.getTimestamp("dateCreated"));
+                carFlow.setDateCreated(resultSet.getTimestamp("dateCreated"));
             }
         } catch (SQLException e) {
             logger.error(e);
@@ -148,12 +149,12 @@ class JdbcCarFlowDao implements CarFlowDao {
                 carFlow = new CarFlow(
                         carDao.getById(resultSet.getInt("car")),
                         CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
-                        resultSet.getTimestamp("dateCreated"),
                         carRequestDao.getById(resultSet.getInt("carRequest")),
                         userDao.getById(resultSet.getInt("responsiblePerson")),
                         invoiceDao.getById(resultSet.getInt("invoice")),
                         resultSet.getString("supplement"));
                 carFlow.setId(resultSet.getInt("id"));
+                carFlow.setDateCreated(resultSet.getTimestamp("dateCreated"));
                 foundCarFlows.add(carFlow);
             }
         } catch (SQLException e) {
@@ -173,12 +174,12 @@ class JdbcCarFlowDao implements CarFlowDao {
                 carFlow = new CarFlow(
                         carDao.getById(resultSet.getInt("car")),
                         CarFlow.CarFlowType.getTypeByValue(resultSet.getInt("carFlowType")),
-                        resultSet.getTimestamp("dateCreated"),
                         carRequestDao.getById(resultSet.getInt("carRequest")),
                         userDao.getById(resultSet.getInt("responsiblePerson")),
                         invoiceDao.getById(resultSet.getInt("invoice")),
                         resultSet.getString("supplement"));
                 carFlow.setId(resultSet.getInt("id"));
+                carFlow.setDateCreated(resultSet.getTimestamp("dateCreated"));
                 foundCarFlows.add(carFlow);
             }
         } catch (SQLException e) {

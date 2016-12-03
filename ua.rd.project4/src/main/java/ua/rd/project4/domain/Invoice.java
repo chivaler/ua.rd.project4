@@ -1,5 +1,6 @@
 package ua.rd.project4.domain;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -7,12 +8,12 @@ import java.util.Objects;
 public class Invoice implements Entity {
     private int id;
     private Client client;
-    private int total;
+    private BigDecimal total;
     private boolean paid;
     private String description;
     private Timestamp dateCreated;
 
-    public Invoice(Client client, int total, boolean paid, String description) {
+    public Invoice(Client client, BigDecimal total, boolean paid, String description) {
         this.client = client;
         this.total = total;
         this.paid = paid;
@@ -53,11 +54,11 @@ public class Invoice implements Entity {
         this.client = client;
     }
 
-    public int getTotal() {
+    public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(BigDecimal total) {
         this.total = total;
     }
 

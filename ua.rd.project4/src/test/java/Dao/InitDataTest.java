@@ -5,6 +5,8 @@ import ua.rd.project4.model.dao.*;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 
+import java.math.BigDecimal;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -19,9 +21,9 @@ public class InitDataTest {
         CarFlowDao carFlowDao = JdbcDaoFactory.getInstance().getCarFlowDao();
         carFlowDao.createTable();
 
-        Car car1 = new Car("Mersedes", "black", Car.CarType.SEDAN, "FFJJ", "heavy.", 17000, 300);
-        Car car2 = new Car("BENZ", "white", Car.CarType.MINI, "JJKK", "light.", 16000, 250);
-        Car car3 = new Car("Zapor", "white", Car.CarType.SPORT, "1212", "dsdasd", 1234, 30);
+        Car car1 = new Car("Mersedes", "black", Car.CarType.SEDAN, "FFJJ", "heavy.", new BigDecimal(17000), new BigDecimal(300));
+        Car car2 = new Car("BENZ", "white", Car.CarType.MINI, "JJKK", "light.", new BigDecimal(16000), new BigDecimal(250));
+        Car car3 = new Car("Zapor", "white", Car.CarType.SPORT, "1212", "dsdasd", new BigDecimal(1245), new BigDecimal(75));
 
         carDao.insert(car1);
         car1.setId(carDao.findId(car1));
@@ -47,9 +49,9 @@ public class InitDataTest {
         assertThat(client3.getId()==client2.getId(),is(false));
         assertThat(client1.getId()==client3.getId(),is(false));
 
-        Invoice invoice1 = new Invoice(client1, null,0, true, "Bla");
-        Invoice invoice2 = new Invoice(client1, null, 0, false, "Bla");
-        Invoice invoice3 = new Invoice(client3, null, 2, true, "Bla");
+        Invoice invoice1 = new Invoice(client1, new BigDecimal(0), true, "Bla");
+        Invoice invoice2 = new Invoice(client1,  new BigDecimal(0), false, "Bla");
+        Invoice invoice3 = new Invoice(client3,  new BigDecimal(2), true, "Bla");
 
         invoiceDao.insert(invoice1);
         invoice1.setId(invoiceDao.findId(invoice1));
@@ -75,9 +77,9 @@ public class InitDataTest {
         assertThat(user3.getId()==user2.getId(),is(false));
         assertThat(user1.getId()==user3.getId(),is(false));
 
-        CarRequest carRequest1 = new CarRequest(car1, client1, java.sql.Date.valueOf("2016-11-25"), java.sql.Date.valueOf("2016-11-26"), 0, false, invoice3);
-        CarRequest carRequest2 = new CarRequest(car1, client2, java.sql.Date.valueOf("2016-11-26"), java.sql.Date.valueOf("2016-11-27"), 0, false, null);
-        CarRequest carRequest3 = new CarRequest(car3, client3, java.sql.Date.valueOf("2016-11-27"), java.sql.Date.valueOf("2016-11-28"), 0, false, invoice2);
+        CarRequest carRequest1 = new CarRequest(car1, client1, java.sql.Date.valueOf("2016-11-25"), java.sql.Date.valueOf("2016-11-26"), new BigDecimal(0), CarRequest.RequestStatus.APPROVED, invoice3);
+        CarRequest carRequest2 = new CarRequest(car1, client2, java.sql.Date.valueOf("2016-11-26"), java.sql.Date.valueOf("2016-11-27"), new BigDecimal(0), CarRequest.RequestStatus.NEW, null);
+        CarRequest carRequest3 = new CarRequest(car3, client3, java.sql.Date.valueOf("2016-11-27"), java.sql.Date.valueOf("2016-11-28"), new BigDecimal(0), CarRequest.RequestStatus.DONE, invoice2);
         CarRequestDao carRequestDao = JdbcDaoFactory.getInstance().getCarRequestDao();
         carRequestDao.insert(carRequest1);
         carRequest1.setId(carRequestDao.findId(carRequest1));
@@ -89,9 +91,9 @@ public class InitDataTest {
         assertThat(carRequest3.getId()==carRequest2.getId(),is(false));
         assertThat(carRequest1.getId()==carRequest3.getId(),is(false));
 
-        CarFlow carFlow1 = new CarFlow(car1, CarFlow.CarFlowType.OUT, null, carRequest1, user1, null, "xyz");
-        CarFlow carFlow2= new CarFlow(car2, CarFlow.CarFlowType.OUT, null, carRequest2, user1, invoice1, "bolbol");
-        CarFlow carFlow3 = new CarFlow(car1, CarFlow.CarFlowType.IN, null, carRequest1, user1, invoice2, "x");
+        CarFlow carFlow1 = new CarFlow(car1, CarFlow.CarFlowType.OUT,  carRequest1, user1, null, "xyz");
+        CarFlow carFlow2= new CarFlow(car2, CarFlow.CarFlowType.OUT,  carRequest2, user1, invoice1, "bolbol");
+        CarFlow carFlow3 = new CarFlow(car1, CarFlow.CarFlowType.IN,  carRequest1, user1, invoice2, "x");
 
         carFlowDao.insert(carFlow1);
         carFlow1.setId(carFlowDao.findId(carFlow1));

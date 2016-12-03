@@ -9,6 +9,7 @@ import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
 import java.util.Optional;
 
 class cmdCrudCars extends cmdCrudGeneric<Car> {
@@ -85,6 +86,6 @@ class cmdCrudCars extends cmdCrudGeneric<Car> {
             throw new InvalidParameterException("price");
         if (price < 1)
             throw new InvalidParameterException("rentPricePerDay");
-        return new Car(model, color, carType, registrationNumber, description, price, rentPricePerDay);
+        return new Car(model, color, carType, registrationNumber, description, new BigDecimal(price), new BigDecimal(rentPricePerDay));
     }
 }

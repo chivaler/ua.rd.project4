@@ -31,9 +31,7 @@ ua\rd\project4\controller\command\Command.class
 ua\rd\project4\model\dao\impl\JdbcCarRequestDao.class
 ua\rd\project4\model\dao\connection\ConnectionFactory.class
 ua\rd\project4\model\dao\UserDao.class
-ua\rd\project4\model\holders\Holder.class
 ua\rd\project4\model\services\CarRequestService.class
-ua\rd\project4\model\services\CarRequestStatus.class
 ua\rd\project4\model\services\impl\JdbcCarFlowService.class
 ua\rd\project4\controller\command\impl\cmdCrudUsers.class
 ua\rd\project4\controller\exceptions\ExceptionRequiredFieldEmpty.class
