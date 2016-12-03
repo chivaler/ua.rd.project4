@@ -21,7 +21,7 @@ public class CarFlowHolder extends CarFlow {
                          int invoiceId,
                          String supplement,
                          AbstractDaoFactory daoFactory) {
-        super(null, carFlowType, dateCreated, null, null, null, supplement);
+        super(null, carFlowType, null, null, null, supplement);
         this.carId = carId;
         this.responsiblePersonId = responsiblePersonId;
         this.invoiceId = invoiceId;

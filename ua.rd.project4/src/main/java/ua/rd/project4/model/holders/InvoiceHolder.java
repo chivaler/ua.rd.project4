@@ -15,15 +15,15 @@ public class InvoiceHolder extends Invoice {
         return clientId;
     }
 
-    public InvoiceHolder(int clientId, Timestamp dateCreated, int total, boolean paid, String description, AbstractDaoFactory daoFactory) {
-        super(null, dateCreated, total, paid, description);
+    public InvoiceHolder(int clientId, int total, boolean paid, String description, AbstractDaoFactory daoFactory) {
+        super(null, total, paid, description);
         this.daoFactory = daoFactory;
         this.clientId = clientId;
     }
 
     @Override
     public Client getClient() {
-        return (clientId > 0)? daoFactory.getClientDao().getById(clientId) : null;
+        return (clientId > 0) ? daoFactory.getClientDao().getById(clientId) : null;
     }
 
     @Override

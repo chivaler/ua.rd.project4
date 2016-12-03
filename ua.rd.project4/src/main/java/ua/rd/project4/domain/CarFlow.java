@@ -9,11 +9,11 @@ public class CarFlow implements Entity {
     private int id;
     private Car car;
     private CarFlowType carFlowType;
-    private Timestamp dateCreated;
     private CarRequest carRequest;
     private User responsiblePerson;
     private Invoice invoice;
     private String supplement;
+    private Timestamp dateCreated;
 
     public enum CarFlowType {
         IN(1), OUT(-1);
@@ -43,10 +43,9 @@ public class CarFlow implements Entity {
         }
     }
 
-    public CarFlow(Car car, CarFlowType carFlowType, Timestamp dateCreated, CarRequest carRequest, User responsiblePerson, Invoice invoice, String supplement) {
+    public CarFlow(Car car, CarFlowType carFlowType, CarRequest carRequest, User responsiblePerson, Invoice invoice, String supplement) {
         this.car = car;
         this.carFlowType = carFlowType;
-        this.dateCreated = dateCreated;
         this.carRequest = carRequest;
         this.responsiblePerson = responsiblePerson;
         this.invoice = invoice;
@@ -65,8 +64,6 @@ public class CarFlow implements Entity {
         if (getCarId() != carFlow.getCarId())
             return false;
         if (getCarFlowType() != carFlow.getCarFlowType())
-            return false;
-        if (dateCreated != carFlow.dateCreated)
             return false;
         if (getCarRequestId() != carFlow.getCarRequestId())
             return false;

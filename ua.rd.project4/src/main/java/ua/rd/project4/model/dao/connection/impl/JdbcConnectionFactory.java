@@ -20,6 +20,7 @@ public class JdbcConnectionFactory implements ConnectionFactory {
     private String jdbcPassword;
 
     private JdbcConnectionFactory() {
+        //TODO Jdbc from file, different from tests
         setJdbcParameters(
                 "com.mysql.jdbc.Driver",
 //                "com.mysql.cj.jdbc.Driver",

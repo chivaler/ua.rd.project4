@@ -1,5 +1,6 @@
 package ua.rd.project4.domain;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Car implements Entity {
@@ -9,14 +10,14 @@ public class Car implements Entity {
     private CarType carType;
     private String registrationNumber;
     private String description;
-    private int price;
-    private int rentPricePerDay;
+    private BigDecimal price;
+    private BigDecimal rentPricePerDay;
 
     public enum CarType {
         PICKUP, SEDAN, SPORT, LIMO, MINI
     }
 
-    public Car(String model, String color, CarType carType, String registrationNumber, String description, int price, int rentPricePerDay) {
+    public Car(String model, String color, CarType carType, String registrationNumber, String description, BigDecimal price, BigDecimal rentPricePerDay) {
         this.model = model;
         this.color = color;
         this.carType = carType;
@@ -51,11 +52,11 @@ public class Car implements Entity {
         return description;
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public int getRentPricePerDay() {
+    public BigDecimal getRentPricePerDay() {
         return rentPricePerDay;
     }
 

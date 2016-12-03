@@ -7,14 +7,13 @@ import java.util.Objects;
 public class Invoice implements Entity {
     private int id;
     private Client client;
-    private Timestamp dateCreated;
     private int total;
     private boolean paid;
     private String description;
+    private Timestamp dateCreated;
 
-    public Invoice(Client client, Timestamp dateCreated, int total, boolean paid, String description) {
+    public Invoice(Client client, int total, boolean paid, String description) {
         this.client = client;
-        this.dateCreated = dateCreated;
         this.total = total;
         this.paid = paid;
         this.description = description;
