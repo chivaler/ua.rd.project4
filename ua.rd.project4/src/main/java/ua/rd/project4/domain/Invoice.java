@@ -23,17 +23,17 @@ public class Invoice implements Entity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Invoice invoice = (Invoice) o;
-        return total == invoice.total &&
-                paid == invoice.paid &&
-                Objects.equals(client, invoice.client) &&
-                Objects.equals(description, invoice.description);
+        if (!(o instanceof Invoice)) return false;
+        Invoice that = (Invoice) o;
+        return (total == null ? that.total == null : that.total != null && total.compareTo(that.total) == 0) &&
+                paid == that.paid &&
+                Objects.equals(getClientId(), that.getClientId()) &&
+                Objects.equals(description, that.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(client, total, paid, description);
+        return Objects.hash(getClientId(), paid, description);
     }
 
     @Override

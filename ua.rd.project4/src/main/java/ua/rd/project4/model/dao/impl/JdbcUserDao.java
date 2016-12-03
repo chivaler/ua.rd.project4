@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.ClientDao;
 import ua.rd.project4.model.dao.connection.impl.JdbcConnectionFactory;
 import ua.rd.project4.model.dao.UserDao;
+import ua.rd.project4.model.holders.UserHolder;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ class JdbcUserDao implements UserDao {
             preparedStatement.setBoolean(1, user.isAdmin());
             preparedStatement.setString(2, user.getLogin());
             preparedStatement.setString(3, user.getPasswordHash());
-            preparedStatement.setObject(4, clientDao.findId(user.getClient()));
+            preparedStatement.setObject(4, user.getClientId()==0?null:user.getClientId());
             wasInserted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             logger.error(e);
@@ -66,7 +67,7 @@ class JdbcUserDao implements UserDao {
             preparedStatement.setBoolean(1, user.isAdmin());
             preparedStatement.setString(2, user.getLogin());
             preparedStatement.setString(3, user.getPasswordHash());
-            preparedStatement.setObject(4, clientDao.findId(user.getClient()));
+            preparedStatement.setObject(4, user.getClientId()==0?null:user.getClientId());
             preparedStatement.setInt(5, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -89,6 +90,17 @@ class JdbcUserDao implements UserDao {
         return wasDeleted;
     }
 
+    private User getEntityFromResultSet(ResultSet resultSet) throws SQLException {
+        User user = new UserHolder(
+                resultSet.getBoolean("isAdmin"),
+                resultSet.getString("login"),
+                resultSet.getString("passwordHash"),
+                resultSet.getInt("client"),
+                JdbcDaoFactory.getInstance());
+        user.setId(resultSet.getInt("id"));
+        return user;
+    }
+
     @Override
     public User getById(int id) {
         User user = null;
@@ -97,12 +109,7 @@ class JdbcUserDao implements UserDao {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                user = new User(
-                        resultSet.getBoolean("isAdmin"),
-                        resultSet.getString("login"),
-                        resultSet.getString("passwordHash"),
-                        clientDao.getById(resultSet.getInt("client")));
-                user.setId(resultSet.getInt("id"));
+                user = getEntityFromResultSet(resultSet);
             }
         } catch (SQLException e) {
             logger.error(e);
@@ -118,12 +125,7 @@ class JdbcUserDao implements UserDao {
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                user = new User(
-                        resultSet.getBoolean("isAdmin"),
-                        resultSet.getString("login"),
-                        resultSet.getString("passwordHash"),
-                        clientDao.getById(resultSet.getInt("client")));
-                user.setId(resultSet.getInt("id"));
+                user = getEntityFromResultSet(resultSet);
                 allUsers.add(user);
             }
         } catch (SQLException e) {
@@ -151,12 +153,7 @@ class JdbcUserDao implements UserDao {
             preparedStatement.setInt(1, clientId);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                user = new User(
-                        resultSet.getBoolean("isAdmin"),
-                        resultSet.getString("login"),
-                        resultSet.getString("passwordHash"),
-                        clientDao.getById(resultSet.getInt("client")));
-                user.setId(resultSet.getInt("id"));
+                user = getEntityFromResultSet(resultSet);
                 allUsers.add(user);
             }
         } catch (SQLException e) {

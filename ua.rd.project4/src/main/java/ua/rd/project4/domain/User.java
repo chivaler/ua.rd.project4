@@ -20,13 +20,13 @@ public class User implements Entity {
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (o == null || getClass() != o.getClass())
+        if (!(o instanceof User))
             return false;
         User that = (User) o;
         return isAdmin == that.isAdmin &&
                 Objects.equals(login, that.login) &&
                 Objects.equals(passwordHash, that.passwordHash) &&
-                Objects.equals(client, that.client);
+                Objects.equals(getClientId(), that.getClientId());
     }
 
     @Override

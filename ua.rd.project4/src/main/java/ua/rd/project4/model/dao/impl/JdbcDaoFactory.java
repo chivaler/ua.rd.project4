@@ -6,7 +6,6 @@ import ua.rd.project4.model.dao.*;
 
 public class JdbcDaoFactory extends AbstractDaoFactory {
     private static final JdbcDaoFactory instance = new JdbcDaoFactory();
-    private static Logger logger = LogManager.getLogger(JdbcDaoFactory.class);
 
     private JdbcDaoFactory() {
     }
