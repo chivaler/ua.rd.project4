@@ -1,17 +1,18 @@
 package ua.rd.project4.domain;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 public class CarRequest implements Entity {
     private int id = -1;
     private Car car;
     private Client client;
+    private Timestamp dateCreated;
     private Date dateFrom;
     private Date dateTo;
     private int totalCost;
     private RequestStatus status;
-    boolean approved;
     private Invoice invoice;
     private String rejectReason;
 
@@ -26,7 +27,6 @@ public class CarRequest implements Entity {
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         this.totalCost = totalCost;
-        this.approved = approved;
 
 //  this.status = status;
         this.invoice = invoice;
@@ -101,11 +101,7 @@ public class CarRequest implements Entity {
     }
 
     public boolean isApproved() {
-        return approved;
-    }
-
-    public void setApproved(boolean approved) {
-        this.approved = approved;
+        return status == RequestStatus.APPROVED;
     }
 
     public Invoice getInvoice() {

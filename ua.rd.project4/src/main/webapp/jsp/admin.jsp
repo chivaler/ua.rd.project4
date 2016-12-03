@@ -160,8 +160,10 @@
                                 <tr>
                                     <td><c:out value="${carFlow.getId()}"/></td>
                                     <td><a href="/Controller?command=CARS&do=get&id=${carFlow.getCarId()}">
-                                        <c:out value="${request.getCar().toString()}"/></a>
-                                    <td><c:out value="${carFlow.getCarFlowType()}"/></td>
+                                        <c:out value="${carFlow.getCar().toString()}"/></a>
+                                    <td><a href="/Controller?command=CARFLOWS&do=get&id=${carFlow.getId()}">
+                                        <c:out value="${carFlow.getCarFlowType()}"/></a>
+                                    <td><c:out value="${carFlow.getDateCreated()}"/></td>
                                     <%--<td><c:out value="${carFlow.getRegistrationNumber()}"/></td>--%>
                                     <%--<td>--%>
                                         <%--<form action="/Controller" method="post">--%>

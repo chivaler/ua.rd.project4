@@ -38,7 +38,7 @@ class JdbcCarFlowDao implements CarFlowDao {
                     "id INT PRIMARY KEY auto_increment," +
                     "car INT," +
                     "carFlowType INT," +
-                    "dateCreated TIMESTAMP," +
+                    "dateCreated TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP," +
                     "carRequest INT," +
                     "responsiblePerson INT," +
                     "invoice INT," +

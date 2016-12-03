@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6ca6b15-2d8d-4825-a483-4297d64caaf2" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/Holder.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/Admin.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/Admin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarRequest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcDaoFactory.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcDaoFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarRequestService.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarRequestService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarFlowHolder.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarFlowHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarHolder.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarRequestHolder.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarRequestHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/UserHolder.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/UserHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/admin.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/admin.jsp" />
     </list>
     <ignored path="project4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,40 +43,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="JdbcInvoiceDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcInvoiceDao.java">
+      <file leaf-file-name="InvoiceHolder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/InvoiceHolder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="158" column="46" selection-start-line="158" selection-start-column="46" selection-end-line="158" selection-end-column="46" />
-              <folding>
-                <marker date="1480593108692" expanded="true" signature="1060:1194" ph="CREATE TABLE... IF" />
-                <marker date="1480593108692" expanded="true" signature="1060:1427" ph="CREATE TABLE... IF" />
-                <marker date="1480593108692" expanded="true" signature="1814:1928" ph="INSERT INTO `invoices`... " />
-                <marker date="1480593108692" expanded="true" signature="2731:2845" ph="UPDATE `invo... " />
-                <marker date="1480593108692" expanded="true" signature="3674:3707" ph="DELETE FROM " />
-                <marker date="1480593108692" expanded="true" signature="4183:4226" ph="SELECT * FRO... invoices" />
-                <marker date="1480593108692" expanded="true" signature="5172:5196" ph="SELECT * FRO... invoices" />
-                <marker date="1480593108692" expanded="true" signature="6484:6523" ph="SELECT * FRO... invoices" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarFlowHolder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarFlowHolder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-238">
-              <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+            <state relative-caret-position="68">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InvoiceHolder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/InvoiceHolder.java">
+      <file leaf-file-name="Admin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/Admin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cmdCrudCarFlow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudCarFlow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-136">
+              <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -79,8 +76,8 @@
       <file leaf-file-name="JdbcCarDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="103" column="30" selection-start-line="103" selection-start-column="30" selection-end-line="103" selection-end-column="30" />
+            <state relative-caret-position="1581">
+              <caret line="103" column="30" lean-forward="false" selection-start-line="103" selection-start-column="30" selection-end-line="103" selection-end-column="30" />
               <folding>
                 <marker date="1480591625124" expanded="true" signature="836:1304" ph="CREATE TABLE... IF" />
                 <marker date="1480591625124" expanded="true" signature="1679:1826" ph="INSERT INTO `cars`... " />
@@ -93,56 +90,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarRequestService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarRequestService.java">
+      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/admin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+            <state relative-caret-position="325">
+              <caret line="165" column="89" lean-forward="true" selection-start-line="165" selection-start-column="89" selection-end-line="165" selection-end-column="89" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Car.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/Car.java">
+      <file leaf-file-name="CarFlow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarFlow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-340">
-              <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+            <state relative-caret-position="306">
+              <caret line="48" column="38" lean-forward="false" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="38" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JdbcCarRequestDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1088">
-              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-              <folding>
-                <marker date="1480702932415" expanded="true" signature="1211:1778" ph="CREATE TABLE... IF" />
-                <marker date="1480702932415" expanded="true" signature="2126:2256" ph="INSERT INTO `car_request`... " />
-                <marker date="1480702932415" expanded="true" signature="3241:3376" ph="UPDATE `car_... " />
-                <marker date="1480702932415" expanded="true" signature="4381:4417" ph="DELETE FROM " />
-                <marker date="1480702932415" expanded="true" signature="5106:5133" ph="SELECT * FRO... car_request" />
-                <marker date="1480702932415" expanded="true" signature="6752:6801" ph="SELECT * FRO... car_request" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JdbcClientDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-782">
-              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-              <folding>
-                <marker date="1480702961700" expanded="true" signature="892:1262" ph="CREATE TABLE... IF" />
-                <marker date="1480702961700" expanded="true" signature="1646:1770" ph="INSERT INTO `clients`... " />
-                <marker date="1480702961700" expanded="true" signature="2613:2737" ph="UPDATE `clie... " />
-                <marker date="1480702961700" expanded="true" signature="3608:3640" ph="DELETE FROM " />
-                <marker date="1480702961700" expanded="true" signature="4113:4155" ph="SELECT * FRO... clients" />
-                <marker date="1480702961700" expanded="true" signature="5156:5179" ph="SELECT * FRO... clients" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -151,17 +114,47 @@
         <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcDaoFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JdbcServiceFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcServiceFactory.java">
+      <file leaf-file-name="JdbcCarFlowDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="322">
+              <caret line="40" column="71" lean-forward="false" selection-start-line="40" selection-start-column="71" selection-end-line="40" selection-end-column="71" />
+              <folding>
+                <marker date="1480711344599" expanded="true" signature="1439:2218" ph="CREATE TABLE... IF" />
+                <marker date="1480711344599" expanded="true" signature="2606:2760" ph="INSERT INTO `car_flow`... " />
+                <marker date="1480711344599" expanded="true" signature="3906:4055" ph="UPDATE `car_... " />
+                <marker date="1480711344599" expanded="true" signature="5227:5260" ph="DELETE FROM " />
+                <marker date="1480711344599" expanded="true" signature="5704:5747" ph="SELECT * FRO... car_flow" />
+                <marker date="1480711344599" expanded="true" signature="6931:6955" ph="SELECT * FRO... car_flow" />
+                <marker date="1480711344599" expanded="true" signature="7943:7988" ph="SELECT * FRO... car_flow" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CarRequest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1258">
+              <caret line="102" column="33" lean-forward="true" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="33" />
+              <folding>
+                <element signature="e#2489#2490#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientHolder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/ClientHolder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -196,9 +189,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/JdbcCarRequestSevice.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/Command.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/commandList.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/Admin.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/cmdCrudGeneric.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/dao/EntityDaoTest.java" />
@@ -230,23 +220,26 @@
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/ServiceFactory.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/impl/JdbcConnectionFactory.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudGeneric.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/Admin.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/style.css" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/admin.jsp" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcUserDao.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/Invoice.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarFlow.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcInvoiceDao.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarFlowHolder.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/InvoiceHolder.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarRequest.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarRequest.kt" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcDaoFactory.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarRequestService.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarFlowHolder.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarHolder.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarRequestHolder.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/UserHolder.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/Admin.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarFlow.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/admin.jsp" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcDaoFactory.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarRequest.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java" />
       </list>
     </option>
   </component>
@@ -259,7 +252,6 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
         <option name="usePluginRegistry" value="true" />
       </MavenGeneralSettings>
     </option>
@@ -277,14 +269,7 @@
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
     <ConfirmationsSetting value="2" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -301,14 +286,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="project4" />
@@ -548,48 +528,6 @@
               <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ua.rd.project4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -622,36 +560,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="holders" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ua.rd.project4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -975,7 +883,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
@@ -996,6 +903,7 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/command" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="SONARLINT_ISSUES_VIEW_SCOPE" value="Opened files" />
+    <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -1232,30 +1140,7 @@
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <Java />
-      <Profilers>
-        <option name="GAPID_DISABLE_PCS" value="false" />
-      </Profilers>
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="" />
+      <predefined_log_file id="idea.log" enabled="true" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -1277,7 +1162,11 @@
       <option name="PREFERRED_AVD" value="" />
       <Java />
       <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
         <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
       </Profilers>
       <method />
     </configuration>
@@ -1455,6 +1344,7 @@
       <setting name="cmdLine" value="run-app" />
       <setting name="passParentEnv" value="true" />
       <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
       <setting name="depsClasspath" value="false" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
@@ -1471,27 +1361,6 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -1600,34 +1469,6 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
       <option name="OUTPUT_DIRECTORY" />
       <option name="ANNOTATION_TYPE" />
       <option name="ENV_VARIABLES" />
@@ -1804,6 +1645,30 @@
         <item index="4" class="java.lang.String" itemvalue="JUnit.InitDataTest" />
       </list>
     </recent_temporary>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -1825,7 +1690,8 @@
       <workItem from="1480234701314" duration="45026000" />
       <workItem from="1480289259931" duration="78936000" />
       <workItem from="1480496874436" duration="2547000" />
-      <workItem from="1480500947727" duration="41011000" />
+      <workItem from="1480500947727" duration="41332000" />
+      <workItem from="1480707908206" duration="3475000" />
     </task>
     <task id="LOCAL-00001" summary="+allservices">
       <created>1480247341265</created>
@@ -2009,7 +1875,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480596464692</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="remove unnecessary public">
+      <created>1480703163655</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1480703163655</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2045,7 +1918,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200734000" />
+    <option name="totallyTimeSpent" value="204530000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -2061,36 +1934,40 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0014347202" sideWeight="0.34871408" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.023449318" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21767594" sideWeight="0.49694657" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29366603" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3797054" sideWeight="0.66793895" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14402619" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38163558" sideWeight="0.4908397" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5417349" sideWeight="0.73816794" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14893617" sideWeight="0.73816794" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2625538" sideWeight="0.65128595" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27685326" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28139183" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.045826513" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35188216" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21767594" sideWeight="0.49694657" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="DSM" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="91" y="150" width="1182" height="544" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38163558" sideWeight="0.4908397" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35188216" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2125,6 +2002,9 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35188216" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -2162,7 +2042,8 @@
     <MESSAGE value="loger(e.tostring()) -&gt; logger(e)" />
     <MESSAGE value="dates-&gt;timestamp" />
     <MESSAGE value="more changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="more changes" />
+    <MESSAGE value="remove unnecessary public" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unnecessary public" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2213,50 +2094,24 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcClientSevice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcInvoiceSevice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/ExceptionEntityInUse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/UniqueViolationException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-          <folding />
+          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/LoginExistsException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -2264,7 +2119,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarFlowService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -2272,15 +2127,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarSevice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <caret line="29" column="4" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -2288,7 +2135,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/AbstractEntityService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2296,7 +2143,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarRequestDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -2304,7 +2151,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/AbstractDaoFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -2312,7 +2159,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/ConnectionFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -2320,7 +2167,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/exceptions/ExceptionRequiredFieldEmpty.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2328,7 +2175,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/exceptions/InvalidParameterException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2336,15 +2183,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/exceptions/RequiredParameterException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudCarFlow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2352,7 +2191,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudCarRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -2360,7 +2199,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudCars.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -2368,7 +2207,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudInvoice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -2376,7 +2215,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/commandList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -2384,7 +2223,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/ServiceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2392,9 +2231,9 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/impl/JdbcConnectionFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2402,7 +2241,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudClients.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -2410,7 +2249,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/clients.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-306">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2418,7 +2257,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/includes/fields/car.jspf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="62" />
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -2426,9 +2265,9 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudGeneric.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="56" selection-end-column="77" />
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="56" selection-end-column="77" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#getIdFromRequest#0;class#cmdCrudGeneric#0" expanded="false" />
             <element signature="method#executeUpdate#0;class#cmdCrudGeneric#0" expanded="false" />
           </folding>
@@ -2438,36 +2277,14 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-15">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <marker date="1480539519248" expanded="true" signature="6:26" ph="{...}" />
-            <marker date="1480539519248" expanded="true" signature="31:101" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/Admin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="21" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudUsers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/admin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="163" column="89" selection-start-line="163" selection-start-column="89" selection-end-line="163" selection-end-column="89" />
+          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -2475,7 +2292,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2483,7 +2300,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2491,7 +2308,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarFlowDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -2499,7 +2316,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -2507,7 +2324,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/EntityDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -2515,7 +2332,7 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcUserDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-563">
-          <caret line="38" column="58" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="58" />
+          <caret line="38" column="58" lean-forward="false" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="58" />
           <folding>
             <marker date="1480591913110" expanded="true" signature="1040:1370" ph="CREATE TABLE... IF" />
             <marker date="1480591913110" expanded="true" signature="1748:1844" ph="INSERT INTO `users`... " />
@@ -2531,50 +2348,25 @@
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/Invoice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
-          <caret line="84" column="20" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+          <caret line="84" column="20" lean-forward="false" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1951#1952#0" expanded="true" />
-            <element signature="e#1985#1986#0" expanded="true" />
-            <element signature="e#2042#2043#0" expanded="true" />
-            <element signature="e#2088#2089#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarFlow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3041#3042#0" expanded="true" />
-            <element signature="e#3075#3076#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="175" column="46" selection-start-line="175" selection-start-column="46" selection-end-line="175" selection-end-column="46" />
-          <folding>
-            <marker date="1480593048141" expanded="true" signature="1439:2189" ph="CREATE TABLE... IF" />
-            <marker date="1480593048141" expanded="true" signature="2577:2731" ph="INSERT INTO `car_flow`... " />
-            <marker date="1480593048141" expanded="true" signature="3877:4026" ph="UPDATE `car_... " />
-            <marker date="1480593048141" expanded="true" signature="5198:5231" ph="DELETE FROM " />
-            <marker date="1480593048141" expanded="true" signature="5675:5718" ph="SELECT * FRO... car_flow" />
-            <marker date="1480593048141" expanded="true" signature="6902:6926" ph="SELECT * FRO... car_flow" />
-            <marker date="1480593048141" expanded="true" signature="7914:7959" ph="SELECT * FRO... car_flow" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1951#1952#0" expanded="false" />
+            <element signature="e#1985#1986#0" expanded="false" />
+            <element signature="e#2042#2043#0" expanded="false" />
+            <element signature="e#2088#2089#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcInvoiceDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="158" column="46" selection-start-line="158" selection-start-column="46" selection-end-line="158" selection-end-column="46" />
+        <state relative-caret-position="2499">
+          <caret line="158" column="46" lean-forward="false" selection-start-line="158" selection-start-column="46" selection-end-line="158" selection-end-column="46" />
           <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#759#760#0" expanded="false" />
+            <element signature="e#790#791#0" expanded="false" />
             <marker date="1480593108692" expanded="true" signature="1060:1194" ph="CREATE TABLE... IF" />
             <marker date="1480593108692" expanded="true" signature="1060:1427" ph="CREATE TABLE... IF" />
             <marker date="1480593108692" expanded="true" signature="1814:1928" ph="INSERT INTO `invoices`... " />
@@ -2587,60 +2379,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarFlowHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/InvoiceHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="103" column="30" selection-start-line="103" selection-start-column="30" selection-end-line="103" selection-end-column="30" />
-          <folding>
-            <marker date="1480591625124" expanded="true" signature="836:1304" ph="CREATE TABLE... IF" />
-            <marker date="1480591625124" expanded="true" signature="1679:1826" ph="INSERT INTO `cars`... " />
-            <marker date="1480591625124" expanded="true" signature="2755:2902" ph="UPDATE `cars... " />
-            <marker date="1480591625124" expanded="true" signature="3865:3894" ph="DELETE FROM " />
-            <marker date="1480591625124" expanded="true" signature="4358:4397" ph="SELECT * FRO... cars" />
-            <marker date="1480591625124" expanded="true" signature="5440:5460" ph="SELECT * FRO... cars" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-          <folding>
-            <marker date="1480596171636" expanded="false" signature="3050:3056" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/Car.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-          <folding />
+        <state relative-caret-position="425">
+          <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+          <folding>
+            <element signature="e#847#848#0" expanded="false" />
+            <element signature="e#872#873#0" expanded="false" />
+            <element signature="e#904#905#0" expanded="false" />
+            <element signature="e#932#933#0" expanded="false" />
+            <element signature="e#964#965#0" expanded="false" />
+            <element signature="e#992#993#0" expanded="false" />
+            <element signature="e#1027#1028#0" expanded="false" />
+            <element signature="e#1057#1058#0" expanded="false" />
+            <element signature="e#1102#1103#0" expanded="false" />
+            <element signature="e#1143#1144#0" expanded="false" />
+            <element signature="e#1181#1182#0" expanded="false" />
+            <element signature="e#1215#1216#0" expanded="false" />
+            <element signature="e#1244#1245#0" expanded="false" />
+            <element signature="e#1272#1273#0" expanded="false" />
+            <element signature="e#1311#1312#0" expanded="false" />
+            <element signature="e#1349#1350#0" expanded="false" />
+            <element signature="e#2286#2287#0" expanded="false" />
+            <element signature="e#2347#2348#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1088">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        <state relative-caret-position="85">
+          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
           <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#895#896#0" expanded="false" />
+            <element signature="e#926#927#0" expanded="false" />
+            <element signature="e#4692#4693#0" expanded="false" />
+            <element signature="e#4783#4784#0" expanded="false" />
+            <element signature="e#7901#7902#0" expanded="false" />
+            <element signature="e#7962#7963#0" expanded="false" />
             <marker date="1480702932415" expanded="true" signature="1211:1778" ph="CREATE TABLE... IF" />
             <marker date="1480702932415" expanded="true" signature="2126:2256" ph="INSERT INTO `car_request`... " />
             <marker date="1480702932415" expanded="true" signature="3241:3376" ph="UPDATE `car_... " />
@@ -2653,9 +2430,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-782">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        <state relative-caret-position="85">
+          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
           <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#629#630#0" expanded="false" />
+            <element signature="e#660#661#0" expanded="false" />
             <marker date="1480702961700" expanded="true" signature="892:1262" ph="CREATE TABLE... IF" />
             <marker date="1480702961700" expanded="true" signature="1646:1770" ph="INSERT INTO `clients`... " />
             <marker date="1480702961700" expanded="true" signature="2613:2737" ph="UPDATE `clie... " />
@@ -2666,27 +2446,185 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcDaoFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcServiceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#321#322#0" expanded="false" />
+            <element signature="e#352#353#0" expanded="false" />
+            <element signature="e#413#414#0" expanded="false" />
+            <element signature="e#466#467#0" expanded="false" />
+            <element signature="e#523#524#0" expanded="false" />
+            <element signature="e#574#575#0" expanded="false" />
+            <element signature="e#629#630#0" expanded="false" />
+            <element signature="e#679#680#0" expanded="false" />
+            <element signature="e#742#743#0" expanded="false" />
+            <element signature="e#797#798#0" expanded="false" />
+            <element signature="e#866#867#0" expanded="false" />
+            <element signature="e#923#924#0" expanded="false" />
+            <element signature="e#986#987#0" expanded="false" />
+            <element signature="e#1040#1041#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarRequestService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+          <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#605#606#0" expanded="false" />
+            <element signature="e#653#654#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarFlowHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1071#1072#0" expanded="false" />
+            <element signature="e#1099#1100#0" expanded="false" />
+            <element signature="e#1149#1150#0" expanded="false" />
+            <element signature="e#1184#1185#0" expanded="false" />
+            <element signature="e#1241#1242#0" expanded="false" />
+            <element signature="e#1283#1284#0" expanded="false" />
+            <element signature="e#1330#1331#0" expanded="false" />
+            <element signature="e#1362#1363#0" expanded="false" />
+            <element signature="e#1403#1404#0" expanded="false" />
+            <element signature="e#1484#1485#0" expanded="false" />
+            <element signature="e#1533#1534#0" expanded="false" />
+            <element signature="e#1593#1594#0" expanded="false" />
+            <element signature="e#2296#2297#0" expanded="false" />
+            <element signature="e#2389#2390#0" expanded="false" />
+            <element signature="e#2450#2451#0" expanded="false" />
+            <element signature="e#2522#2523#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="35" lean-forward="false" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarRequestHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="49" lean-forward="false" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/UserHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="37" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/ClientHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/InvoiceHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudCarFlow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarFlow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="48" column="38" lean-forward="false" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="165" column="89" lean-forward="true" selection-start-line="165" selection-start-column="89" selection-end-line="165" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcDaoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="103" column="30" lean-forward="false" selection-start-line="103" selection-start-column="30" selection-end-line="103" selection-end-column="30" />
+          <folding>
+            <marker date="1480591625124" expanded="true" signature="836:1304" ph="CREATE TABLE... IF" />
+            <marker date="1480591625124" expanded="true" signature="1679:1826" ph="INSERT INTO `cars`... " />
+            <marker date="1480591625124" expanded="true" signature="2755:2902" ph="UPDATE `cars... " />
+            <marker date="1480591625124" expanded="true" signature="3865:3894" ph="DELETE FROM " />
+            <marker date="1480591625124" expanded="true" signature="4358:4397" ph="SELECT * FRO... cars" />
+            <marker date="1480591625124" expanded="true" signature="5440:5460" ph="SELECT * FRO... cars" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="40" column="71" lean-forward="false" selection-start-line="40" selection-start-column="71" selection-end-line="40" selection-end-column="71" />
+          <folding>
+            <marker date="1480711344599" expanded="true" signature="1439:2218" ph="CREATE TABLE... IF" />
+            <marker date="1480711344599" expanded="true" signature="2606:2760" ph="INSERT INTO `car_flow`... " />
+            <marker date="1480711344599" expanded="true" signature="3906:4055" ph="UPDATE `car_... " />
+            <marker date="1480711344599" expanded="true" signature="5227:5260" ph="DELETE FROM " />
+            <marker date="1480711344599" expanded="true" signature="5704:5747" ph="SELECT * FRO... car_flow" />
+            <marker date="1480711344599" expanded="true" signature="6931:6955" ph="SELECT * FRO... car_flow" />
+            <marker date="1480711344599" expanded="true" signature="7943:7988" ph="SELECT * FRO... car_flow" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="102" column="33" lean-forward="true" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="33" />
+          <folding>
+            <element signature="e#2489#2490#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

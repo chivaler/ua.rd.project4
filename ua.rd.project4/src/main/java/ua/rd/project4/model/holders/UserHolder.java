@@ -4,7 +4,7 @@ import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.dao.AbstractDaoFactory;
 
-public class UserHolder extends User implements Holder<User> {
+public class UserHolder extends User  {
     private final AbstractDaoFactory daoFactory;
     private int clientId;
 

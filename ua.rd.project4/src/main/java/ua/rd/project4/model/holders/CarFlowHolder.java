@@ -6,7 +6,7 @@ import ua.rd.project4.model.dao.AbstractDaoFactory;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-public class CarFlowHolder extends CarFlow implements Holder<CarFlow> {
+public class CarFlowHolder extends CarFlow {
     final AbstractDaoFactory daoFactory;
     private int carId;
     private int carRequestId;

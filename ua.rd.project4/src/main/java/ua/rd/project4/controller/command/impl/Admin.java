@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.stream.Collectors;
 
-public class Admin implements Command {
+class Admin implements Command {
     private static final Admin instance = new Admin();
     private Admin() {
     }
