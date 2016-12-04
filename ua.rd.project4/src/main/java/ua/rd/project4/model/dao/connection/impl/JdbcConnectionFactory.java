@@ -23,6 +23,8 @@ public class JdbcConnectionFactory implements ConnectionFactory {
     private String jdbcPassword;
     private ConnectionType connectionType = ConnectionType.POOL_PREFERRED;
 
+
+
     enum ConnectionType {
         POOL_PREFERRED, SINGLE;
     }
@@ -86,6 +88,10 @@ public class JdbcConnectionFactory implements ConnectionFactory {
 
     private Connection getSingleConnection() throws Exception {
         return DriverManager.getConnection(jdbcUrl, jdbcUser, jdbcPassword);
+    }
+
+    public String getJdbcDriver() {
+        return jdbcDriver;
     }
 
 }

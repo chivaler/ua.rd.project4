@@ -8,11 +8,13 @@ import ua.rd.project4.model.dao.connection.impl.JdbcConnectionFactory;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 class JdbcCarDao implements CarDao {
     private static final JdbcCarDao instance = new JdbcCarDao();
     private final Logger logger = LogManager.getLogger(JdbcCarDao.class);
+    private boolean H2Used = Objects.equals(JdbcConnectionFactory.getInstance().getJdbcDriver(), "org.h2.Driver");
 
     private JdbcCarDao() {
     }
@@ -29,7 +31,7 @@ class JdbcCarDao implements CarDao {
                     "id INT PRIMARY KEY auto_increment," +
                     "model VARCHAR(16)," +
                     "color VARCHAR(16)," +
-                    "carType enum('LIMO','SPORT','MINI','PICKUP','SEDAN') NOT NULL DEFAULT 'SEDAN'," +
+                    (H2Used ? "carType VARCHAR(16)," : "carType enum('LIMO','SPORT','MINI','PICKUP','SEDAN') NOT NULL DEFAULT 'SEDAN',") +
                     "registrationNumber VARCHAR(16)," +
                     "description VARCHAR(60)," +
                     "price DECIMAL(10,2)," +

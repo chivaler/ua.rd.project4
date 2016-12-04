@@ -2,90 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6ca6b15-2d8d-4825-a483-4297d64caaf2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/CommandLocalization.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/CommandLogin.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/CarRequestApproveNeededException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/CarRequestPaymentNeededException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/ConflictsRequestException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/WrongCarFlowDirectionException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/login.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/AbstractDaoFactory$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/AbstractDaoFactory$DaoType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/AbstractDaoFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/CarDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/CarFlowDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/CarRequestDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/ClientDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/ConnectionFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/EntityDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/InvoiceDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/JdbcCarDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/JdbcCarFlowDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/JdbcCarRequestDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/JdbcClientDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/JdbcDaoFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/JdbcInvoiceDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/JdbcUserDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/Dao/UserDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/command/Command.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/command/GetAllClients.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/command/commandList.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/entities/Car$CarType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/entities/Car.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/entities/CarFlow$CarFlowType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/entities/CarFlow.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/entities/CarRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/entities/Client.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/entities/Entity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/entities/Invoice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/entities/SystemUser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/services/ClientService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/services/EntityService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/services/JdbcClientSevice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/services/getCars.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/jsp/admin/clients.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/jsp/admin/messages_en_US.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/jsp/admin/messages_uk_UA.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/jsp/admin/users.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/jsp/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/jsp/listCars.jsp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/controller/MainController.class" afterPath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/ua/rd/project4/controller/MainController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudCarRequest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudCarRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudInvoice.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudInvoice.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/commandList.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/commandList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarFlowService.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarFlowService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarRequestService.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarRequestService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/UserService.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarFlowService.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarFlowService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarRequestService.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarRequestService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcUserSevice.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcUserSevice.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/admin.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/admin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car_flow.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car_flow.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car_flows.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car_flows.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car_request.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car_request.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car_requests.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car_requests.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/cars.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/cars.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/client.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/client.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/clients.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/clients.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/includes/fields/car_request.jspf" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/includes/fields/car_request.jspf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/includes/fields/invoice.jspf" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/includes/fields/invoice.jspf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/includes/header.jspf" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/includes/header.jspf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/invoice.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/invoice.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/invoices.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/invoices.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/user.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/user.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/users.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/users.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/ua.rd.project4/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/log4j2.xml" afterPath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/classes/log4j2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/ua.rd.project4/target/project4-1.0-SNAPSHOT/WEB-INF/web.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/Admin.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/CommandAdmin.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/includes/fields/responsible_person.jspf" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/includes/fields/responsible_user.jspf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/ConnectionFactory.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/ConnectionFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/impl/JdbcConnectionFactory.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/impl/JdbcConnectionFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/resources/db.properties" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/resources/db.properties" />
     </list>
     <ignored path="project4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -115,104 +37,130 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="JdbcCarFlowService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarFlowService.java">
+      <file leaf-file-name="db.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/resources/db.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractEntityService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/AbstractEntityService.java">
+      <file leaf-file-name="db.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/resources/db.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+            <state relative-caret-position="0">
+              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarFlowService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarFlowService.java">
+      <file leaf-file-name="CarDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="68">
+              <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cmdCrudCarRequest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudCarRequest.java">
+      <file leaf-file-name="JdbcCarDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
-                <element signature="method#parseToEntity#0;class#cmdCrudCarRequest#0" expanded="false" />
+                <marker date="1480869150900" expanded="true" signature="987:1511" ph="CREATE TABLE... IF" />
+                <marker date="1480869150900" expanded="true" signature="1886:2033" ph="INSERT INTO `cars`... " />
+                <marker date="1480869150900" expanded="true" signature="2976:3123" ph="UPDATE `cars... " />
+                <marker date="1480869150900" expanded="true" signature="4100:4129" ph="DELETE FROM " />
+                <marker date="1480869150900" expanded="true" signature="4593:4632" ph="SELECT * FRO... cars" />
+                <marker date="1480869150900" expanded="true" signature="5689:5709" ph="SELECT * FRO... cars" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JdbcCarRequestService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarRequestService.java">
+      <file leaf-file-name="CarFlow_DaoTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/dao/CarFlow_DaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="77" column="48" lean-forward="false" selection-start-line="77" selection-start-column="48" selection-end-line="77" selection-end-column="48" />
+            <state relative-caret-position="68">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConflictsRequestException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/ConflictsRequestException.java">
+      <file leaf-file-name="CarRequest_DaoTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/dao/CarRequest_DaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="38" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="38" />
+            <state relative-caret-position="68">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarRequestPaymentNeededException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/CarRequestPaymentNeededException.java">
+      <file leaf-file-name="JdbcCarRequestDao.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="45" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="45" />
+            <state relative-caret-position="238">
+              <caret line="45" column="80" lean-forward="false" selection-start-line="45" selection-start-column="80" selection-end-line="45" selection-end-column="80" />
+              <folding>
+                <marker date="1480869286096" expanded="true" signature="1474:2266" ph="CREATE TABLE... IF" />
+                <marker date="1480869286096" expanded="true" signature="2615:2759" ph="INSERT INTO `car_request`... " />
+                <marker date="1480869286096" expanded="true" signature="3903:4052" ph="UPDATE `car_... " />
+                <marker date="1480869286096" expanded="true" signature="5216:5252" ph="DELETE FROM " />
+                <marker date="1480869286096" expanded="true" signature="6742:6769" ph="SELECT * FRO... car_request" />
+                <marker date="1480869286096" expanded="true" signature="7805:7869" ph="SELECT * FRO... car_request" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CarFlowDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarFlowDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JdbcUserSevice.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcUserSevice.java">
+      <file leaf-file-name="JdbcCarFlowDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
-              <caret line="60" column="28" lean-forward="false" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="799">
+              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding>
+                <marker date="1480796640777" expanded="true" signature="1550:2260" ph="CREATE TABLE... IF" />
+                <marker date="1480796640777" expanded="true" signature="2648:2787" ph="INSERT INTO `car_flow`... " />
+                <marker date="1480796640777" expanded="true" signature="3870:4009" ph="UPDATE `car_... " />
+                <marker date="1480796640777" expanded="true" signature="5118:5151" ph="DELETE FROM " />
+                <marker date="1480796640777" expanded="true" signature="6330:6354" ph="SELECT * FRO... car_flow" />
+                <marker date="1480796640777" expanded="true" signature="6800:6860" ph="SELECT * FRO... car_flow" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntityService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/EntityService.java">
+      <file leaf-file-name="JdbcClientDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarRequestService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarRequestService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="39" />
-              <folding />
+            <state relative-caret-position="17">
+              <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+              <folding>
+                <marker date="1480796640837" expanded="true" signature="902:1272" ph="CREATE TABLE... IF" />
+                <marker date="1480796640837" expanded="true" signature="1656:1780" ph="INSERT INTO `clients`... " />
+                <marker date="1480796640837" expanded="true" signature="2623:2747" ph="UPDATE `clie... " />
+                <marker date="1480796640837" expanded="true" signature="3618:3650" ph="DELETE FROM " />
+                <marker date="1480796640837" expanded="true" signature="4123:4165" ph="SELECT * FRO... clients" />
+                <marker date="1480796640837" expanded="true" signature="5166:5189" ph="SELECT * FRO... clients" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -264,10 +212,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/InvoiceHolder.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarRequest.kt" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarFlowHolder.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarHolder.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/CarRequestHolder.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/UserHolder.java" />
@@ -288,7 +232,6 @@
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudGeneric.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarRequestSevice.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcInvoiceDao.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/WrongCarFlowDirectionException.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudCars.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/invoice.jsp" />
@@ -315,6 +258,11 @@
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarFlowService.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarFlowService.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudCarRequest.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/test/resources/db.properties" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/impl/JdbcConnectionFactory.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/ConnectionFactory.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" />
       </list>
     </option>
   </component>
@@ -388,6 +336,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -807,6 +759,86 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="connection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ua.rd.project4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="connection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ua.rd.project4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1001,33 +1033,7 @@
       <recent name="D:\Projects\ua.rd.project4\ua.rd.project4\src\main\webapp\jsp\admin" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.jetty [run]">
-    <configuration default="false" name="InitDataTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="Dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ua.rd.project4" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="Dao" />
-      <option name="MAIN_CLASS_NAME" value="Dao.InitDataTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.ua.rd.project4.model.dao in ua.rd.project4">
     <configuration default="false" name="ua.rd.project4.model.dao in ua.rd.project4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1120,6 +1126,32 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="Client_DaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ua.rd.project4.model.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ua.rd.project4" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ua.rd.project4.model.dao" />
+      <option name="MAIN_CLASS_NAME" value="ua.rd.project4.model.dao.Client_DaoTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -1732,19 +1764,19 @@
       <item index="0" class="java.lang.String" itemvalue="Maven.project4 [deploy]" />
       <item index="1" class="java.lang.String" itemvalue="Maven.jetty [run]" />
       <item index="2" class="java.lang.String" itemvalue="Tomcat Server.Unnamed" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.InitDataTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.ua.rd.project4.model.dao in ua.rd.project4" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.Car_DaoTest" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.CarRequest_DaoTest" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.Dao in ua.rd.project4" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ua.rd.project4.model.dao in ua.rd.project4" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.Car_DaoTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.CarRequest_DaoTest" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.Dao in ua.rd.project4" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.Client_DaoTest" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.ua.rd.project4.model.dao in ua.rd.project4" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.Car_DaoTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.Dao in ua.rd.project4" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CarRequest_DaoTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.InitDataTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Client_DaoTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.Car_DaoTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.Dao in ua.rd.project4" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CarRequest_DaoTest" />
       </list>
     </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1794,7 +1826,7 @@
       <workItem from="1480496874436" duration="2547000" />
       <workItem from="1480500947727" duration="41332000" />
       <workItem from="1480707908206" duration="26736000" />
-      <workItem from="1480862072722" duration="5756000" />
+      <workItem from="1480862072722" duration="6535000" />
     </task>
     <task id="LOCAL-00001" summary="+allservices">
       <created>1480247341265</created>
@@ -1999,21 +2031,19 @@
       <option name="project" value="LOCAL" />
       <updated>1480855553257</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="adding business logic">
+      <created>1480868601828</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1480868601828</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Car_DaoTest - 2016.11.29 at 11h 52m 56s.xml">
-      <configuration name="Car_DaoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ua_rd_project4_Dao_in_ua_rd_project4 - 2016.11.27 at 16h 36m 54s.xml">
-      <configuration name="ua.rd.project4.Dao in ua.rd.project4" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ua_rd_project4_Dao_in_ua_rd_project4 - 2016.11.27 at 16h 46m 43s.xml">
-      <configuration name="ua.rd.project4.Dao in ua.rd.project4" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ua_rd_project4_Dao_in_ua_rd_project4 - 2016.11.27 at 17h 07m 37s.xml">
-      <configuration name="ua.rd.project4.Dao in ua.rd.project4" configurationId="JUnit" />
+    <history-entry file="Client_DaoTest - 2016.12.04 at 18h 26m 16s.xml">
+      <configuration name="Client_DaoTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ua_rd_project4_Dao_in_ua_rd_project4 - 2016.11.27 at 21h 33m 14s.xml">
       <configuration name="ua.rd.project4.Dao in ua.rd.project4" configurationId="JUnit" />
@@ -2033,9 +2063,18 @@
     <history-entry file="ua_rd_project4_model_dao_in_ua_rd_project4 - 2016.11.29 at 11h 55m 41s.xml">
       <configuration name="ua.rd.project4.model.dao in ua.rd.project4" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ua_rd_project4_model_dao_in_ua_rd_project4 - 2016.12.04 at 18h 31m 14s.xml">
+      <configuration name="ua.rd.project4.model.dao in ua.rd.project4" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ua_rd_project4_model_dao_in_ua_rd_project4 - 2016.12.04 at 18h 32m 49s.xml">
+      <configuration name="ua.rd.project4.model.dao in ua.rd.project4" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ua_rd_project4_model_dao_in_ua_rd_project4 - 2016.12.04 at 18h 35m 05s.xml">
+      <configuration name="ua.rd.project4.model.dao in ua.rd.project4" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233547000" />
+    <option name="totallyTimeSpent" value="234326000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -2064,14 +2103,15 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3797054" sideWeight="0.66793895" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14402619" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38134205" sideWeight="0.4908397" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32242227" sideWeight="0.73816794" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13584287" sideWeight="0.73816794" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2625538" sideWeight="0.65128595" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24281392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3207262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.045826513" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35188216" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2083,7 +2123,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21767594" sideWeight="0.49694657" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="DSM" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="91" y="150" width="1182" height="544" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38163558" sideWeight="0.4908397" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -2165,7 +2204,8 @@
     <MESSAGE value="more changes" />
     <MESSAGE value="remove unnecessary public" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="adding business logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding business logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2193,12 +2233,6 @@
           <line>60</line>
           <properties />
           <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudCarRequest.java</url>
-          <line>113</line>
-          <properties />
-          <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudUsers.java</url>
@@ -2237,7 +2271,7 @@
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="42" />
+      <option name="time" value="43" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2246,134 +2280,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/includes/fields/car.jspf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car_requests.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="46" column="67" lean-forward="false" selection-start-line="46" selection-start-column="67" selection-end-line="46" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car_request.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="43" column="68" lean-forward="false" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/CommandAdmin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-          <folding>
-            <marker date="1480862341214" expanded="false" signature="56:340" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarSevice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcClientService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="73" />
-          <folding>
-            <marker date="1480796640740" expanded="true" signature="846:1334" ph="CREATE TABLE... IF" />
-            <marker date="1480796640740" expanded="true" signature="1709:1856" ph="INSERT INTO `cars`... " />
-            <marker date="1480796640740" expanded="true" signature="2799:2946" ph="UPDATE `cars... " />
-            <marker date="1480796640740" expanded="true" signature="3923:3952" ph="DELETE FROM " />
-            <marker date="1480796640740" expanded="true" signature="4416:4455" ph="SELECT * FRO... cars" />
-            <marker date="1480796640740" expanded="true" signature="5512:5532" ph="SELECT * FRO... cars" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/domain/CarFlow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-748">
-          <caret line="43" column="44" lean-forward="false" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
-          <folding>
-            <marker date="1480850480171" expanded="true" signature="1332:2089" ph="CREATE TABLE... IF" />
-            <marker date="1480850480171" expanded="true" signature="2438:2582" ph="INSERT INTO `car_request`... " />
-            <marker date="1480850480171" expanded="true" signature="3726:3875" ph="UPDATE `car_... " />
-            <marker date="1480850480171" expanded="true" signature="5039:5075" ph="DELETE FROM " />
-            <marker date="1480850480171" expanded="true" signature="6565:6592" ph="SELECT * FRO... car_request" />
-            <marker date="1480850480171" expanded="true" signature="7628:7692" ph="SELECT * FRO... car_request" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarRequestDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/LoginExistsException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/UniqueViolationException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/exceptions/WrongCarFlowDirectionException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="44" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcInvoiceSevice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudClients.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-419">
@@ -2412,37 +2318,6 @@
           <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
             <element signature="method#getIdFromRequest#0;class#cmdCrudGeneric#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcInvoiceDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <marker date="1480850468024" expanded="true" signature="1131:1542" ph="CREATE TABLE... IF" />
-            <marker date="1480850468024" expanded="true" signature="1929:2028" ph="INSERT INTO `invoices`... " />
-            <marker date="1480850468024" expanded="true" signature="2779:2878" ph="UPDATE `invo... " />
-            <marker date="1480850468024" expanded="true" signature="3655:3688" ph="DELETE FROM " />
-            <marker date="1480850468024" expanded="true" signature="4683:4726" ph="SELECT * FRO... invoices" />
-            <marker date="1480850468024" expanded="true" signature="5339:5363" ph="SELECT * FRO... invoices" />
-            <marker date="1480850468024" expanded="true" signature="6318:6357" ph="SELECT * FRO... invoices" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <marker date="1480796640777" expanded="true" signature="1550:2260" ph="CREATE TABLE... IF" />
-            <marker date="1480796640777" expanded="true" signature="2648:2787" ph="INSERT INTO `car_flow`... " />
-            <marker date="1480796640777" expanded="true" signature="3870:4009" ph="UPDATE `car_... " />
-            <marker date="1480796640777" expanded="true" signature="5118:5151" ph="DELETE FROM " />
-            <marker date="1480796640777" expanded="true" signature="6330:6354" ph="SELECT * FRO... car_flow" />
-            <marker date="1480796640777" expanded="true" signature="6800:6860" ph="SELECT * FRO... car_flow" />
           </folding>
         </state>
       </provider>
@@ -2608,8 +2483,8 @@
         <state relative-caret-position="237">
           <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
           <folding>
-            <element signature="e#524#525#0" expanded="true" />
-            <element signature="e#575#576#0" expanded="true" />
+            <element signature="e#524#525#0" expanded="false" />
+            <element signature="e#575#576#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2704,10 +2579,185 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/cmdCrudCarRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="-425">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="method#parseToEntity#0;class#cmdCrudCarRequest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/AbstractDaoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcUserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="35" column="34" lean-forward="false" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+          <folding>
+            <marker date="1480796640915" expanded="true" signature="1108:1442" ph="CREATE TABLE... IF" />
+            <marker date="1480796640915" expanded="true" signature="1820:1920" ph="INSERT INTO `users`... " />
+            <marker date="1480796640915" expanded="true" signature="2648:2748" ph="UPDATE `user... " />
+            <marker date="1480796640915" expanded="true" signature="3509:3539" ph="DELETE FROM " />
+            <marker date="1480796640915" expanded="true" signature="4436:4476" ph="SELECT * FRO... users" />
+            <marker date="1480796640915" expanded="true" signature="5091:5112" ph="SELECT * FRO... users" />
+            <marker date="1480796640915" expanded="true" signature="5998:6034" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcInvoiceDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="639">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <marker date="1480850468024" expanded="true" signature="1131:1542" ph="CREATE TABLE... IF" />
+            <marker date="1480850468024" expanded="true" signature="1929:2028" ph="INSERT INTO `invoices`... " />
+            <marker date="1480850468024" expanded="true" signature="2779:2878" ph="UPDATE `invo... " />
+            <marker date="1480850468024" expanded="true" signature="3655:3688" ph="DELETE FROM " />
+            <marker date="1480850468024" expanded="true" signature="4683:4726" ph="SELECT * FRO... invoices" />
+            <marker date="1480850468024" expanded="true" signature="5339:5363" ph="SELECT * FRO... invoices" />
+            <marker date="1480850468024" expanded="true" signature="6318:6357" ph="SELECT * FRO... invoices" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/impl/JdbcConnectionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="92" column="4" lean-forward="true" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="33" />
+          <folding>
+            <element signature="e#3071#3072#0" expanded="true" />
+            <element signature="e#3104#3105#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/ConnectionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/resources/db.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/resources/db.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <marker date="1480869150900" expanded="true" signature="987:1511" ph="CREATE TABLE... IF" />
+            <marker date="1480869150900" expanded="true" signature="1886:2033" ph="INSERT INTO `cars`... " />
+            <marker date="1480869150900" expanded="true" signature="2976:3123" ph="UPDATE `cars... " />
+            <marker date="1480869150900" expanded="true" signature="4100:4129" ph="DELETE FROM " />
+            <marker date="1480869150900" expanded="true" signature="4593:4632" ph="SELECT * FRO... cars" />
+            <marker date="1480869150900" expanded="true" signature="5689:5709" ph="SELECT * FRO... cars" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/dao/CarFlow_DaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/dao/CarRequest_DaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarFlowDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <marker date="1480796640777" expanded="true" signature="1550:2260" ph="CREATE TABLE... IF" />
+            <marker date="1480796640777" expanded="true" signature="2648:2787" ph="INSERT INTO `car_flow`... " />
+            <marker date="1480796640777" expanded="true" signature="3870:4009" ph="UPDATE `car_... " />
+            <marker date="1480796640777" expanded="true" signature="5118:5151" ph="DELETE FROM " />
+            <marker date="1480796640777" expanded="true" signature="6330:6354" ph="SELECT * FRO... car_flow" />
+            <marker date="1480796640777" expanded="true" signature="6800:6860" ph="SELECT * FRO... car_flow" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding>
+            <marker date="1480796640837" expanded="true" signature="902:1272" ph="CREATE TABLE... IF" />
+            <marker date="1480796640837" expanded="true" signature="1656:1780" ph="INSERT INTO `clients`... " />
+            <marker date="1480796640837" expanded="true" signature="2623:2747" ph="UPDATE `clie... " />
+            <marker date="1480796640837" expanded="true" signature="3618:3650" ph="DELETE FROM " />
+            <marker date="1480796640837" expanded="true" signature="4123:4165" ph="SELECT * FRO... clients" />
+            <marker date="1480796640837" expanded="true" signature="5166:5189" ph="SELECT * FRO... clients" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="45" column="80" lean-forward="false" selection-start-line="45" selection-start-column="80" selection-end-line="45" selection-end-column="80" />
+          <folding>
+            <marker date="1480869286096" expanded="true" signature="1474:2266" ph="CREATE TABLE... IF" />
+            <marker date="1480869286096" expanded="true" signature="2615:2759" ph="INSERT INTO `car_request`... " />
+            <marker date="1480869286096" expanded="true" signature="3903:4052" ph="UPDATE `car_... " />
+            <marker date="1480869286096" expanded="true" signature="5216:5252" ph="DELETE FROM " />
+            <marker date="1480869286096" expanded="true" signature="6742:6769" ph="SELECT * FRO... car_request" />
+            <marker date="1480869286096" expanded="true" signature="7805:7869" ph="SELECT * FRO... car_request" />
           </folding>
         </state>
       </provider>
