@@ -2,17 +2,22 @@ package ua.rd.project4.model.services.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ua.rd.project4.domain.*;
 import ua.rd.project4.model.dao.CarFlowDao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
-import ua.rd.project4.domain.CarFlow;
 import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.exceptions.WrongCarFlowDirectionException;
 import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.CarFlowService;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
-class JdbcCarFlowService extends AbstractEntityService<CarFlow> implements CarFlowService {
+
+import static java.time.temporal.ChronoUnit.DAYS;
+
+class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlowService {
     private static final JdbcCarFlowService instance = new JdbcCarFlowService();
     private final Logger logger = LogManager.getLogger(JdbcCarFlowService.class);
 
@@ -55,9 +60,13 @@ class JdbcCarFlowService extends AbstractEntityService<CarFlow> implements CarFl
     }
 
     @Override
-    public boolean checkInCarFlowOut(CarFlow carFlow) {
-        if ((isCarInBox(carFlow.getCarId()) && carFlow.getCarFlowType() == CarFlow.CarFlowType.IN) ||
-                (!isCarInBox(carFlow.getCarId()) && carFlow.getCarFlowType() == CarFlow.CarFlowType.OUT)) {
+    public List<CarFlow> findAll(int n) {
+        return getDao().findAll(n);
+    }
+
+    @Override
+    public boolean checkInCarFlowOut(CarFlow carFlow) throws WrongCarFlowDirectionException {
+        if (!isCarInBox(carFlow.getCarId()) || carFlow.getCarFlowType() == CarFlow.CarFlowType.IN) {
             throw new WrongCarFlowDirectionException();
         } else
             try {
@@ -66,6 +75,39 @@ class JdbcCarFlowService extends AbstractEntityService<CarFlow> implements CarFl
                 logger.error(e);
                 return false;
             }
+    }
+
+    @Override
+    public void checkInCarFlowIn(int carFlowOutId, User user) throws WrongCarFlowDirectionException {
+        CarFlow carFlowOut = getById(carFlowOutId);
+        if (isCarInBox(carFlowOut.getCarId()) || carFlowOut.getCarFlowType() == CarFlow.CarFlowType.IN)
+            throw new WrongCarFlowDirectionException();
+        Invoice invoice = null;
+        LocalDate current = LocalDate.now();
+        LocalDate dateToFromRequest = carFlowOut.getCarRequest().getDateTo().toLocalDate();
+        if (current.compareTo(dateToFromRequest) > 0) {
+            long diffDays = DAYS.between(dateToFromRequest, current);
+            Client client = carFlowOut.getCarRequest().getClient();
+            Car car = carFlowOut.getCar();
+            BigDecimal appendedInvoiceCost = car.getRentPricePerDay().multiply(new BigDecimal(diffDays));
+            invoice = new Invoice(client, appendedInvoiceCost, false, "Overhead. Car:" + car + " was returned after contracted.");
+            try {
+                JdbcServiceFactory.getInstance().getInvoiceService().insert(invoice);
+            } catch (UniqueViolationException e) {
+                logger.error(e);
+            }
+        }
+        CarFlow carFlowIn = new CarFlow(
+                carFlowOut.getCar(),
+                CarFlow.CarFlowType.IN,
+                carFlowOut.getCarRequest(),
+                user,
+                invoice, "");
+        try {
+            insert(carFlowIn);
+        } catch (UniqueViolationException e) {
+            logger.error(e);
+        }
     }
 
 

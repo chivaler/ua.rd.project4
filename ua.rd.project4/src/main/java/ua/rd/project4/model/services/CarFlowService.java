@@ -1,8 +1,10 @@
 package ua.rd.project4.model.services;
 
 import ua.rd.project4.domain.CarFlow;
+import ua.rd.project4.domain.User;
 import ua.rd.project4.model.exceptions.CarRequestApproveNeededException;
 import ua.rd.project4.model.exceptions.CarRequestPaymentNeededException;
+import ua.rd.project4.model.exceptions.WrongCarFlowDirectionException;
 
 import java.util.List;
 
@@ -15,7 +17,11 @@ public interface CarFlowService extends EntityService<CarFlow> {
 
     List<CarFlow> findCarFlowsByInvoiceId(int invoiceId);
 
-    boolean checkInCarFlowOut(CarFlow carFlow) throws CarRequestApproveNeededException, CarRequestPaymentNeededException;
+    List<CarFlow> findAll(int n);
+
+    boolean checkInCarFlowOut(CarFlow carFlow) throws CarRequestApproveNeededException, CarRequestPaymentNeededException, WrongCarFlowDirectionException;
+
+    void checkInCarFlowIn(int carFlowOutId, User user) throws WrongCarFlowDirectionException;
 
     default boolean isCarInBox(int carId) {
         return findCarFlowsByCarId(carId).stream()

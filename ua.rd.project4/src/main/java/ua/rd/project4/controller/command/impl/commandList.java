@@ -3,15 +3,19 @@ package ua.rd.project4.controller.command.impl;
 import ua.rd.project4.controller.command.Command;
 
 public enum commandList {
-    USERS(cmdCrudUsers.getInstance()),
-    CLIENTS(cmdCrudClients.getInstance()),
-    CARS(cmdCrudCars.getInstance()),
-    CARFLOWS(cmdCrudCarFlow.getInstance()),
-    CARREQUESTS(cmdCrudCarRequest.getInstance()),
-    INVOICES(cmdCrudInvoice.getInstance()),
-    ADMIN(CommandAdmin.getInstance()),
-    LOCALE(CommandLocalization.getInstance()),
-    LOGIN(CommandLogin.getInstance());
+    USERS(CrudUsersCommand.getInstance()),
+    CLIENTS(CrudClientsCommand.getInstance()),
+    CARS(CrudCarsCommand.getInstance()),
+    CARFLOWS(CrudCarFlowCommand.getInstance()),
+    CARREQUESTS(CrudCarRequestCommand.getInstance()),
+    INVOICES(CrudInvoiceCommand.getInstance()),
+    ADMIN(AdminCommand.getInstance()),
+    LOCALE(LocalizationCommand.getInstance()),
+    LOGIN(LoginCommand.getInstance()),
+    LOGOUT(LogoutCommand.getInstance()),
+    CAR_IN(CarInCommand.getInstance()),
+    CAR_OUT(CarOutCommand.getInstance()),
+    USERSPACE(UserSpaceCommand.getInstance());
 
     final Command command;
 

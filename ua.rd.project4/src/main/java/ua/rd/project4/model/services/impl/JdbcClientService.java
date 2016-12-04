@@ -7,7 +7,7 @@ import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.ClientService;
 import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
 
-class JdbcClientService extends AbstractEntityService<Client> implements ClientService {
+class JdbcClientService extends GenericEntityService<Client> implements ClientService {
     private static final JdbcClientService instance = new JdbcClientService();
 
     private JdbcClientService() {

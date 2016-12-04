@@ -1,5 +1,5 @@
 package ua.rd.project4.model.exceptions;
 
-public  class WrongCarFlowDirectionException extends RuntimeException {
+public class WrongCarFlowDirectionException extends Exception {
 
 }

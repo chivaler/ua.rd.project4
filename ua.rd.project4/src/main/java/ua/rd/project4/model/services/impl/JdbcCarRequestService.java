@@ -8,10 +8,7 @@ import ua.rd.project4.domain.User;
 import ua.rd.project4.model.dao.CarRequestDao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.domain.CarRequest;
-import ua.rd.project4.model.exceptions.CarRequestApproveNeededException;
-import ua.rd.project4.model.exceptions.CarRequestPaymentNeededException;
-import ua.rd.project4.model.exceptions.ConflictsRequestException;
-import ua.rd.project4.model.exceptions.UniqueViolationException;
+import ua.rd.project4.model.exceptions.*;
 import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.CarRequestService;
 
@@ -19,7 +16,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-class JdbcCarRequestService extends AbstractEntityService<CarRequest> implements CarRequestService {
+class JdbcCarRequestService extends GenericEntityService<CarRequest> implements CarRequestService {
     private static final JdbcCarRequestService instance = new JdbcCarRequestService();
     private final Logger logger = LogManager.getLogger(JdbcCarRequestService.class);
 
@@ -71,12 +68,15 @@ class JdbcCarRequestService extends AbstractEntityService<CarRequest> implements
                         false,
                         "Invoice for rent " + carRequest.getCar());
                 try {
-                    JdbcInvoiceSevice.getInstance().insert(invoice);
+                    JdbcServiceFactory.getInstance().getInvoiceService().insert(invoice);
+                    invoice.setId(JdbcServiceFactory.getInstance().getInvoiceService().findId(invoice));
+                    carRequest.setInvoice(invoice);
+                    update(carRequestId, carRequest);
                 } catch (UniqueViolationException e) {
                     logger.error(e);
                 }
-            } else throw new ConflictsRequestException();
-
+            } else
+                throw new ConflictsRequestException();
         }
     }
 
@@ -110,7 +110,13 @@ class JdbcCarRequestService extends AbstractEntityService<CarRequest> implements
         if (carRequest.getInvoiceId() == 0 || !carRequest.getInvoice().isPaid())
             throw new CarRequestPaymentNeededException();
         CarFlow carFlow = new CarFlow(carRequest.getCar(), CarFlow.CarFlowType.OUT, carRequest, user, null, "");
-        JdbcServiceFactory.getInstance().getCarFlowService().checkInCarFlowOut(carFlow);
+        try {
+            JdbcServiceFactory.getInstance().getCarFlowService().checkInCarFlowOut(carFlow);
+            carRequest.setStatus(CarRequest.RequestStatus.DONE);
+            update(carRequestId, carRequest);
+        } catch (UniqueViolationException | WrongCarFlowDirectionException e) {
+            logger.error(e);
+        }
     }
 
 }

@@ -9,7 +9,7 @@ import ua.rd.project4.model.services.InvoiceService;
 
 import java.util.List;
 
-class JdbcInvoiceSevice extends AbstractEntityService<Invoice> implements InvoiceService {
+class JdbcInvoiceSevice extends GenericEntityService<Invoice> implements InvoiceService {
     private static final JdbcInvoiceSevice instance = new JdbcInvoiceSevice();
 
     private JdbcInvoiceSevice() {

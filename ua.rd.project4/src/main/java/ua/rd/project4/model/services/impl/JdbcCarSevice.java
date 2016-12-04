@@ -7,7 +7,7 @@ import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.CarService;
 import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
 
-class JdbcCarSevice extends AbstractEntityService<Car> implements CarService {
+class JdbcCarSevice extends GenericEntityService<Car> implements CarService {
     private static final JdbcCarSevice instance = new JdbcCarSevice();
 
     private JdbcCarSevice() {
