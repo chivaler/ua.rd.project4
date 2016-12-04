@@ -59,6 +59,5 @@ class JdbcUserSevice extends AbstractEntityService<User> implements UserService 
                 filter(s -> s.getLogin().equals(user.getLogin())).
                 filter(s -> s.getId() != id).
                 count() > 0;
-
     }
 }

@@ -6,6 +6,7 @@ import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
 import ua.rd.project4.domain.CarRequest;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
+import ua.rd.project4.model.exceptions.ConflictsRequestException;
 import ua.rd.project4.model.holders.CarRequestHolder;
 import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
@@ -110,7 +111,11 @@ class cmdCrudCarRequest extends cmdCrudGeneric<CarRequest> {
             if (id == 0) {
                 req.setAttribute("error", "Unknown id");
             } else
-                carRequestService.approve(id);
+                try {
+                    carRequestService.approve(id);
+                } catch (ConflictsRequestException e) {
+                    req.setAttribute("error", "Request conflicts with other approved");
+                }
             return "";
         }
         if ("reject".equals(req.getParameter("do"))) {
@@ -118,9 +123,9 @@ class cmdCrudCarRequest extends cmdCrudGeneric<CarRequest> {
             if (id == 0) {
                 req.setAttribute("error", "Unknown id");
             } else
-                carRequestService.reject(id,"Sorry, impossible for now");
+                carRequestService.reject(id, "Sorry, impossible for now");
             return "";
         } else
-        return super.execute(req, resp);
+            return super.execute(req, resp);
     }
 }

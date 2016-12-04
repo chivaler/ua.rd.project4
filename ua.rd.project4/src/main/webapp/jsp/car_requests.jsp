@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
 <%@include file="includes/header.jspf" %>
@@ -29,14 +29,14 @@
             <td align="center"><c:out value="${carRequest.getId()}"/></td>
             <td>
                 <c:if test="${carRequest.getCarId() > 0}">
-                    <a href="/Controller?command=CARS&do=get&id=${carRequest.getCarId()}">
+                    <a href="${pageContext.request.contextPath}/Controller?command=CARS&do=get&id=${carRequest.getCarId()}">
                         <c:out value="${carRequest.getCar().toString()}"/>
                     </a>
                 </c:if>
             </td>
             <td>
                 <c:if test="${carRequest.getClientId() > 0}">
-                    <a href="/Controller?command=CLIENTS&do=get&id=${carRequest.getClientId()}">
+                    <a href="${pageContext.request.contextPath}/Controller?command=CLIENTS&do=get&id=${carRequest.getClientId()}">
                         <c:out value="${carRequest.getClient().toString()}"/>
                     </a>
                 </c:if>
@@ -47,13 +47,13 @@
             <td align="center"><c:out value="${carRequest.getStatus()}"/></td>
             <td>
                 <c:if test="${carRequest.getInvoiceId() > 0}">
-                    <a href="/Controller?command=INVOICES&do=get&id=${carRequest.getInvoiceId()}">
+                    <a href="${pageContext.request.contextPath}/Controller?command=INVOICES&do=get&id=${carRequest.getInvoiceId()}">
                         <c:out value="${carRequest.getInvoice().toString()}"/>
                     </a>
                 </c:if>
             </td>
             <td align="center">
-                <form action="/Controller" method="post">
+                <form action="${pageContext.request.contextPath}/Controller" method="post">
                     <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                     <INPUT type="hidden" name="id" value="${carRequest.getId()}"/>
                     <INPUT type="hidden" name="do" value="get"/>
@@ -62,7 +62,7 @@
                 </form>
             </td>
             <td align="center">
-                <form action="/Controller" method="post">
+                <form action="${pageContext.request.contextPath}/Controller" method="post">
                     <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                     <INPUT type="hidden" name="do" value="delete"/>
                     <INPUT type="hidden" name="id" value="${carRequest.getId()}"/>
@@ -73,7 +73,7 @@
     </c:forEach>
     <tr>
         <td colspan="90">
-            <form action="/Controller" method="get">
+            <form action="${pageContext.request.contextPath}/Controller" method="get">
                 <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                 <INPUT type="hidden" name="do" value="new"/>
                 <INPUT type="submit" value="Create New">

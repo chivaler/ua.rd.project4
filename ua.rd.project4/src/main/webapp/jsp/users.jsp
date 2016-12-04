@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
 <%@include file="includes/header.jspf" %>
@@ -28,13 +28,13 @@
             <td align="center"><c:out value="${user.getPasswordHash()}"/></td>
             <td align="center">
                 <c:if test="${user.getClientId() > 0}">
-                    <a href="/Controller?command=CLIENTS&do=get&id=${user.getClientId()}">
+                    <a href="${pageContext.request.contextPath}/Controller?command=CLIENTS&do=get&id=${user.getClientId()}">
                         <c:out value="${user.getClient().toString()}"/>
                     </a>
                 </c:if>
             </td>
             <td align="center">
-                <form action="/Controller" method="post">
+                <form action="${pageContext.request.contextPath}/Controller" method="post">
                     <INPUT type="hidden" name="command" value="USERS"/>
                     <INPUT type="hidden" name="do" value="get"/>
                     <INPUT type="hidden" name="id" value="${user.getId()}"/>
@@ -42,7 +42,7 @@
                 </form>
             </td>
             <td align="center">
-                <form action="/Controller" method="post">
+                <form action="${pageContext.request.contextPath}/Controller" method="post">
                     <INPUT type="hidden" name="command" value="USERS"/>
                     <INPUT type="hidden" name="do" value="delete"/>
                     <INPUT type="hidden" name="id" value="${user.getId()}"/>
@@ -53,7 +53,7 @@
     </c:forEach>
     <tr>
         <td colspan="7">
-            <form action="/Controller" method="post">
+            <form action="${pageContext.request.contextPath}/Controller" method="post">
                 <INPUT type="hidden" name="command" value="USERS"/>
                 <INPUT type="hidden" name="do" value="new"/>
                 <INPUT type="submit" value="Create New">

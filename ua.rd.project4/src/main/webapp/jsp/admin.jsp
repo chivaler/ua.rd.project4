@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
 <%@include file="includes/header.jspf" %>
@@ -29,7 +29,7 @@
                                     <td><c:out value="${car.getColor()}"/></td>
                                     <td><c:out value="${car.getRegistrationNumber()}"/></td>
                                     <td>
-                                        <form action="/Controller" method="post">
+                                        <form action="${pageContext.request.contextPath}/Controller" method="post">
                                             <INPUT type="hidden" name="command" value="CARS"/>
                                             <INPUT type="hidden" name="id" value="${car.getId()}"/>
                                             <INPUT type="hidden" name="do" value="get"/>
@@ -37,7 +37,7 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <form action="/Controller" method="post">
+                                        <form action="${pageContext.request.contextPath}/Controller" method="post">
                                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                                             <INPUT type="hidden" name="do" value="new"/>
                                             <INPUT type="hidden" name="id" value="${car.getId()}"/>
@@ -45,11 +45,12 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <form action="/Controller" method="get">
+                                        <form action="${pageContext.request.contextPath}/Controller" method="get">
                                             <INPUT type="hidden" name="command" value="CARFLOWS"/>
                                             <INPUT type="hidden" name="do" value="new"/>
                                             <INPUT type="hidden" name="carId" value="${car.getId()}"/>
                                             <INPUT type="hidden" name="carFlowType" value="OUT"/>
+                                            <INPUT type="hidden" name="responsibleUser" value="${sessionScope.user.getId()}">
                                             <INPUT type="submit" value="Register out">
                                         </form>
                                     </td>
@@ -61,12 +62,12 @@
                         <table>
                             <c:forEach var="car" items="${listCarsOut}">
                                 <tr>
-                                    <td><a href="/Controller?command=CARS&do=get&id=${car.getId()}">
+                                    <td><a href="${pageContext.request.contextPath}/Controller?command=CARS&do=get&id=${car.getId()}">
                                         <c:out value="${car.toString()}"/>
                                     </a></td>
                                     <td><c:out value="${car.getRegistrationNumber()}"/></td>
                                     <td>
-                                        <form action="/Controller" method="get">
+                                        <form action="${pageContext.request.contextPath}/Controller" method="get">
                                             <INPUT type="hidden" name="command" value="CARFLOWS"/>
                                             <INPUT type="hidden" name="do" value="new"/>
                                             <INPUT type="hidden" name="carId" value="${car.getId()}"/>
@@ -103,14 +104,14 @@
                             </tr>
                             <c:forEach var="request" items="${mapsCarRequests}">
                                 <tr>
-                                    <td><a href="/Controller?command=CARS&do=get&id=${request.carId}">
+                                    <td><a href="${pageContext.request.contextPath}/Controller?command=CARS&do=get&id=${request.carId}">
                                         <c:out value="${request.carStr}"/></a></td>
-                                    <td><a href="/Controller?command=CLIENTS&do=get&id=${request.clientid}">
+                                    <td><a href="${pageContext.request.contextPath}/Controller?command=CLIENTS&do=get&id=${request.clientid}">
                                         <c:out value="${request.clientStr}"/></a></td>
                                     <td><c:out value="${request.status}"/></td>
                                     <td><c:out value="${request.available}"/></td>
                                     <td>
-                                        <form action="/Controller" method="post">
+                                        <form action="${pageContext.request.contextPath}/Controller" method="post">
                                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                                             <INPUT type="hidden" name="id" value="${request.id}"/>
                                             <INPUT type="hidden" name="do" value="get"/>
@@ -118,7 +119,7 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <form action="/Controller" method="post">
+                                        <form action="${pageContext.request.contextPath}/Controller" method="post">
                                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                                             <INPUT type="hidden" name="do" value="approve"/>
                                             <INPUT type="hidden" name="id" value="${request.id}"/>
@@ -126,37 +127,13 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <form action="/Controller" method="post">
+                                        <form action="${pageContext.request.contextPath}/Controller" method="post">
                                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                                             <INPUT type="hidden" name="do" value="reject"/>
                                             <INPUT type="hidden" name="id" value="${request.id}"/>
                                             <INPUT type="submit" value="Reject">
                                         </form>
                                     </td>
-                                        <%--<td>--%>
-                                        <%--<form action="/Controller" method="post">--%>
-                                        <%--<INPUT type="hidden" name="command" value="CARS"/>--%>
-                                        <%--<INPUT type="hidden" name="id" value="${car.getId()}"/>--%>
-                                        <%--<INPUT type="hidden" name="do" value="get"/>--%>
-                                        <%--<INPUT type="submit" value="Info">--%>
-                                        <%--</form>--%>
-                                        <%--</td>--%>
-                                        <%--<td>--%>
-                                        <%--<form action="/Controller" method="post">--%>
-                                        <%--<INPUT type="hidden" name="command" value="CARREQUESTS"/>--%>
-                                        <%--<INPUT type="hidden" name="do" value="new"/>--%>
-                                        <%--<INPUT type="hidden" name="id" value="${car.getId()}"/>--%>
-                                        <%--<INPUT type="submit" value="New request">--%>
-                                        <%--</form>--%>
-                                        <%--</td>--%>
-                                        <%--<td>--%>
-                                        <%--<form action="/Controller" method="post">--%>
-                                        <%--<INPUT type="hidden" name="command" value="CARFLOWS"/>--%>
-                                        <%--<INPUT type="hidden" name="do" value="new"/>--%>
-                                        <%--<INPUT type="hidden" name="id" value="${car.getId()}"/>--%>
-                                        <%--<INPUT type="submit" value="Register in">--%>
-                                        <%--</form>--%>
-                                        <%--</td>--%>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -172,36 +149,11 @@
                             <c:forEach var="carFlow" items="${listCarFlows}">
                                 <tr>
                                     <td><c:out value="${carFlow.getId()}"/></td>
-                                    <td><a href="/Controller?command=CARS&do=get&id=${carFlow.getCarId()}">
+                                    <td><a href="${pageContext.request.contextPath}/Controller?command=CARS&do=get&id=${carFlow.getCarId()}">
                                         <c:out value="${carFlow.getCar().toString()}"/></a>
-                                    <td><a href="/Controller?command=CARFLOWS&do=get&id=${carFlow.getId()}">
+                                    <td><a href="${pageContext.request.contextPath}/Controller?command=CARFLOWS&do=get&id=${carFlow.getId()}">
                                         <c:out value="${carFlow.getCarFlowType()}"/></a>
                                     <td><c:out value="${carFlow.getDateCreated()}"/></td>
-                                    <%--<td><c:out value="${carFlow.getRegistrationNumber()}"/></td>--%>
-                                    <%--<td>--%>
-                                        <%--<form action="/Controller" method="post">--%>
-                                            <%--<INPUT type="hidden" name="command" value="CARS"/>--%>
-                                            <%--<INPUT type="hidden" name="id" value="${car.getId()}"/>--%>
-                                            <%--<INPUT type="hidden" name="do" value="get"/>--%>
-                                            <%--<INPUT type="submit" value="Info">--%>
-                                        <%--</form>--%>
-                                    <%--</td>--%>
-                                    <%--<td>--%>
-                                        <%--<form action="/Controller" method="post">--%>
-                                            <%--<INPUT type="hidden" name="command" value="CARREQUESTS"/>--%>
-                                            <%--<INPUT type="hidden" name="do" value="new"/>--%>
-                                            <%--<INPUT type="hidden" name="id" value="${car.getId()}"/>--%>
-                                            <%--<INPUT type="submit" value="New request">--%>
-                                        <%--</form>--%>
-                                    <%--</td>--%>
-                                    <%--<td>--%>
-                                        <%--<form action="/Controller" method="post">--%>
-                                            <%--<INPUT type="hidden" name="command" value="CARFLOWS"/>--%>
-                                            <%--<INPUT type="hidden" name="do" value="new"/>--%>
-                                            <%--<INPUT type="hidden" name="id" value="${car.getId()}"/>--%>
-                                            <%--<INPUT type="submit" value="Register out">--%>
-                                        <%--</form>--%>
-                                    <%--</td>--%>
                                 </tr>
                             </c:forEach>
                         </table>

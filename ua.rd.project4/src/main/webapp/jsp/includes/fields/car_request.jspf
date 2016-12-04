@@ -1,10 +1,10 @@
 <c:set var="chosenCarRequest" value="${empty entity ? (empty param.carRequestId ? '': param.carRequestId) : entity.getCarRequestId()}"/>
 <tr>
-    <td><label for="invoice">carRequest</label></td>
+    <td><label for="carRequest">carRequest</label></td>
     <td>
         <c:choose>
             <c:when test="${not empty listCarRequests}">
-                <select name="invoice" id="invoice">
+                <select name="carRequest" id="carRequest">
                     <option></option>
                     <c:forEach var="elem" items="${listCarRequests}">
                         <option value="${elem.key}" ${elem.key == chosenCarRequest ? 'selected="selected"' : ''}>${elem.value}</option>
@@ -12,7 +12,7 @@
                 </select>
             </c:when>
             <c:otherwise>
-                <INPUT type=text name="invoice"
+                <INPUT type=text name="carRequest"
                        value="${chosenCarRequest}"/>
             </c:otherwise>
         </c:choose>

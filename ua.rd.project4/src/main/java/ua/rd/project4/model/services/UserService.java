@@ -6,11 +6,21 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.Objects;
 
 public interface UserService extends EntityService<User> {
     List<User> findUsersByClientId(int clientId);
+
+    default User authentication(String login, String password) {
+        return  findAll().stream()
+                .filter(s -> Objects.equals(s.getLogin(), login)
+                        && Objects.equals(s.getPasswordHash(), getHashPassword(password)))
+                .findFirst()
+                .orElse(null);
+    }
+
     default String getHashPassword(String nakedPassword) {
-        final String CRYPTO_ALGORITHM ="MD5";
+        final String CRYPTO_ALGORITHM = "MD5";
         MessageDigest messageDigest;
         byte[] digest = new byte[0];
         try {
@@ -24,7 +34,7 @@ public interface UserService extends EntityService<User> {
 
         BigInteger bigInt = new BigInteger(1, digest);
         String md5Hex = bigInt.toString(16);
-        while( md5Hex.length() < 32 ){
+        while (md5Hex.length() < 32) {
             md5Hex = "0" + md5Hex;
         }
         return md5Hex;

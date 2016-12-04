@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
 <%@include file="includes/header.jspf" %>
@@ -26,7 +26,7 @@
             <td align="center"><c:out value="${invoice.getId()}"/></td>
             <td>
                 <c:if test="${invoice.getClientId() > 0}">
-                    <a href="/Controller?command=CLIENTS&do=get&id=${invoice.getClientId()}">
+                    <a href="${pageContext.request.contextPath}/Controller?command=CLIENTS&do=get&id=${invoice.getClientId()}">
                         <c:out value="${invoice.getClient().toString()}"/>
                     </a>
                 </c:if>
@@ -35,7 +35,7 @@
             <td align="center"><c:out value="${invoice.isPaid()}"/></td>
             <td align="center"><c:out value="${invoice.getDescription()}"/></td>
             <td align="center">
-                <form action="/Controller" method="post">
+                <form action="${pageContext.request.contextPath}/Controller" method="post">
                     <INPUT type="hidden" name="command" value="INVOICES"/>
                     <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
                     <INPUT type="hidden" name="do" value="get"/>
@@ -44,7 +44,7 @@
                 </form>
             </td>
             <td align="center">
-                <form action="/Controller" method="post">
+                <form action="${pageContext.request.contextPath}/Controller" method="post">
                     <INPUT type="hidden" name="command" value="INVOICES"/>
                     <INPUT type="hidden" name="do" value="delete"/>
                     <INPUT type="hidden" name="id" value="${invoice.getId()}"/>

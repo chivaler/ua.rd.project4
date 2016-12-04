@@ -3,6 +3,10 @@ package ua.rd.project4.model.services;
 import ua.rd.project4.domain.Car;
 import ua.rd.project4.domain.CarRequest;
 import ua.rd.project4.domain.Invoice;
+import ua.rd.project4.domain.User;
+import ua.rd.project4.model.exceptions.CarRequestApproveNeededException;
+import ua.rd.project4.model.exceptions.CarRequestPaymentNeededException;
+import ua.rd.project4.model.exceptions.ConflictsRequestException;
 import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.holders.InvoiceHolder;
 
@@ -55,14 +59,24 @@ public interface CarRequestService extends EntityService<CarRequest> {
                     map.put("clientId", String.valueOf(s.getClientId()));
                     map.put("clientStr", s.getClient().toString());
                     map.put("available", String.valueOf(isPossible(s.getId())));
+                    map.put("dateTo", String.valueOf(s.getDateTo()));
+                    map.put("dateFrom", String.valueOf(s.getDateFrom()));
+                    map.put("dateCreated", String.valueOf(s.getDateCreated()));
+                    if (s.getInvoiceId() > 0)
+                        map.put("paid", String.valueOf(s.getInvoice().isPaid()));
+                    else
+                        map.put("paid", "false");
                     return map;
                 })
                 .collect(Collectors.toList());
     }
 
-    void approve(int carRequestId);
+    void approve(int carRequestId) throws ConflictsRequestException;
 
     void reject(int carRequestId, String reason);
 
     BigDecimal calculateTotal(int carRequestId);
-}
+
+    void checkInCarOut(int carRequestId, User user) throws CarRequestApproveNeededException, CarRequestPaymentNeededException;
+
+    }

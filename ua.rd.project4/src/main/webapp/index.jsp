@@ -11,11 +11,11 @@
     <title>Admin Home Page</title>
 </head>
 <body>
-<a href="/Controller?command=CARS">CARS</a>
-<a href="/Controller?command=USERS">USERS</a>
-<a href="/Controller?command=INVOICES">INVOICES</a>
-<a href="/Controller?command=CLIENTS">CLIENTS</a>
-<a href="/Controller?command=CARFLOWS">CARFLOWS</a>
-<a href="/Controller?command=CARREQUESTS">CARREQUESTS</a>
+<a href="${pageContext.request.contextPath}/Controller?command=CARS">CARS</a>
+<a href="${pageContext.request.contextPath}/Controller?command=USERS">USERS</a>
+<a href="${pageContext.request.contextPath}/Controller?command=INVOICES">INVOICES</a>
+<a href="${pageContext.request.contextPath}/Controller?command=CLIENTS">CLIENTS</a>
+<a href="${pageContext.request.contextPath}/Controller?command=CARFLOWS">CARFLOWS</a>
+<a href="${pageContext.request.contextPath}/Controller?command=CARREQUESTS">CARREQUESTS</a>
 </body>
 </html>

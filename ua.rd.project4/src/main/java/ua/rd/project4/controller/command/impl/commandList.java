@@ -9,7 +9,9 @@ public enum commandList {
     CARFLOWS(cmdCrudCarFlow.getInstance()),
     CARREQUESTS(cmdCrudCarRequest.getInstance()),
     INVOICES(cmdCrudInvoice.getInstance()),
-    ADMIN(Admin.getInstance());
+    ADMIN(CommandAdmin.getInstance()),
+    LOCALE(CommandLocalization.getInstance()),
+    LOGIN(CommandLogin.getInstance());
 
     final Command command;
 

@@ -6,12 +6,12 @@
 <html>
 <head>
     <title>User add/update</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
 <%@include file="includes/header.jspf" %>
 
-<form action="/Controller" method="post">
+<form action="${pageContext.request.contextPath}/Controller" method="post">
     <INPUT type="hidden" name="command" value="INVOICES"/>
     <INPUT type="hidden" name="do" value="update"/>
     <table class="edit">
@@ -25,6 +25,11 @@
             <td><fmt:message key="paid" bundle="${bundle}"/></td>
             <td><INPUT type=text name="paid"
                        value="${empty entity ? '' : entity.isPaid()}"/></td>
+        </tr>
+        <tr>
+            <td><fmt:message key="total" bundle="${bundle}"/></td>
+            <td><INPUT type=text name="total"
+                       value="${empty entity ? '' : entity.getTotal()}"/></td>
         </tr>
         <tr>
             <td><fmt:message key="description" bundle="${bundle}"/></td>

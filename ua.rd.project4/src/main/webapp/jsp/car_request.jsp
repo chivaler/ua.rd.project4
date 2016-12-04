@@ -6,12 +6,12 @@
 <html>
 <head>
     <title>User add/update</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
 <%@include file="includes/header.jspf" %>
 
-<form action="/Controller" method="post">
+<form action="${pageContext.request.contextPath}/Controller" method="post">
     <INPUT type="hidden" name="command" value="CARREQUESTS"/>
     <INPUT type="hidden" name="do" value="update"/>
 

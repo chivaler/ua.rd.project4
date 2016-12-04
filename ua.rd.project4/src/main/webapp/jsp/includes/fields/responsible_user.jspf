@@ -1,0 +1,20 @@
+<tr>
+    <c:set var="chosenUser" value="${empty entity ? (empty sessionScope.user ? '': sessionScope.user.getId()) : entity.getResponsiblePersonId()}"/>
+    <td><label for="responsibleUser">responsibleUser</label></td>
+    <td>
+        <c:choose>
+            <c:when test="${not empty listUsers}">
+                <select name="responsibleUser" id="responsibleUser">
+                    <option></option>
+                    <c:forEach var="client" items="${listUsers}">
+                        <option value="${client.key}" ${client.key == chosenUser ? 'selected="selected"' : ''}>${client.value}</option>
+                    </c:forEach>
+                </select>
+            </c:when>
+            <c:otherwise>
+                <INPUT type=text name="responsibleUser" id="responsibleUser"
+                       value="${chosenUser}"/>
+            </c:otherwise>
+        </c:choose>
+    </td>
+</tr>

@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
 <%@include file="includes/header.jspf" %>
@@ -29,7 +29,7 @@
             <td><c:out value="${carFlow.getId()}"/></td>
             <td>
                 <c:if test="${carFlow.getCarId() > 0}">
-                    <a href="/Controller?command=CARS&do=get&id=${carFlow.getCarId()}">
+                    <a href="${pageContext.request.contextPath}/Controller?command=CARS&do=get&id=${carFlow.getCarId()}">
                         <c:out value="${carFlow.getCar().toString()}"/>
                     </a>
                 </c:if>
@@ -38,7 +38,7 @@
             <td>
                 <c:if test="${carFlow.getCarRequestId() > 0}">
                     <c:if test="${carFlow.getCarRequest().getClientId() > 0}">
-                    <a href="/Controller?command=CLIENTS&do=get&id=${carFlow.getCarRequest().getClientId()}">
+                    <a href="${pageContext.request.contextPath}/Controller?command=CLIENTS&do=get&id=${carFlow.getCarRequest().getClientId()}">
                         <c:out value="${carFlow.getCarRequest().getClient().toString()}"/>
                     </a
                     </c:if>
@@ -46,28 +46,28 @@
             </td>
             <td>
                 <c:if test="${carFlow.getCarRequestId() > 0}">
-                    <a href="/Controller?command=CARREQUESTS&do=get&id=${carFlow.getCarRequestId()}">
+                    <a href="${pageContext.request.contextPath}/Controller?command=CARREQUESTS&do=get&id=${carFlow.getCarRequestId()}">
                         <c:out value="${carFlow.getCarRequest().toString()}"/>
                     </a>
                 </c:if>
             </td>
             <td>
                 <c:if test="${carFlow.getResponsiblePersonId() > 0}">
-                    <a href="/Controller?command=USERS&do=get&id=${carFlow.getResponsiblePersonId()}">
+                    <a href="${pageContext.request.contextPath}/Controller?command=USERS&do=get&id=${carFlow.getResponsiblePersonId()}">
                         <c:out value="${carFlow.getResponsiblePerson().toString()}"/>
                     </a>
                 </c:if>
             </td>
             <td>
                 <c:if test="${carFlow.getInvoiceId() > 0}">
-                    <a href="/Controller?command=INVOICES&do=get&id=${carFlow.getInvoiceId()}">
+                    <a href="${pageContext.request.contextPath}/Controller?command=INVOICES&do=get&id=${carFlow.getInvoiceId()}">
                         <c:out value="${carFlow.getInvoice().toString()}"/>
                     </a>
                 </c:if>
             </td>
             <td><c:out value="${carFlow.getSupplement()}"/></td>
             <td>
-                <form action="/Controller" method="post">
+                <form action="${pageContext.request.contextPath}/Controller" method="post">
                     <INPUT type="hidden" name="command" value="CARFLOWS"/>
                     <INPUT type="hidden" name="id" value="${carFlow.getId()}"/>
                     <INPUT type="hidden" name="do" value="get"/>
@@ -76,7 +76,7 @@
                 </form>
             </td>
             <td>
-                <form action="/Controller" method="post">
+                <form action="${pageContext.request.contextPath}/Controller" method="post">
                     <INPUT type="hidden" name="command" value="CARFLOWS"/>
                     <INPUT type="hidden" name="do" value="delete"/>
                     <INPUT type="hidden" name="id" value="${carFlow.getId()}"/>

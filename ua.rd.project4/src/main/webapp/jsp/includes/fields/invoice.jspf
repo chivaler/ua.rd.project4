@@ -4,7 +4,7 @@
         <c:choose>
             <c:when test="${not empty listInvoices}">
                 <select name="invoice" id="invoice">
-                    <option></option>
+                    <option value="0"></option>
                     <c:forEach var="elem" items="${listInvoices}">
                         <option value="${elem.key}" ${elem.key == (empty entity ? '' : entity.getInvoiceId()) ? 'selected="selected"' : ''}>${elem.value}</option>
                     </c:forEach>

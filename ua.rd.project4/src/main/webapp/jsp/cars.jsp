@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
 <%@include file="includes/header.jspf" %>
@@ -35,7 +35,7 @@
             <td><c:out value="${car.getPrice()}"/></td>
             <td><c:out value="${car.getRentPricePerDay()}"/></td>
             <td>
-                <form action="/Controller" method="post">
+                <form action="${pageContext.request.contextPath}/Controller" method="post">
                     <INPUT type="hidden" name="command" value="CARS"/>
                     <INPUT type="hidden" name="id" value="${car.getId()}"/>
                     <INPUT type="hidden" name="do" value="get"/>
@@ -44,7 +44,7 @@
                 </form>
             </td>
             <td>
-                <form action="/Controller" method="post">
+                <form action="${pageContext.request.contextPath}/Controller" method="post">
                     <INPUT type="hidden" name="command" value="CARS"/>
                     <INPUT type="hidden" name="do" value="delete"/>
                     <INPUT type="hidden" name="id" value="${car.getId()}"/>
