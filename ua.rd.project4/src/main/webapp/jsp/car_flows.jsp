@@ -36,10 +36,12 @@
             </td>
             <td><c:out value="${carFlow.getCarFlowType()}"/></td>
             <td>
-                <c:if test="${carFlow.getClientId() > 0}">
-                    <a href="/Controller?command=CLIENTS&do=get&id=${carFlow.getClientId()}">
-                        <c:out value="${carFlow.getClient().toString()}"/>
-                    </a>
+                <c:if test="${carFlow.getCarRequestId() > 0}">
+                    <c:if test="${carFlow.getCarRequest().getClientId() > 0}">
+                    <a href="/Controller?command=CLIENTS&do=get&id=${carFlow.getCarRequest().getClientId()}">
+                        <c:out value="${carFlow.getCarRequest().getClient().toString()}"/>
+                    </a
+                    </c:if>
                 </c:if>
             </td>
             <td>

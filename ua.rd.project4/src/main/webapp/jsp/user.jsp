@@ -22,21 +22,21 @@
         <%@include file="includes/fields/id.jspf" %>
         <tr>
             <td>isAdmin</td>
-            <td><INPUT type=checkbox name="isAdmin" ${empty entity ? '' : entity.isAdmin()? 'checked': ''}/></td>
+            <td><INPUT type="checkbox" name="isAdmin" ${empty entity ? '' : entity.isAdmin()? 'checked': ''}/></td>
         </tr>
         <tr>
             <td>login</td>
-            <td><INPUT type=text name="login" value="${empty entity ? '' : entity.getLogin()}"/></td>
+            <td><INPUT type="text" name="login" value="${empty entity ? '' : entity.getLogin()}"/></td>
         </tr>
         <tr>
             <td>Password</td>
-            <td><INPUT type=passwordHash name="pass" value=""/></td>
+            <td><INPUT type="password" name="pass" value=""/></td>
         </tr>
         <c:if test="${not empty entity}">
             <tr>
                 <td>HashedPassword</td>
                 <td><INPUT type=text class="readonly" readonly="readonly" name="passwordHash"
-                           value="${empty entity ? '' : entity.getPassword()}"/>
+                           value="${empty entity ? '' : entity.getPasswordHash()}"/>
                 </td>
             </tr>
         </c:if>

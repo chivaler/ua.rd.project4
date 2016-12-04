@@ -34,7 +34,7 @@ class JdbcInvoiceDao implements InvoiceDao {
                     "client INT," +
                     "total DECIMAL(10,2)," +
                     "paid BOOLEAN," +
-                    "description VARCHAR(16)," +
+                    "description VARCHAR(64)," +
                     "dateCreated TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP," +
                     "FOREIGN KEY (client) REFERENCES clients(id))");
         } catch (SQLException e) {

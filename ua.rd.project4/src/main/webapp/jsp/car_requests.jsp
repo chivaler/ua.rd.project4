@@ -19,7 +19,7 @@
         <th><fmt:message key="dateFrom" bundle="${bundle}"/></th>
         <th><fmt:message key="dateTo" bundle="${bundle}"/></th>
         <th><fmt:message key="totalCost" bundle="${bundle}"/></th>
-        <th><fmt:message key="approved" bundle="${bundle}"/></th>
+        <th><fmt:message key="status" bundle="${bundle}"/></th>
         <th><fmt:message key="invoice" bundle="${bundle}"/></th>
         <th><fmt:message key="EDIT" bundle="${bundle}"/></th>
         <th><fmt:message key="DELETE" bundle="${bundle}"/></th>
@@ -44,7 +44,7 @@
             <td align="center"><c:out value="${carRequest.getDateFrom()}"/></td>
             <td align="center"><c:out value="${carRequest.getDateTo()}"/></td>
             <td align="center"><c:out value="${carRequest.getTotalCost()}"/></td>
-            <td align="center"><c:out value="${carRequest.isApproved()}"/></td>
+            <td align="center"><c:out value="${carRequest.getStatus()}"/></td>
             <td>
                 <c:if test="${carRequest.getInvoiceId() > 0}">
                     <a href="/Controller?command=INVOICES&do=get&id=${carRequest.getInvoiceId()}">

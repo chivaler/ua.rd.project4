@@ -27,7 +27,7 @@ abstract class cmdCrudGeneric<T extends Entity> implements Command {
 
     abstract EntityService<T> getEntityService();
 
-    private int getIdFromRequest(HttpServletRequest req) {
+    int getIdFromRequest(HttpServletRequest req) {
         int parsedId;
         try {
             parsedId = Integer.valueOf(req.getParameter("id"));

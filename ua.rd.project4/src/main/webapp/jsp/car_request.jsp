@@ -39,9 +39,9 @@
                        value="${empty entity ? '' : entity.getTotalCost()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="approved" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="approved"
-                       value="${empty entity ? '' : entity.isApproved()}"/></td>
+            <td><fmt:message key="status" bundle="${bundle}"/></td>
+            <td><INPUT type=text name="status"
+                       value="${empty entity ? '' : entity.getStatus()}"/></td>
         </tr>
         <%@include file="includes/fields/invoice.jspf" %>
         <tr>

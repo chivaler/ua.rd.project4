@@ -21,24 +21,9 @@
         </tr>
         <%@include file="includes/fields/id.jspf" %>
         <%@include file="includes/fields/car.jspf" %>
-        <tr>
-            <td><fmt:message key="carFlowType" bundle="${bundle}"/></td>
-            <td><select name="carFlowType">
-                <option disabled>Select direction</option>
-                <option value="IN"  ${'IN' == (empty entity ? '' : entity.getCarFlowType()) ? 'selected="selected"' : ''}>
-                    IN
-                </option>
-                <option value="OUT" ${'OUT' == (empty entity ? '' : entity.getCarFlowType()) ? 'selected="selected"' : ''}>
-                    OUT
-                </option>
-            </select>
-        </tr>
+        <%@include file="includes/fields/car_flow_type.jspf" %>
         <%@include file="includes/fields/car_request.jspf" %>
-        <tr>
-            <td><fmt:message key="responsiblePerson" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="responsiblePerson"
-                       value="${empty entity ? '' : entity.getResponsiblePersonId()}"/></td>
-        </tr>
+        <%@include file="includes/fields/responsible_person.jspf" %>
         <%@include file="includes/fields/invoice.jspf" %>
         <tr>
             <td><fmt:message key="supplement" bundle="${bundle}"/></td>

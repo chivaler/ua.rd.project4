@@ -1,0 +1,13 @@
+<c:set var="chosenCarFlowType" value="${empty entity ? (empty param.carFlowType ? '': param.carFlowType) : entity.getCarFlowType()}"/>
+<tr>
+    <td><fmt:message key="carFlowType" bundle="${bundle}"/></td>
+    <td><select name="carFlowType">
+        <option disabled>Select direction</option>
+        <option value="IN"  ${'IN' == chosenCarFlowType ? 'selected="selected"' : ''}>
+            IN
+        </option>
+        <option value="OUT" ${'OUT' == chosenCarFlowType ? 'selected="selected"' : ''}>
+            OUT
+        </option>
+    </select>
+</tr>

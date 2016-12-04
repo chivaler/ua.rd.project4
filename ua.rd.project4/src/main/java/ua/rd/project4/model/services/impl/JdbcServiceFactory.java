@@ -14,7 +14,7 @@ public class JdbcServiceFactory implements ServiceFactory {
 
     @Override
     public ClientService getClientService() {
-        return JdbcClientSevice.getInstance();
+        return JdbcClientService.getInstance();
     }
 
     @Override
@@ -34,7 +34,7 @@ public class JdbcServiceFactory implements ServiceFactory {
 
     @Override
     public CarRequestService getCarRequestService() {
-        return JdbcCarRequestSevice.getInstance();
+        return JdbcCarRequestService.getInstance();
     }
 
     @Override

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 class JdbcCarRequestDao implements CarRequestDao {
-    private final static JdbcCarRequestDao instance = new JdbcCarRequestDao();
+    private static final JdbcCarRequestDao instance = new JdbcCarRequestDao();
     private final Logger logger = LogManager.getLogger(JdbcCarRequestDao.class);
     private final ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
     private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
@@ -41,7 +41,7 @@ class JdbcCarRequestDao implements CarRequestDao {
                     "totalCost DECIMAL(10,2)," +
                     "invoice INT," +
                     "status enum('NEW','APPROVED','REJECTED','DONE') NOT NULL DEFAULT 'NEW'," +
-                    "rejectReason VARCHAR(16)," +
+                    "rejectReason VARCHAR(64)," +
                     "dateCreated TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP," +
                     "FOREIGN KEY (car) REFERENCES cars(id)," +
                     "FOREIGN KEY (client) REFERENCES clients(id)," +

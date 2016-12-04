@@ -7,13 +7,13 @@ import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.ClientService;
 import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
 
-class JdbcClientSevice extends AbstractEntityService<Client> implements ClientService {
-    private static final JdbcClientSevice instance = new JdbcClientSevice();
+class JdbcClientService extends AbstractEntityService<Client> implements ClientService {
+    private static final JdbcClientService instance = new JdbcClientService();
 
-    private JdbcClientSevice() {
+    private JdbcClientService() {
     }
 
-    public static JdbcClientSevice getInstance() {
+    public static JdbcClientService getInstance() {
         return instance;
     }
 

@@ -41,8 +41,10 @@ public class CarRequest implements Entity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CarRequest)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof CarRequest))
+            return false;
         CarRequest that = (CarRequest) o;
         return Objects.equals(getCarId(), that.getCarId()) &&
                 Objects.equals(getClientId(), that.getClientId()) &&

@@ -3,11 +3,16 @@ package ua.rd.project4.controller.command.impl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
+import ua.rd.project4.controller.exceptions.RequiredParameterException;
+import ua.rd.project4.domain.Car;
 import ua.rd.project4.domain.CarFlow;
+import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
+import ua.rd.project4.model.holders.CarFlowHolder;
 import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 class cmdCrudCarFlow extends cmdCrudGeneric<CarFlow> {
     private static final cmdCrudCarFlow instance = new cmdCrudCarFlow();
@@ -51,37 +56,37 @@ class cmdCrudCarFlow extends cmdCrudGeneric<CarFlow> {
 
     @Override
     CarFlow parseToEntity(HttpServletRequest req) throws InvalidParameterException {
-//        Car.CarType carType = null;
-//        int rentPricePerDay = -1;
-//        int price = -1;
-//        String model = Optional.ofNullable(req.getParameter("model")).orElse("");
-//        String color = Optional.ofNullable(req.getParameter("color")).orElse("");
-//        String registrationNumber = Optional.ofNullable(req.getParameter("registrationNumber")).orElse("");
-//        String description = Optional.ofNullable(req.getParameter("description")).orElse("");
-//        if ("".equals(model))
-//            throw new RequiredParameterException("model");
-//        if ("".equals(registrationNumber))
-//            throw new RequiredParameterException("registrationNumber");
-//        try {
-//            carType = Car.CarType.valueOf(req.getParameter("carType"));
-//        } catch (Exception e) {
-//            throw new RequiredParameterException("carType");
-//        }
-//        try {
-//            rentPricePerDay = Integer.valueOf(req.getParameter("rentPricePerDay"));
-//        } catch (Exception e) {
-//            throw new RequiredParameterException("rentPricePerDay");
-//        }
-//        try {
-//            price = Integer.valueOf(req.getParameter("price"));
-//        } catch (Exception e) {
-//            throw new RequiredParameterException("price");
-//        }
-//        if (price < 1)
-//            throw new InvalidParameterException("price");
-//        if (price < 1)
-//            throw new InvalidParameterException("rentPricePerDay");
-//        return new Car(model, color, carType, registrationNumber, description, price, rentPricePerDay);
-        return null;
+        CarFlow carFlow = null;
+        int carId = 0;
+        try {
+            carId = Integer.valueOf(req.getParameter("car"));
+        } catch (NumberFormatException e) {
+            throw new RequiredParameterException("car");
+        }
+        CarFlow.CarFlowType carFlowType = CarFlow.CarFlowType.IN;
+        try {
+            carFlowType = CarFlow.CarFlowType.valueOf(req.getParameter("carFlowType"));
+        } catch (Exception e) {
+            logger.debug(e);
+            throw new RequiredParameterException("carFlowType");
+        }
+        int responsiblePersonId = 0;
+        try {
+            responsiblePersonId = Integer.valueOf(req.getParameter("responsibleUser"));
+        } catch (NumberFormatException e) {
+            throw new RequiredParameterException("responsibleUser");
+        }
+        int carRequestId = 0;
+        try {
+            carRequestId = Integer.valueOf(req.getParameter("carRequest"));
+        } catch (NumberFormatException e) {
+        }
+        int invoiceId = 0;
+        try {
+            invoiceId = Integer.valueOf(req.getParameter("invoice"));
+        } catch (NumberFormatException e) {
+        }
+        String supplement = Optional.ofNullable(req.getParameter("supplement")).orElse("");
+        return new CarFlowHolder(carId,carFlowType,carRequestId,responsiblePersonId,invoiceId, supplement, JdbcDaoFactory.getInstance());
     }
 }

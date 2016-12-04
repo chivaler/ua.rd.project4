@@ -45,10 +45,11 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <form action="/Controller" method="post">
+                                        <form action="/Controller" method="get">
                                             <INPUT type="hidden" name="command" value="CARFLOWS"/>
                                             <INPUT type="hidden" name="do" value="new"/>
-                                            <INPUT type="hidden" name="id" value="${car.getId()}"/>
+                                            <INPUT type="hidden" name="carId" value="${car.getId()}"/>
+                                            <INPUT type="hidden" name="carFlowType" value="OUT"/>
                                             <INPUT type="submit" value="Register out">
                                         </form>
                                     </td>
@@ -65,10 +66,11 @@
                                     </a></td>
                                     <td><c:out value="${car.getRegistrationNumber()}"/></td>
                                     <td>
-                                        <form action="/Controller" method="post">
+                                        <form action="/Controller" method="get">
                                             <INPUT type="hidden" name="command" value="CARFLOWS"/>
                                             <INPUT type="hidden" name="do" value="new"/>
-                                            <INPUT type="hidden" name="id" value="${car.getId()}"/>
+                                            <INPUT type="hidden" name="carId" value="${car.getId()}"/>
+                                            <INPUT type="hidden" name="carFlowType" value="IN"/>
                                             <INPUT type="submit" value="Register in">
                                         </form>
                                     </td>
@@ -92,31 +94,42 @@
                         <table>
                             <tr>
                                 <th>car</th>
-                                <th>Approved</th>
-                                <th>car</th>
+                                <th>client</th>
+                                <th>status</th>
                                 <th>available</th>
+                                <th>INFO</th>
+                                <th>APPROVE</th>
+                                <th>REJECT</th>
                             </tr>
                             <c:forEach var="request" items="${mapsCarRequests}">
                                 <tr>
                                     <td><a href="/Controller?command=CARS&do=get&id=${request.carId}">
-                                            <c:out value="${request.carStr}"/></a>
-                                    <td><c:out value="${request.id}"/></td>
-                                    <td><c:out value="${request.approved}"/></td>
-                                    <td><c:out value="${request.carId}"/></td>
+                                        <c:out value="${request.carStr}"/></a></td>
+                                    <td><a href="/Controller?command=CLIENTS&do=get&id=${request.clientid}">
+                                        <c:out value="${request.clientStr}"/></a></td>
+                                    <td><c:out value="${request.status}"/></td>
                                     <td><c:out value="${request.available}"/></td>
                                     <td>
                                         <form action="/Controller" method="post">
                                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
-                                            <INPUT type="hidden" name="do" value="new"/>
-                                            <INPUT type="hidden" name="id" value="${car.getId()}"/>
+                                            <INPUT type="hidden" name="id" value="${request.id}"/>
+                                            <INPUT type="hidden" name="do" value="get"/>
+                                            <INPUT type="submit" value="Info">
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="/Controller" method="post">
+                                            <INPUT type="hidden" name="command" value="CARREQUESTS"/>
+                                            <INPUT type="hidden" name="do" value="approve"/>
+                                            <INPUT type="hidden" name="id" value="${request.id}"/>
                                             <INPUT type="submit" value="Approve">
                                         </form>
                                     </td>
                                     <td>
                                         <form action="/Controller" method="post">
                                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
-                                            <INPUT type="hidden" name="do" value="new"/>
-                                            <INPUT type="hidden" name="id" value="${car.getId()}"/>
+                                            <INPUT type="hidden" name="do" value="reject"/>
+                                            <INPUT type="hidden" name="id" value="${request.id}"/>
                                             <INPUT type="submit" value="Reject">
                                         </form>
                                     </td>
