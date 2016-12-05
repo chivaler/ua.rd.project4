@@ -11,6 +11,7 @@ import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.CarFlowService;
 
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -110,5 +111,13 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
         }
     }
 
-
+    @Override
+    public CarFlow findLastCarFlowOfCar(int carId) {
+        return findCarFlowsByCarId(carId)
+                .stream()
+                .filter(s -> s.getCarId() == carId)
+                .filter(s -> s.getCarFlowType() == CarFlow.CarFlowType.OUT)
+                .reduce((p1, p2) -> p1.getDateCreated().compareTo(p2.getDateCreated()) > 0 ? p1 : p2)
+                .orElse(null);
+    }
 }

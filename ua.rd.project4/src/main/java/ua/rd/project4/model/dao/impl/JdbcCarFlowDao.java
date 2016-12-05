@@ -175,6 +175,23 @@ class JdbcCarFlowDao implements CarFlowDao {
     }
 
     @Override
+    public List<CarFlow> findAll(int n) {
+        List<CarFlow> foundCarFlows = new ArrayList<>();
+        CarFlow carFlow;
+        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow` ORDER BY dateCreated DESC LIMIT "+Integer.toString(n))) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                carFlow = getEntityFromResultSet(resultSet);
+                foundCarFlows.add(carFlow);
+            }
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+        return foundCarFlows;
+    }
+
+    @Override
     public CarFlow getById(int id) {
         return findCarFlowsByIdField(id,  JdbcFields.ID).stream().findFirst().orElse(null);
     }

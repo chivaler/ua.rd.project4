@@ -9,6 +9,7 @@ import ua.rd.project4.domain.CarFlow;
 import ua.rd.project4.domain.CarRequest;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.exceptions.WrongCarFlowDirectionException;
+import ua.rd.project4.model.services.CarFlowService;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 class CarInCommand implements Command {
     private static final CarInCommand instance = new CarInCommand();
     private final Logger logger = LogManager.getLogger(CarInCommand.class);
+    private final CarFlowService carFlowService = JdbcServiceFactory.getInstance().getCarFlowService();
 
     private CarInCommand() {
     }
@@ -31,13 +33,8 @@ class CarInCommand implements Command {
             throw new InsufficientPermissions();
         try {
             final int carId = Integer.parseInt(req.getParameter("car"));
-            CarFlow carFlowOut = JdbcServiceFactory.getInstance().getCarFlowService().findCarFlowsByCarId(carId)
-                    .stream()
-                    .filter(s -> s.getCarId() == carId)
-                    .filter(s -> s.getCarFlowType() == CarFlow.CarFlowType.OUT)
-                    .reduce((p1, p2) -> p1.getDateCreated().compareTo(p2.getDateCreated()) > 0 ? p1 : p2)
-                    .orElse(null);
-            JdbcServiceFactory.getInstance().getCarFlowService().checkInCarFlowIn(carFlowOut.getId(), user);
+            CarFlow carFlowOut = carFlowService.findLastCarFlowOfCar(carId);
+            carFlowService.checkInCarFlowIn(carFlowOut.getId(), user);
         } catch (WrongCarFlowDirectionException | NumberFormatException e) {
             req.setAttribute("error", e.toString());
             logger.error(e);

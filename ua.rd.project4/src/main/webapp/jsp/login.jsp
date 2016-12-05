@@ -7,37 +7,32 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Authorization</title>
+    <%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">--%>
 </head>
 <body>
-<c:set var="lang" value="${empty lang ? 'uk_UA' : sessionScope.lang}"
+<c:set var="lang" value="${empty lang ? 'en_US' : sessionScope.lang}"
        scope="session"/>
 <fmt:setLocale value="${lang}"/>
 <fmt:setBundle basename="localization/messages" var="bundle"/>
-
-
-<form action="${pageContext.request.contextPath}/Controller" method="post">
-    <input type="hidden" name="command" value="LOCALE"/>
-    <select name="language">
-        <option selected value="ENG">ENG</option>
-        <option selected value="UKR">UKR</option>
-    </select>
-    <table>
-        <tr>
-            <td colspan=2 align="center"><br> <input type="submit"
-                                                     value=<fmt:message key="chooseLanguage" bundle="${bundle}"/>></td>
-        </tr>
-    </table>
-</form>
+<c:if test="${not empty error}">
+    <div id="error" align="center" style="color: red">
+        <c:out value="${error}"/></div>
+</c:if>
+<div align="center">
+    <form action="${pageContext.request.contextPath}/Controller" method="post">
+        <input type="hidden" name="command" value="LOCALE"/>
+        <select name="language">
+            <option selected value="ENG">ENG</option>
+            <option selected value="UKR">UKR</option>
+        </select>
+        <input type="submit"
+               value="<fmt:message key="chooseLanguage" bundle="${bundle}"/>">
+    </form>
+</div>
 <div align="center">
     <h2>
         <fmt:message key="authorizationForm" bundle="${bundle}"/>
     </h2>
-
-    <c:if test="${requestScope.error eq true}">
-        <font color="red"><fmt:message key="WrongLoginOrPassword"
-                                       bundle="${bundle}"/> </font>
-    </c:if>
-
     <p>
         <fmt:message key="enterLoginPassword" bundle="${bundle}"/>
         <br>
@@ -55,15 +50,16 @@
             </tr>
             <tr>
                 <td colspan="2" align="center"><br> <input type="submit"
-                                                           value=<fmt:message key="signIn" bundle="${bundle}"/>></td>
+                                                           value=<fmt:message key="signIn" bundle="${bundle}"/>>
+                </td>
             </tr>
         </table>
         <p>
-            <a href="<c:url value="/ClientRegistForm.jsp"/>"><fmt:message
+            <a href="<c:url value="${pageContext.request.contextPath}/jsp/register.jsp"/>"><fmt:message
                     key="register" bundle="${bundle}"/></a> <br>
         </p>
         <p>
-            <a href="${pageContext.request.contextPath}/Controller?command=SHOW_ALL_APARTMENTS"><fmt:message
+            <a href="${pageContext.request.contextPath}/Controller?command=USERSPACE"><fmt:message
                     key="continueAsGuest" bundle="${bundle}"/> </a>
         </p>
     </form>

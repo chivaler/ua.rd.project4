@@ -4,7 +4,7 @@ import ua.rd.project4.domain.Entity;
 import ua.rd.project4.model.dao.EntityDao;
 import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.EntityService;
-import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
+import ua.rd.project4.model.exceptions.EntityInUseException;
 import ua.rd.project4.model.exceptions.UniqueViolationException;
 
 import java.util.List;
@@ -25,7 +25,7 @@ abstract class GenericEntityService<T extends Entity> implements EntityService<T
         return getDao().update(id, t);
     }
 
-    public boolean delete(int id) throws ExceptionEntityInUse {
+    public boolean delete(int id) throws EntityInUseException {
         return getDao().delete(id);
     }
 

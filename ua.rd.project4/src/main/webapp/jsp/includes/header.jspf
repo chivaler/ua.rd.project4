@@ -1,14 +1,35 @@
 <fmt:setLocale value="en_US"/>
 <fmt:setBundle basename="localization/messages" var="bundle"/>
+
 <div align="center">
-    <a href="${pageContext.request.contextPath}/Controller?command=CARS">CARS</a>
-    <a href="${pageContext.request.contextPath}/Controller?command=USERS">USERS</a>
-    <a href="${pageContext.request.contextPath}/Controller?command=INVOICES">INVOICES</a>
-    <a href="${pageContext.request.contextPath}/Controller?command=CLIENTS">CLIENTS</a>
-    <a href="${pageContext.request.contextPath}/Controller?command=CARFLOWS">CARFLOWS</a>
-    <a href="${pageContext.request.contextPath}/Controller?command=CARREQUESTS">CARREQUESTS</a>
-    <a href="${pageContext.request.contextPath}/Controller?command=ADMIN">ADMIN</a>
+    menu:
+    <c:if test="${empty user}">
+        <a href="${pageContext.request.contextPath}/Controller?command=LOGIN">LOGIN</a>
+    </c:if>
+    <c:if test="${user.isAdmin()}">
+        <a href="${pageContext.request.contextPath}/Controller?command=CARS">CARS</a>
+        <a href="${pageContext.request.contextPath}/Controller?command=USERS">USERS</a>
+        <a href="${pageContext.request.contextPath}/Controller?command=INVOICES">INVOICES</a>
+        <a href="${pageContext.request.contextPath}/Controller?command=CLIENTS">CLIENTS</a>
+        <a href="${pageContext.request.contextPath}/Controller?command=CARFLOWS">CARFLOWS</a>
+        <a href="${pageContext.request.contextPath}/Controller?command=CARREQUESTS">CARREQUESTS</a>
+        <a href="${pageContext.request.contextPath}/Controller?command=ADMIN">ADMIN</a>
+    </c:if>
+    <c:if test="${!user.isAdmin()}">
+        <a href="${pageContext.request.contextPath}/Controller?command=USERSPACE">USER</a>
+    </c:if>
+    <c:if test="${not empty user}">
+        <a href="${pageContext.request.contextPath}/Controller?command=LOGOUT">LOGOUT</a>
+    </c:if>
 </div>
+<c:if test="${not empty user}">
+    <c:if test="${user.getClientId()>0}">
+        <div align="center">Hello <c:out
+                value="${user.getClient().getFirstName()} ${user.getClient().getLastName()}"/></div>
+    </c:if>
+</c:if>
+<br>
+
 <c:if test="${not empty result}">
     <div id="result"><c:out value="${result}"/></div>
 </c:if>

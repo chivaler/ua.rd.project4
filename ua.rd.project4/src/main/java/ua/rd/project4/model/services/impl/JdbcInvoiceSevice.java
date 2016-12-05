@@ -4,7 +4,7 @@ import ua.rd.project4.model.dao.InvoiceDao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.domain.Invoice;
 import ua.rd.project4.model.services.ServiceFactory;
-import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
+import ua.rd.project4.model.exceptions.EntityInUseException;
 import ua.rd.project4.model.services.InvoiceService;
 
 import java.util.List;
@@ -30,7 +30,7 @@ class JdbcInvoiceSevice extends GenericEntityService<Invoice> implements Invoice
     }
 
     @Override
-    public boolean delete(int id) throws ExceptionEntityInUse {
+    public boolean delete(int id) throws EntityInUseException {
         return super.delete(id);
     }
 

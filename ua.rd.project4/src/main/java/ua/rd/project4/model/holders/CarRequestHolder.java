@@ -4,13 +4,13 @@ import ua.rd.project4.domain.Car;
 import ua.rd.project4.domain.CarRequest;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.Invoice;
-import ua.rd.project4.model.dao.AbstractDaoFactory;
+import ua.rd.project4.model.dao.DaoFactory;
 
 import java.math.BigDecimal;
 import java.sql.Date;
 
 public class CarRequestHolder extends CarRequest  {
-    private final AbstractDaoFactory daoFactory;
+    private final DaoFactory daoFactory;
     private int carId;
     private int clientId;
     private int invoiceId;
@@ -22,7 +22,7 @@ public class CarRequestHolder extends CarRequest  {
                             CarRequest.RequestStatus status,
                             int invoiceId,
                             String rejectReason,
-                            AbstractDaoFactory daoFactory) {
+                            DaoFactory daoFactory) {
         super(null, null, dateFrom, dateTo, totalCost, status, null,rejectReason);
         this.carId = carId;
         this.clientId = clientId;

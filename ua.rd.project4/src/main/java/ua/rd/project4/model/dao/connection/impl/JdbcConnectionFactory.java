@@ -23,14 +23,11 @@ public class JdbcConnectionFactory implements ConnectionFactory {
     private String jdbcPassword;
     private ConnectionType connectionType = ConnectionType.POOL_PREFERRED;
 
-
-
     enum ConnectionType {
         POOL_PREFERRED, SINGLE;
     }
 
     private JdbcConnectionFactory() {
-        //TODO Jdbc from file, different from tests
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         Properties prop = new Properties();
         try (InputStream input = loader.getResourceAsStream("db.properties")) {
@@ -40,17 +37,18 @@ public class JdbcConnectionFactory implements ConnectionFactory {
             jdbcUrl = prop.getProperty("dbUrl");
             jdbcPassword = prop.getProperty("dbPassword");
             Class.forName(jdbcDriver);
-        } catch (IOException e) {
-            logger.error(e);
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             logger.error(e);
         }
 
         try {
             InitialContext ic = new InitialContext();
             dataSource = (DataSource) ic.lookup("java:comp/env/jdbc/carRentService");
-        } catch (NamingException e) {
-            logger.debug(e);
+            if (dataSource.getConnection()==null)
+                throw new Exception();
+            logger.info("Connection Pool using");
+        } catch (Exception e) {
+            logger.debug("Connection pool didn't initialized:",e);
             connectionType = ConnectionType.SINGLE;
         }
 

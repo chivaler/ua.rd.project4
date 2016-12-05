@@ -5,7 +5,7 @@ import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.domain.Car;
 import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.CarService;
-import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
+import ua.rd.project4.model.exceptions.EntityInUseException;
 
 class JdbcCarSevice extends GenericEntityService<Car> implements CarService {
     private static final JdbcCarSevice instance = new JdbcCarSevice();
@@ -28,7 +28,7 @@ class JdbcCarSevice extends GenericEntityService<Car> implements CarService {
     }
 
     @Override
-    public boolean delete(int id) throws ExceptionEntityInUse {
+    public boolean delete(int id) throws EntityInUseException {
         return super.delete(id);
     }
 }

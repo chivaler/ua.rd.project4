@@ -2,13 +2,13 @@ package ua.rd.project4.model.holders;
 
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.User;
-import ua.rd.project4.model.dao.AbstractDaoFactory;
+import ua.rd.project4.model.dao.DaoFactory;
 
 public class UserHolder extends User  {
-    private final AbstractDaoFactory daoFactory;
+    private final DaoFactory daoFactory;
     private int clientId;
 
-    public UserHolder(boolean isAdmin, String login, String password, int clientId, AbstractDaoFactory daoFactory) {
+    public UserHolder(boolean isAdmin, String login, String password, int clientId, DaoFactory daoFactory) {
         super(isAdmin, login, password, null);
         this.daoFactory = daoFactory;
         this.clientId = clientId;

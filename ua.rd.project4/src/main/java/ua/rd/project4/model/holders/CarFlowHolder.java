@@ -1,13 +1,10 @@
 package ua.rd.project4.model.holders;
 
 import ua.rd.project4.domain.*;
-import ua.rd.project4.model.dao.AbstractDaoFactory;
-
-import java.sql.Date;
-import java.sql.Timestamp;
+import ua.rd.project4.model.dao.DaoFactory;
 
 public class CarFlowHolder extends CarFlow {
-    final AbstractDaoFactory daoFactory;
+    final DaoFactory daoFactory;
     private int carId;
     private int carRequestId;
     private int responsiblePersonId;
@@ -19,7 +16,7 @@ public class CarFlowHolder extends CarFlow {
                          int responsiblePersonId,
                          int invoiceId,
                          String supplement,
-                         AbstractDaoFactory daoFactory) {
+                         DaoFactory daoFactory) {
         super(null, carFlowType, null, null, null, supplement);
         this.carId = carId;
         this.responsiblePersonId = responsiblePersonId;

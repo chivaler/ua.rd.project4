@@ -3,7 +3,7 @@ package ua.rd.project4.model.services.impl;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.dao.UserDao;
 import ua.rd.project4.domain.User;
-import ua.rd.project4.model.exceptions.ExceptionEntityInUse;
+import ua.rd.project4.model.exceptions.EntityInUseException;
 import ua.rd.project4.model.exceptions.LoginExistsException;
 import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.services.*;
@@ -31,7 +31,7 @@ class JdbcUserSevice extends GenericEntityService<User> implements UserService {
     }
 
     @Override
-    public boolean delete(int id) throws ExceptionEntityInUse {
+    public boolean delete(int id) throws EntityInUseException {
         return super.delete(id);
     }
 
@@ -57,7 +57,6 @@ class JdbcUserSevice extends GenericEntityService<User> implements UserService {
     private boolean checkExistUsersWithTheSameLogin(User user, int id) {
         return findAll().stream().
                 filter(s -> s.getLogin().equals(user.getLogin())).
-                filter(s -> s.getId() != id).
-                count() > 0;
+                anyMatch(s -> s.getId() != id);
     }
 }

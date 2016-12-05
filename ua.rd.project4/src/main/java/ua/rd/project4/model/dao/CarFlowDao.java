@@ -9,5 +9,6 @@ public interface CarFlowDao extends EntityDao<CarFlow> {
     List<CarFlow> findCarFlowsByCarRequestId(int carRequestId);
     List<CarFlow> findCarFlowsByUserId(int userId);
     List<CarFlow> findCarFlowsByInvoiceId(int invoiceId);
+    List<CarFlow> findAll(int n);
 
 }

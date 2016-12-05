@@ -11,6 +11,7 @@ import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.holders.InvoiceHolder;
 
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -27,25 +28,13 @@ public interface CarRequestService extends EntityService<CarRequest> {
 
     List<CarRequest> findCarRequestsByInvoiceId(int invoiceId);
 
+    List<Car> findAvailableCars(Date dateFrom, Date dateTo);
+
     enum CarRequestStatus {
         POSSIBLE, CONFLICT, IMPOSSIBLE;
     }
 
-    default CarRequestStatus isPossible(int carRequestId) {
-        CarRequest carRequest = getById(carRequestId);
-        Supplier<Stream<CarRequest>> possibleConflicted =
-                () -> findAll().stream()
-                        .filter(s -> s.getId() != carRequestId)
-                        .filter(s -> s.getCarId() == carRequest.getCarId())
-                        .filter(s -> s.getStatus() != CarRequest.RequestStatus.REJECTED)
-                        .filter(s -> (s.getDateTo().compareTo(carRequest.getDateFrom()) > 0
-                                && s.getDateFrom().compareTo(carRequest.getDateTo()) < 0));
-        if (!possibleConflicted.get().findAny().isPresent())
-            return CarRequestStatus.POSSIBLE;
-        if (possibleConflicted.get().noneMatch(s -> s.getStatus() != CarRequest.RequestStatus.NEW))
-            return CarRequestStatus.CONFLICT;
-        else return CarRequestStatus.IMPOSSIBLE;
-    }
+    CarRequestStatus isPossible(int carRequestId);
 
     default List<Map<String, String>> getCarRequestsWithStatuses() {
         return findAll().stream()
@@ -75,7 +64,7 @@ public interface CarRequestService extends EntityService<CarRequest> {
 
     void reject(int carRequestId, String reason);
 
-    BigDecimal calculateTotal(int carRequestId);
+    BigDecimal calculateTotal(CarRequest carRequest);
 
     void checkInCarOut(int carRequestId, User user) throws CarRequestApproveNeededException, CarRequestPaymentNeededException;
 
