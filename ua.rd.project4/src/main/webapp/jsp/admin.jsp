@@ -83,10 +83,12 @@
                 <th>dateFrom</th>
                 <th>dateTo</th>
                 <th>status</th>
+                <th>dateCreated</th>
+                <th>invoice</th>
                 <th>available</th>
-                <th>INFO</th>
                 <th>APPROVE</th>
                 <th>REJECT</th>
+                <th>CheckIn Car Out</th>
             </tr>
             <c:forEach var="request" items="${mapsCarRequests}">
                 <tr>
@@ -98,21 +100,17 @@
                     <td><c:out value="${request.dateFrom}"/></td>
                     <td><c:out value="${request.dateTo}"/></td>
                     <td><c:out value="${request.status}"/></td>
+                    <td><a href="${pageContext.request.contextPath}/Controller?command=CARREQUESTS&do=get&id=${request.id}">
+                        <c:out value="${request.dateCreated}"/></a></td>
+                    <td><a href="${pageContext.request.contextPath}/Controller?command=INVOICES&do=get&id=${request.invoiceId}">
+                        <c:out value="${request.paid}"/></a></td>
                     <td><c:out value="${request.available}"/></td>
-                    <td>
-                        <form action="${pageContext.request.contextPath}/Controller" method="post">
-                            <INPUT type="hidden" name="command" value="CARREQUESTS"/>
-                            <INPUT type="hidden" name="id" value="${request.id}"/>
-                            <INPUT type="hidden" name="do" value="get"/>
-                            <INPUT type="submit" value="Info">
-                        </form>
-                    </td>
                     <td>
                         <form action="${pageContext.request.contextPath}/Controller" method="post">
                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                             <INPUT type="hidden" name="do" value="approve"/>
                             <INPUT type="hidden" name="id" value="${request.id}"/>
-                            <INPUT type="submit" value="Approve">
+                            <INPUT type="submit" value="Approve" ${request.available=='IMPOSSIBLE'?'disabled="disabled"':''} ${request.status=='APPROVED'?'disabled="disabled"':''}>
                         </form>
                     </td>
                     <td>
@@ -120,7 +118,7 @@
                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                             <INPUT type="hidden" name="do" value="reject"/>
                             <INPUT type="hidden" name="id" value="${request.id}"/>
-                            <INPUT type="submit" value="Reject">
+                            <INPUT type="submit" value="Reject" ${request.paid=='true'?'disabled="disabled"':''}>
                         </form>
                     </td>
                     <td>
@@ -128,7 +126,7 @@
                             <INPUT type="hidden" name="command" value="CAR_OUT"/>
                             <INPUT type="hidden" name="do" value="reject"/>
                             <INPUT type="hidden" name="carRequest" value="${request.id}"/>
-                            <INPUT type="submit" value="CheckIn Car Out">
+                            <INPUT type="submit" value="CheckIn Car Out" ${request.paid=='false'?'disabled="disabled"':''}>
                         </form>
                     </td>
                 </tr>

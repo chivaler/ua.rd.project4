@@ -19,6 +19,9 @@ public abstract class EntityDaoTest<T extends Entity> {
     private final T elem1 = initElem1();
     private final T elem2  = initElem2();
     private final T elem3 = initElem3();
+    {
+        getDao().createTableIfNotExist();
+    }
 
     abstract T initElem1();
     abstract T initElem2();

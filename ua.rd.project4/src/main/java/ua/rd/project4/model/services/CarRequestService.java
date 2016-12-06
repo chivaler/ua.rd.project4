@@ -51,8 +51,10 @@ public interface CarRequestService extends EntityService<CarRequest> {
                     map.put("dateTo", String.valueOf(s.getDateTo()));
                     map.put("dateFrom", String.valueOf(s.getDateFrom()));
                     map.put("dateCreated", String.valueOf(s.getDateCreated()));
-                    if (s.getInvoiceId() > 0)
+                    if (s.getInvoiceId() > 0) {
                         map.put("paid", String.valueOf(s.getInvoice().isPaid()));
+                        map.put("invoiceId", String.valueOf(s.getInvoiceId()));
+                    }
                     else
                         map.put("paid", "false");
                     return map;

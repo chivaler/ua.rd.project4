@@ -60,7 +60,7 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
         List<Car> result = new ArrayList<>();
         for (Car car : carService.findAll()) {
             if (findCarRequestsByCarId(car.getId()).stream()
-                    .filter(s -> s.getStatus() != CarRequest.RequestStatus.REJECTED && s.getStatus() != CarRequest.RequestStatus.DONE)
+                    .filter(s -> s.getStatus() != CarRequest.RequestStatus.REJECTED && s.getStatus() != CarRequest.RequestStatus.DONE && s.getStatus() != CarRequest.RequestStatus.NEW)
                     .noneMatch(s -> (s.getDateTo().compareTo(dateFrom) >= 0
                             && s.getDateFrom().compareTo(dateTo) <= 0)))
                 result.add(car);
@@ -76,8 +76,8 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
                         .filter(s -> s.getId() != carRequestId)
                         .filter(s -> s.getCarId() == carRequest.getCarId())
                         .filter(s -> s.getStatus() != CarRequest.RequestStatus.REJECTED && s.getStatus() != CarRequest.RequestStatus.DONE)
-                        .filter(s -> (s.getDateTo().compareTo(carRequest.getDateFrom()) > 0
-                                && s.getDateFrom().compareTo(carRequest.getDateTo()) < 0));
+                        .filter(s -> (s.getDateTo().compareTo(carRequest.getDateFrom()) >= 0
+                                && s.getDateFrom().compareTo(carRequest.getDateTo()) <= 0));
         if (!possibleConflicted.get().findAny().isPresent())
             return CarRequestStatus.POSSIBLE;
         if (possibleConflicted.get().noneMatch(s -> s.getStatus() != CarRequest.RequestStatus.NEW))

@@ -39,7 +39,7 @@ public class MainController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String jspUrl = "jsp/login.jsp";
-        HttpSession session = req.getSession();
+        HttpSession session = req.getSession(); //wrapper for session Блинов, Романченко
         User user = (User) session.getAttribute("user");
         String commandName = req.getParameter("command");
         try {

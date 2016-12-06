@@ -4,6 +4,7 @@ import ua.rd.project4.domain.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.ClientDao;
+import ua.rd.project4.model.dao.connection.ConnectionFactory;
 import ua.rd.project4.model.dao.connection.impl.JdbcConnectionFactory;
 import ua.rd.project4.model.dao.UserDao;
 import ua.rd.project4.model.holders.UserHolder;
@@ -16,6 +17,7 @@ class JdbcUserDao implements UserDao {
     private final static JdbcUserDao instance = new JdbcUserDao();
     private static final Logger logger = LogManager.getLogger(JdbcUserDao.class);
     private final ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
+    private final ConnectionFactory connectionFactory = JdbcConnectionFactory.getInstance();
 
     private JdbcUserDao() {
     }
@@ -27,7 +29,7 @@ class JdbcUserDao implements UserDao {
     @Override
     public void createTableIfNotExist() {
         clientDao.createTableIfNotExist();
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              Statement statement = connection.createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `users` (" +
                     "id INT PRIMARY KEY auto_increment," +
@@ -44,7 +46,7 @@ class JdbcUserDao implements UserDao {
     @Override
     public boolean insert(User user) {
         boolean wasInserted = false;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `users` " +
                      "(isAdmin, login, passwordHash, client) VALUES(?,?,?,?)")) {
             preparedStatement.setBoolean(1, user.isAdmin());
@@ -61,7 +63,7 @@ class JdbcUserDao implements UserDao {
     @Override
     public boolean update(int id, User user) {
         boolean wasUpdated = false;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `users` SET "
                      + "isAdmin=?, login=?, passwordHash=?, client=? WHERE id=?")) {
             preparedStatement.setBoolean(1, user.isAdmin());
@@ -80,7 +82,7 @@ class JdbcUserDao implements UserDao {
     public boolean delete(int id) {
 
         boolean wasDeleted = false;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `users` WHERE id=?")) {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
@@ -104,7 +106,7 @@ class JdbcUserDao implements UserDao {
     @Override
     public User getById(int id) {
         User user = null;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users` WHERE id=? LIMIT 1")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -121,7 +123,7 @@ class JdbcUserDao implements UserDao {
     public List<User> findAll() {
         List<User> allUsers = new ArrayList<>();
         User user;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -148,7 +150,7 @@ class JdbcUserDao implements UserDao {
     public List<User> findUsersByClientId(int clientId) {
         List<User> allUsers = new ArrayList<>();
         User user;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users` WHERE client=?")) {
             preparedStatement.setInt(1, clientId);
             ResultSet resultSet = preparedStatement.executeQuery();

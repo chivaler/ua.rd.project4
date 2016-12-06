@@ -34,7 +34,14 @@
     <form action="${pageContext.request.contextPath}/Controller" method="post">
         <INPUT type="hidden" name="command" value="CREATECARREQUEST"/>
         <table>
-            <caption>Place New Request For Car</caption>
+            <c:choose>
+                <c:when test="${not empty listAvailableCars}">
+                    <caption>FoundCars</caption>
+                </c:when>
+                <c:otherwise>
+                    <caption>Place New Request For Car</caption>
+                </c:otherwise>
+            </c:choose>
             <tr>
                 <td><label for="dateFrom">dateFrom</label></td>
                 <td><input type="date" name="dateFrom" id="dateFrom"/></td>
@@ -45,14 +52,28 @@
             </tr>
             <c:forEach var="car" items="${cars}">
                 <tr>
-                    <td><label for="car${car.getId()}">${car.toString()} <b><span
-                            style="color: chocolate">per day: ${car.getRentPricePerDay()}</span></b></label>
+                    <td>
+                        <label for="car${car.getId()}"><a
+                                href="${pageContext.request.contextPath}/Controller?command=CARS&do=get&id=${car.getId()}">${car.toString()}</a>
+                            <b><span
+                                    style="color: chocolate">per day: ${car.getRentPricePerDay()}</span></b></label>
                     </td>
                     <td><input type="radio" name="car" value="${car.getId()}" id="car${car.getId()}"></td>
                 </tr>
             </c:forEach>
             <tr>
-                <td colspan="2"><INPUT type="submit" value="New Request"></td>
+                <td colspan="2">
+                    <c:choose>
+                        <c:when test="${not empty user}">
+                            <INPUT type="submit" value="New Request">
+                        </c:when>
+                        <c:otherwise>
+                            <a href="${pageContext.request.contextPath}/jsp/register.jsp">Register</a> or
+                            <a href="${pageContext.request.contextPath}/jsp/login.jsp">Login</a>
+                            to place new request
+                        </c:otherwise>
+                    </c:choose>
+                </td>
             </tr>
         </table>
     </form>
@@ -70,7 +91,6 @@
             <th><fmt:message key="totalCost" bundle="${bundle}"/></th>
             <th><fmt:message key="status" bundle="${bundle}"/></th>
             <th><fmt:message key="invoice" bundle="${bundle}"/></th>
-            <th><fmt:message key="EDIT" bundle="${bundle}"/></th>
             <th><fmt:message key="DELETE" bundle="${bundle}"/></th>
         </tr>
         <c:forEach var="carRequest" items="${listCarRequests}">
@@ -104,15 +124,6 @@
                 <td align="center">
                     <form action="${pageContext.request.contextPath}/Controller" method="post">
                         <INPUT type="hidden" name="command" value="CARREQUESTS"/>
-                        <INPUT type="hidden" name="id" value="${carRequest.getId()}"/>
-                        <INPUT type="hidden" name="do" value="get"/>
-                        <INPUT type="hidden" name="id" value="${carRequest.getId()}"/>
-                        <INPUT type="submit" value="Edit">
-                    </form>
-                </td>
-                <td align="center">
-                    <form action="${pageContext.request.contextPath}/Controller" method="post">
-                        <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                         <INPUT type="hidden" name="do" value="delete"/>
                         <INPUT type="hidden" name="id" value="${carRequest.getId()}"/>
                         <INPUT type="submit" value="Delete">
@@ -129,8 +140,6 @@
             <th><fmt:message key="total" bundle="${bundle}"/></th>
             <th><fmt:message key="paid" bundle="${bundle}"/></th>
             <th><fmt:message key="description" bundle="${bundle}"/></th>
-            <th><fmt:message key="EDIT" bundle="${bundle}"/></th>
-            <th><fmt:message key="DELETE" bundle="${bundle}"/></th>
         </tr>
         <c:forEach var="invoice" items="${listInvoices}">
             <tr>
@@ -145,23 +154,6 @@
                 <td align="center"><c:out value="${invoice.getTotal()}"/></td>
                 <td align="center"><c:out value="${invoice.isPaid()}"/></td>
                 <td align="center"><c:out value="${invoice.getDescription()}"/></td>
-                <td align="center">
-                    <form action="${pageContext.request.contextPath}/Controller" method="post">
-                        <INPUT type="hidden" name="command" value="INVOICES"/>
-                        <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
-                        <INPUT type="hidden" name="do" value="get"/>
-                        <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
-                        <INPUT type="submit" value="Edit">
-                    </form>
-                </td>
-                <td align="center">
-                    <form action="${pageContext.request.contextPath}/Controller" method="post">
-                        <INPUT type="hidden" name="command" value="INVOICES"/>
-                        <INPUT type="hidden" name="do" value="delete"/>
-                        <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
-                        <INPUT type="submit" value="Delete">
-                    </form>
-                </td>
             </tr>
         </c:forEach>
     </table>

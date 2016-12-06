@@ -3,9 +3,6 @@ package ua.rd.project4.model.dao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 
 public abstract class DaoFactory {
-    public enum DaoType {
-        JDBC
-    }
 
     public abstract CarDao getCarDao();
 
@@ -19,14 +16,6 @@ public abstract class DaoFactory {
 
     public abstract CarFlowDao getCarFlowDao();
 
-    public static DaoFactory getDaoFactory(DaoType type) {
-        switch (type) {
-            case JDBC:
-                return JdbcDaoFactory.getInstance();
-            default:
-                return null;
-        }
-    }
 
 }
 

@@ -4,6 +4,7 @@ import ua.rd.project4.domain.CarRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.*;
+import ua.rd.project4.model.dao.connection.ConnectionFactory;
 import ua.rd.project4.model.dao.connection.impl.JdbcConnectionFactory;
 import ua.rd.project4.model.holders.CarRequestHolder;
 
@@ -16,6 +17,7 @@ import java.util.Optional;
 class JdbcCarRequestDao implements CarRequestDao {
     private static final JdbcCarRequestDao instance = new JdbcCarRequestDao();
     private final Logger logger = LogManager.getLogger(JdbcCarRequestDao.class);
+    private final ConnectionFactory connectionFactory = JdbcConnectionFactory.getInstance();
     private final ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
     private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
     private final InvoiceDao invoiceDao = JdbcDaoFactory.getInstance().getInvoiceDao();
@@ -34,7 +36,7 @@ class JdbcCarRequestDao implements CarRequestDao {
         clientDao.createTableIfNotExist();
         carDao.createTableIfNotExist();
         invoiceDao.createTableIfNotExist();
-        try (Statement statement = JdbcConnectionFactory.getInstance().getConnection().createStatement()) {
+        try (Statement statement = connectionFactory.getConnection().createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `car_request` (" +
                     "id INT PRIMARY KEY auto_increment," +
                     "car INT," +
@@ -58,7 +60,7 @@ class JdbcCarRequestDao implements CarRequestDao {
     @Override
     public boolean insert(CarRequest carRequest) {
         boolean wasInserted = false;
-        try (PreparedStatement preparedStatement = JdbcConnectionFactory.getInstance().getConnection().prepareStatement("INSERT INTO `car_request` " +
+        try (PreparedStatement preparedStatement = connectionFactory.getConnection().prepareStatement("INSERT INTO `car_request` " +
                 "(car, client, dateFrom, dateTo, totalCost, invoice, status, rejectReason) VALUES(?,?,?,?,?,?,?,?)")) {
             preparedStatement.setObject(1, carRequest.getCarId() == 0 ? null : carRequest.getCarId());
             preparedStatement.setObject(2, carRequest.getClientId() == 0 ? null : carRequest.getClientId());
@@ -78,7 +80,7 @@ class JdbcCarRequestDao implements CarRequestDao {
     @Override
     public boolean update(int id, CarRequest carRequest) {
         boolean wasUpdated = false;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `car_request` SET " +
                      "car=?, client=?, dateFrom=?, dateTo=?, totalCost=?, invoice=?, status=?, rejectReason=? WHERE id=?")) {
             preparedStatement.setObject(1, carRequest.getCarId() == 0 ? null : carRequest.getCarId());
@@ -100,7 +102,7 @@ class JdbcCarRequestDao implements CarRequestDao {
     @Override
     public boolean delete(int id) {
         boolean wasDeleted = false;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `car_request` WHERE id=?")) {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
@@ -135,7 +137,7 @@ class JdbcCarRequestDao implements CarRequestDao {
     public List<CarRequest> findAll() {
         List<CarRequest> foundCarsRequests = new ArrayList<>();
         CarRequest carRequest;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -162,7 +164,7 @@ class JdbcCarRequestDao implements CarRequestDao {
     private List<CarRequest> findCarRequestsByIdField(int id, JdbcFields field) {
         List<CarRequest> foundCarsRequests = new ArrayList<>();
         CarRequest carRequest;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE " + field.getFieldName() + "=?")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();

@@ -4,6 +4,7 @@ import ua.rd.project4.domain.CarFlow;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.*;
+import ua.rd.project4.model.dao.connection.ConnectionFactory;
 import ua.rd.project4.model.dao.connection.impl.JdbcConnectionFactory;
 import ua.rd.project4.model.holders.CarFlowHolder;
 
@@ -14,6 +15,7 @@ import java.util.List;
 class JdbcCarFlowDao implements CarFlowDao {
     private static final JdbcCarFlowDao instance = new JdbcCarFlowDao();
     private static final Logger logger = LogManager.getLogger(JdbcCarFlowDao.class);
+    private final ConnectionFactory connectionFactory = JdbcConnectionFactory.getInstance();
     private final ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
     private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
     private final InvoiceDao invoiceDao = JdbcDaoFactory.getInstance().getInvoiceDao();
@@ -34,7 +36,8 @@ class JdbcCarFlowDao implements CarFlowDao {
         invoiceDao.createTableIfNotExist();
         userDao.createTableIfNotExist();
         carRequestDao.createTableIfNotExist();
-        try (Statement statement = JdbcConnectionFactory.getInstance().getConnection().createStatement()) {
+        try (Connection connection = connectionFactory.getConnection();
+             Statement statement = connection.createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `car_flow` (" +
                     "id INT PRIMARY KEY auto_increment," +
                     "car INT," +
@@ -56,7 +59,7 @@ class JdbcCarFlowDao implements CarFlowDao {
     @Override
     public boolean insert(CarFlow carFlow) {
         boolean wasInserted = false;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `car_flow` " +
                      "(car, carFlowType, carRequest, responsiblePerson, invoice, supplement) VALUES(?,?,?,?,?,?)")) {
             preparedStatement.setObject(1, carFlow.getCarId() == 0 ? null : carFlow.getCarId());
@@ -75,7 +78,7 @@ class JdbcCarFlowDao implements CarFlowDao {
     @Override
     public boolean update(int id, CarFlow carFlow) {
         boolean wasUpdated = false;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `car_flow` SET " +
                      "car=?, carFlowType=?, carRequest=?, responsiblePerson=?, invoice=?, supplement=? WHERE id=?")) {
             preparedStatement.setObject(1, carFlow.getCarId() == 0 ? null : carFlow.getCarId());
@@ -95,7 +98,7 @@ class JdbcCarFlowDao implements CarFlowDao {
     @Override
     public boolean delete(int id) {
         boolean wasDeleted = false;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM `car_flow` WHERE id=?")) {
             preparedStatement.setInt(1, id);
             wasDeleted = preparedStatement.executeUpdate() > 0;
@@ -124,7 +127,7 @@ class JdbcCarFlowDao implements CarFlowDao {
     public List<CarFlow> findAll() {
         List<CarFlow> foundCarFlows = new ArrayList<>();
         CarFlow carFlow;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -141,7 +144,7 @@ class JdbcCarFlowDao implements CarFlowDao {
         String sqlQuery = "SELECT * FROM `car_flow` WHERE " + field.getFieldName() + "=" + id;
         List<CarFlow> foundCarFlows = new ArrayList<>();
         CarFlow carFlow;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
+        try (Connection connection = connectionFactory.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(sqlQuery)) {
             while (resultSet.next()) {
@@ -166,20 +169,20 @@ class JdbcCarFlowDao implements CarFlowDao {
 
     @Override
     public List<CarFlow> findCarFlowsByUserId(int userId) {
-        return findCarFlowsByIdField(userId,  JdbcFields.RESPONSIBLEUSER);
+        return findCarFlowsByIdField(userId, JdbcFields.RESPONSIBLEUSER);
     }
 
     @Override
     public List<CarFlow> findCarFlowsByInvoiceId(int invoiceId) {
-        return findCarFlowsByIdField(invoiceId,  JdbcFields.INVOICE);
+        return findCarFlowsByIdField(invoiceId, JdbcFields.INVOICE);
     }
 
     @Override
     public List<CarFlow> findAll(int n) {
         List<CarFlow> foundCarFlows = new ArrayList<>();
         CarFlow carFlow;
-        try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow` ORDER BY dateCreated DESC LIMIT "+Integer.toString(n))) {
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow` ORDER BY dateCreated DESC LIMIT " + Integer.toString(n))) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 carFlow = getEntityFromResultSet(resultSet);
@@ -193,6 +196,6 @@ class JdbcCarFlowDao implements CarFlowDao {
 
     @Override
     public CarFlow getById(int id) {
-        return findCarFlowsByIdField(id,  JdbcFields.ID).stream().findFirst().orElse(null);
+        return findCarFlowsByIdField(id, JdbcFields.ID).stream().findFirst().orElse(null);
     }
 }
