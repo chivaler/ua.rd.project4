@@ -45,7 +45,8 @@ class JdbcClientDao implements ClientDao {
         boolean wasInserted = false;
         try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `clients` " +
-                     "(firstName, lastName, address, telephone, email, idCard) VALUES(?,?,?,?,?,?)")) {
+                     "(firstName, lastName, address, telephone, email, idCard) VALUES(?,?,?,?,?,?)",
+                     Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, client.getFirstName());
             preparedStatement.setString(2, client.getLastName());
             preparedStatement.setString(3, client.getAddress());
@@ -53,6 +54,9 @@ class JdbcClientDao implements ClientDao {
             preparedStatement.setString(5, client.getEmail());
             preparedStatement.setString(6, client.getIdCard());
             wasInserted = preparedStatement.executeUpdate() > 0;
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            resultSet.next();
+            client.setId(resultSet.getInt(1));
         } catch (SQLException e) {
             logger.error(e);
         }

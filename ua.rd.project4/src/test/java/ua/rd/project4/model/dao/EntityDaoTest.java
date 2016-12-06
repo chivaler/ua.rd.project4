@@ -99,4 +99,12 @@ public abstract class EntityDaoTest<T extends Entity> {
         assertThat(dao.getById(0) == null, is(true));
         assertThat(dao.getById(-1) == null, is(true));
     }
+
+    @Test
+    public void insertTestId() throws Exception {
+        assertThat(elem3.getId(),is(-1));
+        dao.insert(elem3);
+        assertThat(elem3.getId()>0,is(true));
+        assertThat(dao.getById(elem3.getId()), is(elem3));
+    }
 }

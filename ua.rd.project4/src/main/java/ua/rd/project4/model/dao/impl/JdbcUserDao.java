@@ -48,12 +48,15 @@ class JdbcUserDao implements UserDao {
         boolean wasInserted = false;
         try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `users` " +
-                     "(isAdmin, login, passwordHash, client) VALUES(?,?,?,?)")) {
+                     "(isAdmin, login, passwordHash, client) VALUES(?,?,?,?)",Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setBoolean(1, user.isAdmin());
             preparedStatement.setString(2, user.getLogin());
             preparedStatement.setString(3, user.getPasswordHash());
             preparedStatement.setObject(4, user.getClientId()==0?null:user.getClientId());
             wasInserted = preparedStatement.executeUpdate() > 0;
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            resultSet.next();
+            user.setId(resultSet.getInt(1));
         } catch (SQLException e) {
             logger.error(e);
         }

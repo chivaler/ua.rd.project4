@@ -10,15 +10,15 @@ public class InvoiceHolder extends Invoice {
     private final DaoFactory daoFactory;
     private int clientId;
 
-    @Override
-    public int getClientId() {
-        return clientId;
-    }
-
     public InvoiceHolder(int clientId, BigDecimal total, boolean paid, String description, DaoFactory daoFactory) {
         super(null, total, paid, description);
         this.daoFactory = daoFactory;
         this.clientId = clientId;
+    }
+
+    @Override
+    public int getClientId() {
+        return clientId;
     }
 
     @Override

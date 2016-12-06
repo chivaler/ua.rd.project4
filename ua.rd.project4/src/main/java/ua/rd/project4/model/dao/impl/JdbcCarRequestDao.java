@@ -61,7 +61,8 @@ class JdbcCarRequestDao implements CarRequestDao {
     public boolean insert(CarRequest carRequest) {
         boolean wasInserted = false;
         try (PreparedStatement preparedStatement = connectionFactory.getConnection().prepareStatement("INSERT INTO `car_request` " +
-                "(car, client, dateFrom, dateTo, totalCost, invoice, status, rejectReason) VALUES(?,?,?,?,?,?,?,?)")) {
+                "(car, client, dateFrom, dateTo, totalCost, invoice, status, rejectReason) VALUES(?,?,?,?,?,?,?,?)",
+                Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setObject(1, carRequest.getCarId() == 0 ? null : carRequest.getCarId());
             preparedStatement.setObject(2, carRequest.getClientId() == 0 ? null : carRequest.getClientId());
             preparedStatement.setDate(3, carRequest.getDateFrom());
@@ -71,6 +72,9 @@ class JdbcCarRequestDao implements CarRequestDao {
             preparedStatement.setString(7, carRequest.getStatus().toString());
             preparedStatement.setString(8, carRequest.getRejectReason());
             wasInserted = preparedStatement.executeUpdate() > 0;
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            resultSet.next();
+            carRequest.setId(resultSet.getInt(1));
         } catch (SQLException e) {
             logger.error(e);
         }

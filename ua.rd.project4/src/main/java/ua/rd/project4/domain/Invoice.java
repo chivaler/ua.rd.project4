@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 public class Invoice implements Entity {
-    private int id;
+    private int id = -1;
     private Client client;
     private BigDecimal total;
     private boolean paid;

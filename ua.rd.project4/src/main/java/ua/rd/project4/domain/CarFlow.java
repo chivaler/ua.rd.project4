@@ -6,7 +6,7 @@ import java.util.Objects;
 
 
 public class CarFlow implements Entity {
-    private int id;
+    private int id = -1;
     private Car car;
     private CarFlowType carFlowType;
     private CarRequest carRequest;

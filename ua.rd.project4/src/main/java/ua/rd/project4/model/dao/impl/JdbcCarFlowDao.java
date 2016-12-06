@@ -61,7 +61,8 @@ class JdbcCarFlowDao implements CarFlowDao {
         boolean wasInserted = false;
         try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `car_flow` " +
-                     "(car, carFlowType, carRequest, responsiblePerson, invoice, supplement) VALUES(?,?,?,?,?,?)")) {
+                     "(car, carFlowType, carRequest, responsiblePerson, invoice, supplement) VALUES(?,?,?,?,?,?)",
+                     Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setObject(1, carFlow.getCarId() == 0 ? null : carFlow.getCarId());
             preparedStatement.setObject(2, carFlow.getCarFlowType() == null ? null : carFlow.getCarFlowType().getValue());
             preparedStatement.setObject(3, carFlow.getCarRequestId() == 0 ? null : carFlow.getCarRequestId());
@@ -69,6 +70,9 @@ class JdbcCarFlowDao implements CarFlowDao {
             preparedStatement.setObject(5, carFlow.getInvoiceId() == 0 ? null : carFlow.getInvoiceId());
             preparedStatement.setString(6, carFlow.getSupplement());
             wasInserted = preparedStatement.executeUpdate() > 0;
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            resultSet.next();
+            carFlow.setId(resultSet.getInt(1));
         } catch (SQLException e) {
             logger.error(e);
         }

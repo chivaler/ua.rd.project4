@@ -38,7 +38,7 @@ class JdbcInvoiceDao implements InvoiceDao {
                     "dateCreated TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP," +
                     "FOREIGN KEY (client) REFERENCES clients(id))");
         } catch (SQLException e) {
-            logger.error("Table `invoices` didn't created: ",e);
+            logger.error("Table `invoices` didn't created: ", e);
         }
     }
 
@@ -47,12 +47,15 @@ class JdbcInvoiceDao implements InvoiceDao {
         boolean wasInserted = false;
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `invoices` " +
-                     "(client, total, paid, description) VALUES(?,?,?,?)")) {
-            preparedStatement.setObject(1, invoice.getClientId()==0?null:invoice.getClientId());
+                     "(client, total, paid, description) VALUES(?,?,?,?)", Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.setObject(1, invoice.getClientId() == 0 ? null : invoice.getClientId());
             preparedStatement.setBigDecimal(2, invoice.getTotal());
             preparedStatement.setBoolean(3, invoice.isPaid());
             preparedStatement.setString(4, invoice.getDescription());
             wasInserted = preparedStatement.executeUpdate() > 0;
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            resultSet.next();
+            invoice.setId(resultSet.getInt(1));
         } catch (SQLException e) {
             logger.error(e);
         }
@@ -65,7 +68,7 @@ class JdbcInvoiceDao implements InvoiceDao {
         try (Connection connection = JdbcConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `invoices` SET " +
                      "client=?, total=?, paid=?, description=? WHERE id=?")) {
-            preparedStatement.setObject(1, invoice.getClientId()==0?null:invoice.getClientId());
+            preparedStatement.setObject(1, invoice.getClientId() == 0 ? null : invoice.getClientId());
             preparedStatement.setBigDecimal(2, invoice.getTotal());
             preparedStatement.setBoolean(3, invoice.isPaid());
             preparedStatement.setString(4, invoice.getDescription());
