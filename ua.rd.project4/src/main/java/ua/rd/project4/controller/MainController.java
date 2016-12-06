@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainController extends HttpServlet {
     private final transient Logger logger = LogManager.getLogger(MainController.class);
@@ -46,7 +44,7 @@ public class MainController extends HttpServlet {
             logger.debug(e);
             req.setAttribute("error", INSUFFICIENT_PERMISSIONS);
             try {
-                jspUrl = commandFactory.getFallbackCommand().execute(req,user);
+                jspUrl = commandFactory.getFallbackUrl().execute(req,user);
             } catch (InsufficientPermissions e1) {
                 logger.error(e1);
             }

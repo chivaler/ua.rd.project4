@@ -56,7 +56,7 @@ public class RentCommandFactory implements CommandFactory {
     }
 
     @Override
-    public Command getFallbackCommand() {
-        return LoginCommand.getInstance();
+    public String getFallbackUrl() {
+        return "jsp/login.jsp";
     }
 }

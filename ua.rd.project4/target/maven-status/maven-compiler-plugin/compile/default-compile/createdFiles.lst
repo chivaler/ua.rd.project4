@@ -12,14 +12,11 @@ ua\rd\project4\controller\command\impl\LocalizationCommand.class
 ua\rd\project4\model\exceptions\ConflictsRequestException.class
 ua\rd\project4\model\services\CarService.class
 ua\rd\project4\domain\Invoice.class
-ua\rd\project4\model\dao\DaoFactory$1.class
 ua\rd\project4\controller\command\impl\UserCreateCarRequestCommand.class
 ua\rd\project4\model\services\InvoiceService.class
 ua\rd\project4\model\holders\InvoiceHolder.class
 ua\rd\project4\controller\command\impl\UserSpaceCommand.class
 ua\rd\project4\controller\command\impl\LogoutCommand.class
-ua\rd\project4\model\holders\ClientHolder.class
-ua\rd\project4\model\dao\DaoFactory$DaoType.class
 ua\rd\project4\model\dao\impl\JdbcUserDao.class
 ua\rd\project4\model\dao\JdbcFields.class
 ua\rd\project4\domain\Client.class
@@ -44,7 +41,6 @@ ua\rd\project4\model\services\CarRequestService.class
 ua\rd\project4\model\services\impl\JdbcCarFlowService.class
 ua\rd\project4\controller\EncodingFilter.class
 ua\rd\project4\controller\command\impl\CrudInvoiceCommand.class
-ua\rd\project4\model\holders\CarHolder.class
 ua\rd\project4\controller\command\impl\UserRegisterCommand.class
 ua\rd\project4\controller\exceptions\ExceptionRequiredFieldEmpty.class
 ua\rd\project4\controller\exceptions\InsufficientPermissions.class
@@ -72,7 +68,6 @@ ua\rd\project4\controller\command\impl\CrudCarRequestCommand.class
 ua\rd\project4\model\services\impl\JdbcClientService.class
 ua\rd\project4\model\dao\InvoiceDao.class
 ua\rd\project4\model\services\impl\GenericEntityService.class
-ua\rd\project4\controller\command\impl\CommandMapping.class
 ua\rd\project4\model\dao\connection\impl\JdbcConnectionFactory.class
 ua\rd\project4\controller\exceptions\InvalidParameterException.class
 ua\rd\project4\controller\command\impl\AdminCommand.class
