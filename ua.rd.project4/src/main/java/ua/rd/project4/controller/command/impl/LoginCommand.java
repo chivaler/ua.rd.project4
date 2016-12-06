@@ -8,7 +8,6 @@ import ua.rd.project4.domain.User;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 class LoginCommand implements Command {
@@ -23,7 +22,7 @@ class LoginCommand implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp, User user) throws InsufficientPermissions {
+    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
         HttpSession session;
         String login = req.getParameter("login");
         String password = req.getParameter("password");
@@ -34,10 +33,10 @@ class LoginCommand implements Command {
                 session.setAttribute("user", auntificatedUser);
                 if (auntificatedUser.isAdmin()) {
                     logger.info("Admin logged in:" + login);
-                    return AdminCommand.getInstance().execute(req, resp, auntificatedUser);
+                    return AdminCommand.getInstance().execute(req, auntificatedUser);
                 } else {
                     logger.info("User logged in: " + login);
-                    return UserSpaceCommand.getInstance().execute(req, resp, auntificatedUser);
+                    return UserSpaceCommand.getInstance().execute(req, auntificatedUser);
                 }
             } else {
                 logger.info("Wrong login and/or password");

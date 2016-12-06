@@ -7,7 +7,6 @@ import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class UserSpaceCommand implements Command {
     private static final UserSpaceCommand instance = new UserSpaceCommand();
@@ -20,7 +19,7 @@ public class UserSpaceCommand implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp, User user) throws InsufficientPermissions {
+    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
         addListsToRequest(req, user);
         return "jsp/userspace.jsp";
     }

@@ -12,7 +12,6 @@ import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.services.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -116,7 +115,7 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp, User user) throws InsufficientPermissions {
+    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
         String doCommand = Optional.ofNullable(req.getParameter("do")).orElse("");
         if ((user == null || !user.isAdmin()) && !"get".equals(doCommand))
             throw new InsufficientPermissions();

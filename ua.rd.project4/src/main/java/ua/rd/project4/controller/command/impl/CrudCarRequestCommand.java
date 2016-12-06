@@ -14,7 +14,6 @@ import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Optional;
@@ -107,7 +106,7 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
     }
 
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp, User user) throws InsufficientPermissions {
+    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
         if ("approve".equals(req.getParameter("do"))) {
             final int id = getIdFromRequest(req);
             if (id == 0) {
@@ -118,7 +117,7 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
                 } catch (ConflictsRequestException e) {
                     req.setAttribute("error", "Request conflicts with other approved");
                 }
-            return AdminCommand.getInstance().execute(req, resp, user);
+            return AdminCommand.getInstance().execute(req, user);
         }
         if ("reject".equals(req.getParameter("do"))) {
             final int id = getIdFromRequest(req);
@@ -126,8 +125,8 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
                 req.setAttribute("error", "Unknown id");
             } else
                 carRequestService.reject(id, "Sorry, impossible for now");
-            return AdminCommand.getInstance().execute(req, resp, user);
+            return AdminCommand.getInstance().execute(req, user);
         } else
-            return super.execute(req, resp, user);
+            return super.execute(req, user);
     }
 }

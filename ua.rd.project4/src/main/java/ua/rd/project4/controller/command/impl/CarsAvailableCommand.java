@@ -11,7 +11,6 @@ import ua.rd.project4.domain.User;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
@@ -28,7 +27,7 @@ class CarsAvailableCommand implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp, User user) throws InsufficientPermissions {
+    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
         try {
             Date dateFrom;
             try {
@@ -58,6 +57,6 @@ class CarsAvailableCommand implements Command {
             logger.debug("update/insert id:" + req.getParameter("id") + " wrong field:" + e.getMessage());
             logger.debug(e);
         }
-        return UserSpaceCommand.getInstance().execute(req, resp, user);
+        return UserSpaceCommand.getInstance().execute(req, user);
     }
 }

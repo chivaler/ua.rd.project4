@@ -6,7 +6,6 @@ import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.domain.User;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 class LocalizationCommand implements Command {
@@ -21,7 +20,7 @@ class LocalizationCommand implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp, User user) {
+    public String execute(HttpServletRequest req, User user) {
         HttpSession session = req.getSession(true);
         String language = req.getParameter("language");
         if ("ENG".equals(language)) {

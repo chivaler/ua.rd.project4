@@ -13,7 +13,6 @@ import ua.rd.project4.model.services.CarService;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.sql.Date;
 
 class UserCreateCarRequestCommand implements Command {
@@ -30,7 +29,7 @@ class UserCreateCarRequestCommand implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp, User user) throws InsufficientPermissions {
+    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
         try {
             if (user.getClient()==null)
                 throw new InsufficientPermissions();
@@ -64,6 +63,6 @@ class UserCreateCarRequestCommand implements Command {
         } catch (UniqueViolationException e) {
             logger.error(e);
         }
-        return UserSpaceCommand.getInstance().execute(req, resp, user);
+        return UserSpaceCommand.getInstance().execute(req, user);
     }
 }

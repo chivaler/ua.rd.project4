@@ -7,7 +7,6 @@ import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.stream.Collectors;
 
 class AdminCommand implements Command {
@@ -21,7 +20,7 @@ class AdminCommand implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp, User user) throws InsufficientPermissions {
+    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
         if (user == null || !user.isAdmin())
             throw new InsufficientPermissions();
         addListsToRequest(req);

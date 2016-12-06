@@ -3,7 +3,7 @@ package ua.rd.project4.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.*;
-import ua.rd.project4.controller.command.impl.CommandMapping;
+import ua.rd.project4.controller.command.impl.RentCommandFactory;
 import ua.rd.project4.controller.command.impl.UserSpaceCommand;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.domain.User;
@@ -21,49 +21,38 @@ public class MainController extends HttpServlet {
     private final transient Logger logger = LogManager.getLogger(MainController.class);
     private final String INSUFFICIENT_PERMISSIONS = "Please login with manager rights";
     private final Command USERSPACE_VIEW = UserSpaceCommand.getInstance();
-    private final Map<String, Command> commandMappings = new HashMap<>();
-
-    public MainController() {
-        try {
-            for (CommandMapping cmd : CommandMapping.values())
-                addCommandMapping(cmd.name(), cmd.getCommand());
-        } catch (Exception e) {
-            logger.debug(e);
-        }
-    }
-
-    void addCommandMapping(String str, Command command) {
-        commandMappings.put(str, command);
-    }
+    private final CommandFactory commandFactory = RentCommandFactory.getInstance();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String jspUrl = "jsp/login.jsp";
+        parseRequest(req, resp);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        parseRequest(req, resp);
+    }
+
+    private void parseRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String jspUrl="";
         HttpSession session = req.getSession(); //wrapper for session Блинов, Романченко
         User user = (User) session.getAttribute("user");
         String commandName = req.getParameter("command");
         try {
-            if (commandName == null)
-                jspUrl = USERSPACE_VIEW.execute(req, resp, user);
-            else {
-                Command command = commandMappings.get(commandName);
-//                        CommandMapping.valueOf(commandName).getCommand();
-                jspUrl = command.execute(req, resp, user);
-            }
+            jspUrl = commandFactory.getCommandByName(commandName).execute(req, user);
         } catch (IllegalArgumentException | NullPointerException e) {
             logger.debug(e);
         } catch (InsufficientPermissions e) {
             logger.debug(e);
             req.setAttribute("error", INSUFFICIENT_PERMISSIONS);
+            try {
+                jspUrl = commandFactory.getFallbackCommand().execute(req,user);
+            } catch (InsufficientPermissions e1) {
+                logger.error(e1);
+            }
         } catch (Exception e) {
             logger.error(e);
         }
         req.getRequestDispatcher(jspUrl).forward(req, resp);
-
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
     }
 }
