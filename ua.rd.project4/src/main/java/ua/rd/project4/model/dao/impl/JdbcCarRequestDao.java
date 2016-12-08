@@ -155,16 +155,6 @@ class JdbcCarRequestDao implements CarRequestDao {
         return foundCarsRequests;
     }
 
-    @Override
-    public Integer findId(CarRequest carRequest) {
-        if (carRequest == null)
-            return null;
-        for (CarRequest sqlRequest : findAll())
-            if (sqlRequest.equals(carRequest))
-                return sqlRequest.getId();
-        return null;
-    }
-
     private List<CarRequest> findCarRequestsByIdField(int id, JdbcFields field) {
         List<CarRequest> foundCarsRequests = new ArrayList<>();
         CarRequest carRequest;

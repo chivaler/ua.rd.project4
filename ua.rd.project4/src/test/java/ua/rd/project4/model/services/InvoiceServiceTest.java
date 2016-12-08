@@ -26,11 +26,9 @@ public class InvoiceServiceTest {
     public void findInvoicesByClientId() throws Exception {
         Invoice invoice1 = RandomEntities.getInvoice();
         assertThat(invoiceService.insert(invoice1), is(true));
-        invoice1.setId(invoiceService.findId(invoice1));
 
         Client client1 = RandomEntities.getClient();
         assertThat(clientService.insert(client1), is(true));
-        client1.setId(clientService.findId(client1));
 
         assertThat(invoiceService.findInvoicesByClientId(client1.getId()).isEmpty(), is(true));
 

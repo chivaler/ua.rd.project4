@@ -37,11 +37,8 @@ public class UserServiceTest {
 
         Client client1 = RandomEntities.getClient();
         assertThat(clientService.insert(client1), is(true));
-        client1.setId(clientService.findId(client1));
         assertThat(userService.findUsersByClientId(client1.getId()).isEmpty(), is(true));
 
-        user1.setId(userService.findId(user1));
-        user2.setId(userService.findId(user2));
         user1.setClient(client1);
         userService.update(user1.getId(), user1);
         assertThat(userService.findUsersByClientId(client1.getId()), is(Collections.singletonList(user1)));
@@ -74,7 +71,6 @@ public class UserServiceTest {
         assertThat(userService.authentication(user1.getLogin(),"otherPassword")==null,is(true));
         assertThat(userService.authentication(user1.getLogin(),"password"),is(user1));
 
-        user1.setId(userService.findId(user1));
         userService.delete(user1.getId());
     }
 
@@ -99,8 +95,6 @@ public class UserServiceTest {
         User user2 = RandomEntities.getUser();
         assertThat(userService.insert(user1), is(true));
         assertThat(userService.insert(user2), is(true));
-        user1.setId(userService.findId(user1));
-        user2.setId(userService.findId(user2));
 
         user1.setLogin(user2.getLogin());
         userService.update(user1.getId(), user1);

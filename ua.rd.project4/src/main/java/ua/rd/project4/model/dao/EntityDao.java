@@ -18,12 +18,4 @@ public interface EntityDao<T extends Entity> {
 
     List<T> findAll();
 
-    default Integer findId(T t) {
-        if (t == null)
-            return null;
-        for (T sqlt : findAll())
-            if (sqlt.equals(t))
-                return sqlt.getId();
-        return null;
-    }
 }

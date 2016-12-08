@@ -37,7 +37,4 @@ abstract class GenericEntityService<T extends Entity> implements EntityService<T
         return getDao().findAll();
     }
 
-    public Integer findId(T t) {
-        return getDao().findId(t);
-    }
 }

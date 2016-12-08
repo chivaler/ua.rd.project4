@@ -140,16 +140,6 @@ class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public Integer findId(User user) {
-        if (user == null)
-            return null;
-        for (User sqlUser : findAll())
-            if (sqlUser.equals(user))
-                return sqlUser.getId();
-        return null;
-    }
-
-    @Override
     public List<User> findUsersByClientId(int clientId) {
         List<User> allUsers = new ArrayList<>();
         User user;

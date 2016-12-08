@@ -137,15 +137,6 @@ class JdbcInvoiceDao implements InvoiceDao {
         return foundInvoices;
     }
 
-    @Override
-    public Integer findId(Invoice invoice) {
-        if (invoice == null)
-            return null;
-        for (Invoice sqlInvoice : findAll())
-            if (sqlInvoice.equals(invoice))
-                return sqlInvoice.getId();
-        return null;
-    }
 
     @Override
     public List<Invoice> findInvoicesByClientId(int idClient) {

@@ -17,6 +17,4 @@ public interface EntityService<T extends Entity> {
     T getById(int id);
 
     List<T> findAll();
-
-    Integer findId(T t);
 }

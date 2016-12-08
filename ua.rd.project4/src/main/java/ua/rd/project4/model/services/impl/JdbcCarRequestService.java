@@ -105,7 +105,6 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
                         "Invoice for rent " + carRequest.getCar());
                 try {
                     JdbcServiceFactory.getInstance().getInvoiceService().insert(invoice);
-                    invoice.setId(JdbcServiceFactory.getInstance().getInvoiceService().findId(invoice));
                     carRequest.setInvoice(invoice);
                     carRequest.setTotalCost(total);
                     update(carRequestId, carRequest);

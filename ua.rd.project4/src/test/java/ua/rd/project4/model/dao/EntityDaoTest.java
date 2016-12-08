@@ -17,15 +17,19 @@ public abstract class EntityDaoTest<T extends Entity> {
     private Logger logger = LogManager.getLogger(EntityDaoTest.class);
     private final EntityDao<T> dao = getDao();
     private final T elem1 = initElem1();
-    private final T elem2  = initElem2();
+    private final T elem2 = initElem2();
     private final T elem3 = initElem3();
+
     {
         getDao().createTableIfNotExist();
     }
 
     abstract T initElem1();
+
     abstract T initElem2();
+
     abstract T initElem3();
+
     abstract EntityDao<T> getDao();
 
     @Test
@@ -36,18 +40,16 @@ public abstract class EntityDaoTest<T extends Entity> {
     @Test
     public void insert_delete() throws Exception {
         int prevCount = dao.findAll().size();
-        Integer findelem1 = dao.findId(elem1);
-        if (findelem1 == null) {
-            assertThat(dao.insert(elem1), is(true));
-            assertThat(dao.findAll().size(), is(prevCount + 1));
-            assertThat(dao.findAll().contains(elem1), is(true));
-            int idElem1 = dao.findAll().stream().
-                    filter(s -> s.equals(elem1)).
-                    findAny().get().getId();
-            assertThat(dao.delete(idElem1), is(true));
-            assertThat(dao.findAll().size(), is(prevCount));
-        } else
-            assertThat(prevCount > 0, is(true));
+
+        assertThat(dao.insert(elem1), is(true));
+        assertThat(dao.findAll().size(), is(prevCount + 1));
+        assertThat(dao.findAll().contains(elem1), is(true));
+        int idElem1 = dao.findAll().stream().
+                filter(s -> s.equals(elem1)).
+                findAny().get().getId();
+        assertThat(dao.delete(idElem1), is(true));
+        assertThat(dao.findAll().size(), is(prevCount));
+
         if (prevCount == 0) {
             assertThat(dao.delete(1), is(false));
             assertThat(dao.delete(0), is(false));
@@ -87,11 +89,10 @@ public abstract class EntityDaoTest<T extends Entity> {
         List<T> listResultFromDaoAfterInsert = dao.findAll();
         assertThat(listResultFromDaoAfterInsert, is(listAll));
 
-        listToAdd.forEach(s -> assertThat(dao.findId(s)>0,is(true)));
-        listToAdd.forEach(s -> s.setId(dao.findId(s)));
-        listToAdd.forEach(s -> assertThat(dao.delete(s.getId()),is(true)));
+        listToAdd.forEach(s -> assertThat(s.getId() > 0, is(true)));
+        listToAdd.forEach(s -> assertThat(dao.delete(s.getId()), is(true)));
 
-        assertThat( dao.findAll(), containsInAnyOrder(listOfExistBeforeTest.toArray()));
+        assertThat(dao.findAll(), containsInAnyOrder(listOfExistBeforeTest.toArray()));
     }
 
     @Test
@@ -102,9 +103,9 @@ public abstract class EntityDaoTest<T extends Entity> {
 
     @Test
     public void insertTestId() throws Exception {
-        assertThat(elem3.getId(),is(-1));
+        assertThat(elem3.getId(), is(-1));
         dao.insert(elem3);
-        assertThat(elem3.getId()>0,is(true));
+        assertThat(elem3.getId() > 0, is(true));
         assertThat(dao.getById(elem3.getId()), is(elem3));
     }
 }

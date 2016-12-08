@@ -150,14 +150,4 @@ class JdbcCarDao implements CarDao {
         return foundCars;
     }
 
-
-    @Override
-    public Integer findId(Car car) {
-        if (car == null)
-            return null;
-        for (Car sqlCar : findAll())
-            if (sqlCar.equals(car))
-                return sqlCar.getId();
-        return null;
-    }
 }

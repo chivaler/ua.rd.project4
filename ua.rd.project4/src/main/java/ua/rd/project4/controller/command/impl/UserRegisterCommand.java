@@ -41,10 +41,8 @@ class UserRegisterCommand implements Command {
                 throw new InvalidParameterException("pass");
             Client client = CrudClientsCommand.getInstance().parseToEntity(req);
             clientService.insert(client);
-            client.setId(clientService.findId(client));
             User userNew = new User(false,login,userService.getHashPassword(pass),client);
             userService.insert(userNew);
-            userNew.setId(userService.findId(userNew));
             HttpSession session = req.getSession(true);
             session.setAttribute("user", userNew);
             return UserSpaceCommand.getInstance().execute(req, userNew);

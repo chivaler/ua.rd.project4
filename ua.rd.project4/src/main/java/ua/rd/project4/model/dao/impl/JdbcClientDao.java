@@ -143,13 +143,4 @@ class JdbcClientDao implements ClientDao {
         return foundClients;
     }
 
-    @Override
-    public Integer findId(Client client) {
-        if (client == null)
-            return null;
-        for (Client sqlClient : findAll())
-            if (sqlClient.equals(client))
-                return sqlClient.getId();
-        return null;
-    }
 }
