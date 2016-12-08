@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class JdbcClientDao implements ClientDao {
-    private final static JdbcClientDao instance = new JdbcClientDao();
+    private static final JdbcClientDao instance = new JdbcClientDao();
     private static final Logger logger = LogManager.getLogger(JdbcClientDao.class);
     private final ConnectionFactory connectionFactory = JdbcConnectionFactory.getInstance();
 
@@ -45,7 +45,7 @@ class JdbcClientDao implements ClientDao {
         boolean wasInserted = false;
         try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `clients` " +
-                     "(firstName, lastName, address, telephone, email, idCard) VALUES(?,?,?,?,?,?)",
+                             "(firstName, lastName, address, telephone, email, idCard) VALUES(?,?,?,?,?,?)",
                      Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, client.getFirstName());
             preparedStatement.setString(2, client.getLastName());

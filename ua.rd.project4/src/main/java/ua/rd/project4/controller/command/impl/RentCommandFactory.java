@@ -3,10 +3,9 @@ package ua.rd.project4.controller.command.impl;
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.command.CommandFactory;
 
-import java.util.Optional;
 
 public class RentCommandFactory implements CommandFactory {
-    private final static RentCommandFactory instance = new RentCommandFactory();
+    private static final RentCommandFactory instance = new RentCommandFactory();
 
     private RentCommandFactory() {
     }

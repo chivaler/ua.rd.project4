@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class JdbcUserDao implements UserDao {
-    private final static JdbcUserDao instance = new JdbcUserDao();
+    private static final JdbcUserDao instance = new JdbcUserDao();
     private static final Logger logger = LogManager.getLogger(JdbcUserDao.class);
     private final ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
     private final ConnectionFactory connectionFactory = JdbcConnectionFactory.getInstance();
@@ -39,7 +39,7 @@ class JdbcUserDao implements UserDao {
                     "client INT," +
                     "FOREIGN KEY (client) REFERENCES clients(id))");
         } catch (SQLException e) {
-            logger.error("Table `users` didn't created: ",e);
+            logger.error("Table `users` didn't created: ", e);
         }
     }
 
@@ -48,11 +48,11 @@ class JdbcUserDao implements UserDao {
         boolean wasInserted = false;
         try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `users` " +
-                     "(isAdmin, login, passwordHash, client) VALUES(?,?,?,?)",Statement.RETURN_GENERATED_KEYS)) {
+                     "(isAdmin, login, passwordHash, client) VALUES(?,?,?,?)", Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setBoolean(1, user.isAdmin());
             preparedStatement.setString(2, user.getLogin());
             preparedStatement.setString(3, user.getPasswordHash());
-            preparedStatement.setObject(4, user.getClientId()==0?null:user.getClientId());
+            preparedStatement.setObject(4, user.getClientId() == 0 ? null : user.getClientId());
             wasInserted = preparedStatement.executeUpdate() > 0;
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             resultSet.next();
@@ -72,7 +72,7 @@ class JdbcUserDao implements UserDao {
             preparedStatement.setBoolean(1, user.isAdmin());
             preparedStatement.setString(2, user.getLogin());
             preparedStatement.setString(3, user.getPasswordHash());
-            preparedStatement.setObject(4, user.getClientId()==0?null:user.getClientId());
+            preparedStatement.setObject(4, user.getClientId() == 0 ? null : user.getClientId());
             preparedStatement.setInt(5, id);
             wasUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {

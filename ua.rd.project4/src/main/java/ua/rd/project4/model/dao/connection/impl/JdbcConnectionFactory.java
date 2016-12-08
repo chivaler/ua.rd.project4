@@ -58,6 +58,7 @@ public class JdbcConnectionFactory implements ConnectionFactory {
         return instance;
     }
 
+    @Override
     public Connection getConnection() {
         Connection connection = null;
         if (connectionType == ConnectionType.POOL_PREFERRED)
@@ -74,8 +75,8 @@ public class JdbcConnectionFactory implements ConnectionFactory {
             }
         }
         if (connection == null) {
-            logger.error("Couln't create connection");
-            throw new RuntimeException("Couln't create connection");
+            logger.error("Couldn't create connection");
+            throw new RuntimeException("Couldn't create connection");
         }
         return connection;
     }
@@ -88,6 +89,7 @@ public class JdbcConnectionFactory implements ConnectionFactory {
         return DriverManager.getConnection(jdbcUrl, jdbcUser, jdbcPassword);
     }
 
+    @Override
     public String getJdbcDriver() {
         return jdbcDriver;
     }

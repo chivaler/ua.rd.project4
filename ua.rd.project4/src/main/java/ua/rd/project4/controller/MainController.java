@@ -40,14 +40,11 @@ public class MainController extends HttpServlet {
             jspUrl = commandFactory.getCommandByName(commandName).execute(req, user);
         } catch (IllegalArgumentException | NullPointerException e) {
             logger.debug(e);
+            jspUrl = commandFactory.getFallbackUrl();
         } catch (InsufficientPermissions e) {
             logger.debug(e);
             req.setAttribute("error", INSUFFICIENT_PERMISSIONS);
-            try {
-                jspUrl = commandFactory.getFallbackUrl().execute(req,user);
-            } catch (InsufficientPermissions e1) {
-                logger.error(e1);
-            }
+            jspUrl = commandFactory.getFallbackUrl();
         } catch (Exception e) {
             logger.error(e);
         }
