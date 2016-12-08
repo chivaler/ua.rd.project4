@@ -20,7 +20,7 @@
 
     <filter>
         <filter-name>Encoding</filter-name>
-        <filter-class>ua.rd.project4.controller.EncodingFilter</filter-class>
+        <filter-class>ua.rd.project4.controller.util.EncodingFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>Encoding</filter-name>

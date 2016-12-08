@@ -3,6 +3,7 @@ package ua.rd.project4.controller.command.impl;
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.controller.util.RequestWrapper;
+import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
@@ -20,7 +21,7 @@ public class UserSpaceCommand implements Command {
     @Override
     public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
         addListsToRequest(req, user);
-        return "jsp/userspace.jsp";
+        return ViewJsp.UserSpace.USER_JSP;
     }
 
     ServiceFactory getServiceFactory() {

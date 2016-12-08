@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
 import ua.rd.project4.controller.util.RequestWrapper;
+import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.Invoice;
 import ua.rd.project4.model.services.*;
@@ -15,12 +16,9 @@ import java.util.Optional;
 
 class CrudInvoiceCommand extends GenericCrudCommand<Invoice> {
     private static final CrudInvoiceCommand instance = new CrudInvoiceCommand();
-    private static final String LIST_INVOICES_JSP = "jsp/invoices.jsp";
-    private static final String EDIT_INVOICE_JSP = "jsp/invoice.jsp";
     private final Logger logger = LogManager.getLogger(CrudInvoiceCommand.class);
     private final ClientService clientService = getServiceFactory().getClientService();
     private final InvoiceService invoiceService = getServiceFactory().getInvoiceService();
-
 
     private CrudInvoiceCommand() {
     }
@@ -41,12 +39,12 @@ class CrudInvoiceCommand extends GenericCrudCommand<Invoice> {
 
     @Override
     String getEntityJsp() {
-        return EDIT_INVOICE_JSP;
+        return ViewJsp.InvoicesCrud.EDIT_INVOICE_JSP;
     }
 
     @Override
     String getEntityListJsp() {
-        return LIST_INVOICES_JSP;
+        return ViewJsp.InvoicesCrud.LIST_INVOICES_JSP;
     }
 
     @Override

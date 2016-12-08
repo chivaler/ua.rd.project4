@@ -1,4 +1,4 @@
-package ua.rd.project4.controller;
+package ua.rd.project4.controller.util;
 
 import javax.servlet.*;
 import java.io.IOException;

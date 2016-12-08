@@ -2,6 +2,7 @@ package ua.rd.project4.controller.command.impl;
 
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.command.CommandFactory;
+import ua.rd.project4.controller.util.ViewJsp;
 
 
 public class CommandFactoryImpl implements CommandFactory {
@@ -43,7 +44,6 @@ public class CommandFactoryImpl implements CommandFactory {
         }
     }
 
-
     @Override
     public Command getCommandByName(String commandName) {
         try {
@@ -51,11 +51,10 @@ public class CommandFactoryImpl implements CommandFactory {
         } catch (Exception e) {
             return UserSpaceCommand.getInstance();
         }
-
     }
 
     @Override
     public String getFallbackUrl() {
-        return "jsp/login.jsp";
+        return ViewJsp.General.LOGIN_PAGE;
     }
 }

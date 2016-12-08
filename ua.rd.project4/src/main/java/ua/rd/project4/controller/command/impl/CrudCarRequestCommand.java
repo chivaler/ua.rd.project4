@@ -6,6 +6,7 @@ import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
 import ua.rd.project4.controller.util.RequestWrapper;
+import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.CarRequest;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
@@ -20,11 +21,8 @@ import java.util.Optional;
 
 class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
     private static final CrudCarRequestCommand instance = new CrudCarRequestCommand();
-    private static final String LIST_CARREQUESTS_JSP = "jsp/car_requests.jsp";
-    private static final String EDIT_CARREQUEST_JSP = "jsp/car_request.jsp";
     private final Logger logger = LogManager.getLogger(CrudCarRequestCommand.class);
     private final CarRequestService carRequestService = getServiceFactory().getCarRequestService();
-
 
     private CrudCarRequestCommand() {
     }
@@ -45,12 +43,12 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
 
     @Override
     String getEntityJsp() {
-        return EDIT_CARREQUEST_JSP;
+        return ViewJsp.CarRequestsCrud.EDIT_CARREQUEST_JSP;
     }
 
     @Override
     String getEntityListJsp() {
-        return LIST_CARREQUESTS_JSP;
+        return ViewJsp.CarRequestsCrud.LIST_CARREQUESTS_JSP;
     }
 
     @Override

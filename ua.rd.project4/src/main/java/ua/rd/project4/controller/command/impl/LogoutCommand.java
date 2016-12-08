@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.util.RequestWrapper;
+import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.User;
 
 class LogoutCommand implements Command {
@@ -21,6 +22,6 @@ class LogoutCommand implements Command {
     public String execute(RequestWrapper req, User user) {
         req.getSessionWrapper().invalidate();
         logger.info("Session of user:"+user.getLogin()+" has been invalidated");
-        return "/jsp/login.jsp";
+        return ViewJsp.General.LOGIN_PAGE;
     }
 }

@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
 import ua.rd.project4.controller.util.RequestWrapper;
+import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.Car;
 import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
@@ -16,8 +17,7 @@ class CrudCarsCommand extends GenericCrudCommand<Car> {
     private static final CrudCarsCommand instance = new CrudCarsCommand();
     private final Logger logger = LogManager.getLogger(CrudCarsCommand.class);
     private final CarService clientService = getServiceFactory().getCarService();
-    private static final String LIST_CARS_JSP = "jsp/cars.jsp";
-    private static final  String EDIT_CAR_JSP = "jsp/car.jsp";
+
 
     private CrudCarsCommand() {
     }
@@ -38,12 +38,12 @@ class CrudCarsCommand extends GenericCrudCommand<Car> {
 
     @Override
     String getEntityJsp() {
-        return EDIT_CAR_JSP;
+        return ViewJsp.CarsCrud.EDIT_CAR_JSP;
     }
 
     @Override
     String getEntityListJsp() {
-        return LIST_CARS_JSP;
+        return ViewJsp.CarsCrud.LIST_CARS_JSP;
     }
 
     @Override

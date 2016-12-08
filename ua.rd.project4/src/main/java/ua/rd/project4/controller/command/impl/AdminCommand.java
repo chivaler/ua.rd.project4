@@ -3,6 +3,7 @@ package ua.rd.project4.controller.command.impl;
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.controller.util.RequestWrapper;
+import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
@@ -24,7 +25,7 @@ class AdminCommand implements Command {
         if (user == null || !user.isAdmin())
             throw new InsufficientPermissions();
         addListsToRequest(req);
-        return "jsp/admin.jsp";
+        return ViewJsp.AdminSpace.ADMIN_JSP;
     }
 
     ServiceFactory getServiceFactory() {
@@ -32,9 +33,6 @@ class AdminCommand implements Command {
     }
 
     void addListsToRequest(RequestWrapper req) {
-//        req.setAttribute("listCars", getServiceFactory().
-//                getCarService().findAll().stream().
-//                collect(Collectors.toMap(Entity::getId, Car::toString)));
         req.setAttribute("listCarsIn", getServiceFactory().getCarService().findAll().stream()
                 .filter(s -> getServiceFactory().getCarFlowService().isCarInBox(s.getId()))
                 .collect(Collectors.toList()));
@@ -43,9 +41,6 @@ class AdminCommand implements Command {
                 .collect(Collectors.toList()));
         req.setAttribute("mapsCarRequests", getServiceFactory().
                 getCarRequestService().getCarRequestsWithStatuses());
-//        req.setAttribute("listCarFlows", getServiceFactory().
-//                getCarFlowService().findAll().stream().
-//                collect(Collectors.toMap(Entity::getId, CarFlow::toString)));
         req.setAttribute("listCarFlows", getServiceFactory().
                 getCarFlowService().findAll(10));
     }

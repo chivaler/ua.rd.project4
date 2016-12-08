@@ -32,11 +32,9 @@ public class MainController extends HttpServlet {
     }
 
     private void parseRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //TODO jsp as finals
         String jspUrl="";
         RequestWrapper requestWrapper = new RequestWrapperImpl(req);
         User user = requestWrapper.getSessionWrapper(false).getUser();
-
         String commandName = req.getParameter("command");
         try {
             jspUrl = commandFactory.getCommandByName(commandName).execute(requestWrapper, user);

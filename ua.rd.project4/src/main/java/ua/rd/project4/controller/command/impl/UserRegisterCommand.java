@@ -8,6 +8,7 @@ import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.SessionWrapper;
+import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.exceptions.LoginExistsException;
@@ -59,6 +60,6 @@ class UserRegisterCommand implements Command {
         } catch (UniqueViolationException e) {
             logger.error(e);
         }
-        return "jsp/register.jsp";
+        return ViewJsp.General.REGISTER_JSP;
     }
 }

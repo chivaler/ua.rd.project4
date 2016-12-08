@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
 import ua.rd.project4.controller.util.RequestWrapper;
+import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
@@ -13,11 +14,8 @@ import java.util.Optional;
 
 class CrudClientsCommand extends GenericCrudCommand<Client> {
     private static final CrudClientsCommand instance = new CrudClientsCommand();
-    private static final String LIST_CLIENTS_JSP = "jsp/clients.jsp";
-    private static final String EDIT_CLIENT_JSP = "jsp/client.jsp";
     private final Logger logger = LogManager.getLogger(CrudClientsCommand.class);
     private final ClientService clientService = getServiceFactory().getClientService();
-
 
     private CrudClientsCommand() {
     }
@@ -38,12 +36,12 @@ class CrudClientsCommand extends GenericCrudCommand<Client> {
 
     @Override
     String getEntityJsp() {
-        return EDIT_CLIENT_JSP;
+        return ViewJsp.ClientsCrud.EDIT_CLIENT_JSP;
     }
 
     @Override
     String getEntityListJsp() {
-        return LIST_CLIENTS_JSP;
+        return ViewJsp.ClientsCrud.LIST_CLIENTS_JSP;
     }
 
     @Override

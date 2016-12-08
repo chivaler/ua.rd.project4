@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.controller.util.RequestWrapper;
+import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
@@ -39,10 +40,10 @@ class LoginCommand implements Command {
             } else {
                 logger.info("Wrong login and/or password");
                 req.setAttribute("error", "wrong login");
-                return "/jsp/login.jsp";
+                return ViewJsp.General.LOGIN_PAGE;
             }
         } else
-            return "/jsp/login.jsp";
+            return  ViewJsp.General.LOGIN_PAGE;
 
     }
 }

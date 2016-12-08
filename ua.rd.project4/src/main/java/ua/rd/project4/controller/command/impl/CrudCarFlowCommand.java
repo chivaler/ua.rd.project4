@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
 import ua.rd.project4.controller.util.RequestWrapper;
+import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.CarFlow;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.holders.CarFlowHolder;
@@ -15,8 +16,6 @@ import java.util.Optional;
 
 class CrudCarFlowCommand extends GenericCrudCommand<CarFlow> {
     private static final CrudCarFlowCommand instance = new CrudCarFlowCommand();
-    private static final String LIST_CARFLOW_JSP = "jsp/car_flows.jsp";
-    private static final String EDIT_CARFLOW_JSP = "jsp/car_flow.jsp";
     private final Logger logger = LogManager.getLogger(CrudCarFlowCommand.class);
     private final CarFlowService carFlowService = getServiceFactory().getCarFlowService();
 
@@ -39,12 +38,12 @@ class CrudCarFlowCommand extends GenericCrudCommand<CarFlow> {
 
     @Override
     String getEntityJsp() {
-        return EDIT_CARFLOW_JSP;
+        return ViewJsp.CarFlowsCrud.EDIT_CARFLOW_JSP;
     }
 
     @Override
     String getEntityListJsp() {
-        return LIST_CARFLOW_JSP;
+        return ViewJsp.CarFlowsCrud.LIST_CARFLOW_JSP;
     }
 
     @Override
@@ -54,7 +53,6 @@ class CrudCarFlowCommand extends GenericCrudCommand<CarFlow> {
 
     @Override
     CarFlow parseToEntity(RequestWrapper req) throws InvalidParameterException {
-        CarFlow carFlow = null;
         int carId = 0;
         try {
             carId = Integer.valueOf(req.getParameter("car"));

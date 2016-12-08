@@ -5,9 +5,8 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.SessionWrapper;
+import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.User;
-
-import javax.servlet.http.HttpSession;
 
 class LocalizationCommand implements Command {
     private static final LocalizationCommand instance = new LocalizationCommand();
@@ -32,7 +31,6 @@ class LocalizationCommand implements Command {
             logger.info("locale uk_UA set");
         }
 
-
-        return "/jsp/login.jsp";
+        return ViewJsp.General.LOGIN_PAGE;
     }
 }
