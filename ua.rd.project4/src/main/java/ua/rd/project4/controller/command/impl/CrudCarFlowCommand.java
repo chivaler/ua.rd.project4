@@ -4,13 +4,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
+import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.CarFlow;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.holders.CarFlowHolder;
 import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 class CrudCarFlowCommand extends GenericCrudCommand<CarFlow> {
@@ -19,7 +19,6 @@ class CrudCarFlowCommand extends GenericCrudCommand<CarFlow> {
     private static final String EDIT_CARFLOW_JSP = "jsp/car_flow.jsp";
     private final Logger logger = LogManager.getLogger(CrudCarFlowCommand.class);
     private final CarFlowService carFlowService = getServiceFactory().getCarFlowService();
-
 
     private CrudCarFlowCommand() {
     }
@@ -54,7 +53,7 @@ class CrudCarFlowCommand extends GenericCrudCommand<CarFlow> {
     }
 
     @Override
-    CarFlow parseToEntity(HttpServletRequest req) throws InvalidParameterException {
+    CarFlow parseToEntity(RequestWrapper req) throws InvalidParameterException {
         CarFlow carFlow = null;
         int carId = 0;
         try {

@@ -4,13 +4,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
+import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.CarFlow;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.exceptions.WrongCarFlowDirectionException;
 import ua.rd.project4.model.services.CarFlowService;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
-
-import javax.servlet.http.HttpServletRequest;
 
 class CarInCommand implements Command {
     private static final CarInCommand instance = new CarInCommand();
@@ -25,7 +24,7 @@ class CarInCommand implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
+    public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
         if (user == null || !user.isAdmin())
             throw new InsufficientPermissions();
         try {

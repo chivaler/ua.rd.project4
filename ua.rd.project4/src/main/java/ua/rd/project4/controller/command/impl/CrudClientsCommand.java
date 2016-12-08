@@ -4,11 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
+import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 class CrudClientsCommand extends GenericCrudCommand<Client> {
@@ -51,7 +51,7 @@ class CrudClientsCommand extends GenericCrudCommand<Client> {
         return clientService;
     }
 
-    Client parseToEntity(HttpServletRequest req) throws InvalidParameterException {
+    Client parseToEntity(RequestWrapper req) throws InvalidParameterException {
         String firstName = Optional.ofNullable(req.getParameter("firstName")).orElse("");
         String lastName = Optional.ofNullable(req.getParameter("lastName")).orElse("");
         String address = Optional.ofNullable(req.getParameter("address")).orElse("");

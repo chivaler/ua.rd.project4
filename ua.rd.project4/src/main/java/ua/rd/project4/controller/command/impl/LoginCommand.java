@@ -4,10 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
+import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 class LoginCommand implements Command {
@@ -22,15 +22,13 @@ class LoginCommand implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
-        HttpSession session;
+    public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         if (login != null) {
             User auntificatedUser = JdbcServiceFactory.getInstance().getUserService().authentication(login, password);
             if (auntificatedUser != null) {
-                session = req.getSession(true);
-                session.setAttribute("user", auntificatedUser);
+                req.getSessionWrapper(true).setUser(auntificatedUser);
                 if (auntificatedUser.isAdmin()) {
                     logger.info("Admin logged in:" + login);
                     return AdminCommand.getInstance().execute(req, auntificatedUser);

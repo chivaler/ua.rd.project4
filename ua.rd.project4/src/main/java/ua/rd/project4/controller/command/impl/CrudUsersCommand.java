@@ -3,12 +3,11 @@ package ua.rd.project4.controller.command.impl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
+import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
-
-import javax.servlet.http.HttpServletRequest;
 
 class CrudUsersCommand extends GenericCrudCommand<User> {
     private static final CrudUsersCommand instance = new CrudUsersCommand();
@@ -51,7 +50,7 @@ class CrudUsersCommand extends GenericCrudCommand<User> {
         return userService;
     }
 
-    User parseToEntity(HttpServletRequest req) throws InvalidParameterException {
+    User parseToEntity(RequestWrapper req) throws InvalidParameterException {
         boolean isAdmin;
         String login = req.getParameter("login");
         String pass = req.getParameter("pass");

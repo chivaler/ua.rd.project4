@@ -5,13 +5,13 @@ import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
+import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.exceptions.EntityInUseException;
 import ua.rd.project4.model.exceptions.LoginExistsException;
 import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.services.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -27,7 +27,7 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
 
     abstract EntityService<T> getEntityService();
 
-    int getIdFromRequest(HttpServletRequest req) {
+    int getIdFromRequest(RequestWrapper req) {
         int parsedId;
         try {
             parsedId = Integer.valueOf(req.getParameter("id"));
@@ -37,9 +37,9 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
         return parsedId;
     }
 
-    abstract T parseToEntity(HttpServletRequest req) throws InvalidParameterException;
+    abstract T parseToEntity(RequestWrapper req) throws InvalidParameterException;
 
-    void addListsToRequest(HttpServletRequest req) {
+    void addListsToRequest(RequestWrapper req) {
         req.setAttribute("listClients", getServiceFactory().
                 getClientService().findAll().stream().
                 collect(Collectors.toMap(Entity::getId, Client::toString)));
@@ -60,7 +60,7 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
                 collect(Collectors.toMap(Entity::getId, Car::toString)));
     }
 
-    String executeUpdate(HttpServletRequest req, int id) {
+    String executeUpdate(RequestWrapper req, int id) {
         try {
             T entity = parseToEntity(req);
             if (id > 0)
@@ -86,7 +86,7 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
         return getEntityJsp();
     }
 
-    String executeGet(HttpServletRequest req, int id) {
+    String executeGet(RequestWrapper req, int id) {
         if (getEntityService().getById(id) != null) {
             req.setAttribute("entity", getEntityService().getById(id));
             addListsToRequest(req);
@@ -98,7 +98,7 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
         }
     }
 
-    String executeDelete(HttpServletRequest req, int id) {
+    String executeDelete(RequestWrapper req, int id) {
         try {
             getEntityService().delete(id);
             req.setAttribute("result", "id:" + id + " deleted.");
@@ -109,13 +109,13 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
         return executeList(req);
     }
 
-    String executeList(HttpServletRequest req) {
+    String executeList(RequestWrapper req) {
         req.setAttribute("entities", getEntityService().findAll());
         return getEntityListJsp();
     }
 
     @Override
-    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
+    public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
         String doCommand = Optional.ofNullable(req.getParameter("do")).orElse("");
         if ((user == null || !user.isAdmin()) && !"get".equals(doCommand))
             throw new InsufficientPermissions();

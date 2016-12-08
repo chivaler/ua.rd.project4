@@ -3,9 +3,10 @@ package ua.rd.project4.controller.command.impl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
+import ua.rd.project4.controller.util.RequestWrapper;
+import ua.rd.project4.controller.util.SessionWrapper;
 import ua.rd.project4.domain.User;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 class LocalizationCommand implements Command {
@@ -20,14 +21,14 @@ class LocalizationCommand implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, User user) {
-        HttpSession session = req.getSession(true);
+    public String execute(RequestWrapper req, User user) {
+        SessionWrapper sessionWrapper = req.getSessionWrapper(true);
         String language = req.getParameter("language");
         if ("ENG".equals(language)) {
-            session.setAttribute("lang", "en_US");
+            sessionWrapper.setLanguage("en_US");
             logger.info("locale en_US set");
         } else {
-            session.setAttribute("lang", "uk_UA");
+            sessionWrapper.setLanguage("uk_UA");
             logger.info("locale uk_UA set");
         }
 

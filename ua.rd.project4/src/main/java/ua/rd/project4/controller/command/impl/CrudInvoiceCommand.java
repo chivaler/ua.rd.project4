@@ -4,12 +4,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
+import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.Invoice;
 import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
-import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.Optional;
 
@@ -55,7 +55,7 @@ class CrudInvoiceCommand extends GenericCrudCommand<Invoice> {
     }
 
     @Override
-    Invoice parseToEntity(HttpServletRequest req) throws InvalidParameterException {
+    Invoice parseToEntity(RequestWrapper req) throws InvalidParameterException {
         int idClient;
         try {
             idClient = Integer.valueOf(req.getParameter("client"));

@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
+import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.CarRequest;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
@@ -13,7 +14,6 @@ import ua.rd.project4.model.holders.CarRequestHolder;
 import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
-import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Optional;
@@ -59,7 +59,7 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
     }
 
     @Override
-    CarRequest parseToEntity(HttpServletRequest req) throws InvalidParameterException {
+    CarRequest parseToEntity(RequestWrapper req) throws InvalidParameterException {
         int carId = 0;
         try {
             carId = Integer.valueOf(req.getParameter("car"));
@@ -106,7 +106,7 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
     }
 
     @Override
-    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
+    public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
         if ("approve".equals(req.getParameter("do"))) {
             final int id = getIdFromRequest(req);
             if (id == 0) {

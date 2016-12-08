@@ -4,13 +4,13 @@ import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.command.CommandFactory;
 
 
-public class RentCommandFactory implements CommandFactory {
-    private static final RentCommandFactory instance = new RentCommandFactory();
+public class CommandFactoryImpl implements CommandFactory {
+    private static final CommandFactoryImpl instance = new CommandFactoryImpl();
 
-    private RentCommandFactory() {
+    private CommandFactoryImpl() {
     }
 
-    public static RentCommandFactory getInstance() {
+    public static CommandFactoryImpl getInstance() {
         return instance;
     }
 

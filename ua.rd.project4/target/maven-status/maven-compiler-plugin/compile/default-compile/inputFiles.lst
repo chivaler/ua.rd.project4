@@ -1,3 +1,4 @@
+D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\util\RentHttpServletRequestWrapper.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\domain\CarFlow.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\CarOutCommand.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\UserRegisterCommand.java
@@ -8,6 +9,7 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\ser
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\exceptions\CarRequestPaymentNeededException.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\CarRequestDao.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\CrudInvoiceCommand.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\util\RequestWrapper.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\impl\JdbcCarFlowDao.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\exceptions\InsufficientPermissions.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\CrudCarsCommand.java
@@ -15,6 +17,7 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controlle
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\services\InvoiceService.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\domain\User.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\holders\UserHolder.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\util\SessionWrapper.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\services\CarRequestService.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\CarsAvailableCommand.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\services\CarFlowService.java
@@ -22,6 +25,7 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\ser
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\exceptions\ExceptionRequiredFieldEmpty.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\services\impl\JdbcCarSevice.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\UserCreateCarRequestCommand.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\util\impl\RequestWrapperImpl.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\exceptions\EntityInUseException.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\CarFlowDao.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\impl\JdbcClientDao.java
@@ -31,6 +35,7 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controlle
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\impl\JdbcCarRequestDao.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\LogoutCommand.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\CrudClientsCommand.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\util\impl\SessionWrapperImpl.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\LocalizationCommand.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\UserSpaceCommand.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\impl\JdbcDaoFactory.java
@@ -55,6 +60,7 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\ser
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\exceptions\RequiredParameterException.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\holders\InvoiceHolder.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\services\impl\JdbcInvoiceSevice.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\util\SessionLogic.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\domain\Client.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\DaoFactory.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\exceptions\ConflictsRequestException.java
@@ -66,13 +72,14 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controlle
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\domain\Entity.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\services\EntityService.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\impl\JdbcUserDao.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\CommandFactoryImpl.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\impl\JdbcCarDao.java
-D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\RentCommandFactory.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\exceptions\LoginExistsException.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\CommandFactory.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\services\ServiceFactory.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\impl\JdbcInvoiceDao.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\CrudCarRequestCommand.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\exceptions\RequestAttributeNotPermittedException.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\GenericCrudCommand.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\CrudCarFlowCommand.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\exceptions\UniqueViolationException.java

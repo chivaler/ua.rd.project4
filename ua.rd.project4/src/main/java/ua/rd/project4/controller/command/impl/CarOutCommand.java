@@ -4,12 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
+import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.exceptions.CarRequestApproveNeededException;
 import ua.rd.project4.model.exceptions.CarRequestPaymentNeededException;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
-
-import javax.servlet.http.HttpServletRequest;
 
 class CarOutCommand implements Command {
     private static final CarOutCommand instance = new CarOutCommand();
@@ -26,7 +25,7 @@ class CarOutCommand implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
+    public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
         if (user == null || !user.isAdmin())
             throw new InsufficientPermissions();
         try {

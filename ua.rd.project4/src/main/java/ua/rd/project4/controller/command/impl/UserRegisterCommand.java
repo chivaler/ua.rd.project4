@@ -6,6 +6,8 @@ import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
+import ua.rd.project4.controller.util.RequestWrapper;
+import ua.rd.project4.controller.util.SessionWrapper;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.exceptions.LoginExistsException;
@@ -13,9 +15,6 @@ import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.services.ClientService;
 import ua.rd.project4.model.services.UserService;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 class UserRegisterCommand implements Command {
     private static final UserRegisterCommand instance = new UserRegisterCommand();
@@ -31,7 +30,7 @@ class UserRegisterCommand implements Command {
     }
 
     @Override
-    public String execute(HttpServletRequest req, User user) throws InsufficientPermissions {
+    public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
         try {
             String login = req.getParameter("login");
             String pass = req.getParameter("pass");
@@ -43,8 +42,8 @@ class UserRegisterCommand implements Command {
             clientService.insert(client);
             User userNew = new User(false,login,userService.getHashPassword(pass),client);
             userService.insert(userNew);
-            HttpSession session = req.getSession(true);
-            session.setAttribute("user", userNew);
+            SessionWrapper sessionWrapper = req.getSessionWrapper(true);
+            sessionWrapper.setUser(userNew);
             return UserSpaceCommand.getInstance().execute(req, userNew);
         } catch (RequiredParameterException e) {
             req.setAttribute("error", "Required field is empty " + e.getMessage());
