@@ -1,6 +1,7 @@
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\CarFlowServiceTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\CarRequestServiceTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\Invoice_DaoTest.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\holders\CarRequestHolderTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\Client_DaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\InvoiceServiceTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\connection\ConnectionFactoryTest.java
@@ -10,7 +11,9 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\Car_DaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\Dao\InitDataTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\CarRequest_DaoTest.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\holders\InvoiceHolderTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\RandomEntities.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\UserServiceTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\holders\UserHolderTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\ServiceFactoryTest.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\holders\CarFlowHolderTest.java

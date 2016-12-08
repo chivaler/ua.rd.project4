@@ -8,11 +8,6 @@ import java.math.BigDecimal;
 
 
 public class Car_DaoTest extends EntityDaoTest<Car> {
-    @BeforeClass
-    public static void setParams() {
-        JdbcDaoFactory.getInstance().getCarDao().createTableIfNotExist();
-    }
-
     @Override
     Car initElem1() {
         return new Car("Mersedes", "black", Car.CarType.SEDAN, "FFJJ", "heavy.", new BigDecimal(17000), new BigDecimal(300));

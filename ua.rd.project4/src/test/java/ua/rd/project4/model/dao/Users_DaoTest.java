@@ -5,11 +5,6 @@ import ua.rd.project4.domain.User;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 
 public class Users_DaoTest extends EntityDaoTest<User> {
-    @BeforeClass
-    public static void setParams() {
-        JdbcDaoFactory.getInstance().getUserDao().createTableIfNotExist();
-    }
-
     @Override
     User initElem1() {
         return new User(true,"admin","bla",null);

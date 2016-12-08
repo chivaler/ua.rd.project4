@@ -32,6 +32,7 @@ public class MainController extends HttpServlet {
     }
 
     private void parseRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //TODO jsp as finals
         String jspUrl="";
         HttpSession session = req.getSession(); //wrapper for session Блинов, Романченко
         User user = (User) session.getAttribute("user");

@@ -13,7 +13,6 @@ import static org.hamcrest.core.Is.is;
 public class InitDataTest {
 
     public void initData() {
-        //TODO Futher tests
         CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
         ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
         InvoiceDao invoiceDao = JdbcDaoFactory.getInstance().getInvoiceDao();

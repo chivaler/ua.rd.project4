@@ -7,10 +7,6 @@ import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import java.math.BigDecimal;
 
 public class CarRequest_DaoTest extends EntityDaoTest<CarRequest> {
-    @BeforeClass
-    public static void setParams() {
-        JdbcDaoFactory.getInstance().getCarRequestDao().createTableIfNotExist();
-    }
 
     @Override
     CarRequest initElem1() {

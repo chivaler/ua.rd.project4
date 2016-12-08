@@ -7,11 +7,6 @@ import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import java.math.BigDecimal;
 
 public class Invoice_DaoTest extends EntityDaoTest<Invoice> {
-    @BeforeClass
-    public static void setParams() {
-        JdbcDaoFactory.getInstance().getInvoiceDao().createTableIfNotExist();
-    }
-
     @Override
     Invoice initElem1() {
         return new Invoice(null, new BigDecimal(0), true, "Bla");
