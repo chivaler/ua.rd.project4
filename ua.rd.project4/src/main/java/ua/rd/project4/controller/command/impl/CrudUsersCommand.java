@@ -52,7 +52,7 @@ class CrudUsersCommand extends GenericCrudCommand<User> {
         boolean isAdmin;
         String login = req.getParameter("login");
         String pass = req.getParameter("pass");
-        String hashedPassword = req.getParameter("password");
+        String hashedPassword = req.getParameter("passwordHash");
         String passwordToSave;
         String strClient = req.getParameter("client");
         int idClient;

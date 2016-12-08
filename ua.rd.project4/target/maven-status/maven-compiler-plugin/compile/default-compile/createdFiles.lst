@@ -1,15 +1,23 @@
+ua\rd\project4\controller\util\ViewJsp$UsersCrud.class
 ua\rd\project4\domain\Car$CarType.class
 ua\rd\project4\model\dao\EntityDao.class
+ua\rd\project4\controller\util\ViewJsp$CarsCrud.class
+ua\rd\project4\controller\util\ViewJsp$UserSpace.class
+ua\rd\project4\controller\util\JspMessagesSetter$JspError.class
 ua\rd\project4\model\exceptions\CarRequestPaymentNeededException.class
 ua\rd\project4\model\services\EntityService.class
 ua\rd\project4\domain\CarRequest.class
 ua\rd\project4\model\dao\impl\JdbcClientDao.class
 ua\rd\project4\model\services\impl\JdbcUserSevice.class
 ua\rd\project4\controller\command\impl\LocalizationCommand.class
+ua\rd\project4\controller\util\ViewJsp$General.class
+ua\rd\project4\controller\util\ViewJsp$CarRequestsCrud.class
+ua\rd\project4\controller\util\JspMessagesSetter$JspResult.class
 ua\rd\project4\controller\command\impl\UserCreateCarRequestCommand.class
 ua\rd\project4\model\holders\InvoiceHolder.class
 ua\rd\project4\controller\command\impl\UserSpaceCommand.class
 ua\rd\project4\controller\command\impl\LogoutCommand.class
+ua\rd\project4\controller\util\JspMessagesSetter.class
 ua\rd\project4\model\dao\impl\JdbcUserDao.class
 ua\rd\project4\domain\Client.class
 ua\rd\project4\model\services\impl\JdbcInvoiceSevice.class
@@ -20,8 +28,8 @@ ua\rd\project4\controller\command\impl\LoginCommand.class
 ua\rd\project4\model\dao\impl\JdbcCarRequestDao.class
 ua\rd\project4\model\dao\connection\ConnectionFactory.class
 ua\rd\project4\model\dao\UserDao.class
+ua\rd\project4\controller\util\EncodingFilter.class
 ua\rd\project4\model\services\impl\JdbcCarFlowService.class
-ua\rd\project4\controller\EncodingFilter.class
 ua\rd\project4\model\services\impl\JdbcCarSevice.class
 ua\rd\project4\model\dao\impl\JdbcDaoFactory.class
 ua\rd\project4\model\dao\connection\impl\JdbcConnectionFactory$ConnectionType.class
@@ -46,6 +54,7 @@ ua\rd\project4\model\exceptions\CarRequestApproveNeededException.class
 ua\rd\project4\domain\CarFlow.class
 ua\rd\project4\model\exceptions\ConflictsRequestException.class
 ua\rd\project4\model\services\CarService.class
+ua\rd\project4\controller\util\ViewJsp$InvoicesCrud.class
 ua\rd\project4\domain\Invoice.class
 ua\rd\project4\model\services\InvoiceService.class
 ua\rd\project4\model\dao\JdbcFields.class
@@ -53,6 +62,7 @@ ua\rd\project4\model\dao\impl\JdbcCarFlowDao.class
 ua\rd\project4\model\dao\CarRequestDao.class
 ua\rd\project4\controller\MainController.class
 ua\rd\project4\domain\CarRequest$RequestStatus.class
+ua\rd\project4\controller\util\ViewJsp$CarFlowsCrud.class
 ua\rd\project4\domain\User.class
 ua\rd\project4\controller\command\impl\CrudCarsCommand.class
 ua\rd\project4\controller\command\Command.class
@@ -70,6 +80,7 @@ ua\rd\project4\model\dao\CarDao.class
 ua\rd\project4\model\dao\DaoFactory.class
 ua\rd\project4\domain\Car.class
 ua\rd\project4\controller\exceptions\RequiredParameterException.class
+ua\rd\project4\controller\util\ViewJsp$ClientsCrud.class
 ua\rd\project4\controller\command\impl\CarsAvailableCommand.class
 ua\rd\project4\model\dao\InvoiceDao.class
 ua\rd\project4\model\services\impl\GenericEntityService.class
@@ -82,3 +93,5 @@ ua\rd\project4\model\exceptions\WrongCarFlowDirectionException.class
 ua\rd\project4\model\services\ServiceFactory.class
 ua\rd\project4\controller\command\impl\CarInCommand.class
 ua\rd\project4\controller\command\impl\GenericCrudCommand.class
+ua\rd\project4\controller\util\ViewJsp$AdminSpace.class
+ua\rd\project4\controller\util\ViewJsp.class

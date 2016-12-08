@@ -6,6 +6,7 @@ import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
+import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.Car;
 import ua.rd.project4.domain.User;
@@ -49,11 +50,11 @@ class CarsAvailableCommand implements Command {
                     .getCarRequestService().findAvailableCars(dateFrom, dateTo);
             req.setAttribute("listAvailableCars", listAvailableCars);
         } catch (RequiredParameterException e) {
-            req.setAttribute("error", "Required field is empty " + e.getMessage());
+            JspMessagesSetter.setOutputError(req,  JspMessagesSetter.JspError.FIELD_EMPTY_REQUIRED, e.getMessage());
             logger.debug("update/insert id:" + req.getParameter("id") + " wrong field:" + e.getMessage());
             logger.debug(e);
         } catch (InvalidParameterException e) {
-            req.setAttribute("error", "Wrong data in field " + e.getMessage());
+            JspMessagesSetter.setOutputError(req,  JspMessagesSetter.JspError.FIELD_WRONG_DATA, e.getMessage());
             logger.debug("update/insert id:" + req.getParameter("id") + " wrong field:" + e.getMessage());
             logger.debug(e);
         }

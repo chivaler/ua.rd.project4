@@ -4,12 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
+import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
-
-import javax.servlet.http.HttpSession;
 
 class LoginCommand implements Command {
     private static final LoginCommand instance = new LoginCommand();
@@ -39,7 +38,7 @@ class LoginCommand implements Command {
                 }
             } else {
                 logger.info("Wrong login and/or password");
-                req.setAttribute("error", "wrong login");
+                JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.WRONG_LOGIN);
                 return ViewJsp.General.LOGIN_PAGE;
             }
         } else

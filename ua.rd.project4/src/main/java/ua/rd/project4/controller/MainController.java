@@ -4,9 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.*;
 import ua.rd.project4.controller.command.impl.CommandFactoryImpl;
-import ua.rd.project4.controller.command.impl.UserSpaceCommand;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
-import ua.rd.project4.controller.util.ErrorSetter;
+import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.impl.RequestWrapperImpl;
 import ua.rd.project4.domain.User;
@@ -43,7 +42,7 @@ public class MainController extends HttpServlet {
             jspUrl = commandFactory.getFallbackUrl();
         } catch (InsufficientPermissions e) {
             logger.debug(e);
-            ErrorSetter.setOutputError(requestWrapper, ErrorSetter.JspOuterError.INSUFFICIENT_PERMISSIONS);
+            JspMessagesSetter.setOutputError(requestWrapper, JspMessagesSetter.JspError.INSUFFICIENT_PERMISSIONS);
             jspUrl = commandFactory.getFallbackUrl();
         } catch (Exception e) {
             logger.error(e);

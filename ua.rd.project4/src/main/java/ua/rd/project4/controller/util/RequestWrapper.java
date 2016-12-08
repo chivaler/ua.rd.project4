@@ -7,5 +7,4 @@ public interface RequestWrapper {
     default SessionWrapper getSessionWrapper() {
         return getSessionWrapper(false);
     }
-
 }

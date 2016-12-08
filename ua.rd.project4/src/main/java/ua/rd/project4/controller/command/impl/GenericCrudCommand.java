@@ -5,6 +5,7 @@ import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
+import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.exceptions.EntityInUseException;
@@ -69,15 +70,15 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
                 getEntityService().insert(entity);
             return executeList(req);
         } catch (RequiredParameterException e) {
-            req.setAttribute("error", "Required field is empty " + e.getMessage());
+            JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.FIELD_EMPTY_REQUIRED, e.getMessage());
             getLogger().debug("update/insert id:" + req.getParameter("id") + " wrong field:" + e.getMessage());
             getLogger().debug(e);
         } catch (InvalidParameterException e) {
-            req.setAttribute("error", "Wrong data in field " + e.getMessage());
+            JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.FIELD_WRONG_DATA, e.getMessage());
             getLogger().debug("update/insert id:" + req.getParameter("id") + " wrong field:" + e.getMessage());
             getLogger().debug(e);
         } catch (LoginExistsException e) {
-            req.setAttribute("error", "User with such login already exists in database");
+            JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.LOGIN_ALREADY_EXIST);
             getLogger().debug(e);
         } catch (UniqueViolationException e) {
             getLogger().error(e);
@@ -92,7 +93,7 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
             addListsToRequest(req);
             return getEntityJsp();
         } else {
-            req.setAttribute("error", "Couldn't find id:" + id);
+            JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.UNKNOWN_ID);
             getLogger().debug("Get id:" + req.getParameter("id"));
             return executeList(req);
         }
@@ -102,9 +103,10 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
         try {
             getEntityService().delete(id);
             req.setAttribute("result", "id:" + id + " deleted.");
+            JspMessagesSetter.setOutputMessage(req, JspMessagesSetter.JspResult.ID_REMOVED,"id:" + id );
         } catch (EntityInUseException entityInUseException) {
             getLogger().debug(entityInUseException);
-            req.setAttribute("error", "Couldn't remove id:" + id + " " + entityInUseException.getMessage());
+            JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.COULDNT_REMOVE_ID,+ id + " " + entityInUseException.getMessage());
         }
         return executeList(req);
     }
@@ -122,7 +124,7 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
         final int id = getIdFromRequest(req);
         if ((id == 0) && ("get".equals(doCommand) || "delete".equals(doCommand))) {
             getLogger().debug("Clients:" + doCommand + " id:" + req.getParameter("id"));
-            req.setAttribute("error", "Unknown id");
+            JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.UNKNOWN_ID);
         } else switch (doCommand) {
             case "update":
                 return executeUpdate(req, id);
@@ -137,7 +139,7 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
             case "":
                 break;
             default:
-                req.setAttribute("error", "Users: Unknown command");
+                JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.UNKNOWN_COMMAND);
                 getLogger().debug("Users:" + doCommand + " id:" + req.getParameter("id"));
         }
         return executeList(req);

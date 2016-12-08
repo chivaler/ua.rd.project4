@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
+import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.CarRequest;
@@ -19,10 +20,12 @@ import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Optional;
 
+
 class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
     private static final CrudCarRequestCommand instance = new CrudCarRequestCommand();
     private final Logger logger = LogManager.getLogger(CrudCarRequestCommand.class);
     private final CarRequestService carRequestService = getServiceFactory().getCarRequestService();
+    private final String DEFAULT_REJECT_REASON = "Sorry, impossible for now";
 
     private CrudCarRequestCommand() {
     }
@@ -108,21 +111,21 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
         if ("approve".equals(req.getParameter("do"))) {
             final int id = getIdFromRequest(req);
             if (id == 0) {
-                req.setAttribute("error", "Unknown id");
+                JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.UNKNOWN_ID);
             } else
                 try {
                     carRequestService.approve(id);
                 } catch (ConflictsRequestException e) {
-                    req.setAttribute("error", "Request conflicts with other approved");
+                    JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.APPROVE_CONFLICTS);
                 }
             return AdminCommand.getInstance().execute(req, user);
         }
         if ("reject".equals(req.getParameter("do"))) {
             final int id = getIdFromRequest(req);
             if (id == 0) {
-                req.setAttribute("error", "Unknown id");
+                JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.UNKNOWN_ID);
             } else
-                carRequestService.reject(id, "Sorry, impossible for now");
+                carRequestService.reject(id, DEFAULT_REJECT_REASON);
             return AdminCommand.getInstance().execute(req, user);
         } else
             return super.execute(req, user);

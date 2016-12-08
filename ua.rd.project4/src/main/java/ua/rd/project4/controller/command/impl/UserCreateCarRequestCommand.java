@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
+import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.CarRequest;
 import ua.rd.project4.domain.User;
@@ -57,7 +58,7 @@ class UserCreateCarRequestCommand implements Command {
             carRequest.setTotalCost(carRequestService.calculateTotal(carRequest));
             carRequestService.insert(carRequest);
         } catch (InvalidParameterException e) {
-            req.setAttribute("error", "Wrong data in field " + e.getMessage());
+            JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.FIELD_WRONG_DATA, e.getMessage());
             logger.debug("update/insert id:" + req.getParameter("id") + " wrong field:" + e.getMessage());
             logger.debug(e);
         } catch (UniqueViolationException e) {

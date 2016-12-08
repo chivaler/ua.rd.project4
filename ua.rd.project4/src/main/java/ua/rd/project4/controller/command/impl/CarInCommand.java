@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
+import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.CarFlow;
 import ua.rd.project4.domain.User;
@@ -31,9 +32,11 @@ class CarInCommand implements Command {
             final int carId = Integer.parseInt(req.getParameter("car"));
             CarFlow carFlowOut = carFlowService.findLastCarFlowOfCar(carId);
             carFlowService.checkInCarFlowIn(carFlowOut.getId(), user);
-        } catch (WrongCarFlowDirectionException | NumberFormatException e) {
-            req.setAttribute("error", e.toString());
+        } catch (WrongCarFlowDirectionException e) {
+            JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.WRONG_CAR_DIRECTION);
             logger.error(e);
+        } catch (NumberFormatException e) {
+            logger.info(e);
         }
         return AdminCommand.getInstance().execute(req, user);
     }

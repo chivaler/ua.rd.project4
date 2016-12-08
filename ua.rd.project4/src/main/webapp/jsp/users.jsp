@@ -15,7 +15,6 @@
         <th>ID</th>
         <th><fmt:message key="isAdmin" bundle="${bundle}"/></th>
         <th><fmt:message key="Login" bundle="${bundle}"/></th>
-        <th><fmt:message key="HashedPassword" bundle="${bundle}"/></th>
         <th><fmt:message key="Client" bundle="${bundle}"/></th>
         <th><fmt:message key="Edit" bundle="${bundle}"/></th>
         <th><fmt:message key="Delete" bundle="${bundle}"/></th>
@@ -25,7 +24,6 @@
             <td align="center"><c:out value="${user.getId()}"/></td>
             <td align="center"><c:out value="${user.isAdmin()}"/></td>
             <td align="center"><c:out value="${user.getLogin()}"/></td>
-            <td align="center"><c:out value="${user.getPasswordHash()}"/></td>
             <td align="center">
                 <c:if test="${user.getClientId() > 0}">
                     <a href="${pageContext.request.contextPath}/Controller?command=CLIENTS&do=get&id=${user.getClientId()}">

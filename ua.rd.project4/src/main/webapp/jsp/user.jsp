@@ -14,6 +14,10 @@
 <form action="${pageContext.request.contextPath}/Controller" method="post">
     <INPUT type="hidden" name="command" value="USERS"/>
     <INPUT type="hidden" name="do" value="update"/>
+    <c:if test="${not empty entity}">
+    <INPUT type=hidden class="readonly" readonly="readonly" name="passwordHash"
+           value="${empty entity ? '' : entity.getPasswordHash()}"/>
+    </c:if>
     <table class="edit">
         <tr>
             <th>Field</th>
@@ -32,18 +36,9 @@
             <td>Password</td>
             <td><INPUT type="password" name="pass" value=""/></td>
         </tr>
-        <c:if test="${not empty entity}">
-            <tr>
-                <td>HashedPassword</td>
-                <td><INPUT type=text class="readonly" readonly="readonly" name="passwordHash"
-                           value="${empty entity ? '' : entity.getPasswordHash()}"/>
-                </td>
-            </tr>
-        </c:if>
         <%@include file="includes/fields/client.jspf" %>
         <tr>
-            <td></td>
-            <td><INPUT type="submit" value="Save">
+            <td colspan="2"><INPUT type="submit" value="Save">
         </tr>
     </table>
 </form>

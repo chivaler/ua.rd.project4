@@ -6,6 +6,7 @@ import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissions;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
+import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.SessionWrapper;
 import ua.rd.project4.controller.util.ViewJsp;
@@ -41,21 +42,21 @@ class UserRegisterCommand implements Command {
                 throw new InvalidParameterException("pass");
             Client client = CrudClientsCommand.getInstance().parseToEntity(req);
             clientService.insert(client);
-            User userNew = new User(false,login,userService.getHashPassword(pass),client);
+            User userNew = new User(false, login, userService.getHashPassword(pass), client);
             userService.insert(userNew);
             SessionWrapper sessionWrapper = req.getSessionWrapper(true);
             sessionWrapper.setUser(userNew);
             return UserSpaceCommand.getInstance().execute(req, userNew);
         } catch (RequiredParameterException e) {
-            req.setAttribute("error", "Required field is empty " + e.getMessage());
+            JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.FIELD_EMPTY_REQUIRED, e.getMessage());
             logger.debug("update/insert id:" + req.getParameter("id") + " wrong field:" + e.getMessage());
             logger.debug(e);
         } catch (InvalidParameterException e) {
-            req.setAttribute("error", "Wrong data in field " + e.getMessage());
+            JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.FIELD_WRONG_DATA, e.getMessage());
             logger.debug("update/insert id:" + req.getParameter("id") + " wrong field:" + e.getMessage());
             logger.debug(e);
         } catch (LoginExistsException e) {
-            req.setAttribute("error", "User with such login already exists in database");
+            JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.LOGIN_ALREADY_EXIST);
             logger.debug(e);
         } catch (UniqueViolationException e) {
             logger.error(e);
