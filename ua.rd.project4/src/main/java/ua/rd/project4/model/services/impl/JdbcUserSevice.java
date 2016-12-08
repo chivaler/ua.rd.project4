@@ -3,7 +3,6 @@ package ua.rd.project4.model.services.impl;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.dao.UserDao;
 import ua.rd.project4.domain.User;
-import ua.rd.project4.model.exceptions.EntityInUseException;
 import ua.rd.project4.model.exceptions.LoginExistsException;
 import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.services.*;
@@ -28,11 +27,6 @@ class JdbcUserSevice extends GenericEntityService<User> implements UserService {
     @Override
     ServiceFactory getServiceFactory() {
         return JdbcServiceFactory.getInstance();
-    }
-
-    @Override
-    public boolean delete(int id) throws EntityInUseException {
-        return super.delete(id);
     }
 
     @Override

@@ -34,12 +34,14 @@ class CarsAvailableCommand implements Command {
             try {
                 dateFrom = Date.valueOf(req.getParameter("dateFrom"));
             } catch (Exception e) {
+                logger.debug(e);
                 throw new RequiredParameterException("dateFrom");
             }
             Date dateTo;
             try {
                 dateTo = Date.valueOf(req.getParameter("dateTo"));
             } catch (Exception e) {
+                logger.debug(e);
                 throw new RequiredParameterException("dateTo");
             }
             if (dateFrom.compareTo(dateTo) > 0)

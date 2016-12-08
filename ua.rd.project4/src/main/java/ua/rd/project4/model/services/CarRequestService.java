@@ -2,23 +2,18 @@ package ua.rd.project4.model.services;
 
 import ua.rd.project4.domain.Car;
 import ua.rd.project4.domain.CarRequest;
-import ua.rd.project4.domain.Invoice;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.exceptions.CarRequestApproveNeededException;
 import ua.rd.project4.model.exceptions.CarRequestPaymentNeededException;
 import ua.rd.project4.model.exceptions.ConflictsRequestException;
-import ua.rd.project4.model.exceptions.UniqueViolationException;
-import ua.rd.project4.model.holders.InvoiceHolder;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 
 public interface CarRequestService extends EntityService<CarRequest> {

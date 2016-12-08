@@ -44,12 +44,14 @@ class UserCreateCarRequestCommand implements Command {
             try {
                 dateFrom = Date.valueOf(req.getParameter("dateFrom"));
             } catch (Exception e) {
+                logger.debug(e);
                 throw new InvalidParameterException("dateFrom");
             }
             Date dateTo;
             try {
                 dateTo = Date.valueOf(req.getParameter("dateTo"));
             } catch (Exception e) {
+                logger.debug(e);
                 throw new InvalidParameterException("dateTo");
             }
             CarRequest carRequest = new CarRequest(carService.getById(carId),

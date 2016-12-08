@@ -62,7 +62,7 @@ class CrudInvoiceCommand extends GenericCrudCommand<Invoice> {
         }
         Client client = clientService.getById(idClient);
         String description = Optional.ofNullable(req.getParameter("description")).orElse("");
-        boolean paid = new Boolean(req.getParameter("paid"));
+        boolean paid = Boolean.parseBoolean(req.getParameter("paid"));
         BigDecimal total;
         try {
             total = new BigDecimal(req.getParameter("total"));

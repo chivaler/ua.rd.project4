@@ -49,6 +49,7 @@ class CrudClientsCommand extends GenericCrudCommand<Client> {
         return clientService;
     }
 
+    @Override
     Client parseToEntity(RequestWrapper req) throws InvalidParameterException {
         String firstName = Optional.ofNullable(req.getParameter("firstName")).orElse("");
         String lastName = Optional.ofNullable(req.getParameter("lastName")).orElse("");

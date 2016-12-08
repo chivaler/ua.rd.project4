@@ -10,12 +10,13 @@ import java.util.Set;
 
 public class RequestWrapperImpl implements RequestWrapper {
     private HttpServletRequest req;
-    private final Set<String> deniedToReadParameters = new HashSet<String>() {{
-        add("test");
-    }};
-    private final Set<String> deniedToWriteAttributes = new HashSet<String>() {{
-        add("test");
-    }};
+    private final Set<String> deniedToReadParameters = new HashSet<String>();
+    private final Set<String> deniedToWriteAttributes = new HashSet<String>();
+
+    {
+        deniedToReadParameters.add("test");
+        deniedToWriteAttributes.add("test");
+    }
 
     public RequestWrapperImpl (HttpServletRequest req) {
         this.req = req;

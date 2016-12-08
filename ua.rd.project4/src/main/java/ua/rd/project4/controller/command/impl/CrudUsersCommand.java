@@ -48,6 +48,7 @@ class CrudUsersCommand extends GenericCrudCommand<User> {
         return userService;
     }
 
+    @Override
     User parseToEntity(RequestWrapper req) throws InvalidParameterException {
         boolean isAdmin;
         String login = req.getParameter("login");

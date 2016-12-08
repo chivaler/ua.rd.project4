@@ -36,7 +36,7 @@ public class JspMessagesSetter {
 
     public static void setOutputMessage(RequestWrapper req, JspResult result, String message) {
         req.setAttribute("result", result.toString());
-        req.setAttribute("result", message);
+        req.setAttribute("result_message", message);
     }
 
 
