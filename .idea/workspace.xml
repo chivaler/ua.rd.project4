@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6ca6b15-2d8d-4825-a483-4297d64caaf2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/CarFlowHolderTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/InvoiceHolderTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/MainController.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/RentCommandFactory.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/RentCommandFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/impl/JdbcConnectionFactory.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/impl/JdbcConnectionFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcClientDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcUserDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcUserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/RandomEntities.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/RandomEntities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/UserHolderTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/UserHolderTest.java" />
     </list>
     <ignored path="project4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -124,11 +117,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarFlowHolderTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CarFlowHolderTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/CarFlowHolderTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1605">
+            <state relative-caret-position="1666">
               <caret line="106" column="5" lean-forward="false" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvoiceHolder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/InvoiceHolder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+              <folding>
+                <element signature="e#665#666#0" expanded="true" />
+                <element signature="e#755#756#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvoiceHolderTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/InvoiceHolderTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -211,7 +227,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/connection/ConnectionFactory.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/dao/connection/ConnectionFactoryTest.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/AbstractDaoFactory.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/commandList.java" />
@@ -262,6 +277,7 @@
         <option value="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/UserHolderTest.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/RandomEntities.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/CarFlowHolderTest.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/InvoiceHolderTest.java" />
       </list>
     </option>
   </component>
@@ -840,11 +856,11 @@
       <recent name="ua.rd.project4.services" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ua.rd.project4.model.holders" />
       <recent name="ua.rd.project4.controller.command.impl" />
       <recent name="ua.rd.project4.controller.exceptions" />
       <recent name="ua.rd.project4.model.exceptions" />
       <recent name="ua.rd.project4.model.services.impl" />
-      <recent name="ua.rd.project4.command" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Projects\ua.rd.project4\ua.rd.project4\src\main\webapp\jsp" />
@@ -854,85 +870,7 @@
       <recent name="D:\Projects\ua.rd.project4\ua.rd.project4\src\main\webapp\jsp\admin" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CarFlowHolderTest">
-    <configuration default="false" name="CarFlow_DaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ua.rd.project4.model.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ua.rd.project4" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ua.rd.project4.model.dao" />
-      <option name="MAIN_CLASS_NAME" value="ua.rd.project4.model.dao.CarFlow_DaoTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="ua.rd.project4.model in ua.rd.project4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ua.rd.project4.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ua.rd.project4" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ua.rd.project4.model" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="UserHolderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ua.rd.project4.model.holders.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ua.rd.project4" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ua.rd.project4.model.holders" />
-      <option name="MAIN_CLASS_NAME" value="ua.rd.project4.model.holders.UserHolderTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.InvoiceHolderTest.setEntity">
     <configuration default="false" name="CarFlowHolderTest.equalsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -973,6 +911,84 @@
       <option name="MAIN_CLASS_NAME" value="ua.rd.project4.model.holders.CarFlowHolderTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="InvoiceHolderTest.equalsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ua.rd.project4.model.holders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ua.rd.project4" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ua.rd.project4.model.holders" />
+      <option name="MAIN_CLASS_NAME" value="ua.rd.project4.model.holders.InvoiceHolderTest" />
+      <option name="METHOD_NAME" value="equalsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="InvoiceHolderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ua.rd.project4.model.holders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ua.rd.project4" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ua.rd.project4.model.holders" />
+      <option name="MAIN_CLASS_NAME" value="ua.rd.project4.model.holders.InvoiceHolderTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="InvoiceHolderTest.setEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ua.rd.project4.model.holders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ua.rd.project4" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ua.rd.project4.model.holders" />
+      <option name="MAIN_CLASS_NAME" value="ua.rd.project4.model.holders.InvoiceHolderTest" />
+      <option name="METHOD_NAME" value="setEntity" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -1585,19 +1601,19 @@
       <item index="0" class="java.lang.String" itemvalue="Maven.project4 [deploy]" />
       <item index="1" class="java.lang.String" itemvalue="Maven.jetty [run]" />
       <item index="2" class="java.lang.String" itemvalue="Tomcat Server.Unnamed" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CarFlow_DaoTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.ua.rd.project4.model in ua.rd.project4" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.UserHolderTest" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.CarFlowHolderTest.equalsTest" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.CarFlowHolderTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CarFlowHolderTest.equalsTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CarFlowHolderTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.InvoiceHolderTest.equalsTest" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.InvoiceHolderTest" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.InvoiceHolderTest.setEntity" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.CarFlowHolderTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CarFlowHolderTest.equalsTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.UserHolderTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ua.rd.project4.model in ua.rd.project4" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CarFlow_DaoTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.InvoiceHolderTest.setEntity" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.InvoiceHolderTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.InvoiceHolderTest.equalsTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CarFlowHolderTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CarFlowHolderTest.equalsTest" />
       </list>
     </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1656,7 +1672,7 @@
       <workItem from="1480965194776" duration="156000" />
       <workItem from="1480965495111" duration="21604000" />
       <workItem from="1481036659174" duration="15883000" />
-      <workItem from="1481141641409" duration="8160000" />
+      <workItem from="1481141641409" duration="9761000" />
     </task>
     <task id="LOCAL-00001" summary="+allservices">
       <created>1480247341265</created>
@@ -1917,7 +1933,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481057262904</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="CarFlowHolder test">
+      <created>1481182565472</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1481182565472</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1933,27 +1956,27 @@
     <history-entry file="CarFlowHolderTest_equalsTest - 2016.12.08 at 08h 21m 55s.xml">
       <configuration name="CarFlowHolderTest.equalsTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CarFlow_DaoTest - 2016.12.06 at 20h 03m 21s.xml">
-      <configuration name="CarFlow_DaoTest" configurationId="JUnit" />
+    <history-entry file="InvoiceHolderTest - 2016.12.08 at 10h 01m 13s.xml">
+      <configuration name="InvoiceHolderTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CarFlow_DaoTest - 2016.12.06 at 20h 28m 21s.xml">
-      <configuration name="CarFlow_DaoTest" configurationId="JUnit" />
+    <history-entry file="InvoiceHolderTest - 2016.12.08 at 10h 02m 11s.xml">
+      <configuration name="InvoiceHolderTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InvoiceHolderTest_equalsTest - 2016.12.08 at 09h 38m 56s.xml">
+      <configuration name="InvoiceHolderTest.equalsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InvoiceHolderTest_setEntity - 2016.12.08 at 10h 02m 38s.xml">
+      <configuration name="InvoiceHolderTest.setEntity" configurationId="JUnit" />
     </history-entry>
     <history-entry file="UserHolderTest - 2016.12.07 at 23h 21m 15s.xml">
       <configuration name="UserHolderTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ua_rd_project4_model_dao_in_ua_rd_project4 - 2016.12.06 at 18h 48m 31s.xml">
-      <configuration name="ua.rd.project4.model.dao in ua.rd.project4" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ua_rd_project4_model_in_ua_rd_project4 - 2016.12.06 at 20h 33m 02s.xml">
-      <configuration name="ua.rd.project4.model in ua.rd.project4" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ua_rd_project4_model_in_ua_rd_project4 - 2016.12.06 at 22h 35m 41s.xml">
       <configuration name="ua.rd.project4.model in ua.rd.project4" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="315384000" />
+    <option name="totallyTimeSpent" value="316985000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1987,7 +2010,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25824964" sideWeight="0.73816794" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35724533" sideWeight="0.73816794" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2625538" sideWeight="0.65128595" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31013617" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -2059,7 +2082,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="all crud services" />
     <MESSAGE value="futher work" />
     <MESSAGE value="Holders, + more jsp" />
     <MESSAGE value="more jsp&#10;" />
@@ -2084,7 +2106,8 @@
     <MESSAGE value="dao.insert now changes id of entity to autogenerated" />
     <MESSAGE value="Commands-&gt;CommandFactory" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="CarFlowHolder test" />
+    <option name="LAST_COMMIT_MESSAGE" value="CarFlowHolder test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2280,8 +2303,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/CarFlowHolderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
+        <state relative-caret-position="1666">
           <caret line="106" column="5" lean-forward="false" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/holders/InvoiceHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+          <folding>
+            <element signature="e#665#666#0" expanded="true" />
+            <element signature="e#755#756#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/InvoiceHolderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>
