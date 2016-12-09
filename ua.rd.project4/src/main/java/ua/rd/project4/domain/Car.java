@@ -60,6 +60,10 @@ public class Car implements Entity {
         return rentPricePerDay;
     }
 
+    public void setRentPricePerDay(BigDecimal rentPricePerDay) {
+        this.rentPricePerDay = rentPricePerDay;
+    }
+
     @Override
     public void setId(int id) {
         this.id = id;
@@ -68,8 +72,10 @@ public class Car implements Entity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Car)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Car))
+            return false;
         Car car = (Car) o;
         return Objects.equals(model, car.model) &&
                 Objects.equals(color, car.color) &&

@@ -1,5 +1,6 @@
 package ua.rd.project4.model.services;
 
+import ua.rd.project4.domain.Car;
 import ua.rd.project4.domain.CarFlow;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.exceptions.CarRequestApproveNeededException;
@@ -25,9 +26,10 @@ public interface CarFlowService extends EntityService<CarFlow> {
 
     void checkInCarFlowIn(int carFlowOutId, User user) throws WrongCarFlowDirectionException;
 
-    default boolean isCarInBox(int carId) {
-        return findCarFlowsByCarId(carId).stream()
-                .mapToInt(s -> s.getCarFlowType()
-                        .getValue()).sum() > 0;
-    }
+    boolean isCarInBox(int carId);
+
+    List<Car> getCarsInBox();
+
+    List<Car> getCarsOutOfBox();
+
 }

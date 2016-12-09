@@ -67,5 +67,9 @@ public class RandomEntities {
                 null,
                 new BigInteger(64, random).toString(32));
     }
+
+    public static String getString() {
+        return new BigInteger(64, random).toString(32);
+    }
 }
 

@@ -8,6 +8,12 @@ import ua.rd.project4.domain.Invoice;
 import ua.rd.project4.model.RandomEntities;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
+import java.math.BigDecimal;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -155,14 +161,88 @@ public class CarRequestServiceTest {
 
     @Test
     public void isPossible() throws Exception {
+        Car car1 = RandomEntities.getCar();
+        serviceFactory.getCarService().insert(car1);
+        Car car2 = RandomEntities.getCar();
+        serviceFactory.getCarService().insert(car2);
+        Client client1 = RandomEntities.getClient();
+        serviceFactory.getClientService().insert(client1);
 
+        CarRequest carRequest1 =  RandomEntities.getCarRequest();
+        carRequest1.setCar(car1);
+        carRequest1.setClient(client1);
+        carRequest1.setDateFrom(Date.valueOf(LocalDate.now()));
+        carRequest1.setDateTo(Date.valueOf(LocalDate.now()));
+        carRequest1.setStatus(CarRequest.RequestStatus.NEW);
+        serviceFactory.getCarRequestService().insert(carRequest1);
+        assertThat(serviceFactory.getCarRequestService().isPossible(carRequest1.getId()),is(CarRequestService.CarRequestStatus.POSSIBLE));
+
+        CarRequest carRequest2 =  RandomEntities.getCarRequest();
+        carRequest2.setCar(car1);
+        carRequest2.setClient(client1);
+        carRequest2.setStatus(CarRequest.RequestStatus.NEW);
+        carRequest2.setDateFrom(Date.valueOf(LocalDate.now()));
+        carRequest2.setDateTo(Date.valueOf(LocalDate.now().plusDays(1)));
+        serviceFactory.getCarRequestService().insert(carRequest2);
+        assertThat(serviceFactory.getCarRequestService().isPossible(carRequest2.getId()),is(CarRequestService.CarRequestStatus.CONFLICT));
+        assertThat(serviceFactory.getCarRequestService().isPossible(carRequest1.getId()),is(CarRequestService.CarRequestStatus.CONFLICT));
+
+        carRequest1.setStatus(CarRequest.RequestStatus.APPROVED);
+        serviceFactory.getCarRequestService().update(carRequest1.getId(), carRequest1);
+        assertThat(serviceFactory.getCarRequestService().isPossible(carRequest2.getId()),is(CarRequestService.CarRequestStatus.IMPOSSIBLE));
+
+        carRequest2.setDateFrom(Date.valueOf(LocalDate.now().minusDays(2)));
+        carRequest2.setDateTo(Date.valueOf(LocalDate.now()));
+        serviceFactory.getCarRequestService().update(carRequest2.getId(), carRequest2);
+        assertThat(serviceFactory.getCarRequestService().isPossible(carRequest2.getId()),is(CarRequestService.CarRequestStatus.IMPOSSIBLE));
+
+        carRequest2.setDateFrom(Date.valueOf(LocalDate.now().minusDays(2)));
+        carRequest2.setDateTo(Date.valueOf(LocalDate.now().plusDays(2)));
+        serviceFactory.getCarRequestService().update(carRequest2.getId(), carRequest2);
+        assertThat(serviceFactory.getCarRequestService().isPossible(carRequest2.getId()),is(CarRequestService.CarRequestStatus.IMPOSSIBLE));
+
+        carRequest1.setDateFrom(Date.valueOf(LocalDate.now().minusDays(1)));
+        carRequest1.setDateTo(Date.valueOf(LocalDate.now().plusDays(1)));
+        serviceFactory.getCarRequestService().update(carRequest1.getId(), carRequest1);
+        assertThat(serviceFactory.getCarRequestService().isPossible(carRequest2.getId()),is(CarRequestService.CarRequestStatus.IMPOSSIBLE));
+
+        carRequest2.setDateFrom(Date.valueOf(LocalDate.now().minusDays(2)));
+        carRequest2.setDateTo(Date.valueOf(LocalDate.now()));
+        serviceFactory.getCarRequestService().update(carRequest2.getId(), carRequest2);
+        assertThat(serviceFactory.getCarRequestService().isPossible(carRequest2.getId()),is(CarRequestService.CarRequestStatus.IMPOSSIBLE));
+
+        carRequest2.setDateFrom(Date.valueOf(LocalDate.now()));
+        carRequest2.setDateTo(Date.valueOf(LocalDate.now().plusDays(2)));
+        serviceFactory.getCarRequestService().update(carRequest2.getId(), carRequest2);
+        assertThat(serviceFactory.getCarRequestService().isPossible(carRequest2.getId()),is(CarRequestService.CarRequestStatus.IMPOSSIBLE));
+
+        carRequest2.setDateFrom(Date.valueOf(LocalDate.now()));
+        carRequest2.setDateTo(Date.valueOf(LocalDate.now()));
+        serviceFactory.getCarRequestService().update(carRequest2.getId(), carRequest2);
+        assertThat(serviceFactory.getCarRequestService().isPossible(carRequest2.getId()),is(CarRequestService.CarRequestStatus.IMPOSSIBLE));
+
+        carRequest2.setCar(car2);
+        serviceFactory.getCarRequestService().update(carRequest2.getId(), carRequest2);
+        assertThat(serviceFactory.getCarRequestService().isPossible(carRequest2.getId()),is(CarRequestService.CarRequestStatus.POSSIBLE));
     }
 
     //Business Logic
 
     @Test
-    public void getCarRequestsWithStatuses() throws Exception {
-
+    public void getCarRequestsWithStatusesTest() throws Exception {
+        Client client1 = RandomEntities.getClient();
+        serviceFactory.getClientService().insert(client1);
+        CarRequest carRequest1 =  RandomEntities.getCarRequest();
+        carRequest1.setClient(client1);
+        carRequest1.setStatus(CarRequest.RequestStatus.NEW);
+        serviceFactory.getCarRequestService().insert(carRequest1);
+         List<Map<String, String>> carRequestsWithStatuses = serviceFactory.getCarRequestService().getCarRequestsWithStatuses();
+        assertThat(carRequestsWithStatuses.size()>=1,is(true));
+        boolean found = false;
+        for (Map<String, String> map : carRequestsWithStatuses)
+            if (String.valueOf(carRequest1.getId()).equals(map.get("id")))
+                found = true;
+        assertThat(found==true, is(true));
     }
 
     @Test
@@ -176,9 +256,41 @@ public class CarRequestServiceTest {
     }
 
     @Test
-    public void calculateTotal() throws Exception {
-
+    public void calculateTotal1() throws Exception {
+        Car car1 = RandomEntities.getCar();
+        car1.setRentPricePerDay(new BigDecimal(1));
+        CarRequest carRequest1 =  RandomEntities.getCarRequest();
+        carRequest1.setCar(car1);
+        carRequest1.setDateFrom(Date.valueOf(LocalDate.now()));
+        carRequest1.setDateTo(Date.valueOf(LocalDate.now()));
+        assertThat(serviceFactory.getCarRequestService().calculateTotal(carRequest1)
+                .compareTo(new BigDecimal(1)),is(0));
     }
+
+    @Test
+    public void calculateTotal2() throws Exception {
+        Car car1 = RandomEntities.getCar();
+        car1.setRentPricePerDay(new BigDecimal(2.5));
+        CarRequest carRequest1 =  RandomEntities.getCarRequest();
+        carRequest1.setCar(car1);
+        carRequest1.setDateFrom(Date.valueOf(LocalDate.now().minusDays(7)));
+        carRequest1.setDateTo(Date.valueOf(LocalDate.now()));
+        assertThat(serviceFactory.getCarRequestService().calculateTotal(carRequest1)
+                .compareTo(new BigDecimal(20)),is(0));
+    }
+
+    @Test
+    public void calculateTotal3() throws Exception {
+        Car car1 = RandomEntities.getCar();
+        car1.setRentPricePerDay(new BigDecimal(0));
+        CarRequest carRequest1 =  RandomEntities.getCarRequest();
+        carRequest1.setCar(car1);
+        carRequest1.setDateFrom(Date.valueOf(LocalDate.now()));
+        carRequest1.setDateTo(Date.valueOf(LocalDate.now().plusDays(15)));
+        assertThat(serviceFactory.getCarRequestService().calculateTotal(carRequest1)
+                .compareTo(new BigDecimal(0)),is(0));
+    }
+
 
     @Test
     public void checkInCarOut() throws Exception {

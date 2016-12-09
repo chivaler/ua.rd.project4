@@ -33,12 +33,10 @@ class AdminCommand implements Command {
     }
 
     void addListsToRequest(RequestWrapper req) {
-        req.setAttribute("listCarsIn", getServiceFactory().getCarService().findAll().stream()
-                .filter(s -> getServiceFactory().getCarFlowService().isCarInBox(s.getId()))
-                .collect(Collectors.toList()));
-        req.setAttribute("listCarsOut", getServiceFactory().getCarService().findAll().stream()
-                .filter(s -> !getServiceFactory().getCarFlowService().isCarInBox(s.getId()))
-                .collect(Collectors.toList()));
+        req.setAttribute("listCarsIn", getServiceFactory().
+                getCarFlowService().getCarsInBox());
+        req.setAttribute("listCarsOut", getServiceFactory().
+                getCarFlowService().getCarsOutOfBox());
         req.setAttribute("mapsCarRequests", getServiceFactory().
                 getCarRequestService().getCarRequestsWithStatuses());
         req.setAttribute("listCarFlows", getServiceFactory().

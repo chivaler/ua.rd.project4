@@ -35,11 +35,9 @@ ua\rd\project4\model\dao\impl\JdbcDaoFactory.class
 ua\rd\project4\model\dao\connection\impl\JdbcConnectionFactory$ConnectionType.class
 ua\rd\project4\model\exceptions\EntityInUseException.class
 ua\rd\project4\model\dao\impl\JdbcInvoiceDao.class
-ua\rd\project4\controller\util\impl\RequestWrapperImpl$1.class
 ua\rd\project4\controller\command\impl\CarOutCommand.class
 ua\rd\project4\model\dao\ClientDao.class
 ua\rd\project4\controller\command\impl\CrudClientsCommand.class
-ua\rd\project4\controller\util\impl\RequestWrapperImpl$2.class
 ua\rd\project4\model\services\UserService.class
 ua\rd\project4\model\dao\CarFlowDao.class
 ua\rd\project4\model\services\impl\JdbcServiceFactory.class

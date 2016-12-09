@@ -145,7 +145,6 @@ public class CarFlowServiceTest {
         CarFlow carFlow3 = new CarFlow(null, CarFlow.CarFlowType.IN,null,null,invoice1,"");
         carFlowService.insert(carFlow3);
         assertThat(carFlowService.findCarFlowsByInvoiceId(invoice1.getId()), is(Stream.of(carFlow1, carFlow3).collect(Collectors.toList())));
-
     }
 
     //Business logic

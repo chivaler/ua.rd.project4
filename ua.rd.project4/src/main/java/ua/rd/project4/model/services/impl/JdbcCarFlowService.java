@@ -13,6 +13,7 @@ import ua.rd.project4.model.services.CarFlowService;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -108,6 +109,27 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
         } catch (UniqueViolationException e) {
             logger.error(e);
         }
+    }
+
+    @Override
+    public boolean isCarInBox(int carId) {
+        return findCarFlowsByCarId(carId).stream()
+                .mapToInt(s -> s.getCarFlowType()
+                        .getValue()).sum() > 0;
+    }
+
+    @Override
+    public List<Car> getCarsInBox() {
+        return getServiceFactory().getCarService().findAll().stream()
+                .filter(s -> getServiceFactory().getCarFlowService().isCarInBox(s.getId()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Car> getCarsOutOfBox() {
+        return getServiceFactory().getCarService().findAll().stream()
+                .filter(s -> !getServiceFactory().getCarFlowService().isCarInBox(s.getId()))
+                .collect(Collectors.toList());
     }
 
     @Override

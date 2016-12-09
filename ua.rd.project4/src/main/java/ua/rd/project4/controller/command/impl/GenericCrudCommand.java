@@ -41,6 +41,7 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
     abstract T parseToEntity(RequestWrapper req) throws InvalidParameterException;
 
     void addListsToRequest(RequestWrapper req) {
+        //Used for comboboxes working in edit mode
         req.setAttribute("listClients", getServiceFactory().
                 getClientService().findAll().stream().
                 collect(Collectors.toMap(Entity::getId, Client::toString)));
@@ -102,7 +103,6 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
     String executeDelete(RequestWrapper req, int id) {
         try {
             getEntityService().delete(id);
-            req.setAttribute("result", "id:" + id + " deleted.");
             JspMessagesSetter.setOutputMessage(req, JspMessagesSetter.JspResult.ID_REMOVED,"id:" + id );
         } catch (EntityInUseException entityInUseException) {
             getLogger().debug(entityInUseException);
