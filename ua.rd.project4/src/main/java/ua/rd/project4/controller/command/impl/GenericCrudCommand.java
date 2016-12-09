@@ -2,7 +2,7 @@ package ua.rd.project4.controller.command.impl;
 
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
-import ua.rd.project4.controller.exceptions.InsufficientPermissions;
+import ua.rd.project4.controller.exceptions.InsufficientPermissionsException;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
 import ua.rd.project4.controller.util.JspMessagesSetter;
@@ -117,10 +117,10 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
     }
 
     @Override
-    public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
+    public String execute(RequestWrapper req, User user) throws InsufficientPermissionsException {
         String doCommand = Optional.ofNullable(req.getParameter("do")).orElse("");
         if ((user == null || !user.isAdmin()) && !"get".equals(doCommand))
-            throw new InsufficientPermissions();
+            throw new InsufficientPermissionsException();
         final int id = getIdFromRequest(req);
         if ((id == 0) && ("get".equals(doCommand) || "delete".equals(doCommand))) {
             getLogger().debug("Clients:" + doCommand + " id:" + req.getParameter("id"));

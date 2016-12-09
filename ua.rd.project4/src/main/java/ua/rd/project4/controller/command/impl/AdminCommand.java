@@ -1,14 +1,12 @@
 package ua.rd.project4.controller.command.impl;
 
 import ua.rd.project4.controller.command.Command;
-import ua.rd.project4.controller.exceptions.InsufficientPermissions;
+import ua.rd.project4.controller.exceptions.InsufficientPermissionsException;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
-
-import java.util.stream.Collectors;
 
 class AdminCommand implements Command {
     private static final AdminCommand instance = new AdminCommand();
@@ -21,9 +19,9 @@ class AdminCommand implements Command {
     }
 
     @Override
-    public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
+    public String execute(RequestWrapper req, User user) throws InsufficientPermissionsException {
         if (user == null || !user.isAdmin())
-            throw new InsufficientPermissions();
+            throw new InsufficientPermissionsException();
         addListsToRequest(req);
         return ViewJsp.AdminSpace.ADMIN_JSP;
     }

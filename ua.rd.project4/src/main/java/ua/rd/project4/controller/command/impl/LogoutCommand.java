@@ -21,7 +21,8 @@ class LogoutCommand implements Command {
     @Override
     public String execute(RequestWrapper req, User user) {
         req.getSessionWrapper().invalidate();
-        logger.info("Session of user:"+user.getLogin()+" has been invalidated");
+        if (user != null)
+            logger.info("Session of user:" + user.getLogin() + " has been invalidated");
         return ViewJsp.General.LOGIN_PAGE;
     }
 }

@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 
-
 public interface CarRequestService extends EntityService<CarRequest> {
     List<CarRequest> findCarRequestsByClientId(int clientId);
 
@@ -39,9 +38,9 @@ public interface CarRequestService extends EntityService<CarRequest> {
                     map.put("id", String.valueOf(s.getId()));
                     map.put("status", String.valueOf(s.getStatus()));
                     map.put("carId", String.valueOf(s.getCarId()));
-                    map.put("carStr", String.valueOf(s.getCarId() > 0 ? s.getCar().toString() : ""));
+                    map.put("carStr", s.getCarId() > 0 ? s.getCar().toString() : "");
                     map.put("clientId", String.valueOf(s.getClientId()));
-                    map.put("clientStr", s.getClient().toString());
+                    map.put("clientStr", s.getClientId() > 0 ? s.getClient().toString() : "");
                     map.put("available", String.valueOf(isPossible(s.getId())));
                     map.put("dateTo", String.valueOf(s.getDateTo()));
                     map.put("dateFrom", String.valueOf(s.getDateFrom()));
@@ -49,8 +48,7 @@ public interface CarRequestService extends EntityService<CarRequest> {
                     if (s.getInvoiceId() > 0) {
                         map.put("paid", String.valueOf(s.getInvoice().isPaid()));
                         map.put("invoiceId", String.valueOf(s.getInvoiceId()));
-                    }
-                    else
+                    } else
                         map.put("paid", "false");
                     return map;
                 })
@@ -65,4 +63,4 @@ public interface CarRequestService extends EntityService<CarRequest> {
 
     void checkInCarOut(int carRequestId, User user) throws CarRequestApproveNeededException, CarRequestPaymentNeededException;
 
-    }
+}

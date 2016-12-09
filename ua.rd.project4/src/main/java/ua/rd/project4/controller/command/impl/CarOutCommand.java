@@ -3,7 +3,7 @@ package ua.rd.project4.controller.command.impl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
-import ua.rd.project4.controller.exceptions.InsufficientPermissions;
+import ua.rd.project4.controller.exceptions.InsufficientPermissionsException;
 import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.User;
@@ -23,9 +23,9 @@ class CarOutCommand implements Command {
     }
 
     @Override
-    public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
+    public String execute(RequestWrapper req, User user) throws InsufficientPermissionsException {
         if (user == null || !user.isAdmin())
-            throw new InsufficientPermissions();
+            throw new InsufficientPermissionsException();
         try {
             final int carRequestiId = Integer.parseInt(req.getParameter("carRequest"));
             JdbcServiceFactory.getInstance().getCarRequestService().checkInCarOut(carRequestiId, user);

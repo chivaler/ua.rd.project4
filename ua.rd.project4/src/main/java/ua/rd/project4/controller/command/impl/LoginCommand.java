@@ -3,7 +3,7 @@ package ua.rd.project4.controller.command.impl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
-import ua.rd.project4.controller.exceptions.InsufficientPermissions;
+import ua.rd.project4.controller.exceptions.InsufficientPermissionsException;
 import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.ViewJsp;
@@ -22,7 +22,7 @@ class LoginCommand implements Command {
     }
 
     @Override
-    public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
+    public String execute(RequestWrapper req, User user) throws InsufficientPermissionsException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         if (login != null) {

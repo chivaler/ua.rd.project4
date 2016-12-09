@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.*;
 import ua.rd.project4.controller.command.impl.CommandFactoryImpl;
-import ua.rd.project4.controller.exceptions.InsufficientPermissions;
+import ua.rd.project4.controller.exceptions.InsufficientPermissionsException;
 import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.impl.RequestWrapperImpl;
@@ -40,7 +40,7 @@ public class MainController extends HttpServlet {
         } catch (IllegalArgumentException | NullPointerException e) {
             logger.debug(e);
             jspUrl = commandFactory.getFallbackUrl();
-        } catch (InsufficientPermissions e) {
+        } catch (InsufficientPermissionsException e) {
             logger.debug(e);
             JspMessagesSetter.setOutputError(requestWrapper, JspMessagesSetter.JspError.INSUFFICIENT_PERMISSIONS);
             jspUrl = commandFactory.getFallbackUrl();

@@ -2,7 +2,7 @@ package ua.rd.project4.controller.command.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ua.rd.project4.controller.exceptions.InsufficientPermissions;
+import ua.rd.project4.controller.exceptions.InsufficientPermissionsException;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.exceptions.RequiredParameterException;
 import ua.rd.project4.controller.util.JspMessagesSetter;
@@ -107,7 +107,7 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
     }
 
     @Override
-    public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
+    public String execute(RequestWrapper req, User user) throws InsufficientPermissionsException {
         if ("approve".equals(req.getParameter("do"))) {
             final int id = getIdFromRequest(req);
             if (id == 0) {

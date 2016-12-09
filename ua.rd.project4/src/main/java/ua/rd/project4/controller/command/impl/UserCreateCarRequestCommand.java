@@ -3,7 +3,7 @@ package ua.rd.project4.controller.command.impl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.Command;
-import ua.rd.project4.controller.exceptions.InsufficientPermissions;
+import ua.rd.project4.controller.exceptions.InsufficientPermissionsException;
 import ua.rd.project4.controller.exceptions.InvalidParameterException;
 import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
@@ -30,10 +30,10 @@ class UserCreateCarRequestCommand implements Command {
     }
 
     @Override
-    public String execute(RequestWrapper req, User user) throws InsufficientPermissions {
+    public String execute(RequestWrapper req, User user) throws InsufficientPermissionsException {
         try {
             if (user.getClient()==null)
-                throw new InsufficientPermissions();
+                throw new InsufficientPermissionsException();
             int carId = 0;
             try {
                 carId = Integer.valueOf(req.getParameter("car"));

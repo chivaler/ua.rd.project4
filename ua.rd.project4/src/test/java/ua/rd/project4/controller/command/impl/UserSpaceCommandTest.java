@@ -12,32 +12,39 @@ import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
 
-public class LogoutCommandTest {
+public class UserSpaceCommandTest {
     private RequestWrapper req = mock(RequestWrapper.class);
-    private SessionWrapper sessionWrapper = mock(SessionWrapper.class);
 
     @Test
-    public void execute() throws Exception {
+    public void execute_NULL() throws Exception {
+        assertThat(UserSpaceCommand.getInstance().execute(req, null), is(ViewJsp.UserSpace.USER_JSP));
+        verify(req, never()).setAttribute(eq("error"), any(String.class));
+    }
+
+    @Test
+    public void execute_USER() throws Exception {
         User user = RandomEntities.getUser();
         String randomPassword = RandomEntities.getString();
         user.setPasswordHash(JdbcServiceFactory.getInstance().getUserService().getHashPassword(randomPassword));
         user.setAdmin(false);
         JdbcServiceFactory.getInstance().getUserService().insert(user);
 
-        when(req.getSessionWrapper()).thenReturn(sessionWrapper);
-
-        assertThat(LogoutCommand.getInstance().execute(req, user), is(ViewJsp.General.LOGIN_PAGE));
+        assertThat(UserSpaceCommand.getInstance().execute(req, user), is(ViewJsp.UserSpace.USER_JSP));
         verify(req, never()).setAttribute(eq("error"), any(String.class));
-        verify(sessionWrapper).invalidate();
     }
 
     @Test
-    public void execute_blank() throws Exception {
-        when(req.getSessionWrapper()).thenReturn(sessionWrapper);
-        assertThat(LogoutCommand.getInstance().execute(req, null), is(ViewJsp.General.LOGIN_PAGE));
+    public void execute_ADMIN() throws Exception {
+        User user = RandomEntities.getUser();
+        String randomPassword = RandomEntities.getString();
+        user.setPasswordHash(JdbcServiceFactory.getInstance().getUserService().getHashPassword(randomPassword));
+        user.setAdmin(true);
+        JdbcServiceFactory.getInstance().getUserService().insert(user);
+
+        assertThat(UserSpaceCommand.getInstance().execute(req, user), is(ViewJsp.UserSpace.USER_JSP));
         verify(req, never()).setAttribute(eq("error"), any(String.class));
-        verify(sessionWrapper).invalidate();
     }
 
 }

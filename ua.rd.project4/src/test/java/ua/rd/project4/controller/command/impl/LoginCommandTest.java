@@ -18,6 +18,23 @@ public class LoginCommandTest {
     SessionWrapper sessionWrapper = mock(SessionWrapper.class);
 
     @Test
+    public void execute_NULL() throws Exception {
+        User user = RandomEntities.getUser();
+        String randomPassword = RandomEntities.getString();
+        user.setPasswordHash(JdbcServiceFactory.getInstance().getUserService().getHashPassword(randomPassword));
+        user.setAdmin(false);
+        JdbcServiceFactory.getInstance().getUserService().insert(user);
+
+        when(req.getParameter("login")).thenReturn(null);
+        when(req.getParameter("password")).thenReturn(null);
+        when(req.getSessionWrapper(true)).thenReturn(sessionWrapper);
+
+        assertThat(LoginCommand.getInstance().execute(req, null), is(ViewJsp.General.LOGIN_PAGE));
+        verify(req, never()).setAttribute(eq("error"), any(String.class));
+        verify(sessionWrapper, never()).setUser(user);
+    }
+
+    @Test
     public void execute_WrongPass() throws Exception {
         User user = RandomEntities.getUser();
         String randomPassword = RandomEntities.getString();
@@ -47,7 +64,7 @@ public class LoginCommandTest {
         when(req.getSessionWrapper(true)).thenReturn(sessionWrapper);
 
         assertThat(LoginCommand.getInstance().execute(req, null), is(ViewJsp.UserSpace.USER_JSP));
-        verify(req, never()).setAttribute("error", JspMessagesSetter.JspError.WRONG_LOGIN.toString());
+        verify(req, never()).setAttribute(eq("error"), any(String.class));
         verify(sessionWrapper).setUser(user);
     }
 
@@ -64,7 +81,7 @@ public class LoginCommandTest {
         when(req.getSessionWrapper(true)).thenReturn(sessionWrapper);
 
         assertThat(LoginCommand.getInstance().execute(req, null), is(ViewJsp.AdminSpace.ADMIN_JSP));
-        verify(req, never()).setAttribute("error", JspMessagesSetter.JspError.WRONG_LOGIN.toString());
+        verify(req, never()).setAttribute(eq("error"), any(String.class));
         verify(sessionWrapper).setUser(user);
     }
 
