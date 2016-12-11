@@ -50,3 +50,8 @@ public class MainController extends HttpServlet {
         req.getRequestDispatcher(jspUrl).forward(req, resp);
     }
 }
+
+/* TODO printable version of jsps
+TODO business logic tests
+ * more logic
+ */

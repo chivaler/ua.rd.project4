@@ -52,4 +52,10 @@ public abstract class CrudGenericCommandInsufficentPemissionsTest {
         getCommand().execute(req, user);
     }
 
+    public void execute_get() throws Exception {
+        when(req.getParameter("do")).thenReturn("get");
+        when(req.getParameter("id")).thenReturn("1");
+        getCommand().execute(req, user);
+    }
+
 }

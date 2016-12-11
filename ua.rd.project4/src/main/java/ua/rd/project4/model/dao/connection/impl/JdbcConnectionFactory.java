@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.connection.ConnectionFactory;
 
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,6 +21,7 @@ public class JdbcConnectionFactory implements ConnectionFactory {
     private String jdbcUser;
     private String jdbcPassword;
     private ConnectionType connectionType = ConnectionType.POOL_PREFERRED;
+    private boolean h2Used = false;
 
     enum ConnectionType {
         POOL_PREFERRED, SINGLE;
@@ -36,6 +36,8 @@ public class JdbcConnectionFactory implements ConnectionFactory {
             jdbcUser = prop.getProperty("dbUser");
             jdbcUrl = prop.getProperty("dbUrl");
             jdbcPassword = prop.getProperty("dbPassword");
+            if ("org.h2.Driver".equals(jdbcDriver))
+                h2Used = true;
             Class.forName(jdbcDriver);
         } catch (IOException | ClassNotFoundException e) {
             logger.error(e);
@@ -52,6 +54,11 @@ public class JdbcConnectionFactory implements ConnectionFactory {
             connectionType = ConnectionType.SINGLE;
         }
 
+    }
+
+    @Override
+    public boolean isH2Used() {
+        return h2Used;
     }
 
     public static JdbcConnectionFactory getInstance() {
@@ -87,11 +94,6 @@ public class JdbcConnectionFactory implements ConnectionFactory {
 
     private Connection getSingleConnection() throws Exception {
         return DriverManager.getConnection(jdbcUrl, jdbcUser, jdbcPassword);
-    }
-
-    @Override
-    public String getJdbcDriver() {
-        return jdbcDriver;
     }
 
 }

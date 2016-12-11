@@ -11,7 +11,6 @@ import ua.rd.project4.model.holders.CarRequestHolder;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 class JdbcCarRequestDao implements CarRequestDao {
@@ -21,7 +20,7 @@ class JdbcCarRequestDao implements CarRequestDao {
     private final ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
     private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
     private final InvoiceDao invoiceDao = JdbcDaoFactory.getInstance().getInvoiceDao();
-    private boolean H2Used = Objects.equals(JdbcConnectionFactory.getInstance().getJdbcDriver(), "org.h2.Driver");
+    private boolean h2Used = JdbcConnectionFactory.getInstance().isH2Used();;
 
 
     private JdbcCarRequestDao() {
@@ -45,7 +44,7 @@ class JdbcCarRequestDao implements CarRequestDao {
                     "dateTo DATE," +
                     "totalCost DECIMAL(10,2)," +
                     "invoice INT," +
-                    (H2Used ? "status VARCHAR(16)," : "status enum('NEW','APPROVED','REJECTED','DONE') NOT NULL DEFAULT 'NEW',") +
+                    (h2Used ? "status VARCHAR(16)," : "status enum('NEW','APPROVED','REJECTED','PROGRESS','DONE') NOT NULL DEFAULT 'NEW',") +
                     "rejectReason VARCHAR(64)," +
                     "dateCreated TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP," +
                     "FOREIGN KEY (car) REFERENCES cars(id)," +
@@ -54,7 +53,6 @@ class JdbcCarRequestDao implements CarRequestDao {
         } catch (SQLException e) {
             logger.error("Table `car_request` didn't created: ", e);
         }
-
     }
 
     @Override

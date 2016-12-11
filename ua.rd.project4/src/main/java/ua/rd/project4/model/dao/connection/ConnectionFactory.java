@@ -4,5 +4,5 @@ import java.sql.Connection;
 
 public interface ConnectionFactory {
     Connection getConnection();
-    String getJdbcDriver();
+    boolean isH2Used();
 }
