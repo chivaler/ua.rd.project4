@@ -19,7 +19,7 @@ public class InvoiceServiceTest {
     @Test
     public void findInvoicesByClientId_blank() throws Exception {
         assertThat(invoiceService.findInvoicesByClientId(-1).isEmpty(), is(true));
-       assertThat(invoiceService.findInvoicesByClientId(0).isEmpty(), is(true));
+        assertThat(invoiceService.findInvoicesByClientId(0).isEmpty(), is(true));
     }
 
     @Test

@@ -7,6 +7,7 @@ import ua.rd.project4.model.dao.CarFlowDao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.exceptions.WrongCarFlowDirectionException;
+import ua.rd.project4.model.services.Messages;
 import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.CarFlowService;
 
@@ -24,7 +25,6 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
 
     private JdbcCarFlowService() {
     }
-
 
     public static JdbcCarFlowService getInstance() {
         return instance;
@@ -91,7 +91,7 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
             Client client = carFlowOut.getCarRequest().getClient();
             Car car = carFlowOut.getCar();
             BigDecimal appendedInvoiceCost = car.getRentPricePerDay().multiply(new BigDecimal(diffDays));
-            invoice = new Invoice(client, appendedInvoiceCost, false, "Overhead. Car:" + car + " was returned after contracted.");
+            invoice = new Invoice(client, appendedInvoiceCost, false, Messages.OVERUSED + car);
             try {
                 JdbcServiceFactory.getInstance().getInvoiceService().insert(invoice);
             } catch (UniqueViolationException e) {
@@ -104,11 +104,16 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
                 carFlowOut.getCarRequest(),
                 user,
                 invoice, "");
+        CarRequest carRequest = carFlowOut.getCarRequest();
+        carRequest.setStatus(CarRequest.RequestStatus.DONE);
         try {
             insert(carFlowIn);
+            getServiceFactory().getCarRequestService().update(carRequest.getId(), carRequest);
         } catch (UniqueViolationException e) {
             logger.error(e);
         }
+
+
     }
 
     @Override

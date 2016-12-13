@@ -86,7 +86,7 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
     }
 
     @Override
-    public void approve(int carRequestId) throws ConflictsRequestException {
+    public synchronized void approve(int carRequestId) throws ConflictsRequestException {
         CarRequest carRequest = getById(carRequestId);
         if (carRequest.getStatus() != CarRequest.RequestStatus.APPROVED) {
             if (isPossible(carRequestId) != CarRequestStatus.IMPOSSIBLE) {
@@ -115,7 +115,6 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
                 throw new ConflictsRequestException();
         }
     }
-
 
     @Override
     public void reject(int carRequestId, String reason) {
@@ -147,7 +146,7 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
         CarFlow carFlow = new CarFlow(carRequest.getCar(), CarFlow.CarFlowType.OUT, carRequest, user, null, "");
         try {
             JdbcServiceFactory.getInstance().getCarFlowService().checkInCarFlowOut(carFlow);
-            carRequest.setStatus(CarRequest.RequestStatus.DONE);
+            carRequest.setStatus(CarRequest.RequestStatus.PROGRESS);
             update(carRequestId, carRequest);
         } catch (UniqueViolationException | WrongCarFlowDirectionException e) {
             logger.error(e);

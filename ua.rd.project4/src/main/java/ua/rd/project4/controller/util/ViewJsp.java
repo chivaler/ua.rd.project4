@@ -35,6 +35,7 @@ public interface ViewJsp {
     public interface InvoicesCrud {
         String LIST_INVOICES_JSP = "jsp/invoices.jsp";
         String EDIT_INVOICE_JSP = "jsp/invoice.jsp";
+        String VIEW_INVOICE_JSP = "jsp/print/invoiceView.jsp";
     }
 
     public interface AdminSpace {

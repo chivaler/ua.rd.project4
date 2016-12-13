@@ -116,7 +116,7 @@
                 <td align="center"><c:out value="${carRequest.getStatus()}"/></td>
                 <td>
                     <c:if test="${carRequest.getInvoiceId() > 0}">
-                        <a href="${pageContext.request.contextPath}/Controller?command=INVOICES&do=get&id=${carRequest.getInvoiceId()}">
+                        <a href="${pageContext.request.contextPath}/Controller?command=PRINTINVOICE&id=${carRequest.getInvoiceId()}">
                             <c:out value="${carRequest.getInvoice().toString()}"/>
                         </a>
                     </c:if>

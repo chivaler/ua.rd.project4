@@ -31,7 +31,8 @@ public class CommandFactoryImpl implements CommandFactory {
         USERSPACE(UserSpaceCommand.getInstance()),
         CARSAVAILABLE(CarsAvailableCommand.getInstance()),
         CREATECARREQUEST(UserCreateCarRequestCommand.getInstance()),
-        REGISTER(UserRegisterCommand.getInstance());
+        REGISTER(UserRegisterCommand.getInstance()),
+        PRINTINVOICE(PrintInvoiceCommand.getInstance());
 
         final Command command;
 

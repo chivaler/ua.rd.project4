@@ -52,24 +52,24 @@ public class UserServiceTest {
 
     @Test
     public void authentication_blank() throws Exception {
-        assertThat(userService.authentication("login","password")==null,is(true));
-        assertThat(userService.authentication("","password")==null,is(true));
-        assertThat(userService.authentication("login","")==null,is(true));
-        assertThat(userService.authentication("login","password")==null,is(true));
+        assertThat(userService.authentication("login", "password") == null, is(true));
+        assertThat(userService.authentication("", "password") == null, is(true));
+        assertThat(userService.authentication("login", "") == null, is(true));
+        assertThat(userService.authentication("login", "password") == null, is(true));
 
     }
 
     @Test
     public void authentication() throws Exception {
         User user1 = RandomEntities.getUser();
-        assertThat(userService.authentication(user1.getLogin(),user1.getPasswordHash())==null,is(true));
+        assertThat(userService.authentication(user1.getLogin(), user1.getPasswordHash()) == null, is(true));
         user1.setPasswordHash(userService.getHashPassword("password"));
-        assertThat(userService.authentication(user1.getLogin(),user1.getPasswordHash())==null,is(true));
+        assertThat(userService.authentication(user1.getLogin(), user1.getPasswordHash()) == null, is(true));
         userService.insert(user1);
-        assertThat(userService.authentication(user1.getLogin(),user1.getPasswordHash())==null,is(true));
-        assertThat(userService.authentication(user1.getLogin(),"")==null,is(true));
-        assertThat(userService.authentication(user1.getLogin(),"otherPassword")==null,is(true));
-        assertThat(userService.authentication(user1.getLogin(),"password"),is(user1));
+        assertThat(userService.authentication(user1.getLogin(), user1.getPasswordHash()) == null, is(true));
+        assertThat(userService.authentication(user1.getLogin(), "") == null, is(true));
+        assertThat(userService.authentication(user1.getLogin(), "otherPassword") == null, is(true));
+        assertThat(userService.authentication(user1.getLogin(), "password"), is(user1));
 
         userService.delete(user1.getId());
     }

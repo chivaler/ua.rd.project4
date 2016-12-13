@@ -13,6 +13,10 @@ th {
     color: white;
 }
 
+tr.border_bottom td {
+    border-bottom:1pt solid black;
+}
+
 form {
     margin-bottom: 0;
 }
