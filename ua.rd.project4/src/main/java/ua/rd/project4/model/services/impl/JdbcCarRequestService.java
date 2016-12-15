@@ -6,9 +6,7 @@ import ua.rd.project4.domain.*;
 import ua.rd.project4.model.dao.CarRequestDao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.exceptions.*;
-import ua.rd.project4.model.services.CarService;
-import ua.rd.project4.model.services.ServiceFactory;
-import ua.rd.project4.model.services.CarRequestService;
+import ua.rd.project4.model.services.*;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -22,6 +20,8 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
     private static final JdbcCarRequestService instance = new JdbcCarRequestService();
     private final Logger logger = LogManager.getLogger(JdbcCarRequestService.class);
     private final CarService carService = JdbcServiceFactory.getInstance().getCarService();
+    private final InvoiceService invoiceService = JdbcServiceFactory.getInstance().getInvoiceService();
+    private final CarFlowService carFlowService = JdbcServiceFactory.getInstance().getCarFlowService();
 
     private JdbcCarRequestService() {
     }
@@ -104,7 +104,7 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
                         false,
                         "Invoice for rent " + carRequest.getCar());
                 try {
-                    JdbcServiceFactory.getInstance().getInvoiceService().insert(invoice);
+                    invoiceService.insert(invoice);
                     carRequest.setInvoice(invoice);
                     carRequest.setTotalCost(total);
                     update(carRequestId, carRequest);
@@ -145,7 +145,7 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
             throw new CarRequestPaymentNeededException();
         CarFlow carFlow = new CarFlow(carRequest.getCar(), CarFlow.CarFlowType.OUT, carRequest, user, null, "");
         try {
-            JdbcServiceFactory.getInstance().getCarFlowService().checkInCarFlowOut(carFlow);
+            carFlowService.checkInCarFlowOut(carFlow);
             carRequest.setStatus(CarRequest.RequestStatus.PROGRESS);
             update(carRequestId, carRequest);
         } catch (UniqueViolationException | WrongCarFlowDirectionException e) {

@@ -21,7 +21,6 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
     private static final JdbcCarFlowService instance = new JdbcCarFlowService();
     private final Logger logger = LogManager.getLogger(JdbcCarFlowService.class);
     private final InvoiceService invoiceService = JdbcInvoiceSevice.getInstance();
-    private final CarRequestService carRequestService = JdbcCarRequestService.getInstance();
 
     private JdbcCarFlowService() {
     }
@@ -106,6 +105,7 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
                 invoice, "");
         CarRequest carRequest = carFlowOut.getCarRequest();
         carRequest.setStatus(CarRequest.RequestStatus.DONE);
+        CarRequestService carRequestService = JdbcCarRequestService.getInstance();
         try {
             insert(carFlowIn);
             carRequestService.update(carRequest.getId(), carRequest);
@@ -118,9 +118,7 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
 
     @Override
     public boolean isCarInBox(int carId) {
-        return findCarFlowsByCarId(carId).stream()
-                .mapToInt(s -> s.getCarFlowType()
-                        .getValue()).sum() > 0;
+        return getDao().isCarInBox(carId);
     }
 
     @Override

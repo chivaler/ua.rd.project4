@@ -50,5 +50,4 @@ public class MainController extends HttpServlet {
 }
 
 /* TODO printable version of jsps
- * more logic
  */

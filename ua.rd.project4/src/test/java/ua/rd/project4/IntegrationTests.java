@@ -1,5 +1,9 @@
 package ua.rd.project4;
 
+import org.eclipse.jetty.server.Handler;
+import org.eclipse.jetty.server.handler.ContextHandler;
+import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -33,21 +37,33 @@ public class IntegrationTests {
         connector.setPort(0); // auto-bind to available port
         server.addConnector(connector);
 
-//        ServletContextHandler context = new ServletContextHandler();
-////        ServletHolder defaultServ = new ServletHolder("default", DefaultServlet.class);
-//        ServletHolder defaultServ = new ServletHolder("default", MainController.class);
-//        defaultServ.setInitParameter("resourceBase", System.getProperty("user.dir"));
-//        defaultServ.setInitParameter("dirAllowed", "true");
-//        context.addServlet(defaultServ, "/");
-//        server.setHandler(context);
+        ResourceHandler staticResourceHandler = new ResourceHandler();
+        staticResourceHandler.setResourceBase("./webapp/static/");
+        staticResourceHandler.setDirectoriesListed(true);
 
-        String rootPath = MainController.class.getClassLoader().getResource(".").toString();
-//        WebAppContext webAppContext = new WebAppContext();
-        WebAppContext webAppContext = new WebAppContext(rootPath + "../../src/main/webapp", "");
-//        webAppContext.setContextPath("/");
-//        webAppContext.setResourceBase("src/main/webapp");
-//        webAppContext.setClassLoader(Thread.currentThread().getContextClassLoader());
-        server.setHandler(webAppContext);
+        // Create context handler for static resource handler.
+        ContextHandler staticContextHandler = new ContextHandler();
+        staticContextHandler.setContextPath("/static");
+        staticContextHandler.setHandler(staticResourceHandler);
+
+        // Create WebAppContext for JSP files.
+        WebAppContext webAppContext = new WebAppContext();
+        webAppContext.setContextPath("/jsp");
+        webAppContext.setResourceBase("./webapp/jsp/");
+        // ??? THIS DOES NOT STOP DIR LISTING OF ./webapps/jsp/ ???
+        webAppContext.setInitParameter("dirAllowed", "true");
+
+        // Create servlet context handler for main servlet.
+        ServletContextHandler servletContextHandler = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        servletContextHandler.setContextPath("/");
+        servletContextHandler.addServlet(new ServletHolder(new MainController()), "/Controller*");
+
+        // Create a handler list to store our static, jsp and servlet context handlers.
+        HandlerList handlers = new HandlerList();
+        handlers.setHandlers(new Handler[] { staticContextHandler, webAppContext, servletContextHandler });
+
+        // Add the handlers to the server and start jetty.
+        server.setHandler(handlers);
 
         // Start Server
         server.start();
@@ -96,6 +112,13 @@ public class IntegrationTests {
         HttpURLConnection http = (HttpURLConnection) serverUri.resolve("/Controller?command=ADMIN").toURL().openConnection();
         http.connect();
         assertThat("Response Code", http.getResponseCode(), is(HttpStatus.FORBIDDEN_403));
+    }
+
+    @Test
+    public void doGet_Car() throws Exception {
+        HttpURLConnection http = (HttpURLConnection) serverUri.resolve("/Controller?command=USERSPACE").toURL().openConnection();
+        http.connect();
+        assertThat("Response Code", http.getResponseCode(), is(HttpStatus.OK_200));
     }
 
 }

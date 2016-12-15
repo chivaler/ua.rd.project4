@@ -1,5 +1,6 @@
 package ua.rd.project4.model.dao.impl;
 
+import ua.rd.project4.domain.Car;
 import ua.rd.project4.domain.CarFlow;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -61,7 +62,7 @@ class JdbcCarFlowDao implements CarFlowDao {
         boolean wasInserted = false;
         try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `car_flow` " +
-                     "(car, carFlowType, carRequest, responsiblePerson, invoice, supplement) VALUES(?,?,?,?,?,?)",
+                             "(car, carFlowType, carRequest, responsiblePerson, invoice, supplement) VALUES(?,?,?,?,?,?)",
                      Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setObject(1, carFlow.getCarId() == 0 ? null : carFlow.getCarId());
             preparedStatement.setObject(2, carFlow.getCarFlowType() == null ? null : carFlow.getCarFlowType().getValue());
@@ -196,6 +197,36 @@ class JdbcCarFlowDao implements CarFlowDao {
             logger.error(e);
         }
         return foundCarFlows;
+    }
+
+    @Override
+    public boolean isCarInBox(int carId) {
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT SUM(`carFlowType`) FROM `car_flow` WHERE `car`=?")) {
+            preparedStatement.setInt(1, carId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            int countedFlow = resultSet.getInt(1);
+            return (countedFlow > 0);
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+        return false;
+    }
+
+    @Override
+    public List<Car> getCarsInBox() {
+        return null;
+    }
+
+    @Override
+    public List<Car> getCarsOutOfBox() {
+        return null;
+    }
+
+    @Override
+    public CarFlow findLastCarFlowOutOfCar(int carId) {
+        return null;
     }
 
     @Override

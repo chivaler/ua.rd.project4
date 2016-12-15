@@ -67,7 +67,7 @@ public class MainControllerTest {
         when(request.getParameter("command")).thenReturn("CARS");
         new MainController().doPost(request, response);
         writer.flush();
-        verify(request, atLeast(1)).getRequestDispatcher(ViewJsp.UserSpace.USER_JSP);
+        verify(request, atLeast(1)).getRequestDispatcher(ViewJsp.General.ERROR_404);
         verify(request, atLeast(1)).setAttribute(eq("error"), any(String.class));
         writer.flush();
         verify(request, atLeast(1)).getParameter("command");
