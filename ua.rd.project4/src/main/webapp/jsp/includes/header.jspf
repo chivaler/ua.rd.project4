@@ -1,4 +1,3 @@
-<fmt:setLocale value="en_US"/>
 <fmt:setBundle basename="localization/messages" var="bundle"/>
 
 <div align="center">

@@ -37,17 +37,15 @@ public class MainController extends HttpServlet {
         RequestWrapper requestWrapper = new RequestWrapperImpl(req);
         try {
             jspUrl = commandDispatcher.executeRequest(requestWrapper);
+            req.getRequestDispatcher(jspUrl).forward(req, resp);
         } catch (InsufficientPermissionsException e) {
             logger.debug(e);
             JspMessagesSetter.setOutputError(requestWrapper, JspMessagesSetter.JspError.INSUFFICIENT_PERMISSIONS);
-            jspUrl = ViewJsp.UserSpace.USER_JSP;
             resp.sendError(HttpServletResponse.SC_FORBIDDEN);
         } catch (NotFoundException e) {
             logger.debug(e);
-            jspUrl = ViewJsp.General.ERROR_404;
             resp.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
-        req.getRequestDispatcher(jspUrl).forward(req, resp);
     }
 }
 
