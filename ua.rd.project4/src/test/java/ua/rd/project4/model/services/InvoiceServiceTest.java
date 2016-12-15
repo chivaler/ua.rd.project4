@@ -3,7 +3,7 @@ package ua.rd.project4.model.services;
 import org.junit.Test;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.Invoice;
-import ua.rd.project4.model.RandomEntities;
+import ua.rd.project4.RandomEntities;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package ua.rd.project4.model;
+package ua.rd.project4;
 
 import ua.rd.project4.domain.*;
 

@@ -2,7 +2,7 @@ package ua.rd.project4.model.services;
 
 import org.junit.Test;
 import ua.rd.project4.domain.*;
-import ua.rd.project4.model.RandomEntities;
+import ua.rd.project4.RandomEntities;
 import ua.rd.project4.model.exceptions.WrongCarFlowDirectionException;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 

@@ -1,12 +1,10 @@
 package ua.rd.project4.controller.command.impl;
 
 import org.junit.Test;
-import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
-import ua.rd.project4.controller.util.SessionWrapper;
 import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.User;
-import ua.rd.project4.model.RandomEntities;
+import ua.rd.project4.RandomEntities;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 import static org.hamcrest.core.Is.is;

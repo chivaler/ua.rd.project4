@@ -15,7 +15,6 @@ public class CommandDispatcherImpl implements CommandDispatcher {
     private static final CommandDispatcherImpl instance = new CommandDispatcherImpl();
     private final Logger logger = LogManager.getLogger(CommandDispatcherImpl.class);
 
-
     private CommandDispatcherImpl() {
     }
 
@@ -54,11 +53,6 @@ public class CommandDispatcherImpl implements CommandDispatcher {
     }
 
     @Override
-    public Command getCommandByName(String commandName) {
-        return CommandMapping.valueOf(commandName).getCommand();
-    }
-
-    @Override
     public String executeRequest(RequestWrapper requestWrapper) throws InsufficientPermissionsException, NotFoundException {
         User user = requestWrapper.getSessionWrapper(false).getUser();
         String commandName = requestWrapper.getParameter("command");
@@ -75,8 +69,4 @@ public class CommandDispatcherImpl implements CommandDispatcher {
         }
     }
 
-    @Override
-    public String getFallbackPermissionsUrl() {
-        return ViewJsp.UserSpace.USER_JSP;
-    }
 }

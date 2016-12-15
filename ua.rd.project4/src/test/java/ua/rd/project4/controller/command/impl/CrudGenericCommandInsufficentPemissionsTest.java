@@ -5,7 +5,7 @@ import ua.rd.project4.controller.command.Command;
 import ua.rd.project4.controller.exceptions.InsufficientPermissionsException;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.User;
-import ua.rd.project4.model.RandomEntities;
+import ua.rd.project4.RandomEntities;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

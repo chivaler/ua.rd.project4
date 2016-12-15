@@ -1,5 +1,6 @@
-package Dao;
+package ua.rd.project4.model.dao;
 
+import org.junit.Test;
 import ua.rd.project4.model.dao.*;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
@@ -12,6 +13,7 @@ import static org.hamcrest.core.Is.is;
 
 public class InitDataTest {
 
+    @Test
     public void initData() {
         CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
         ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();

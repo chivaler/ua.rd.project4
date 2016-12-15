@@ -4,13 +4,9 @@ import org.junit.Test;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.exceptions.LoginExistsException;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
-import ua.rd.project4.model.RandomEntities;
+import ua.rd.project4.RandomEntities;
 
-import java.math.BigInteger;
 import java.util.Collections;
-import java.util.Random;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.core.Is.is;

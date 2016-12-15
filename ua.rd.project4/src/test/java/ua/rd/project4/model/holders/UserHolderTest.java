@@ -3,7 +3,7 @@ package ua.rd.project4.model.holders;
 import org.junit.Test;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.User;
-import ua.rd.project4.model.RandomEntities;
+import ua.rd.project4.RandomEntities;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
