@@ -187,7 +187,8 @@ class JdbcCarFlowDao implements CarFlowDao {
         List<CarFlow> foundCarFlows = new ArrayList<>();
         CarFlow carFlow;
         try (Connection connection = connectionFactory.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow` ORDER BY dateCreated DESC LIMIT " + Integer.toString(n))) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow` ORDER BY dateCreated DESC LIMIT ?")) {
+            preparedStatement.setInt(1, n);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 carFlow = getEntityFromResultSet(resultSet);
@@ -216,7 +217,17 @@ class JdbcCarFlowDao implements CarFlowDao {
 
     @Override
     public CarFlow findLastCarFlowOutOfCar(int carId) {
-        return null;
+        CarFlow carFlow = null;
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow` WHERE `car`=? AND `carFlowType`=-1 ORDER BY dateCreated DESC LIMIT 1")) {
+            preparedStatement.setInt(1, carId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            carFlow = getEntityFromResultSet(resultSet);
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+        return carFlow;
     }
 
     @Override

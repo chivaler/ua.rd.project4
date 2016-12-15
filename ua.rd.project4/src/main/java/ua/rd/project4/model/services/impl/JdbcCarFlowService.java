@@ -133,11 +133,6 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
 
     @Override
     public CarFlow findLastCarFlowOutOfCar(int carId) {
-        return findCarFlowsByCarId(carId)
-                .stream()
-                .filter(s -> s.getCarId() == carId)
-                .filter(s -> s.getCarFlowType() == CarFlow.CarFlowType.OUT)
-                .reduce((p1, p2) -> p1.getDateCreated().compareTo(p2.getDateCreated()) > 0 ? p1 : p2)
-                .orElse(null);
+        return getDao().findLastCarFlowOutOfCar(carId);
     }
 }

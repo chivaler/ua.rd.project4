@@ -265,4 +265,39 @@ public class CarFlowServiceTest {
         assertThat(carFlowService.isCarInBox(car3.getId()), is(false));
     }
 
+    @Test
+    public void findLastCarFlowOutOfCarNull() throws Exception {
+        Car car1 = RandomEntities.getCar();
+        carService.insert(car1);
+        assertNull(carFlowService.findLastCarFlowOutOfCar(car1.getId()));
+    }
+
+    @Test
+    public void findLastCarFlowOutOfCar() throws Exception {
+        Car car1 = RandomEntities.getCar();
+        Car car2 = RandomEntities.getCar();
+        Car car3 = RandomEntities.getCar();
+        carService.insert(car1);
+        carService.insert(car2);
+        carService.insert(car3);
+
+        CarFlow carFlow1 = new CarFlow(car1, CarFlow.CarFlowType.IN, null, null, null, "");
+        carFlowService.insert(carFlow1);
+        assertNull(carFlowService.findLastCarFlowOutOfCar(car1.getId()));
+
+        CarFlow carFlow2 = new CarFlow(car2, CarFlow.CarFlowType.IN, null, null, null, "");
+        carFlowService.insert(carFlow2);
+
+        CarFlow carFlow3 = new CarFlow(car1, OUT, null, null, null, "");
+        carFlowService.insert(carFlow3);
+        assertThat(carFlowService.findLastCarFlowOutOfCar(car1.getId()),is(carFlow3));
+
+        CarFlow carFlow4 = new CarFlow(car3, OUT, null, null, null, "");
+        carFlowService.insert(carFlow4);
+        assertThat(carFlowService.findLastCarFlowOutOfCar(car1.getId()),is(carFlow3));
+        assertThat(carFlowService.findLastCarFlowOutOfCar(car3.getId()),is(carFlow4));
+
+
+    }
+
 }

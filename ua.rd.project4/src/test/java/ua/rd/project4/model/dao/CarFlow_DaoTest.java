@@ -1,8 +1,12 @@
 package ua.rd.project4.model.dao;
 
 import org.junit.BeforeClass;
+import org.junit.Test;
+import ua.rd.project4.RandomEntities;
 import ua.rd.project4.domain.CarFlow;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
+
+import static org.junit.Assert.assertTrue;
 
 public class CarFlow_DaoTest extends EntityDaoTest<CarFlow> {
     @Override
@@ -23,5 +27,15 @@ public class CarFlow_DaoTest extends EntityDaoTest<CarFlow> {
     @Override
     EntityDao<CarFlow> getDao() {
         return JdbcDaoFactory.getInstance().getCarFlowDao();
+    }
+
+    @Test
+    public void findAll() throws Exception {
+        CarFlowDao carFlowDao = JdbcDaoFactory.getInstance().getCarFlowDao();
+        carFlowDao.insert(RandomEntities.getCarFlow());
+        carFlowDao.insert(RandomEntities.getCarFlow());
+        carFlowDao.insert(RandomEntities.getCarFlow());
+        assertTrue(carFlowDao.findAll(1).size()==1);
+        assertTrue(carFlowDao.findAll(3).size()==3);
     }
 }
