@@ -5,6 +5,8 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controlle
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\holders\CarRequestHolderTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\Client_DaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudGenericCommandInsufficentPemissionsTest.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CommandDispatcherImplTest.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\util\EncodingFilterTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudCarsCommandInsufficentPemissionsNullTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\EntityDaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\LocalizationCommandTest.java
@@ -18,6 +20,7 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controlle
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\holders\CarFlowHolderTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\CarRequestServiceTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\LogoutCommandTest.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\MainControllerTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudUsersCommandInsufficentPemissionsNullTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\Invoice_DaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudClientsCommandInsufficentPemissionsNullTest.java

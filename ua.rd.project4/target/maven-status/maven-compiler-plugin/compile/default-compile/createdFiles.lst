@@ -1,6 +1,7 @@
 ua\rd\project4\controller\util\ViewJsp$UsersCrud.class
 ua\rd\project4\domain\Car$CarType.class
 ua\rd\project4\model\dao\EntityDao.class
+ua\rd\project4\controller\util\SessionWrapper.class
 ua\rd\project4\controller\util\ViewJsp$CarsCrud.class
 ua\rd\project4\controller\util\ViewJsp$UserSpace.class
 ua\rd\project4\controller\util\JspMessagesSetter$JspError.class
@@ -26,6 +27,7 @@ ua\rd\project4\model\holders\UserHolder.class
 ua\rd\project4\model\dao\impl\JdbcCarDao.class
 ua\rd\project4\controller\command\impl\LoginCommand.class
 ua\rd\project4\model\dao\impl\JdbcCarRequestDao.class
+ua\rd\project4\controller\exceptions\RequestAttributeNotPermittedException.class
 ua\rd\project4\model\dao\connection\ConnectionFactory.class
 ua\rd\project4\model\dao\UserDao.class
 ua\rd\project4\controller\util\EncodingFilter.class
@@ -35,16 +37,21 @@ ua\rd\project4\model\dao\impl\JdbcDaoFactory.class
 ua\rd\project4\model\dao\connection\impl\JdbcConnectionFactory$ConnectionType.class
 ua\rd\project4\model\exceptions\EntityInUseException.class
 ua\rd\project4\model\dao\impl\JdbcInvoiceDao.class
+ua\rd\project4\controller\command\impl\CommandDispatcherImpl$CommandMapping.class
+ua\rd\project4\model\services\Messages.class
+ua\rd\project4\controller\util\RequestWrapper.class
 ua\rd\project4\controller\command\impl\CarOutCommand.class
 ua\rd\project4\model\dao\ClientDao.class
 ua\rd\project4\controller\command\impl\CrudClientsCommand.class
 ua\rd\project4\model\services\UserService.class
 ua\rd\project4\model\dao\CarFlowDao.class
 ua\rd\project4\model\services\impl\JdbcServiceFactory.class
+ua\rd\project4\controller\exceptions\ExceptionRequiredFieldEmptyException.class
 ua\rd\project4\model\services\impl\JdbcCarRequestService.class
 ua\rd\project4\controller\command\impl\CrudCarRequestCommand.class
 ua\rd\project4\model\services\impl\JdbcClientService.class
 ua\rd\project4\controller\util\impl\RequestWrapperImpl.class
+ua\rd\project4\controller\exceptions\InsufficientPermissionsException.class
 ua\rd\project4\model\services\ClientService.class
 ua\rd\project4\model\exceptions\LoginExistsException.class
 ua\rd\project4\model\exceptions\UniqueViolationException.class
@@ -55,6 +62,7 @@ ua\rd\project4\model\services\CarService.class
 ua\rd\project4\controller\util\ViewJsp$InvoicesCrud.class
 ua\rd\project4\domain\Invoice.class
 ua\rd\project4\model\services\InvoiceService.class
+ua\rd\project4\controller\util\impl\SessionWrapperImpl.class
 ua\rd\project4\model\dao\JdbcFields.class
 ua\rd\project4\model\dao\impl\JdbcCarFlowDao.class
 ua\rd\project4\model\dao\CarRequestDao.class
@@ -76,6 +84,8 @@ ua\rd\project4\model\holders\CarFlowHolder.class
 ua\rd\project4\model\dao\CarDao.class
 ua\rd\project4\model\dao\DaoFactory.class
 ua\rd\project4\domain\Car.class
+ua\rd\project4\controller\command\impl\CommandDispatcherImpl.class
+ua\rd\project4\controller\command\CommandDispatcher.class
 ua\rd\project4\controller\exceptions\RequiredParameterException.class
 ua\rd\project4\controller\util\ViewJsp$ClientsCrud.class
 ua\rd\project4\controller\command\impl\CarsAvailableCommand.class

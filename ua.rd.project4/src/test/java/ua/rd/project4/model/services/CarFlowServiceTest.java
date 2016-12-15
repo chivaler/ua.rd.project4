@@ -1,18 +1,12 @@
 package ua.rd.project4.model.services;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.junit.Test;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.RandomEntities;
 import ua.rd.project4.model.exceptions.WrongCarFlowDirectionException;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
-import java.math.BigDecimal;
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Collections;
-import java.util.Locale;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -181,8 +175,12 @@ public class CarFlowServiceTest {
         Car car1 = RandomEntities.getCar();
         carService.insert(car1);
         CarFlow carFlowIn = new CarFlow(car1, IN, null, null, null, "to client");
-        CarFlow carFlowOut = new CarFlow(car1, OUT, null, null, null, "to client");
         carFlowService.insert(carFlowIn);
+
+        CarRequest carRequest = RandomEntities.getCarRequest();
+        carRequest.setCar(car1);
+        carRequestService.insert(carRequest);
+        CarFlow carFlowOut = new CarFlow(car1, OUT, carRequest, null, null, "to client");
         carFlowService.checkInCarFlowOut(carFlowOut);
         carFlowService.checkInCarFlowIn(carFlowOut.getId(), null);
         carFlowService.isCarInBox(car1.getId());
