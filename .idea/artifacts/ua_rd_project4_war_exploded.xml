@@ -11,8 +11,8 @@
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.7" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.7" />
-          <element id="library" level="project" name="Maven: com.h2database:h2:1.4.193" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.39" />
+          <element id="library" level="project" name="Maven: com.h2database:h2:1.4.193" />
           <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.1" />
         </element>
       </element>

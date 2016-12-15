@@ -6,17 +6,13 @@ import ua.rd.project4.controller.exceptions.InsufficientPermissionsException;
 import ua.rd.project4.controller.exceptions.NotFoundException;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.SessionWrapper;
-import ua.rd.project4.controller.util.ViewJsp;
-
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class CommandDispatcherImplTest {
-    CommandDispatcher commandDispatcher = CommandDispatcherImpl.getInstance();
-    RequestWrapper req = mock(RequestWrapper.class);
-    SessionWrapper sessionWrapper = mock(SessionWrapper.class);
+    private CommandDispatcher commandDispatcher = CommandDispatcherImpl.getInstance();
+    private RequestWrapper req = mock(RequestWrapper.class);
+    private SessionWrapper sessionWrapper = mock(SessionWrapper.class);
 
     @Test(expected = NotFoundException.class)
     public void executeRequest404() throws Exception {
@@ -37,6 +33,14 @@ public class CommandDispatcherImplTest {
     @Test(expected = InsufficientPermissionsException.class)
     public void executeRequest2() throws Exception {
         when(req.getParameter("command")).thenReturn("INVOICES");
+        when(req.getSessionWrapper(false)).thenReturn(sessionWrapper);
+        when(sessionWrapper.getUser()).thenReturn(null);
+        commandDispatcher.executeRequest(req);
+    }
+
+    @Test(expected = InsufficientPermissionsException.class)
+    public void executeRequest3() throws Exception {
+        when(req.getParameter("command")).thenReturn("CARREQUESTS");
         when(req.getSessionWrapper(false)).thenReturn(sessionWrapper);
         when(sessionWrapper.getUser()).thenReturn(null);
         commandDispatcher.executeRequest(req);

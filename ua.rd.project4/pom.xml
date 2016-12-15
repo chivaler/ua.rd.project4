@@ -34,7 +34,7 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>${jetty-maven-plugin.version}</version>
+                <version>${jetty.version}</version>
                 <configuration>
                     <systemPropertiesFile>db.properties</systemPropertiesFile>
                 </configuration>
@@ -75,7 +75,7 @@
         <mockito.version>2.3.4</mockito.version>
         <c3p0.version>0.9.1</c3p0.version>
         <commons-io.version>2.5</commons-io.version>
-        <jetty-maven-plugin.version>9.3.14.v20161028</jetty-maven-plugin.version>
+        <jetty.version>9.3.14.v20161028</jetty.version>
         <tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
         <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
     </properties>
@@ -145,6 +145,18 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.5</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>${jetty.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>${jetty.version}</version>
             <scope>test</scope>
         </dependency>
 

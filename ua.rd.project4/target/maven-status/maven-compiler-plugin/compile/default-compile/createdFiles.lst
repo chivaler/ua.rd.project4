@@ -12,6 +12,7 @@ ua\rd\project4\model\dao\impl\JdbcClientDao.class
 ua\rd\project4\model\services\impl\JdbcUserSevice.class
 ua\rd\project4\controller\command\impl\LocalizationCommand.class
 ua\rd\project4\controller\util\ViewJsp$General.class
+ua\rd\project4\controller\exceptions\NotFoundException.class
 ua\rd\project4\controller\util\ViewJsp$CarRequestsCrud.class
 ua\rd\project4\controller\util\JspMessagesSetter$JspResult.class
 ua\rd\project4\controller\command\impl\UserCreateCarRequestCommand.class
