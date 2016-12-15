@@ -36,21 +36,16 @@ class JdbcUserSevice extends GenericEntityService<User> implements UserService {
 
     @Override
     public boolean insert(User user) throws UniqueViolationException {
-        if (checkExistUsersWithTheSameLogin(user, 0))
+        if (getDao().getByLogin(user.getLogin()) != null)
             throw new LoginExistsException();
         return super.insert(user);
     }
 
     @Override
     public boolean update(int id, User user) throws UniqueViolationException {
-        if (checkExistUsersWithTheSameLogin(user, id))
+        User sqlUser = getDao().getByLogin(user.getLogin());
+        if (sqlUser == null || sqlUser.getId() != user.getId())
             throw new LoginExistsException();
         return super.update(id, user);
-    }
-
-    private boolean checkExistUsersWithTheSameLogin(User user, int id) {
-        return findAll().stream().
-                filter(s -> s.getLogin().equals(user.getLogin())).
-                anyMatch(s -> s.getId() != id);
     }
 }

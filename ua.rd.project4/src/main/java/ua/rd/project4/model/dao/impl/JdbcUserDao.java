@@ -123,6 +123,22 @@ class JdbcUserDao implements UserDao {
     }
 
     @Override
+    public User getByLogin(String login) {
+        User user = null;
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users` WHERE login=? LIMIT 1")) {
+            preparedStatement.setString(1, login);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                user = getEntityFromResultSet(resultSet);
+            }
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+        return user;
+    }
+
+    @Override
     public List<User> findAll() {
         List<User> allUsers = new ArrayList<>();
         User user;
