@@ -9,7 +9,7 @@ public interface ViewJsp {
     }
 
     public interface CarsCrud {
-        String LIST_CARS_JSP = "jsp/cars.jsp";
+        String LIST_CARS_JSP = "/jsp/cars.jsp";
         String EDIT_CAR_JSP = "jsp/car.jsp";
     }
 

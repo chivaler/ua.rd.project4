@@ -3,7 +3,6 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controlle
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\CarFlowServiceTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudCarsCommandInsufficentPemissionsUserTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\holders\CarRequestHolderTest.java
-D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\integrationTests\EncodingFilterTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\Client_DaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudGenericCommandInsufficentPemissionsTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CommandDispatcherImplTest.java
@@ -24,6 +23,7 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controlle
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\Invoice_DaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudClientsCommandInsufficentPemissionsNullTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\LoginCommandTest.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\IntegrationTests.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\InitDataTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\InvoiceServiceTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudClientsCommandInsufficentPemissionsUserTest.java
