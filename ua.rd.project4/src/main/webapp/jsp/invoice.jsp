@@ -16,8 +16,8 @@
     <INPUT type="hidden" name="do" value="update"/>
     <table class="edit">
         <tr>
-            <th>Field</th>
-            <th>Value</th>
+            <th><fmt:message key="field" bundle="${bundle}"/></th>
+            <th><fmt:message key="value" bundle="${bundle}"/></th>
         </tr>
         <%@include file="includes/fields/id.jspf" %>
         <%@include file="includes/fields/client.jspf" %>

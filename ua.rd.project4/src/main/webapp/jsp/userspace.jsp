@@ -22,11 +22,11 @@
 <div style="text-align: center">
     <form action="${pageContext.request.contextPath}/Controller" method="post">
         <INPUT type="hidden" name="command" value="CARSAVAILABLE"/>
-        <label for="dateFrom1">dateFrom</label>
+        <label for="dateFrom1"><fmt:message key="dateFrom" bundle="${bundle}"/></label>
         <input type="date" name="dateFrom" id="dateFrom1"/>
-        <label for="dateTo1">dateTo</label>
+        <label for="dateTo1"><fmt:message key="dateTo" bundle="${bundle}"/></label>
         <input type="date" name="dateTo" id="dateTo1"/>
-        <input type="submit" value="Found available cars for period"></td>
+        <input type="submit" value="<fmt:message key="foundAvailableCarsForPeriod" bundle="${bundle}"/>"></td>
     </form>
 </div>
 <br>
@@ -36,18 +36,18 @@
         <table>
             <c:choose>
                 <c:when test="${not empty listAvailableCars}">
-                    <caption>FoundCars</caption>
+                    <caption><fmt:message key="foundCars" bundle="${bundle}"/></caption>
                 </c:when>
                 <c:otherwise>
-                    <caption>Place New Request For Car</caption>
+                    <caption><fmt:message key="placeNewRequestForCar" bundle="${bundle}"/></caption>
                 </c:otherwise>
             </c:choose>
             <tr>
-                <td><label for="dateFrom">dateFrom</label></td>
+                <td><label for="dateFrom"><fmt:message key="dateFrom" bundle="${bundle}"/></label></td>
                 <td><input type="date" name="dateFrom" id="dateFrom"/></td>
             </tr>
             <tr>
-                <td><label for="dateTo">dateTo</label></td>
+                <td><label for="dateTo"><fmt:message key="dateTo" bundle="${bundle}"/></label></td>
                 <td><input type="date" name="dateTo" id="dateTo"/></td>
             </tr>
             <c:forEach var="car" items="${cars}">
@@ -65,12 +65,12 @@
                 <td colspan="2">
                     <c:choose>
                         <c:when test="${not empty user}">
-                            <INPUT type="submit" value="New Request">
+                            <INPUT type="submit" value="<fmt:message key="newRequest" bundle="${bundle}"/>">
                         </c:when>
                         <c:otherwise>
-                            <a href="${pageContext.request.contextPath}/jsp/register.jsp">Register</a> or
-                            <a href="${pageContext.request.contextPath}/jsp/login.jsp">Login</a>
-                            to place new request
+                            <a href="${pageContext.request.contextPath}/jsp/register.jsp"><fmt:message key="register" bundle="${bundle}"/></a> <fmt:message key="or" bundle="${bundle}"/>
+                            <a href="${pageContext.request.contextPath}/jsp/login.jsp"><fmt:message key="Login" bundle="${bundle}"/></a>
+                            <fmt:message key="toPlaceNewRequest" bundle="${bundle}"/>
                         </c:otherwise>
                     </c:choose>
                 </td>
@@ -81,11 +81,11 @@
 <br>
 <c:if test="${not empty user}">
     <table class="list">
-        <caption>My Requests</caption>
+        <caption> <fmt:message key="myRequests" bundle="${bundle}"/></caption>
         <tr>
-            <th>ID</th>
+            <th><fmt:message key="id" bundle="${bundle}"/></th>
             <th><fmt:message key="car" bundle="${bundle}"/></th>
-            <th><fmt:message key="client" bundle="${bundle}"/></th>
+            <th><fmt:message key="Client" bundle="${bundle}"/></th>
             <th><fmt:message key="dateFrom" bundle="${bundle}"/></th>
             <th><fmt:message key="dateTo" bundle="${bundle}"/></th>
             <th><fmt:message key="totalCost" bundle="${bundle}"/></th>
@@ -126,7 +126,7 @@
                         <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                         <INPUT type="hidden" name="do" value="delete"/>
                         <INPUT type="hidden" name="id" value="${carRequest.getId()}"/>
-                        <INPUT type="submit" value="Delete">
+                        <INPUT type="submit" value="<fmt:message key="DELETE" bundle="${bundle}"/>">
                     </form>
                 </td>
             </tr>
@@ -135,8 +135,8 @@
     <br>
     <table class="list">
         <tr>
-            <th>ID</th>
-            <th><fmt:message key="client" bundle="${bundle}"/></th>
+            <th><fmt:message key="id" bundle="${bundle}"/></th>
+            <th><fmt:message key="Client" bundle="${bundle}"/></th>
             <th><fmt:message key="total" bundle="${bundle}"/></th>
             <th><fmt:message key="paid" bundle="${bundle}"/></th>
             <th><fmt:message key="description" bundle="${bundle}"/></th>

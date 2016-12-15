@@ -15,13 +15,13 @@
     <INPUT type="hidden" name="do" value="update"/>
     <table class="edit">
         <tr>
-            <th>Field</th>
-            <th>Value</th>
+            <th><fmt:message key="field" bundle="${bundle}"/></th>
+            <th><fmt:message key="value" bundle="${bundle}"/></th>
         </tr>
         <c:if test="${not empty entity}">
             <c:if test="${not empty entity.getId()}">
                 <tr>
-                    <td><fmt:message key="ID" bundle="${bundle}"/></td>
+                    <td><fmt:message key="id" bundle="${bundle}"/></td>
                     <td><INPUT type=text class="readonly" readonly="readonly" name="id"
                                value="${empty entity ? '' : entity.getId()}"/></td>
                 </tr>

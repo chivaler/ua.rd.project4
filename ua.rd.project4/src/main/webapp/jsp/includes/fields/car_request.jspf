@@ -1,6 +1,6 @@
 <c:set var="chosenCarRequest" value="${empty entity ? (empty param.carRequestId ? '': param.carRequestId) : entity.getCarRequestId()}"/>
 <tr>
-    <td><label for="carRequest">carRequest</label></td>
+    <td><label for="carRequest"><fmt:message key="carRequest" bundle="${bundle}"/></label></td>
     <td>
         <c:choose>
             <c:when test="${not empty listCarRequests}">

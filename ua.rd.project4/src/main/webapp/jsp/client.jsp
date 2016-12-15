@@ -15,45 +15,45 @@
     <INPUT type="hidden" name="do" value="update"/>
     <table class="edit">
         <tr>
-            <th>Field</th>
-            <th>Value</th>
+            <th><fmt:message key="field" bundle="${bundle}"/></th>
+            <th><fmt:message key="value" bundle="${bundle}"/></th>
         </tr>
         <c:if test="${not empty entity}">
             <c:if test="${not empty entity.getId()}">
                 <tr>
-                    <td><fmt:message key="ID" bundle="${bundle}"/></td>
+                    <td><fmt:message key="id" bundle="${bundle}"/></td>
                     <td><INPUT type=text class="readonly" readonly="readonly" name="id"
                                value="${empty entity ? '' : entity.getId()}"/></td>
                 </tr>
             </c:if>
         </c:if>
         <tr>
-            <td><fmt:message key="firstName" bundle="${bundle}"/></td>
+            <td><fmt:message key="FirstName" bundle="${bundle}"/></td>
             <td><INPUT type=text name="firstName"
                        value="${empty entity ? '' : entity.getFirstName()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="lastName" bundle="${bundle}"/></td>
+            <td><fmt:message key="LastName" bundle="${bundle}"/></td>
             <td><INPUT type=text name="lastName"
                        value="${empty entity ? '' : entity.getLastName()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="address" bundle="${bundle}"/></td>
+            <td><fmt:message key="Address" bundle="${bundle}"/></td>
             <td><INPUT type=text name="address"
                        value="${empty entity ? '' : entity.getAddress()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="telephone" bundle="${bundle}"/></td>
+            <td><fmt:message key="Telephone" bundle="${bundle}"/></td>
             <td><INPUT type=text name="telephone"
                        value="${empty entity ? '' : entity.getTelephone()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="email" bundle="${bundle}"/></td>
+            <td><fmt:message key="Email" bundle="${bundle}"/></td>
             <td><INPUT type=text name="email"
                        value="${empty entity ? '' : entity.getEmail()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="idCard" bundle="${bundle}"/></td>
+            <td><fmt:message key="IDCard" bundle="${bundle}"/></td>
             <td><INPUT type=text name="idCard"
                        value="${empty entity ? '' : entity.getIdCard()}"/></td>
         </tr>

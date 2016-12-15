@@ -1,6 +1,6 @@
 <tr>
     <c:set var="chosenUser" value="${empty entity ? (empty sessionScope.user ? '': sessionScope.user.getId()) : entity.getResponsiblePersonId()}"/>
-    <td><label for="responsibleUser">responsibleUser</label></td>
+    <td><label for="responsibleUser"><fmt:message key="responsiblePerson" bundle="${bundle}"/></label></td>
     <td>
         <c:choose>
             <c:when test="${not empty listUsers}">

@@ -15,30 +15,30 @@
     <INPUT type="hidden" name="command" value="USERS"/>
     <INPUT type="hidden" name="do" value="update"/>
     <c:if test="${not empty entity}">
-    <INPUT type=hidden class="readonly" readonly="readonly" name="passwordHash"
-           value="${empty entity ? '' : entity.getPasswordHash()}"/>
+        <INPUT type=hidden class="readonly" readonly="readonly" name="passwordHash"
+               value="${empty entity ? '' : entity.getPasswordHash()}"/>
     </c:if>
     <table class="edit">
         <tr>
-            <th>Field</th>
-            <th>Value</th>
+            <th><fmt:message key="field" bundle="${bundle}"/></th>
+            <th><fmt:message key="value" bundle="${bundle}"/></th>
         </tr>
         <%@include file="includes/fields/id.jspf" %>
         <tr>
-            <td>isAdmin</td>
+            <td><fmt:message key="isAdmin" bundle="${bundle}"/></td>
             <td><INPUT type="checkbox" name="isAdmin" ${empty entity ? '' : entity.isAdmin()? 'checked': ''}/></td>
         </tr>
         <tr>
-            <td>login</td>
+            <td><fmt:message key="Login" bundle="${bundle}"/></td>
             <td><INPUT type="text" name="login" value="${empty entity ? '' : entity.getLogin()}"/></td>
         </tr>
         <tr>
-            <td>Password</td>
+            <td><fmt:message key="Password" bundle="${bundle}"/></td>
             <td><INPUT type="password" name="pass" value=""/></td>
         </tr>
         <%@include file="includes/fields/client.jspf" %>
         <tr>
-            <td colspan="2"><INPUT type="submit" value="Save">
+            <td colspan="2"><INPUT type="submit" value="<fmt:message key="save" bundle="${bundle}"/>">
         </tr>
     </table>
 </form>

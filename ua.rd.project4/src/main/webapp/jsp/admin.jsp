@@ -17,11 +17,11 @@
                 <tr>
                     <td width="50%">
                         <table>
-                            <caption>Cars In Box</caption>
+                            <caption><fmt:message key="CarsInBox" bundle="${bundle}"/></caption>
                             <tr>
-                                <th>car</th>
-                                <th>registrationNumber</th>
-                                <th>new carRequest</th>
+                                <th><fmt:message key="car" bundle="${bundle}"/></th>
+                                <th><fmt:message key="registrationNumber" bundle="${bundle}"/></th>
+                                <th><fmt:message key="newСarRequest" bundle="${bundle}"/></th>
                             </tr>
                             <c:forEach var="car" items="${listCarsIn}">
                                 <tr>
@@ -35,7 +35,7 @@
                                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                                             <INPUT type="hidden" name="do" value="new"/>
                                             <INPUT type="hidden" name="id" value="${car.getId()}"/>
-                                            <INPUT type="submit" value="New request">
+                                            <INPUT type="submit" value="<fmt:message key="newRequest" bundle="${bundle}"/>">
                                         </form>
                                     </td>
                                 </tr>
@@ -44,11 +44,11 @@
                     </td>
                     <td>
                         <table>
-                            <caption>Cars Out</caption>
+                            <caption><fmt:message key="carsOut" bundle="${bundle}"/></caption>
                             <tr>
-                                <th>car</th>
-                                <th>registrationNumber</th>
-                                <th>Register return</th>
+                                <th><fmt:message key="car" bundle="${bundle}"/></th>
+                                <th><fmt:message key="registrationNumber" bundle="${bundle}"/></th>
+                                <th><fmt:message key="registerReturn" bundle="${bundle}"/></th>
                             </tr>
                             <c:forEach var="car" items="${listCarsOut}">
                                 <tr>
@@ -61,7 +61,7 @@
                                         <form action="${pageContext.request.contextPath}/Controller" method="get">
                                             <INPUT type="hidden" name="command" value="CAR_IN"/>
                                             <INPUT type="hidden" name="car" value="${car.getId()}"/>
-                                            <INPUT type="submit" value="Register in">
+                                            <INPUT type="submit" value="<fmt:message key="registerIn" bundle="${bundle}"/>">
                                         </form>
                                     </td>
                                 </tr>
@@ -76,19 +76,19 @@
     <tr><br></tr>
     <tr>
         <table>
-            <caption>new CarRequests</caption>
+            <caption><fmt:message key="newCarRequests" bundle="${bundle}"/></caption>
             <tr>
-                <th>car</th>
-                <th>client</th>
-                <th>dateFrom</th>
-                <th>dateTo</th>
-                <th>status</th>
-                <th>dateCreated</th>
-                <th>invoice</th>
-                <th>available</th>
-                <th>APPROVE</th>
-                <th>REJECT</th>
-                <th>CheckIn Car Out</th>
+                <th><fmt:message key="car" bundle="${bundle}"/></th>
+                <th><fmt:message key="Client" bundle="${bundle}"/></th>
+                <th><fmt:message key="dateFrom" bundle="${bundle}"/></th>
+                <th><fmt:message key="dateTo" bundle="${bundle}"/></th>
+                <th><fmt:message key="status" bundle="${bundle}"/></th>
+                <th><fmt:message key="dateCreated" bundle="${bundle}"/></th>
+                <th><fmt:message key="invoice" bundle="${bundle}"/></th>
+                <th><fmt:message key="available" bundle="${bundle}"/></th>
+                <th><fmt:message key="APPROVE" bundle="${bundle}"/></th>
+                <th><fmt:message key="REJECT" bundle="${bundle}"/></th>
+                <th><fmt:message key="сheckInCarOut" bundle="${bundle}"/></th>
             </tr>
             <c:forEach var="request" items="${mapsCarRequests}">
                 <tr>
@@ -100,17 +100,20 @@
                     <td><c:out value="${request.dateFrom}"/></td>
                     <td><c:out value="${request.dateTo}"/></td>
                     <td><c:out value="${request.status}"/></td>
-                    <td><a href="${pageContext.request.contextPath}/Controller?command=CARREQUESTS&do=get&id=${request.id}">
-                        <c:out value="${request.dateCreated}"/></a></td>
-                    <td><a href="${pageContext.request.contextPath}/Controller?command=INVOICES&do=get&id=${request.invoiceId}">
-                        <c:out value="${request.paid}"/></a></td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/Controller?command=CARREQUESTS&do=get&id=${request.id}">
+                            <c:out value="${request.dateCreated}"/></a></td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/Controller?command=INVOICES&do=get&id=${request.invoiceId}">
+                            <c:out value="${request.paid}"/></a></td>
                     <td><c:out value="${request.available}"/></td>
                     <td>
                         <form action="${pageContext.request.contextPath}/Controller" method="post">
                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                             <INPUT type="hidden" name="do" value="approve"/>
                             <INPUT type="hidden" name="id" value="${request.id}"/>
-                            <INPUT type="submit" value="Approve" ${request.available=='IMPOSSIBLE'?'disabled="disabled"':''} ${request.status=='APPROVED'?'disabled="disabled"':''}>
+                            <INPUT type="submit"
+                                   value="<fmt:message key="APPROVE" bundle="${bundle}"/>" ${request.available=='IMPOSSIBLE'?'disabled="disabled"':''} ${request.status=='APPROVED'?'disabled="disabled"':''}>
                         </form>
                     </td>
                     <td>
@@ -118,7 +121,7 @@
                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                             <INPUT type="hidden" name="do" value="reject"/>
                             <INPUT type="hidden" name="id" value="${request.id}"/>
-                            <INPUT type="submit" value="Reject" ${request.paid=='true'?'disabled="disabled"':''}>
+                            <INPUT type="submit" value="<fmt:message key="REJECT" bundle="${bundle}"/>" ${request.paid=='true'?'disabled="disabled"':''}>
                         </form>
                     </td>
                     <td>
@@ -126,7 +129,8 @@
                             <INPUT type="hidden" name="command" value="CAR_OUT"/>
                             <INPUT type="hidden" name="do" value="reject"/>
                             <INPUT type="hidden" name="carRequest" value="${request.id}"/>
-                            <INPUT type="submit" value="CheckIn Car Out" ${request.paid=='false'?'disabled="disabled"':''}>
+                            <INPUT type="submit"
+                                   value="<fmt:message key="сheckInCarOut" bundle="${bundle}"/>" ${request.paid=='false'?'disabled="disabled"':''}>
                         </form>
                     </td>
                 </tr>
@@ -137,11 +141,11 @@
     <tr><br></tr>
     <tr>
         <table>
-            <caption>Last CarFlows</caption>
+            <caption><fmt:message key="lastCarFlows" bundle="${bundle}"/></caption>
             <tr>
-                <th>ID</th>
-                <th>Car</th>
-                <th>Direction</th>
+                <th><fmt:message key="id" bundle="${bundle}"/></th>
+                <th><fmt:message key="car" bundle="${bundle}"/></th>
+                <th><fmt:message key="direction" bundle="${bundle}"/></th>
                 <th></th>
             </tr>
             <c:forEach var="carFlow" items="${listCarFlows}">

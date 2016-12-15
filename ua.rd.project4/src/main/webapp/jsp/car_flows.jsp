@@ -16,7 +16,7 @@
         <th>ID</th>
         <th><fmt:message key="car" bundle="${bundle}"/></th>
         <th><fmt:message key="carFlowType" bundle="${bundle}"/></th>
-        <th><fmt:message key="client" bundle="${bundle}"/></th>
+        <th><fmt:message key="Client" bundle="${bundle}"/></th>
         <th><fmt:message key="carRequest" bundle="${bundle}"/></th>
         <th><fmt:message key="responsiblePerson" bundle="${bundle}"/></th>
         <th><fmt:message key="invoice" bundle="${bundle}"/></th>
@@ -72,7 +72,7 @@
                     <INPUT type="hidden" name="id" value="${carFlow.getId()}"/>
                     <INPUT type="hidden" name="do" value="get"/>
                     <INPUT type="hidden" name="id" value="${carFlow.getId()}"/>
-                    <INPUT type="submit" value="Edit">
+                    <INPUT type="submit" value=" <fmt:message key="EDIT" bundle="${bundle}"/>">
                 </form>
             </td>
             <td>
@@ -80,7 +80,7 @@
                     <INPUT type="hidden" name="command" value="CARFLOWS"/>
                     <INPUT type="hidden" name="do" value="delete"/>
                     <INPUT type="hidden" name="id" value="${carFlow.getId()}"/>
-                    <INPUT type="submit" value="Delete">
+                    <INPUT type="submit" value=" <fmt:message key="DELETE" bundle="${bundle}"/>">
                 </form>
             </td>
         </tr>
@@ -88,7 +88,7 @@
     <tr>
         <td colspan="10">
             <form action="/jsp/car_flow.jsp" method="post">
-                <INPUT type="submit" value="Create New">
+                <INPUT type="submit" value="<fmt:message key="createNew" bundle="${bundle}"/>">
             </form>
         </td>
     </tr>

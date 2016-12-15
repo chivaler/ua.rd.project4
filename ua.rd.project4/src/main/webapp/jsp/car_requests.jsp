@@ -15,7 +15,7 @@
     <tr>
         <th>ID</th>
         <th><fmt:message key="car" bundle="${bundle}"/></th>
-        <th><fmt:message key="client" bundle="${bundle}"/></th>
+        <th><fmt:message key="Client" bundle="${bundle}"/></th>
         <th><fmt:message key="dateFrom" bundle="${bundle}"/></th>
         <th><fmt:message key="dateTo" bundle="${bundle}"/></th>
         <th><fmt:message key="totalCost" bundle="${bundle}"/></th>
@@ -58,7 +58,7 @@
                     <INPUT type="hidden" name="id" value="${carRequest.getId()}"/>
                     <INPUT type="hidden" name="do" value="get"/>
                     <INPUT type="hidden" name="id" value="${carRequest.getId()}"/>
-                    <INPUT type="submit" value="Edit">
+                    <INPUT type="submit" value="<fmt:message key="EDIT" bundle="${bundle}"/>">
                 </form>
             </td>
             <td align="center">
@@ -66,7 +66,7 @@
                     <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                     <INPUT type="hidden" name="do" value="delete"/>
                     <INPUT type="hidden" name="id" value="${carRequest.getId()}"/>
-                    <INPUT type="submit" value="Delete">
+                    <INPUT type="submit" value="<fmt:message key="DELETE" bundle="${bundle}"/>">
                 </form>
             </td>
         </tr>
@@ -76,7 +76,7 @@
             <form action="${pageContext.request.contextPath}/Controller" method="get">
                 <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                 <INPUT type="hidden" name="do" value="new"/>
-                <INPUT type="submit" value="Create New">
+                <INPUT type="submit" value="<fmt:message key="createNew" bundle="${bundle}"/>">
             </form>
         </td>
     </tr>

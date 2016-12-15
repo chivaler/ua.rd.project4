@@ -13,7 +13,7 @@
 </h1>
 <table class="list">
     <tr>
-        <th><fmt:message key="ID" bundle="${bundle}"/></th>
+        <th><fmt:message key="id" bundle="${bundle}"/></th>
         <th><fmt:message key="FirstName" bundle="${bundle}"/></th>
         <th><fmt:message key="LastName" bundle="${bundle}"/></th>
         <th><fmt:message key="Address" bundle="${bundle}"/></th>
@@ -38,7 +38,7 @@
                     <INPUT type="hidden" name="id" value="${client.getId()}"/>
                     <INPUT type="hidden" name="do" value="get"/>
                     <INPUT type="hidden" name="id" value="${client.getId()}"/>
-                    <INPUT type="submit" value="Edit">
+                    <INPUT type="submit" value="<fmt:message key="EDIT" bundle="${bundle}"/>">
                 </form>
             </td>
             <td>
@@ -46,7 +46,7 @@
                     <INPUT type="hidden" name="command" value="CLIENTS"/>
                     <INPUT type="hidden" name="do" value="delete"/>
                     <INPUT type="hidden" name="id" value="${client.getId()}"/>
-                    <INPUT type="submit" value="Delete">
+                    <INPUT type="submit" value="<fmt:message key="DELETE" bundle="${bundle}"/>">
                 </form>
             </td>
         </tr>
@@ -54,7 +54,7 @@
     <tr>
         <td colspan="9">
             <form action="/jsp/client.jsp" method="get">
-                <INPUT type="submit" value="Create New">
+                <INPUT type="submit" value="<fmt:message key="createNew" bundle="${bundle}"/>">
             </form>
         </td>
     </tr>

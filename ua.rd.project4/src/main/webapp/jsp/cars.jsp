@@ -56,7 +56,7 @@
     <tr>
         <td colspan="10">
             <form action="/jsp/car.jsp" method="get">
-                <INPUT type="submit" value="Create New">
+                <INPUT type="submit" value="<fmt:message key="createNew" bundle="${bundle}"/>">
             </form>
         </td>
     </tr>

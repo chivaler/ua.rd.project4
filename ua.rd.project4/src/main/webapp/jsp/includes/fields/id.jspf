@@ -1,7 +1,7 @@
 <c:if test="${not empty entity}">
     <c:if test="${not empty entity.getId()}">
         <tr>
-            <td>ID</td>
+            <td><fmt:message key="id" bundle="${bundle}"/></td>
             <td><INPUT type=text class="readonly" readonly="readonly" name="id"
                        value="${empty entity ? '' : entity.getId()}"/>
             </td>

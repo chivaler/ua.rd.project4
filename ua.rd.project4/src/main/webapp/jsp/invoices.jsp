@@ -14,7 +14,7 @@
 <table class="list">
     <tr>
         <th>ID</th>
-        <th><fmt:message key="client" bundle="${bundle}"/></th>
+        <th><fmt:message key="Client" bundle="${bundle}"/></th>
         <th><fmt:message key="total" bundle="${bundle}"/></th>
         <th><fmt:message key="paid" bundle="${bundle}"/></th>
         <th><fmt:message key="description" bundle="${bundle}"/></th>
@@ -40,7 +40,7 @@
                     <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
                     <INPUT type="hidden" name="do" value="get"/>
                     <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
-                    <INPUT type="submit" value="Edit">
+                    <INPUT type="submit" value="<fmt:message key="EDIT" bundle="${bundle}"/>">
                 </form>
             </td>
             <td align="center">
@@ -48,7 +48,7 @@
                     <INPUT type="hidden" name="command" value="INVOICES"/>
                     <INPUT type="hidden" name="do" value="delete"/>
                     <INPUT type="hidden" name="id" value="${invoice.getId()}"/>
-                    <INPUT type="submit" value="Delete">
+                    <INPUT type="submit" value="<fmt:message key="DELETE" bundle="${bundle}"/>">
                 </form>
             </td>
         </tr>
@@ -56,7 +56,7 @@
     <tr>
         <td colspan="7">
             <form action="/jsp/invoice.jsp" method="get">
-                <INPUT type="submit" value="Create New">
+                <INPUT type="submit" value="<fmt:message key="createNew" bundle="${bundle}"/>">
             </form>
         </td>
     </tr>

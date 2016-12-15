@@ -19,38 +19,38 @@
             Address: Somewhere Far Beyond<br>
         </td>
         <td style="text-align: right;">
-            <h1 style="color: #c9c9c9">INVOICE</h1>
-            Date: <fmt:formatDate type="date"
+            <h1 style="color: #c9c9c9"><fmt:message key="Invoice" bundle="${bundle}"/></h1>
+            <fmt:message key="Date" bundle="${bundle}"/> <fmt:formatDate type="date"
                                   value="${entity.getDateCreated()}"/> <br>
-            Invoice # <c:out value="${entity.getId()}"/><br>
-            Customer ID: <c:out value="${entity.getClientId()}"/><br>
-            Terms: Prepayment
+            <fmt:message key="Invoice" bundle="${bundle}"/> # <c:out value="${entity.getId()}"/><br>
+            <fmt:message key="customerID" bundle="${bundle}"/> <c:out value="${entity.getClientId()}"/><br>
+            <fmt:message key="termsPrepayment" bundle="${bundle}"/>
         </td>
     </tr>
     <tr>
         <td>
             <table>
                 <tr>
-                    <th colspan="2">To:</th>
+                    <th colspan="2"><fmt:message key="to" bundle="${bundle}"/></th>
                 </tr>
                 <tr>
-                    <td>Name:</td>
+                    <td><fmt:message key="FirstName" bundle="${bundle}"/>:</td>
                     <td><c:out value="${entity.getClient().getFirstName()}"/></td>
                 </tr>
                 <tr>
-                    <td>Last Name:</td>
+                    <td><fmt:message key="LastName" bundle="${bundle}"/>:</td>
                     <td><c:out value="${entity.getClient().getLastName()}"/></td>
                 </tr>
                 <tr>
-                    <td>Address:</td>
+                    <td><fmt:message key="Address" bundle="${bundle}"/>:</td>
                     <td><c:out value="${entity.getClient().getAddress()}"/></td>
                 </tr>
                 <tr>
-                    <td>Phone:</td>
+                    <td><fmt:message key="Telephone" bundle="${bundle}"/>:</td>
                     <td><c:out value="${entity.getClient().getTelephone()}"/></td>
                 </tr>
                 <tr>
-                    <td>email:</td>
+                    <td><fmt:message key="Email" bundle="${bundle}"/>:</td>
                     <td><c:out value="${entity.getClient().getEmail()}"/></td>
                 </tr>
             </table>
@@ -73,9 +73,20 @@
         <td>prepayment</td>
         <td><c:out value="${entity.getTotal()}"/></td>
     </tr>
-    <tr><td> </td></tr>
-    <tr><td></td><td style="background-color: #4CAF50;">total</td><td><c:out value="${entity.getTotal()}"/></td></tr>
-    <tr><td></td><td colspan="2"><div style="font-size: smaller">Make all checks payable to CARRENT Inc.</div></td></tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td style="background-color: #4CAF50;">total</td>
+        <td><c:out value="${entity.getTotal()}"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="2">
+            <div style="font-size: smaller">Make all checks payable to CARRENT Inc.</div>
+        </td>
+    </tr>
 </table>
 
 

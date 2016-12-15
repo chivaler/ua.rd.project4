@@ -14,52 +14,52 @@
 <form action="${pageContext.request.contextPath}/Controller" method="post">
     <INPUT type="hidden" name="command" value="REGISTER"/>
     <table class="edit">
-        <caption>Register New User</caption>
+        <caption><fmt:message key="registerNewUser" bundle="${bundle}"/></caption>
         <tr>
-            <th>Field</th>
-            <th>Value</th>
+            <th><fmt:message key="field" bundle="${bundle}"/></th>
+            <th><fmt:message key="value" bundle="${bundle}"/></th>
         </tr>
         <tr>
-            <td><fmt:message key="firstName" bundle="${bundle}"/></td>
+            <td><fmt:message key="FirstName" bundle="${bundle}"/></td>
             <td><INPUT type=text name="firstName"
                        value="${empty entity ? '' : entity.getFirstName()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="lastName" bundle="${bundle}"/></td>
+            <td><fmt:message key="LastName" bundle="${bundle}"/></td>
             <td><INPUT type=text name="lastName"
                        value="${empty entity ? '' : entity.getLastName()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="address" bundle="${bundle}"/></td>
+            <td><fmt:message key="Address" bundle="${bundle}"/></td>
             <td><INPUT type=text name="address"
                        value="${empty entity ? '' : entity.getAddress()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="telephone" bundle="${bundle}"/></td>
+            <td><fmt:message key="Telephone" bundle="${bundle}"/></td>
             <td><INPUT type=text name="telephone"
                        value="${empty entity ? '' : entity.getTelephone()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="email" bundle="${bundle}"/></td>
+            <td><fmt:message key="Email" bundle="${bundle}"/></td>
             <td><INPUT type=text name="email"
                        value="${empty entity ? '' : entity.getEmail()}"/></td>
         </tr>
         <tr>
-            <td><fmt:message key="idCard" bundle="${bundle}"/></td>
+            <td><fmt:message key="IDCard" bundle="${bundle}"/></td>
             <td><INPUT type=text name="idCard"
                        value="${empty entity ? '' : entity.getIdCard()}"/></td>
         </tr>
         <tr>
-            <td>login</td>
+            <td><fmt:message key="Login" bundle="${bundle}"/></td>
             <td><INPUT type="text" name="login" value="${empty entity ? '' : entity.getLogin()}"/></td>
         </tr>
         <tr>
-            <td>Password</td>
+            <td><fmt:message key="Password" bundle="${bundle}"/></td>
             <td><INPUT type="password" name="pass" value=""/></td>
         </tr>
 
         <tr>
-            <td colspan="2"><INPUT type="submit" value="Register New">
+            <td colspan="2"><INPUT type="submit" value="<fmt:message key="registerNew" bundle="${bundle}"/>">
         </tr>
     </table>
 </form>

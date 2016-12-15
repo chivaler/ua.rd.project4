@@ -16,8 +16,8 @@
         <th><fmt:message key="isAdmin" bundle="${bundle}"/></th>
         <th><fmt:message key="Login" bundle="${bundle}"/></th>
         <th><fmt:message key="Client" bundle="${bundle}"/></th>
-        <th><fmt:message key="Edit" bundle="${bundle}"/></th>
-        <th><fmt:message key="Delete" bundle="${bundle}"/></th>
+        <th><fmt:message key="EDIT" bundle="${bundle}"/></th>
+        <th><fmt:message key="DELETE" bundle="${bundle}"/></th>
     </tr>
     <c:forEach var="user" items="${entities}">
         <tr>
@@ -36,7 +36,7 @@
                     <INPUT type="hidden" name="command" value="USERS"/>
                     <INPUT type="hidden" name="do" value="get"/>
                     <INPUT type="hidden" name="id" value="${user.getId()}"/>
-                    <INPUT type="submit" value="Edit">
+                    <INPUT type="submit" value="<fmt:message key="EDIT" bundle="${bundle}"/>">
                 </form>
             </td>
             <td align="center">
@@ -44,7 +44,7 @@
                     <INPUT type="hidden" name="command" value="USERS"/>
                     <INPUT type="hidden" name="do" value="delete"/>
                     <INPUT type="hidden" name="id" value="${user.getId()}"/>
-                    <INPUT type="submit" value="Delete">
+                    <INPUT type="submit" value="<fmt:message key="DELETE" bundle="${bundle}"/>">
                 </form>
             </td>
         </tr>
@@ -54,7 +54,7 @@
             <form action="${pageContext.request.contextPath}/Controller" method="post">
                 <INPUT type="hidden" name="command" value="USERS"/>
                 <INPUT type="hidden" name="do" value="new"/>
-                <INPUT type="submit" value="Create New">
+                <INPUT type="submit" value="<fmt:message key="createNew" bundle="${bundle}"/>">
             </form>
         </td>
     </tr>
