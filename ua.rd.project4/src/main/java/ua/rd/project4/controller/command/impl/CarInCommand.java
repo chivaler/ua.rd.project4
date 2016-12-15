@@ -30,7 +30,7 @@ class CarInCommand implements Command {
             throw new InsufficientPermissionsException();
         try {
             final int carId = Integer.parseInt(req.getParameter("car"));
-            CarFlow carFlowOut = carFlowService.findLastCarFlowOfCar(carId);
+            CarFlow carFlowOut = carFlowService.findLastCarFlowOutOfCar(carId);
             carFlowService.checkInCarFlowIn(carFlowOut.getId(), user);
         } catch (WrongCarFlowDirectionException e) {
             JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.WRONG_CAR_DIRECTION);

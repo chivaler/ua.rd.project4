@@ -20,7 +20,7 @@ public interface CarFlowService extends EntityService<CarFlow> {
 
     List<CarFlow> findAll(int n);
 
-    CarFlow findLastCarFlowOfCar(int carId);
+    CarFlow findLastCarFlowOutOfCar(int carId);
 
     boolean checkInCarFlowOut(CarFlow carFlow) throws CarRequestApproveNeededException, CarRequestPaymentNeededException, WrongCarFlowDirectionException;
 

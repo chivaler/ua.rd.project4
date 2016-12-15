@@ -7,9 +7,7 @@ import ua.rd.project4.model.dao.CarFlowDao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.exceptions.WrongCarFlowDirectionException;
-import ua.rd.project4.model.services.Messages;
-import ua.rd.project4.model.services.ServiceFactory;
-import ua.rd.project4.model.services.CarFlowService;
+import ua.rd.project4.model.services.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -22,6 +20,8 @@ import static java.time.temporal.ChronoUnit.DAYS;
 class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlowService {
     private static final JdbcCarFlowService instance = new JdbcCarFlowService();
     private final Logger logger = LogManager.getLogger(JdbcCarFlowService.class);
+    private final InvoiceService invoiceService = JdbcInvoiceSevice.getInstance();
+    private final CarRequestService carRequestService = JdbcCarRequestService.getInstance();
 
     private JdbcCarFlowService() {
     }
@@ -93,7 +93,7 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
             BigDecimal appendedInvoiceCost = car.getRentPricePerDay().multiply(new BigDecimal(diffDays));
             invoice = new Invoice(client, appendedInvoiceCost, false, Messages.OVERUSED + car);
             try {
-                JdbcServiceFactory.getInstance().getInvoiceService().insert(invoice);
+                invoiceService.insert(invoice);
             } catch (UniqueViolationException e) {
                 logger.error(e);
             }
@@ -108,7 +108,7 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
         carRequest.setStatus(CarRequest.RequestStatus.DONE);
         try {
             insert(carFlowIn);
-            getServiceFactory().getCarRequestService().update(carRequest.getId(), carRequest);
+            carRequestService.update(carRequest.getId(), carRequest);
         } catch (UniqueViolationException e) {
             logger.error(e);
         }
@@ -126,19 +126,19 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
     @Override
     public List<Car> getCarsInBox() {
         return getServiceFactory().getCarService().findAll().stream()
-                .filter(s -> getServiceFactory().getCarFlowService().isCarInBox(s.getId()))
+                .filter(s -> isCarInBox(s.getId()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<Car> getCarsOutOfBox() {
         return getServiceFactory().getCarService().findAll().stream()
-                .filter(s -> !getServiceFactory().getCarFlowService().isCarInBox(s.getId()))
+                .filter(s -> !isCarInBox(s.getId()))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public CarFlow findLastCarFlowOfCar(int carId) {
+    public CarFlow findLastCarFlowOutOfCar(int carId) {
         return findCarFlowsByCarId(carId)
                 .stream()
                 .filter(s -> s.getCarId() == carId)

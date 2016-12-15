@@ -16,6 +16,10 @@ import java.util.stream.Collectors;
 
 
 public interface CarRequestService extends EntityService<CarRequest> {
+    enum CarRequestStatus {
+        POSSIBLE, CONFLICT, IMPOSSIBLE;
+    }
+
     List<CarRequest> findCarRequestsByClientId(int clientId);
 
     List<CarRequest> findCarRequestsByCarId(int carId);
@@ -23,10 +27,6 @@ public interface CarRequestService extends EntityService<CarRequest> {
     List<CarRequest> findCarRequestsByInvoiceId(int invoiceId);
 
     List<Car> findAvailableCars(Date dateFrom, Date dateTo);
-
-    enum CarRequestStatus {
-        POSSIBLE, CONFLICT, IMPOSSIBLE;
-    }
 
     CarRequestStatus isPossible(int carRequestId);
 

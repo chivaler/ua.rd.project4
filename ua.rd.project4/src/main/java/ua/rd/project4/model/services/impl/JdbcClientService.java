@@ -9,6 +9,9 @@ import ua.rd.project4.model.exceptions.EntityInUseException;
 
 class JdbcClientService extends GenericEntityService<Client> implements ClientService {
     private static final JdbcClientService instance = new JdbcClientService();
+    private final String INUSE_INVOICE = "There is invoices for this client. Delete them before deleting client.";
+    private final String INUSE_CARREQUEST = "There is CarRequests for this client. Delete them before deleting client.";
+    private final String INUSE_USER = "There is User for this client. Delete them before deleting client.";
 
     private JdbcClientService() {
     }
@@ -31,13 +34,13 @@ class JdbcClientService extends GenericEntityService<Client> implements ClientSe
     public boolean delete(int id) throws EntityInUseException {
         if (!(getServiceFactory().getInvoiceService().
                 findInvoicesByClientId(id).isEmpty()))
-            throw new EntityInUseException("There is invoices for this client. Delete them before deleting client.");
+            throw new EntityInUseException(INUSE_INVOICE);
         if (!(getServiceFactory().getCarRequestService().
                 findCarRequestsByClientId(id).isEmpty()))
-            throw new EntityInUseException("There is CarRequests for this client. Delete them before deleting client.");
+            throw new EntityInUseException(INUSE_CARREQUEST);
         if (!(getServiceFactory().getUserService().
                 findUsersByClientId(id).isEmpty()))
-            throw new EntityInUseException("There is User for this client. Delete them before deleting client.");
+            throw new EntityInUseException(INUSE_USER);
         return super.delete(id);
     }
 }
