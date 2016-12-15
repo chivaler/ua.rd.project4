@@ -18,10 +18,6 @@ public interface CarFlowDao extends EntityDao<CarFlow> {
 
     boolean isCarInBox(int carId);
 
-    List<Car> getCarsInBox();
-
-    List<Car> getCarsOutOfBox();
-
     public CarFlow findLastCarFlowOutOfCar(int carId);
 
 }

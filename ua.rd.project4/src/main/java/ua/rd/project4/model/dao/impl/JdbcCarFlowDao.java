@@ -215,16 +215,6 @@ class JdbcCarFlowDao implements CarFlowDao {
     }
 
     @Override
-    public List<Car> getCarsInBox() {
-        return null;
-    }
-
-    @Override
-    public List<Car> getCarsOutOfBox() {
-        return null;
-    }
-
-    @Override
     public CarFlow findLastCarFlowOutOfCar(int carId) {
         return null;
     }

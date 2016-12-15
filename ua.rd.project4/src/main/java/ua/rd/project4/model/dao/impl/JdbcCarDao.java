@@ -47,7 +47,7 @@ class JdbcCarDao implements CarDao {
         boolean wasInserted = false;
         try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `cars` " +
-                     "(model, color, carType, registrationNumber, description, price, rentPricePerDay) VALUES(?,?,?,?,?,?,?)",
+                             "(model, color, carType, registrationNumber, description, price, rentPricePerDay) VALUES(?,?,?,?,?,?,?)",
                      Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, car.getModel());
             preparedStatement.setString(2, car.getColor());
@@ -100,6 +100,19 @@ class JdbcCarDao implements CarDao {
         return wasDeleted;
     }
 
+    private Car getEntityFromResultSet(ResultSet resultSet) throws SQLException {
+        Car car = new Car(
+                resultSet.getString("model"),
+                resultSet.getString("color"),
+                Car.CarType.valueOf(resultSet.getString("carType")),
+                resultSet.getString("registrationNumber"),
+                resultSet.getString("description"),
+                resultSet.getBigDecimal("price"),
+                resultSet.getBigDecimal("rentPricePerDay"));
+        car.setId(resultSet.getInt("id"));
+        return car;
+    }
+
     @Override
     public Car getById(int id) {
         Car car = null;
@@ -108,15 +121,7 @@ class JdbcCarDao implements CarDao {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                car = new Car(
-                        resultSet.getString("model"),
-                        resultSet.getString("color"),
-                        Car.CarType.valueOf(resultSet.getString("carType")),
-                        resultSet.getString("registrationNumber"),
-                        resultSet.getString("description"),
-                        resultSet.getBigDecimal("price"),
-                        resultSet.getBigDecimal("rentPricePerDay"));
-                car.setId(resultSet.getInt("id"));
+                car = getEntityFromResultSet(resultSet);
             }
         } catch (SQLException e) {
             logger.error(e);
@@ -131,15 +136,46 @@ class JdbcCarDao implements CarDao {
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `cars`")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Car car = new Car(
-                        resultSet.getString("model"),
-                        resultSet.getString("color"),
-                        Car.CarType.valueOf(resultSet.getString("carType")),
-                        resultSet.getString("registrationNumber"),
-                        resultSet.getString("description"),
-                        resultSet.getBigDecimal("price"),
-                        resultSet.getBigDecimal("rentPricePerDay"));
-                car.setId(resultSet.getInt("id"));
+                Car car = getEntityFromResultSet(resultSet);
+                foundCars.add(car);
+            }
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+        return foundCars;
+    }
+
+
+    @Override
+    public List<Car> getCarsInBox() {
+        List<Car> foundCars = new ArrayList<>();
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT `cars`.*, sum(carFlowType) as flow  " +
+                             "FROM `cars` INNER JOIN `car_flow` ON `cars`.`id` =  `car_flow`.`car` " +
+                             "GROUP BY `cars`.`id` HAVING flow>0; ")) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Car car = getEntityFromResultSet(resultSet);
+                foundCars.add(car);
+            }
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+        return foundCars;
+    }
+
+    @Override
+    public List<Car> getCarsOutOfBox() {
+        List<Car> foundCars = new ArrayList<>();
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT `cars`.*, sum(carFlowType) as flow  " +
+                             "FROM `cars` LEFT JOIN `car_flow` ON `cars`.`id` =  `car_flow`.`car` " +
+                             "GROUP BY `cars`.`id` HAVING flow<1 OR flow is NULL;")) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Car car = getEntityFromResultSet(resultSet);
                 foundCars.add(car);
             }
         } catch (SQLException e) {

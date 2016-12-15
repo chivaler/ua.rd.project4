@@ -231,4 +231,38 @@ public class CarFlowServiceTest {
         assertThat(carFlowService.isCarInBox(car3.getId()), is(false));
     }
 
+    @Test
+    public void getCarsInBoxAndOutOfBox() throws Exception {
+        Car car1 = RandomEntities.getCar();
+        Car car2 = RandomEntities.getCar();
+        Car car3 = RandomEntities.getCar();
+        carService.insert(car1);
+        carService.insert(car2);
+        carService.insert(car3);
+        assertTrue(carFlowService.getCarsOutOfBox().contains(car1));
+        assertFalse(carFlowService.getCarsInBox().contains(car1));
+
+
+        CarFlow carFlow1 = new CarFlow(car1, CarFlow.CarFlowType.IN, null, null, null, "");
+        carFlowService.insert(carFlow1);
+        assertTrue(carFlowService.getCarsInBox().contains(car1));
+        assertFalse(carFlowService.getCarsOutOfBox().contains(car1));
+
+        CarFlow carFlow2 = new CarFlow(car2, CarFlow.CarFlowType.IN, null, null, null, "");
+        carFlowService.insert(carFlow2);
+        assertTrue(carFlowService.getCarsInBox().contains(car1));
+        assertTrue(carFlowService.getCarsInBox().contains(car2));
+        assertFalse(carFlowService.getCarsOutOfBox().contains(car2));
+
+        CarFlow carFlow3 = new CarFlow(car1, OUT, null, null, null, "");
+        carFlowService.insert(carFlow3);
+        assertFalse(carFlowService.getCarsInBox().contains(car1));
+        assertTrue(carFlowService.getCarsInBox().contains(car2));
+        assertTrue(carFlowService.getCarsOutOfBox().contains(car1));
+
+        CarFlow carFlow4 = new CarFlow(car3, OUT, null, null, null, "");
+        carFlowService.insert(carFlow4);
+        assertThat(carFlowService.isCarInBox(car3.getId()), is(false));
+    }
+
 }

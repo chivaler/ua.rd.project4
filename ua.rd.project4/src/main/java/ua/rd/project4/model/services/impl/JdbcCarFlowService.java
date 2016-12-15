@@ -3,6 +3,7 @@ package ua.rd.project4.model.services.impl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.domain.*;
+import ua.rd.project4.model.dao.CarDao;
 import ua.rd.project4.model.dao.CarFlowDao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.exceptions.UniqueViolationException;
@@ -21,6 +22,7 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
     private static final JdbcCarFlowService instance = new JdbcCarFlowService();
     private final Logger logger = LogManager.getLogger(JdbcCarFlowService.class);
     private final InvoiceService invoiceService = JdbcInvoiceSevice.getInstance();
+    private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
 
     private JdbcCarFlowService() {
     }
@@ -112,8 +114,6 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
         } catch (UniqueViolationException e) {
             logger.error(e);
         }
-
-
     }
 
     @Override
@@ -123,16 +123,12 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
 
     @Override
     public List<Car> getCarsInBox() {
-        return getServiceFactory().getCarService().findAll().stream()
-                .filter(s -> isCarInBox(s.getId()))
-                .collect(Collectors.toList());
+        return carDao.getCarsInBox();
     }
 
     @Override
     public List<Car> getCarsOutOfBox() {
-        return getServiceFactory().getCarService().findAll().stream()
-                .filter(s -> !isCarInBox(s.getId()))
-                .collect(Collectors.toList());
+        return carDao.getCarsOutOfBox();
     }
 
     @Override
