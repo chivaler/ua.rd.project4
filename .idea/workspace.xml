@@ -2,31 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6ca6b15-2d8d-4825-a483-4297d64caaf2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ua.rd.project4/target/test-classes/Dao/InitDataTest.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/CommandDispatcher.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/CommandDispatcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/CommandDispatcherImpl.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/CommandDispatcherImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CommandDispatcherImplTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CommandDispatcherImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudCarFlowsCommandInsufficentPemissionsUserTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudCarFlowsCommandInsufficentPemissionsUserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudCarRequestsCommandInsufficentPemissionsUserTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudCarRequestsCommandInsufficentPemissionsUserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudCarsCommandInsufficentPemissionsUserTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudCarsCommandInsufficentPemissionsUserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudClientsCommandInsufficentPemissionsUserTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudClientsCommandInsufficentPemissionsUserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudGenericCommandInsufficentPemissionsTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudGenericCommandInsufficentPemissionsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudInvoicesCommandInsufficentPemissionsUserTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudInvoicesCommandInsufficentPemissionsUserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudUsersCommandInsufficentPemissionsUserTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudUsersCommandInsufficentPemissionsUserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/LoginCommandTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/LoginCommandTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/LogoutCommandTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/LogoutCommandTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/UserSpaceCommandTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/UserSpaceCommandTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/CarFlowHolderTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/CarFlowHolderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/CarRequestHolderTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/CarRequestHolderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/InvoiceHolderTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/InvoiceHolderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/UserHolderTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/holders/UserHolderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/services/CarFlowServiceTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/services/CarFlowServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/services/CarRequestServiceTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/services/CarRequestServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/services/InvoiceServiceTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/services/InvoiceServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/services/UserServiceTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/services/UserServiceTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/Dao/InitDataTest.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/dao/InitDataTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/RandomEntities.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/RandomEntities.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
     </list>
     <ignored path="project4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,11 +59,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CommandDispatcherImplTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CommandDispatcherImplTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CommandDispatcherImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
               <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -127,16 +116,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="22" column="72" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CrudCarFlowsCommandInsufficentPemissionsNullTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CrudCarFlowsCommandInsufficentPemissionsNullTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -297,11 +276,11 @@
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/exceptions/NotFoundException.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/services/CarFlowServiceTest.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/MainController.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/CommandDispatcher.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/dao/InitDataTest.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/CommandDispatcherImpl.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/controller/command/impl/CommandDispatcherImplTest.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/index.jsp" />
       </list>
     </option>
   </component>
@@ -1863,14 +1842,7 @@
       <workItem from="1481387187658" duration="31227000" />
       <workItem from="1481645865781" duration="16823000" />
       <workItem from="1481738755836" duration="7193000" />
-      <workItem from="1481815176622" duration="8091000" />
-    </task>
-    <task id="LOCAL-00005" summary="CRUD rewrited to Generics">
-      <created>1480332468781</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1480332468781</updated>
+      <workItem from="1481815176622" duration="8232000" />
     </task>
     <task id="LOCAL-00006" summary="all crud services">
       <created>1480346470630</created>
@@ -2208,7 +2180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481821786531</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="fixes">
+      <created>1481823781793</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1481823781793</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2244,7 +2223,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="436196000" />
+    <option name="totallyTimeSpent" value="436337000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2329,7 +2308,6 @@
     <MESSAGE value="InvoiceHolder Test" />
     <MESSAGE value="CarRequestHolderTest" />
     <MESSAGE value="removed already unsused service.findID, dao.findId" />
-    <MESSAGE value="fixes" />
     <MESSAGE value="Wrappers Session/request." />
     <MESSAGE value="JSP as Finals" />
     <MESSAGE value="Errors set up via separate class" />
@@ -2338,7 +2316,8 @@
     <MESSAGE value="more tests" />
     <MESSAGE value="CommandFactory -&gt; CommandDispatcher" />
     <MESSAGE value="more simple index.jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="more simple index.jsp" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2771,16 +2750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-          <folding>
-            <marker date="1481821770861" expanded="true" signature="48:114" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/CommandDispatcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -2909,6 +2878,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
           <folding />
         </state>
       </provider>

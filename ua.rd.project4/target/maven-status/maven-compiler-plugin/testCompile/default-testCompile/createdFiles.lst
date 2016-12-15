@@ -2,7 +2,6 @@ ua\rd\project4\controller\command\impl\CrudClientsCommandInsufficentPemissionsUs
 ua\rd\project4\controller\command\impl\LoginCommandTest.class
 ua\rd\project4\controller\command\impl\CrudUsersCommandInsufficentPemissionsUserTest.class
 ua\rd\project4\model\services\CarFlowServiceTest.class
-Dao\InitDataTest.class
 ua\rd\project4\controller\command\impl\CrudUsersCommandInsufficentPemissionsNullTest.class
 ua\rd\project4\controller\MainControllerTest.class
 ua\rd\project4\controller\command\impl\LocalizationCommandTest.class
@@ -27,7 +26,6 @@ ua\rd\project4\controller\command\impl\CrudCarFlowsCommandInsufficentPemissionsU
 ua\rd\project4\model\services\CarRequestServiceTest.class
 ua\rd\project4\controller\command\impl\CrudCarFlowsCommandInsufficentPemissionsNullTest.class
 ua\rd\project4\model\dao\Car_DaoTest.class
-ua\rd\project4\model\RandomEntities.class
 ua\rd\project4\controller\command\impl\CrudInvoicesCommandInsufficentPemissionsNullTest.class
 ua\rd\project4\model\dao\Users_DaoTest.class
 ua\rd\project4\controller\command\impl\CommandDispatcherImplTest.class

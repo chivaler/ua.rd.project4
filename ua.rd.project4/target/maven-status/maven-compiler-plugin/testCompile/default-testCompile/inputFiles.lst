@@ -11,7 +11,6 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controlle
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\EntityDaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\LocalizationCommandTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudCarFlowsCommandInsufficentPemissionsUserTest.java
-D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\Dao\InitDataTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\CarRequest_DaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\holders\InvoiceHolderTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\UserServiceTest.java
@@ -25,16 +24,17 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controlle
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\Invoice_DaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudClientsCommandInsufficentPemissionsNullTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\LoginCommandTest.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\InitDataTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\InvoiceServiceTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudClientsCommandInsufficentPemissionsUserTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\connection\ConnectionFactoryTest.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\RandomEntities.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\Users_DaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudUsersCommandInsufficentPemissionsUserTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\CarFlow_DaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudCarRequestsCommandInsufficentPemissionsNullTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\Car_DaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\UserSpaceCommandTest.java
-D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\RandomEntities.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudInvoicesCommandInsufficentPemissionsNullTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\holders\UserHolderTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudCarFlowsCommandInsufficentPemissionsNullTest.java
