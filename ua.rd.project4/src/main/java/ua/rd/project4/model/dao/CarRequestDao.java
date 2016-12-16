@@ -6,6 +6,10 @@ import java.util.List;
 
 public interface CarRequestDao extends EntityDao<CarRequest> {
     List<CarRequest> findCarRequestsByClientId(int clientId);
+
     List<CarRequest> findCarRequestsByCarId(int carId);
+
     List<CarRequest> findCarRequestsByInvoiceId(int invoiceId);
+
+    List<CarRequest> findConflictingCarRequests(CarRequest carRequest);
 }

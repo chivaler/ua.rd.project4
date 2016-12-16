@@ -23,6 +23,7 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
     private final CarService carService = JdbcServiceFactory.getInstance().getCarService();
     private final InvoiceService invoiceService = JdbcServiceFactory.getInstance().getInvoiceService();
     private final CarFlowService carFlowService = JdbcServiceFactory.getInstance().getCarFlowService();
+    private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
 
     private JdbcCarRequestService() {
     }
@@ -58,23 +59,16 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
 
     @Override
     public List<Car> findAvailableCars(Date dateFrom, Date dateTo) {
-        CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
         return carDao.findAvailableCars(dateFrom, dateTo);
     }
 
     @Override
     public CarRequestStatus isPossible(int carRequestId) {
         CarRequest carRequest = getById(carRequestId);
-        Supplier<Stream<CarRequest>> possibleConflicted =
-                () -> findAll().stream()
-                        .filter(s -> s.getId() != carRequestId)
-                        .filter(s -> s.getCarId() == carRequest.getCarId())
-                        .filter(s -> s.getStatus() != CarRequest.RequestStatus.REJECTED && s.getStatus() != CarRequest.RequestStatus.DONE)
-                        .filter(s -> s.getDateTo().compareTo(carRequest.getDateFrom()) >= 0
-                                && s.getDateFrom().compareTo(carRequest.getDateTo()) <= 0);
-        if (!possibleConflicted.get().findAny().isPresent())
+        List<CarRequest> possibleConflicted = getDao().findConflictingCarRequests(carRequest);
+        if (possibleConflicted.isEmpty())
             return CarRequestStatus.POSSIBLE;
-        if (possibleConflicted.get().noneMatch(s -> s.getStatus() != CarRequest.RequestStatus.NEW))
+        if (possibleConflicted.stream().noneMatch(s -> s.getStatus() != CarRequest.RequestStatus.NEW))
             return CarRequestStatus.CONFLICT;
         else return CarRequestStatus.IMPOSSIBLE;
     }

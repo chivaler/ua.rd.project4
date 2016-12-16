@@ -20,7 +20,8 @@ class JdbcCarRequestDao implements CarRequestDao {
     private final ClientDao clientDao = JdbcDaoFactory.getInstance().getClientDao();
     private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
     private final InvoiceDao invoiceDao = JdbcDaoFactory.getInstance().getInvoiceDao();
-    private boolean h2Used = JdbcConnectionFactory.getInstance().isH2Used();;
+    private boolean h2Used = JdbcConnectionFactory.getInstance().isH2Used();
+    ;
 
 
     private JdbcCarRequestDao() {
@@ -35,7 +36,8 @@ class JdbcCarRequestDao implements CarRequestDao {
         clientDao.createTableIfNotExist();
         carDao.createTableIfNotExist();
         invoiceDao.createTableIfNotExist();
-        try (Statement statement = connectionFactory.getConnection().createStatement()) {
+        try (Connection connection = connectionFactory.getConnection();
+             Statement statement = connection.createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `car_request` (" +
                     "id INT PRIMARY KEY auto_increment," +
                     "car INT," +
@@ -58,9 +60,10 @@ class JdbcCarRequestDao implements CarRequestDao {
     @Override
     public boolean insert(CarRequest carRequest) {
         boolean wasInserted = false;
-        try (PreparedStatement preparedStatement = connectionFactory.getConnection().prepareStatement("INSERT INTO `car_request` " +
-                "(car, client, dateFrom, dateTo, totalCost, invoice, status, rejectReason) VALUES(?,?,?,?,?,?,?,?)",
-                Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `car_request` " +
+                             "(car, client, dateFrom, dateTo, totalCost, invoice, status, rejectReason) VALUES(?,?,?,?,?,?,?,?)",
+                     Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setObject(1, carRequest.getCarId() == 0 ? null : carRequest.getCarId());
             preparedStatement.setObject(2, carRequest.getClientId() == 0 ? null : carRequest.getClientId());
             preparedStatement.setDate(3, carRequest.getDateFrom());
@@ -184,5 +187,32 @@ class JdbcCarRequestDao implements CarRequestDao {
     @Override
     public List<CarRequest> findCarRequestsByInvoiceId(int invoiceId) {
         return findCarRequestsByIdField(invoiceId, JdbcFields.INVOICE);
+    }
+
+    @Override
+    public List<CarRequest> findConflictingCarRequests(CarRequest carRequestChecked) {
+        List<CarRequest> foundCarsRequests = new ArrayList<>();
+        CarRequest carRequest;
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT * FROM `car_request` " +
+                             "WHERE  `dateFrom`<=? AND `dateTo`>=? " +
+                             "AND status NOT LIKE 'REJECTED' AND status NOT LIKE 'DONE' " +
+                             "AND `car`=?" +
+                             "AND `id`!=?")) {
+            preparedStatement.setDate(1,carRequestChecked.getDateTo());
+            preparedStatement.setDate(2,carRequestChecked.getDateFrom());
+            preparedStatement.setInt(3,carRequestChecked.getCarId());
+            preparedStatement.setInt(4,carRequestChecked.getId());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                carRequest = getEntityFromResultSet(resultSet);
+                if (carRequest != null)
+                    foundCarsRequests.add(carRequest);
+            }
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+        return foundCarsRequests;
     }
 }

@@ -13,7 +13,6 @@ ua\rd\project4\model\holders\CarFlowHolderTest.class
 ua\rd\project4\IntegrationTests.class
 ua\rd\project4\model\dao\Client_DaoTest.class
 ua\rd\project4\model\dao\CarRequest_DaoTest.class
-ua\rd\project4\model\dao\impl\JdbcCarFlowDaoTest.class
 ua\rd\project4\controller\command\impl\CrudCarRequestsCommandInsufficentPemissionsNullTest.class
 ua\rd\project4\controller\command\impl\UserSpaceCommandTest.class
 ua\rd\project4\model\dao\connection\ConnectionFactoryTest.class
