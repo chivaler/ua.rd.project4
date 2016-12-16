@@ -3,6 +3,7 @@ package ua.rd.project4.model.dao.connection.impl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.connection.ConnectionFactory;
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -44,15 +45,25 @@ public class JdbcConnectionFactory implements ConnectionFactory {
         }
 
         try {
-            InitialContext ic = new InitialContext();
-            dataSource = (DataSource) ic.lookup("java:comp/env/jdbc/carRentService");
+//            InitialContext ic = new InitialContext();
+//            dataSource = (DataSource) ic.lookup("java:comp/env/jdbc/carRentService");
+            ComboPooledDataSource cpds = new ComboPooledDataSource();
+            cpds.setDriverClass(jdbcDriver);
+            cpds.setJdbcUrl(jdbcUrl);
+            cpds.setUser(jdbcUser);
+            cpds.setPassword(jdbcPassword);
+            dataSource = cpds;
+
             if (dataSource.getConnection()==null)
                 throw new Exception();
             logger.info("Connection Pool using");
+
         } catch (Exception e) {
             logger.debug("Connection pool didn't initialized:",e);
             connectionType = ConnectionType.SINGLE;
         }
+
+
 
     }
 

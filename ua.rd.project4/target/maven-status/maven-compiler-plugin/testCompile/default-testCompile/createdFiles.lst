@@ -5,7 +5,6 @@ ua\rd\project4\model\services\CarFlowServiceTest.class
 ua\rd\project4\controller\command\impl\CrudUsersCommandInsufficentPemissionsNullTest.class
 ua\rd\project4\controller\MainControllerTest.class
 ua\rd\project4\controller\command\impl\LocalizationCommandTest.class
-ua\rd\project4\model\services\impl\JdbcUserSeviceTest.class
 ua\rd\project4\model\services\UserServiceTest.class
 ua\rd\project4\model\holders\UserHolderTest.class
 ua\rd\project4\controller\command\impl\CrudCarsCommandInsufficentPemissionsNullTest.class

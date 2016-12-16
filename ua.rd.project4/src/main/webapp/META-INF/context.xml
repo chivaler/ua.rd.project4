@@ -17,15 +17,4 @@
               <!--maxPoolSize="50"-->
               <!--idleConnectionTestPeriod="600"-->
               <!--acquireRetryAttempts="30"/>-->
-    <Resource name="jdbc/carRentService" auth="Container" type="com.mchange.v2.c3p0.ComboPooledDataSource"
-              factory="org.apache.naming.factory.BeanFactory"
-              user="root"
-              password="925060"
-              jdbcUrl="${dbUrl}"
-              driverClass="com.mysql.jdbc.Driver"
-              minPoolSize="2"
-              initialPoolSize="10"
-              maxPoolSize="50"
-              idleConnectionTestPeriod="600"
-              acquireRetryAttempts="30"/>
 </Context>
