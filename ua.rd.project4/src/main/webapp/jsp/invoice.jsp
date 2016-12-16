@@ -1,8 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<fmt:setLocale value="en_US"/>
-<fmt:setBundle basename="localization/messages" var="bundle"/>
 <html>
 <head>
     <title>User add/update</title>
@@ -23,8 +21,7 @@
         <%@include file="includes/fields/client.jspf" %>
         <tr>
             <td><fmt:message key="paid" bundle="${bundle}"/></td>
-            <td><INPUT type=text name="paid"
-                       value="${empty entity ? '' : entity.isPaid()}"/></td>
+            <td><INPUT type="checkbox" name="paid" ${empty entity ? '' : entity.isPaid()? 'checked': ''}/></td>
         </tr>
         <tr>
             <td><fmt:message key="total" bundle="${bundle}"/></td>

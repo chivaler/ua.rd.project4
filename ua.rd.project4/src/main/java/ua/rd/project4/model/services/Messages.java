@@ -5,4 +5,5 @@ public interface Messages {
     String INUSE_INVOICE = "There is invoices for this client. Delete them before deleting client.";
     String INUSE_CARREQUEST = "There is CarRequests for this client. Delete them before deleting client.";
     String INUSE_USER = "There is User for this client. Delete them before deleting client.";
+    String CAR_ARRIVE = "Arrived to box";
 }

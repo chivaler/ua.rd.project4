@@ -54,8 +54,8 @@ class CrudCarsCommand extends GenericCrudCommand<Car> {
     @Override
     Car parseToEntity(RequestWrapper req) throws InvalidParameterException {
         Car.CarType carType;
-        int rentPricePerDay;
-        int price;
+        BigDecimal rentPricePerDay;
+        BigDecimal price;
         String model = Optional.ofNullable(req.getParameter("model")).orElse("");
         String color = Optional.ofNullable(req.getParameter("color")).orElse("");
         String registrationNumber = Optional.ofNullable(req.getParameter("registrationNumber")).orElse("");
@@ -71,21 +71,21 @@ class CrudCarsCommand extends GenericCrudCommand<Car> {
             throw new RequiredParameterException("carType");
         }
         try {
-            rentPricePerDay = Integer.valueOf(req.getParameter("rentPricePerDay"));
+            rentPricePerDay = new BigDecimal(Optional.ofNullable(req.getParameter("rentPricePerDay")).orElse("0"));
         } catch (Exception e) {
             logger.debug(e);
-            throw new RequiredParameterException("rentPricePerDay");
+            throw new InvalidParameterException("rentPricePerDay");
         }
         try {
-            price = Integer.valueOf(req.getParameter("price"));
+            price = new BigDecimal(Optional.ofNullable(req.getParameter("price")).orElse("0"));
         } catch (NumberFormatException e) {
             logger.debug(e);
-            throw new RequiredParameterException("price");
-        }
-        if (price < 1)
             throw new InvalidParameterException("price");
-        if (price < 1)
-            throw new InvalidParameterException("rentPricePerDay");
-        return new Car(model, color, carType, registrationNumber, description, new BigDecimal(price), new BigDecimal(rentPricePerDay));
+        }
+        if (price.compareTo(BigDecimal.ONE) < 0)
+            throw new RequiredParameterException("price");
+        if (rentPricePerDay.compareTo(BigDecimal.ONE) < 0)
+            throw new RequiredParameterException("rentPricePerDay");
+        return new Car(model, color, carType, registrationNumber, description, price, rentPricePerDay);
     }
 }

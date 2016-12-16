@@ -1,43 +1,43 @@
-<fmt:setLocale value="en_US"/>
+<c:set var="lang" value="${empty lang ? 'en_US' : sessionScope.lang}" />
+<fmt:setLocale value="${lang}"/>
 <fmt:setBundle basename="localization/messages" var="bundle"/>
-
 <div align="center">
     <fmt:message key="menu" bundle="${bundle}"/>
     <c:if test="${empty user}">
         <a href="${pageContext.request.contextPath}/Controller?command=LOGIN">
-            <fmt:message key="LOGIN" bundle="${bundle}"/>
+            <fmt:message key="LOGIN" bundle="${bundle}"/>,
         </a>
     </c:if>
     <c:if test="${user.isAdmin()}">
         <a href="${pageContext.request.contextPath}/Controller?command=CARS">
-            <fmt:message key="CARS" bundle="${bundle}"/></a>
+            <fmt:message key="CARS" bundle="${bundle}"/>, </a>
         <a href="${pageContext.request.contextPath}/Controller?command=USERS">
-            <fmt:message key="USERS" bundle="${bundle}"/>
+            <fmt:message key="USERS" bundle="${bundle}"/>,
         </a>
         <a href="${pageContext.request.contextPath}/Controller?command=INVOICES">
-            <fmt:message key="INVOICES" bundle="${bundle}"/>
+            <fmt:message key="INVOICES" bundle="${bundle}"/>,
         </a>
         <a href="${pageContext.request.contextPath}/Controller?command=CLIENTS">
-            <fmt:message key="CLIENTS" bundle="${bundle}"/>
+            <fmt:message key="CLIENTS" bundle="${bundle}"/>,
         </a>
         <a href="${pageContext.request.contextPath}/Controller?command=CARFLOWS">
-            <fmt:message key="CARFLOWS" bundle="${bundle}"/>
+            <fmt:message key="CARFLOWS" bundle="${bundle}"/>,
         </a>
         <a href="${pageContext.request.contextPath}/Controller?command=CARREQUESTS">
-            <fmt:message key="CARREQUESTS" bundle="${bundle}"/>
+            <fmt:message key="CARREQUESTS" bundle="${bundle}"/>,
         </a>
         <a href="${pageContext.request.contextPath}/Controller?command=ADMIN">
-            <fmt:message key="ADMIN" bundle="${bundle}"/>
+            <fmt:message key="ADMIN" bundle="${bundle}"/>,
         </a>
     </c:if>
     <c:if test="${!user.isAdmin()}">
         <a href="${pageContext.request.contextPath}/Controller?command=USERSPACE">
-            <fmt:message key="USER" bundle="${bundle}"/>
+            <fmt:message key="USER" bundle="${bundle}"/>,
         </a>
     </c:if>
     <c:if test="${not empty user}">
         <a href="${pageContext.request.contextPath}/Controller?command=LOGOUT">
-            <fmt:message key="LOGOUT" bundle="${bundle}"/>
+            <fmt:message key="LOGOUT" bundle="${bundle}"/>,
         </a>
     </c:if>
 </div>

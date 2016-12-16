@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<fmt:setLocale value="en_US"/>
+<c:set var="lang" value="${empty lang ? 'en_US' : sessionScope.lang}" />
+<fmt:setLocale value="${lang}"/>
 <fmt:setBundle basename="localization/messages" var="bundle"/>
 <html>
 <head>
@@ -12,7 +13,7 @@
 <table width="90%" style="align-self: center; border-collapse:collapse">
     <tr class="border_bottom">
         <td style="text-align: left">
-            <h2 style="margin-bottom: 0">CARS RENT Inc.</h2>
+            <h2 style="margin-bottom: 0">СarRental Inc.</h2>
             <a href="${pageContext.request.contextPath}/index.php">www.carrent.com.ua</a> <br>
             Tel: +123(456)888-99-999<br>
             Fax: +123(456)555-55-555<br>

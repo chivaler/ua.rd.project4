@@ -8,14 +8,19 @@ import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.CarFlow;
 import ua.rd.project4.domain.User;
+import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.exceptions.WrongCarFlowDirectionException;
 import ua.rd.project4.model.services.CarFlowService;
+import ua.rd.project4.model.services.CarService;
+import ua.rd.project4.model.services.Messages;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 
 class CarInCommand implements Command {
     private static final CarInCommand instance = new CarInCommand();
     private final Logger logger = LogManager.getLogger(CarInCommand.class);
     private final CarFlowService carFlowService = JdbcServiceFactory.getInstance().getCarFlowService();
+    private final CarService carService = JdbcServiceFactory.getInstance().getCarService();
+
 
     private CarInCommand() {
     }
@@ -31,12 +36,20 @@ class CarInCommand implements Command {
         try {
             final int carId = Integer.parseInt(req.getParameter("car"));
             CarFlow carFlowOut = carFlowService.findLastCarFlowOutOfCar(carId);
-            carFlowService.checkInCarFlowIn(carFlowOut.getId(), user);
+            if (carFlowOut==null) {
+                /* Arrive of a new car to box*/
+                CarFlow carFlowIn = new CarFlow(carService.getById(carId), CarFlow.CarFlowType.IN,
+                        null,user,null, Messages.CAR_ARRIVE);
+                carFlowService.insert(carFlowIn);
+            } else
+                carFlowService.checkInCarFlowIn(carFlowOut.getId(), user);
         } catch (WrongCarFlowDirectionException e) {
             JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.WRONG_CAR_DIRECTION);
             logger.error(e);
         } catch (NumberFormatException e) {
             logger.info(e);
+        } catch (UniqueViolationException e) {
+            logger.error(e);
         }
         return AdminCommand.getInstance().execute(req, user);
     }
