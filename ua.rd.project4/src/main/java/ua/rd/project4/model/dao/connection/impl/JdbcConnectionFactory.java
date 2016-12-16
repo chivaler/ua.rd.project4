@@ -20,7 +20,7 @@ public class JdbcConnectionFactory implements ConnectionFactory {
     private String jdbcUrl;
     private String jdbcUser;
     private String jdbcPassword;
-    private ConnectionType connectionType = ConnectionType.POOL_PREFERRED;
+    ConnectionType connectionType = ConnectionType.POOL_PREFERRED;
     private boolean h2Used = false;
 
     enum ConnectionType {

@@ -189,8 +189,8 @@ class JdbcCarDao implements CarDao {
         List<Car> foundCars = new ArrayList<>();
         try (Connection connection = connectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT * from `cars` LEFT JOIN" +
-                             "(SELECT `car` FROM `car_request` " +
+                     "SELECT * from `cars` " +
+                             "LEFT JOIN (SELECT `car` FROM `car_request` " +
                              "WHERE  `dateFrom`<=? AND `dateTo`>=? " +
                              "AND status LIKE 'APPROVED' OR status LIKE 'PROGRESS') AS Conflicts " +
                              "ON `cars`.`id`=Conflicts.`car`" +

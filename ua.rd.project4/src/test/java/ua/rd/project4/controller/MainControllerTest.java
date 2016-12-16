@@ -32,7 +32,7 @@ public class MainControllerTest {
         writer = new PrintWriter(tempFileName);
         when(request.getParameter("command")).thenReturn("abracadabra");
         new MainController().doPost(request, response);
-        verify(request, atLeast(1)).getRequestDispatcher(ViewJsp.General.ERROR_404);
+        verify(response, atLeast(1)).sendError(HttpServletResponse.SC_NOT_FOUND);
         writer.flush();
         verify(request, atLeast(1)).getParameter("command");
     }
@@ -42,7 +42,7 @@ public class MainControllerTest {
         when(request.getParameter("command")).thenReturn(null);
         new MainController().doPost(request, response);
         writer.flush();
-        verify(request, atLeast(1)).getRequestDispatcher(ViewJsp.General.ERROR_404);
+        verify(response, atLeast(1)).sendError(HttpServletResponse.SC_NOT_FOUND);
         writer.flush();
         verify(request, atLeast(1)).getParameter("command");
     }
@@ -63,7 +63,7 @@ public class MainControllerTest {
         when(request.getParameter("command")).thenReturn("CARS");
         new MainController().doPost(request, response);
         writer.flush();
-        verify(request, atLeast(1)).getRequestDispatcher(ViewJsp.General.ERROR_404);
+        verify(response, atLeast(1)).sendError(HttpServletResponse.SC_FORBIDDEN);
         verify(request, atLeast(1)).setAttribute(eq("error"), any(String.class));
         writer.flush();
         verify(request, atLeast(1)).getParameter("command");
