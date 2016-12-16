@@ -198,8 +198,8 @@ class JdbcCarRequestDao implements CarRequestDao {
                      "SELECT * FROM `car_request` " +
                              "WHERE  `dateFrom`<=? AND `dateTo`>=? " +
                              "AND status NOT LIKE 'REJECTED' AND status NOT LIKE 'DONE' " +
-                             "AND `car`=?" +
-                             "AND `id`!=?")) {
+                             "AND `car`=? " +
+                             "AND `id` <> ?")) {
             preparedStatement.setDate(1,carRequestChecked.getDateTo());
             preparedStatement.setDate(2,carRequestChecked.getDateFrom());
             preparedStatement.setInt(3,carRequestChecked.getCarId());
