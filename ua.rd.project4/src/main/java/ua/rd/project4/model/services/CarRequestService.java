@@ -6,6 +6,7 @@ import ua.rd.project4.domain.User;
 import ua.rd.project4.model.exceptions.CarRequestApproveNeededException;
 import ua.rd.project4.model.exceptions.CarRequestPaymentNeededException;
 import ua.rd.project4.model.exceptions.ConflictsRequestException;
+import ua.rd.project4.model.exceptions.PaymentExistException;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -57,7 +58,7 @@ public interface CarRequestService extends EntityService<CarRequest> {
 
     void approve(int carRequestId) throws ConflictsRequestException;
 
-    void reject(int carRequestId, String reason);
+    void reject(int carRequestId, String reason) throws PaymentExistException;
 
     BigDecimal calculateTotal(CarRequest carRequest);
 

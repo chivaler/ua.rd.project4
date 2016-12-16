@@ -15,6 +15,7 @@ public class JspMessagesSetter {
         FIELD_EMPTY_REQUIRED,
         FIELD_WRONG_DATA,
         COULDNT_REMOVE_ID,
+        PAYMENT_EXIST
     }
 
     public enum JspResult {

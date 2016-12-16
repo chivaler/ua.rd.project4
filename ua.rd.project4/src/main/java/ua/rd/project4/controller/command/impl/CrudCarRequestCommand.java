@@ -12,6 +12,7 @@ import ua.rd.project4.domain.CarRequest;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.exceptions.ConflictsRequestException;
+import ua.rd.project4.model.exceptions.PaymentExistException;
 import ua.rd.project4.model.holders.CarRequestHolder;
 import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.services.impl.JdbcServiceFactory;
@@ -124,7 +125,12 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
             if (id == 0) {
                 JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.UNKNOWN_ID);
             } else
-                carRequestService.reject(id, Messages.DEFAULT_REJECT_REASON);
+                try {
+                    carRequestService.reject(id, Messages.DEFAULT_REJECT_REASON);
+                } catch (PaymentExistException e) {
+                    logger.info(e);
+                    JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.PAYMENT_EXIST);
+                }
             return AdminCommand.getInstance().execute(req, user);
         } else
             return super.execute(req, user);

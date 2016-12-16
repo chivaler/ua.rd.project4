@@ -106,8 +106,11 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
     }
 
     @Override
-    public void reject(int carRequestId, String reason) {
+    public void reject(int carRequestId, String reason) throws PaymentExistException {
         CarRequest carRequest = getById(carRequestId);
+        Invoice invoice = carRequest.getInvoice();
+        if (invoice!=null && invoice.isPaid())
+            throw new PaymentExistException();
         carRequest.setStatus(CarRequest.RequestStatus.REJECTED);
         carRequest.setRejectReason(reason);
         try {
