@@ -31,9 +31,10 @@ public interface CarRequestService extends EntityService<CarRequest> {
 
     CarRequestStatus isPossible(int carRequestId);
 
+    List<CarRequest> findAllActive();
+
     default List<Map<String, String>> getCarRequestsWithStatuses() {
-        return findAll().stream()
-                .filter(s -> s.getStatus() != CarRequest.RequestStatus.DONE)
+        return findAllActive().stream()
                 .map(s -> {
                     Map<String, String> map = new HashMap<>();
                     map.put("id", String.valueOf(s.getId()));

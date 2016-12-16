@@ -65,6 +65,11 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
     }
 
     @Override
+    public List<CarRequest> findAllActive() {
+        return getDao().findAllActive();
+    }
+
+    @Override
     public CarRequestStatus isDatesAvalable(Date dateFrom, Date dateTo, int carId, int excludedCarRequest) {
         List<CarRequest> possibleConflicted = getDao().findConflictingCarRequests(dateFrom, dateTo, carId, excludedCarRequest);
         if (possibleConflicted.isEmpty())

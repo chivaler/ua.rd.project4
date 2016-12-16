@@ -252,4 +252,21 @@ class JdbcCarRequestDao implements CarRequestDao {
         }
         return foundCarsRequests;
     }
+
+    @Override
+    public List<CarRequest> findAllActive() {
+        List<CarRequest> foundCarsRequests = new ArrayList<>();
+        CarRequest carRequest;
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE `status`<>'DONE' AND `status`<>'REJECTED'")) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                carRequest = getEntityFromResultSet(resultSet);
+                foundCarsRequests.add(carRequest);
+            }
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+        return foundCarsRequests;
+    }
 }

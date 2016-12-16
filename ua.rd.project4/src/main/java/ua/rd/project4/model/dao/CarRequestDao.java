@@ -15,4 +15,6 @@ public interface CarRequestDao extends EntityDao<CarRequest> {
     List<CarRequest> findConflictingCarRequests(CarRequest carRequest);
 
     List<CarRequest> findConflictingCarRequests(Date dateFrom, Date dateTo, int carId, int excludedCarRequestId);
+
+    List<CarRequest> findAllActive();
 }
