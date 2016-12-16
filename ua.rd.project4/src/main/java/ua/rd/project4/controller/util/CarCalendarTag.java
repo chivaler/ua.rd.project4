@@ -27,7 +27,6 @@ public class CarCalendarTag extends TagSupport {
     @Override
     public int doStartTag() throws JspException {
         try {
-            pageContext.getOut().print(this.carId+"\n");
             pageContext.getOut().print("<div align=\"center\"><table><tr>\n");
             pageContext.getOut().print("<th>Mon</th><th>Tue</th><th>Wed</th><th>Thur</th><th>Fir</th><th>Sat</th><th>Sun</th></tr>\n");
 

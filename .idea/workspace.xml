@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6ca6b15-2d8d-4825-a483-4297d64caaf2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/util/CarCalendarTag.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/WEB-INF/carTag.tld" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/ua_rd_project4_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/ua_rd_project4_war_exploded.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/img/paid.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4.iml" afterPath="$PROJECT_DIR$/ua.rd.project4.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/pom.xml" afterPath="$PROJECT_DIR$/ua.rd.project4/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarRequestDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarRequestDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarRequestService.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarRequestService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarRequestService.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarRequestService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/style.css" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/ua.rd.project4/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_javax_servlet_jsp_api_2_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_javax_servlet_jsp_api_2_3_2_b02.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/util/CarCalendarTag.java" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/util/CarCalendarTag.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/invoice.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/invoice.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/print/invoiceView.jsp" afterPath="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/print/invoiceView.jsp" />
     </list>
     <ignored path="project4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,8 +78,8 @@
       <file leaf-file-name="CarCalendarTag.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/util/CarCalendarTag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+            <state relative-caret-position="68">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,11 +87,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="invoice.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/invoice.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="invoiceView.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/print/invoiceView.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="84" column="8" lean-forward="true" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userspace.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/userspace.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="141" column="54" lean-forward="false" selection-start-line="141" selection-start-column="46" selection-end-line="141" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -137,65 +159,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JdbcCarRequestDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarRequestDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="197" column="119" lean-forward="false" selection-start-line="197" selection-start-column="4" selection-end-line="197" selection-end-column="119" />
-              <folding>
-                <marker date="1481886102030" expanded="true" signature="1602:2405" ph="CREATE TABLE... IF" />
-                <marker date="1481886102030" expanded="true" signature="2784:2941" ph="INSERT INTO `car_request`... " />
-                <marker date="1481886102030" expanded="true" signature="4274:4423" ph="UPDATE `car_... " />
-                <marker date="1481886102030" expanded="true" signature="5569:5605" ph="DELETE FROM " />
-                <marker date="1481886102030" expanded="true" signature="7077:7104" ph="SELECT * FRO... car_request" />
-                <marker date="1481886102030" expanded="true" signature="7834:7898" ph="SELECT * FRO... car_request" />
-                <marker date="1481886102030" expanded="true" signature="9497:9783" ph="SELECT * fro... cars" />
-                <marker date="1481886102030" expanded="true" signature="9498:9688" ph="SELECT `*` F... car_request" />
-                <marker date="1481886102030" expanded="true" signature="9498:9734" ph="SELECT `*` F... car_request" />
-                <marker date="1481886102030" expanded="true" signature="9498:9782" ph="SELECT * FRO... car_request" />
-                <marker date="1481886102030" expanded="true" signature="9498:9783" ph="SELECT `*` F... car_request" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JdbcCarFlowDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/impl/JdbcCarFlowDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-              <folding>
-                <marker date="1481844350689" expanded="true" signature="1770:2480" ph="CREATE TABLE... IF" />
-                <marker date="1481844350689" expanded="true" signature="2850:2997" ph="INSERT INTO `car_flow`... " />
-                <marker date="1481844350689" expanded="true" signature="4266:4405" ph="UPDATE `car_... " />
-                <marker date="1481844350689" expanded="true" signature="5496:5529" ph="DELETE FROM " />
-                <marker date="1481844350689" expanded="true" signature="6690:6714" ph="SELECT * FRO... car_flow" />
-                <marker date="1481844350689" expanded="true" signature="7160:7220" ph="SELECT * FRO... car_flow" />
-                <marker date="1481844350689" expanded="true" signature="8696:8752" ph="SELECT * FRO... car_flow" />
-                <marker date="1481844350689" expanded="true" signature="8696:8754" ph="SELECT * FRO... car_flow" />
-                <marker date="1481844350689" expanded="true" signature="9350:9405" ph="SELECT SUM(`... car_flow" />
-                <marker date="1481844350689" expanded="true" signature="10003:10045" ph="SELECT * FRO... car_flow" />
-                <marker date="1481844350689" expanded="true" signature="10003:10096" ph="SELECT * FRO... car_flow" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="car.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="322">
               <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ua.rd.project4/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="57" lean-forward="false" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -247,6 +215,7 @@
       <find>javax</find>
       <find>findAvailableCars</find>
       <find>delete</find>
+      <find>INVOICES</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -303,8 +272,6 @@
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/register.jsp" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/users.jsp" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/userspace.jsp" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/print/invoiceView.jsp" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/invoice.jsp" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/CrudInvoiceCommand.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/pom.xml" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/command/impl/CrudCarsCommand.java" />
@@ -327,10 +294,12 @@
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/dao/CarRequestDao.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/CarRequestService.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/model/services/impl/JdbcCarRequestService.java" />
-        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/util/CarCalendarTag.java" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car.jsp" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/WEB-INF/carTag.tld" />
         <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/style.css" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/util/CarCalendarTag.java" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/invoice.jsp" />
+        <option value="$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/print/invoiceView.jsp" />
       </list>
     </option>
   </component>
@@ -814,6 +783,62 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="print" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ua.rd.project4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ua.rd.project4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1198,11 +1223,11 @@
       <recent name="ua.rd.project4.services" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\ua.rd.project4\ua.rd.project4\src\main\webapp\img" />
       <recent name="D:\Projects\ua.rd.project4\ua.rd.project4\src\main\webapp\jsp\print" />
       <recent name="D:\Projects\ua.rd.project4\ua.rd.project4\src\main\webapp" />
       <recent name="D:\Projects\ua.rd.project4\ua.rd.project4\src\main\webapp\jsp" />
       <recent name="D:\Projects\ua.rd.project4\ua.rd.project4\src\main\webapp\META-INF" />
-      <recent name="D:\Projects\ua.rd.project4\ua.rd.project4\src\main\webapp\jsp\includes" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ua.rd.project4.controller.command.impl" />
@@ -2022,14 +2047,7 @@
       <workItem from="1481645865781" duration="16823000" />
       <workItem from="1481738755836" duration="7193000" />
       <workItem from="1481815176622" duration="21918000" />
-      <workItem from="1481837752926" duration="25247000" />
-    </task>
-    <task id="LOCAL-00022" summary="CarFlow: removed client, added dateFrom">
-      <created>1480590320462</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1480590320463</updated>
+      <workItem from="1481837752926" duration="26859000" />
     </task>
     <task id="LOCAL-00023" summary="Invoice: added dateFrom">
       <created>1480591559785</created>
@@ -2367,7 +2385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481882536548</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="customTag added">
+      <created>1481887332181</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1481887332181</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2403,7 +2428,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="475270000" />
+    <option name="totallyTimeSpent" value="476882000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2473,7 +2498,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Commands-&gt;CommandFactory" />
     <MESSAGE value="CarFlowHolder test" />
     <MESSAGE value="InvoiceHolder Test" />
     <MESSAGE value="CarRequestHolderTest" />
@@ -2498,7 +2522,8 @@
     <MESSAGE value="isPossible - refactored" />
     <MESSAGE value="fixes" />
     <MESSAGE value="c3p0 changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="c3p0 changes" />
+    <MESSAGE value="customTag added" />
+    <option name="LAST_COMMIT_MESSAGE" value="customTag added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2640,33 +2665,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/model/dao/CarRequest_DaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/test/java/ua/rd/project4/RandomEntities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/resources/localization/messages_uk_UA.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1075">
-          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
@@ -3088,24 +3086,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/util/CarCalendarTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/WEB-INF/carTag.tld">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -3119,6 +3099,50 @@
         <state relative-caret-position="221">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/car.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/java/ua/rd/project4/controller/util/CarCalendarTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/userspace.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="141" column="54" lean-forward="false" selection-start-line="141" selection-start-column="46" selection-end-line="141" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/invoice.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ua.rd.project4/src/main/webapp/jsp/print/invoiceView.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="84" column="8" lean-forward="true" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

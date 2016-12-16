@@ -8,7 +8,6 @@
 </head>
 <body>
 <%@include file="includes/header.jspf" %>
-
 <form action="${pageContext.request.contextPath}/Controller" method="post">
     <INPUT type="hidden" name="command" value="INVOICES"/>
     <INPUT type="hidden" name="do" value="update"/>
@@ -40,6 +39,16 @@
         </tr>
     </table>
 </form>
+<c:if test="${not empty entity}">
+    <div align="center">
+        <form action="${pageContext.request.contextPath}/Controller" method="post">
+            <INPUT type="hidden" name="command" value="PRINTINVOICE"/>
+            <INPUT type="hidden" name="id" value="${entity.getId()}"/>
+            <INPUT type="submit" value="Print">
+        </form>
+    </div>
+</c:if>
+
 
 
 </body>
