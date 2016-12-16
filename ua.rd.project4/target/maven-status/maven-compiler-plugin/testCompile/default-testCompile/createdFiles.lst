@@ -14,7 +14,6 @@ ua\rd\project4\model\dao\Client_DaoTest.class
 ua\rd\project4\model\dao\CarRequest_DaoTest.class
 ua\rd\project4\controller\command\impl\CrudCarRequestsCommandInsufficentPemissionsNullTest.class
 ua\rd\project4\controller\command\impl\UserSpaceCommandTest.class
-ua\rd\project4\model\dao\connection\ConnectionFactoryTest.class
 ua\rd\project4\controller\command\impl\CrudClientsCommandInsufficentPemissionsNullTest.class
 ua\rd\project4\model\dao\CarFlow_DaoTest.class
 ua\rd\project4\controller\command\impl\LogoutCommandTest.class
@@ -32,7 +31,6 @@ ua\rd\project4\model\services\ServiceFactoryTest.class
 ua\rd\project4\RandomEntities.class
 ua\rd\project4\model\dao\EntityDaoTest.class
 ua\rd\project4\model\holders\InvoiceHolderTest.class
-ua\rd\project4\model\dao\impl\JdbcUserDaoTest.class
 ua\rd\project4\controller\command\impl\CrudGenericCommandInsufficentPemissionsTest.class
 ua\rd\project4\model\dao\Invoice_DaoTest.class
 ua\rd\project4\model\holders\CarRequestHolderTest.class

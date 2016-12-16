@@ -65,7 +65,6 @@ ua\rd\project4\controller\util\ViewJsp$InvoicesCrud.class
 ua\rd\project4\domain\Invoice.class
 ua\rd\project4\model\services\InvoiceService.class
 ua\rd\project4\controller\util\impl\SessionWrapperImpl.class
-ua\rd\project4\model\dao\JdbcFields.class
 ua\rd\project4\model\dao\impl\JdbcCarFlowDao.class
 ua\rd\project4\model\dao\CarRequestDao.class
 ua\rd\project4\controller\MainController.class

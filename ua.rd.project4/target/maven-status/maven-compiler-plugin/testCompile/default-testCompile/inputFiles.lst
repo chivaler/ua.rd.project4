@@ -12,6 +12,7 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\holders\InvoiceHolderTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\UserServiceTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudInvoicesCommandInsufficentPemissionsUserTest.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\connection\impl\ConnectionTypeTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudCarRequestsCommandInsufficentPemissionsUserTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\holders\CarFlowHolderTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\CarRequestServiceTest.java
@@ -24,7 +25,6 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controlle
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\IntegrationTests.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\InvoiceServiceTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudClientsCommandInsufficentPemissionsUserTest.java
-D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\connection\ConnectionFactoryTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\RandomEntities.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\Users_DaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudUsersCommandInsufficentPemissionsUserTest.java
@@ -34,6 +34,5 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\UserSpaceCommandTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudInvoicesCommandInsufficentPemissionsNullTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\holders\UserHolderTest.java
-D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\dao\impl\JdbcUserDaoTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\controller\command\impl\CrudCarFlowsCommandInsufficentPemissionsNullTest.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\test\java\ua\rd\project4\model\services\ServiceFactoryTest.java

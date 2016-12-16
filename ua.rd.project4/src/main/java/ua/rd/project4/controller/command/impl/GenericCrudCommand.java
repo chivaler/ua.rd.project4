@@ -135,7 +135,6 @@ abstract class GenericCrudCommand<T extends Entity> implements Command {
             case "new":
                 addListsToRequest(req);
                 return getEntityJsp();
-            case "list":
             case "":
                 break;
             default:

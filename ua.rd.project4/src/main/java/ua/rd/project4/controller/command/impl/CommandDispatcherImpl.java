@@ -38,7 +38,8 @@ public class CommandDispatcherImpl implements CommandDispatcher {
         CARSAVAILABLE(CarsAvailableCommand.getInstance()),
         CREATECARREQUEST(UserCreateCarRequestCommand.getInstance()),
         REGISTER(UserRegisterCommand.getInstance()),
-        PRINTINVOICE(PrintInvoiceCommand.getInstance());
+        PRINTINVOICE(PrintInvoiceCommand.getInstance()),
+        PRINTCARFLOW(PrintCarFlowCommand.getInstance());
 
         final Command command;
 
