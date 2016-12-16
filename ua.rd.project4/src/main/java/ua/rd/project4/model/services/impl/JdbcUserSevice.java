@@ -8,6 +8,7 @@ import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.services.*;
 
 import java.util.List;
+import java.util.Objects;
 
 class JdbcUserSevice extends GenericEntityService<User> implements UserService {
     private static final JdbcUserSevice instance = new JdbcUserSevice();
@@ -32,6 +33,14 @@ class JdbcUserSevice extends GenericEntityService<User> implements UserService {
     @Override
     public List<User> findUsersByClientId(int clientId) {
         return getDao().findUsersByClientId(clientId);
+    }
+
+    @Override
+    public User authentication(String login, String password) {
+        User user = getDao().getByLogin(login);
+        if (user!=null && user.getPasswordHash().equals(getHashPassword(password)))
+            return user;
+        return null;
     }
 
     @Override

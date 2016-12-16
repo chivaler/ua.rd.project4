@@ -1,5 +1,7 @@
 package ua.rd.project4.model.services;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ua.rd.project4.domain.User;
 
 import java.math.BigInteger;
@@ -9,15 +11,10 @@ import java.util.List;
 import java.util.Objects;
 
 public interface UserService extends EntityService<User> {
+
     List<User> findUsersByClientId(int clientId);
 
-    default User authentication(String login, String password) {
-        return  findAll().stream()
-                .filter(s -> Objects.equals(s.getLogin(), login)
-                        && Objects.equals(s.getPasswordHash(), getHashPassword(password)))
-                .findFirst()
-                .orElse(null);
-    }
+    User authentication(String login, String password);
 
     default String getHashPassword(String nakedPassword) {
         final String CRYPTO_ALGORITHM = "MD5";
@@ -29,7 +26,8 @@ public interface UserService extends EntityService<User> {
             messageDigest.update(nakedPassword.getBytes());
             digest = messageDigest.digest();
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            Logger logger = LogManager.getLogger(UserService.class);
+            logger.error(e);
         }
 
         BigInteger bigInt = new BigInteger(1, digest);

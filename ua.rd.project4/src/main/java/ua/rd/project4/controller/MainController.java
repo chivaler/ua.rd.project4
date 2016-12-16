@@ -45,6 +45,9 @@ public class MainController extends HttpServlet {
         } catch (NotFoundException e) {
             logger.debug(e);
             resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+        } catch (Exception e){
+            logger.error(e);
+            resp.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
     }
 }
