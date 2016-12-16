@@ -9,6 +9,10 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class ConnectionTypeTest {
+    @Test
+    public void getConnection() throws Exception {
+        assertThat(JdbcConnectionFactory.getInstance().getConnection()==null,is(false));
+    }
 
     @Test
     public void DatasourcePoolTest() throws Exception {

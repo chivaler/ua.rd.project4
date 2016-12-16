@@ -34,7 +34,8 @@
                                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                                             <INPUT type="hidden" name="do" value="new"/>
                                             <INPUT type="hidden" name="id" value="${car.getId()}"/>
-                                            <INPUT type="submit" value="<fmt:message key="newRequest" bundle="${bundle}"/>">
+                                            <INPUT type="submit"
+                                                   value="<fmt:message key="newRequest" bundle="${bundle}"/>">
                                         </form>
                                     </td>
                                 </tr>
@@ -60,7 +61,8 @@
                                         <form action="${pageContext.request.contextPath}/Controller" method="get">
                                             <INPUT type="hidden" name="command" value="CAR_IN"/>
                                             <INPUT type="hidden" name="car" value="${car.getId()}"/>
-                                            <INPUT type="submit" value="<fmt:message key="registerIn" bundle="${bundle}"/>">
+                                            <INPUT type="submit"
+                                                   value="<fmt:message key="registerIn" bundle="${bundle}"/>">
                                         </form>
                                     </td>
                                 </tr>
@@ -103,8 +105,11 @@
                         <a href="${pageContext.request.contextPath}/Controller?command=CARREQUESTS&do=get&id=${request.id}">
                             <c:out value="${request.dateCreated}"/></a></td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/Controller?command=INVOICES&do=get&id=${request.invoiceId}">
-                            <c:out value="${request.paid}"/></a></td>
+                        <c:if test="${not empty request.invoiceId}">
+                            <a href="${pageContext.request.contextPath}/Controller?command=INVOICES&do=get&id=${request.invoiceId}">
+                                <c:out value="${request.paid=='true'?'paid':'not paid'}"/></a>
+                        </c:if>
+                    </td>
                     <td><c:out value="${request.available}"/></td>
                     <td>
                         <form action="${pageContext.request.contextPath}/Controller" method="post">
@@ -120,7 +125,8 @@
                             <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                             <INPUT type="hidden" name="do" value="reject"/>
                             <INPUT type="hidden" name="id" value="${request.id}"/>
-                            <INPUT type="submit" value="<fmt:message key="REJECT" bundle="${bundle}"/>" ${request.paid=='true'?'disabled="disabled"':''}>
+                            <INPUT type="submit"
+                                   value="<fmt:message key="REJECT" bundle="${bundle}"/>" ${request.paid=='true'?'disabled="disabled"':''}>
                         </form>
                     </td>
                     <td>
