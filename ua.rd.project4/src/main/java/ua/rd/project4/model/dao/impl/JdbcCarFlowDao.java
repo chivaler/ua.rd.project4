@@ -152,7 +152,7 @@ class JdbcCarFlowDao implements CarFlowDao {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 CarFlow carFlow = getEntityFromResultSet(resultSet);
-                if (carFlow!=null)
+                if (carFlow != null)
                     foundCarFlows.add(carFlow);
             }
         } catch (SQLException e) {
@@ -170,7 +170,7 @@ class JdbcCarFlowDao implements CarFlowDao {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 CarFlow carFlow = getEntityFromResultSet(resultSet);
-                if (carFlow!=null)
+                if (carFlow != null)
                     foundCarFlows.add(carFlow);
             }
         } catch (SQLException e) {
@@ -188,7 +188,7 @@ class JdbcCarFlowDao implements CarFlowDao {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 CarFlow carFlow = getEntityFromResultSet(resultSet);
-                if (carFlow!=null)
+                if (carFlow != null)
                     foundCarFlows.add(carFlow);
             }
         } catch (SQLException e) {
@@ -206,7 +206,7 @@ class JdbcCarFlowDao implements CarFlowDao {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 CarFlow carFlow = getEntityFromResultSet(resultSet);
-                if (carFlow!=null)
+                if (carFlow != null)
                     foundCarFlows.add(carFlow);
             }
         } catch (SQLException e) {
@@ -270,8 +270,8 @@ class JdbcCarFlowDao implements CarFlowDao {
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow` WHERE `id`=?")) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            carFlow = getEntityFromResultSet(resultSet);
+            if (resultSet.next())
+                carFlow = getEntityFromResultSet(resultSet);
         } catch (SQLException e) {
             logger.error(e);
         }
