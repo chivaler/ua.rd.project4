@@ -184,4 +184,28 @@ class JdbcCarDao implements CarDao {
         return foundCars;
     }
 
+    @Override
+    public List<Car> findAvailableCars(Date dateFrom, Date dateTo) {
+        List<Car> foundCars = new ArrayList<>();
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT * from `cars` LEFT JOIN" +
+                             "(SELECT `car` FROM `car_request` " +
+                             "WHERE  `dateFrom`<=? AND `dateTo`>=? " +
+                             "AND status LIKE 'APPROVED' OR status LIKE 'PROGRESS') AS Conflicts " +
+                             "ON `cars`.`id`=Conflicts.`car`" +
+                             "WHERE Conflicts.`car` is NULL")) {
+            preparedStatement.setDate(1,dateTo);
+            preparedStatement.setDate(2,dateFrom);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Car car = getEntityFromResultSet(resultSet);
+                foundCars.add(car);
+            }
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+        return foundCars;
+    }
+
 }

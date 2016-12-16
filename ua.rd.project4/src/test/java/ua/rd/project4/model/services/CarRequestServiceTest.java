@@ -235,9 +235,32 @@ public class CarRequestServiceTest {
         assertThat(carRequestService.isPossible(carRequest2.getId()), is(CarRequestService.CarRequestStatus.POSSIBLE));
     }
 
-    //Business Logic
+    @Test
+    public void findAvailableCars1() throws Exception {
+        Car car1 = RandomEntities.getCar();
+        carService.insert(car1);
+        assertTrue(carRequestService.findAvailableCars(Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now())).contains(car1));
+    }
 
-    //    @Test
+    @Test
+    public void findAvailableCars2() throws Exception {
+        Car car1 = RandomEntities.getCar();
+        carService.insert(car1);
+        CarRequest carRequest1 = RandomEntities.getCarRequest();
+        carRequest1.setCar(car1);
+        carRequest1.setDateFrom(Date.valueOf(LocalDate.now()));
+        carRequest1.setDateTo(Date.valueOf(LocalDate.now()));
+        carRequest1.setStatus(CarRequest.RequestStatus.NEW);
+        carRequestService.insert(carRequest1);
+        assertTrue(carRequestService.findAvailableCars(Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now())).contains(car1));
+
+        carRequest1.setStatus(CarRequest.RequestStatus.APPROVED);
+        carRequestService.update(carRequest1.getId(),carRequest1);
+        assertFalse(carRequestService.findAvailableCars(Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now())).contains(car1));
+
+    }
+
+    @Test
     public void getCarRequestsWithStatusesTest() throws Exception {
         Client client1 = RandomEntities.getClient();
         clientService.insert(client1);

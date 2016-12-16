@@ -3,6 +3,7 @@ package ua.rd.project4.model.services.impl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.domain.*;
+import ua.rd.project4.model.dao.CarDao;
 import ua.rd.project4.model.dao.CarRequestDao;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.exceptions.*;
@@ -57,15 +58,8 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
 
     @Override
     public List<Car> findAvailableCars(Date dateFrom, Date dateTo) {
-        List<Car> result = new ArrayList<>();
-        for (Car car : carService.findAll()) {
-            if (findCarRequestsByCarId(car.getId()).stream()
-                    .filter(s -> s.getStatus() != CarRequest.RequestStatus.REJECTED && s.getStatus() != CarRequest.RequestStatus.DONE && s.getStatus() != CarRequest.RequestStatus.NEW)
-                    .noneMatch(s -> s.getDateTo().compareTo(dateFrom) >= 0
-                            && s.getDateFrom().compareTo(dateTo) <= 0))
-                result.add(car);
-        }
-        return result;
+        CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
+        return carDao.findAvailableCars(dateFrom, dateTo);
     }
 
     @Override
