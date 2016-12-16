@@ -118,7 +118,18 @@ class JdbcCarRequestDao implements CarRequestDao {
 
     @Override
     public CarRequest getById(int id) {
-        return findCarRequestsByIdField(id, JdbcFields.ID).stream().findFirst().orElse(null);
+        CarRequest carRequest = null;
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE `id`=?")) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                carRequest = getEntityFromResultSet(resultSet);
+            }
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+        return carRequest;
     }
 
     private CarRequest getEntityFromResultSet(ResultSet resultSet) throws SQLException {
@@ -155,12 +166,13 @@ class JdbcCarRequestDao implements CarRequestDao {
         return foundCarsRequests;
     }
 
-    private List<CarRequest> findCarRequestsByIdField(int id, JdbcFields field) {
+    @Override
+    public List<CarRequest> findCarRequestsByClientId(int clientId) {
         List<CarRequest> foundCarsRequests = new ArrayList<>();
         CarRequest carRequest;
         try (Connection connection = connectionFactory.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE " + field.getFieldName() + "=?")) {
-            preparedStatement.setInt(1, id);
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE `client`=?")) {
+            preparedStatement.setInt(1, clientId);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 carRequest = getEntityFromResultSet(resultSet);
@@ -174,18 +186,39 @@ class JdbcCarRequestDao implements CarRequestDao {
     }
 
     @Override
-    public List<CarRequest> findCarRequestsByClientId(int clientId) {
-        return findCarRequestsByIdField(clientId, JdbcFields.CLIENT);
-    }
-
-    @Override
     public List<CarRequest> findCarRequestsByCarId(int carId) {
-        return findCarRequestsByIdField(carId, JdbcFields.CAR);
+        List<CarRequest> foundCarsRequests = new ArrayList<>();
+        CarRequest carRequest;
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE `car`=?")) {
+            preparedStatement.setInt(1, carId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                carRequest = getEntityFromResultSet(resultSet);
+                foundCarsRequests.add(carRequest);
+            }
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+        return foundCarsRequests;
     }
 
     @Override
     public List<CarRequest> findCarRequestsByInvoiceId(int invoiceId) {
-        return findCarRequestsByIdField(invoiceId, JdbcFields.INVOICE);
+        List<CarRequest> foundCarsRequests = new ArrayList<>();
+        CarRequest carRequest;
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_request` WHERE `invoice`=?")) {
+            preparedStatement.setInt(1, invoiceId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                carRequest = getEntityFromResultSet(resultSet);
+                foundCarsRequests.add(carRequest);
+            }
+        } catch (SQLException e) {
+            logger.error(e);
+        }
+        return foundCarsRequests;
     }
 
     @Override
