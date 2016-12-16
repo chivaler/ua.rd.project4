@@ -191,6 +191,11 @@ class JdbcCarRequestDao implements CarRequestDao {
 
     @Override
     public List<CarRequest> findConflictingCarRequests(CarRequest carRequestChecked) {
+        return findConflictingCarRequests(carRequestChecked.getDateFrom(), carRequestChecked.getDateTo(),
+                carRequestChecked.getCarId(), carRequestChecked.getId());
+    }
+
+    public List<CarRequest> findConflictingCarRequests(Date dateFrom, Date dateTo, int carId, int excludedCarRequestId) {
         List<CarRequest> foundCarsRequests = new ArrayList<>();
         CarRequest carRequest;
         try (Connection connection = connectionFactory.getConnection();
@@ -200,10 +205,10 @@ class JdbcCarRequestDao implements CarRequestDao {
                              "AND status NOT LIKE 'REJECTED' AND status NOT LIKE 'DONE' " +
                              "AND `car`=? " +
                              "AND `id` <> ?")) {
-            preparedStatement.setDate(1,carRequestChecked.getDateTo());
-            preparedStatement.setDate(2,carRequestChecked.getDateFrom());
-            preparedStatement.setInt(3,carRequestChecked.getCarId());
-            preparedStatement.setInt(4,carRequestChecked.getId());
+            preparedStatement.setDate(1, dateTo);
+            preparedStatement.setDate(2, dateFrom);
+            preparedStatement.setInt(3, carId);
+            preparedStatement.setInt(4, excludedCarRequestId);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 carRequest = getEntityFromResultSet(resultSet);

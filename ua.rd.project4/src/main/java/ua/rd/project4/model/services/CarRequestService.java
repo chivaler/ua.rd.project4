@@ -63,4 +63,5 @@ public interface CarRequestService extends EntityService<CarRequest> {
 
     void checkInCarOut(int carRequestId, User user) throws CarRequestApproveNeededException, CarRequestPaymentNeededException;
 
+    CarRequestStatus isDatesAvalable(Date dateFrom, Date dateTo, int carId, int excludedCarRequest);
 }

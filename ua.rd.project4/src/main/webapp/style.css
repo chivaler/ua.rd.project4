@@ -8,6 +8,14 @@ td {
     vertical-align: top;
 }
 
+.CONFLICT {
+    background-color: #fff400;
+}
+
+.IMPOSSIBLE {
+    background-color: #ff2100;
+}
+
 th {
     background-color: #4CAF50;
     color: white;

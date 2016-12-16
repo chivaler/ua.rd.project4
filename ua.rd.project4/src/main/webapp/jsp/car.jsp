@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="/WEB-INF/carTag.tld" prefix="carCalendar"%>
 <html>
 <head>
     <title>User add/update</title>
@@ -73,6 +74,10 @@
         </tr>
     </table>
 </form>
+<c:if test="${not empty entity}">
+    <carCalendar:customattr carId="${entity.getId()}"/>
+</c:if>
+
 
 
 </body>

@@ -15,6 +15,7 @@ D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controlle
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\dao\impl\JdbcCarFlowDao.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\exceptions\InsufficientPermissionsException.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\CrudCarsCommand.java
+D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\util\CarCalendarTag.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\controller\command\impl\AdminCommand.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\services\Messages.java
 D:\Projects\ua.rd.project4\ua.rd.project4\src\main\java\ua\rd\project4\model\services\InvoiceService.java

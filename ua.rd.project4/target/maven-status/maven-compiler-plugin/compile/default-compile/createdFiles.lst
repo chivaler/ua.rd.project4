@@ -18,6 +18,7 @@ ua\rd\project4\controller\util\JspMessagesSetter$JspResult.class
 ua\rd\project4\controller\command\impl\UserCreateCarRequestCommand.class
 ua\rd\project4\model\holders\InvoiceHolder.class
 ua\rd\project4\controller\command\impl\UserSpaceCommand.class
+ua\rd\project4\controller\util\CarCalendarTag.class
 ua\rd\project4\controller\command\impl\LogoutCommand.class
 ua\rd\project4\controller\util\JspMessagesSetter.class
 ua\rd\project4\model\dao\impl\JdbcUserDao.class

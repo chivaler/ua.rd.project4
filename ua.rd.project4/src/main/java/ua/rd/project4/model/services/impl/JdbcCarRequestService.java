@@ -20,7 +20,6 @@ import java.util.stream.Stream;
 class JdbcCarRequestService extends GenericEntityService<CarRequest> implements CarRequestService {
     private static final JdbcCarRequestService instance = new JdbcCarRequestService();
     private final Logger logger = LogManager.getLogger(JdbcCarRequestService.class);
-    private final CarService carService = JdbcServiceFactory.getInstance().getCarService();
     private final InvoiceService invoiceService = JdbcServiceFactory.getInstance().getInvoiceService();
     private final CarFlowService carFlowService = JdbcServiceFactory.getInstance().getCarFlowService();
     private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
@@ -65,7 +64,12 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
     @Override
     public CarRequestStatus isPossible(int carRequestId) {
         CarRequest carRequest = getById(carRequestId);
-        List<CarRequest> possibleConflicted = getDao().findConflictingCarRequests(carRequest);
+        return isDatesAvalable(carRequest.getDateFrom(), carRequest.getDateTo(), carRequest.getCarId(), carRequest.getId());
+    }
+
+    @Override
+    public CarRequestStatus isDatesAvalable(Date dateFrom, Date dateTo, int carId, int excludedCarRequest) {
+        List<CarRequest> possibleConflicted = getDao().findConflictingCarRequests(dateFrom, dateTo, carId, excludedCarRequest);
         if (possibleConflicted.isEmpty())
             return CarRequestStatus.POSSIBLE;
         if (possibleConflicted.stream().noneMatch(s -> s.getStatus() != CarRequest.RequestStatus.NEW))
