@@ -8,9 +8,7 @@ import ua.rd.project4.controller.exceptions.InsufficientPermissionsException;
 import ua.rd.project4.controller.exceptions.NotFoundException;
 import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
-import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.controller.util.impl.RequestWrapperImpl;
-import ua.rd.project4.domain.User;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.ServletException;
@@ -33,7 +31,7 @@ public class MainController extends HttpServlet {
     }
 
     private void parseRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String jspUrl = "";
+        String jspUrl;
         RequestWrapper requestWrapper = new RequestWrapperImpl(req);
         try {
             jspUrl = commandDispatcher.executeRequest(requestWrapper);

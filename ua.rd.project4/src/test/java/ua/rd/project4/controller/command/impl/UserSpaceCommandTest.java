@@ -10,7 +10,6 @@ import ua.rd.project4.model.services.impl.JdbcServiceFactory;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.verify;
 
 public class UserSpaceCommandTest {
     private RequestWrapper req = mock(RequestWrapper.class);

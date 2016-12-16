@@ -11,11 +11,8 @@ import ua.rd.project4.model.services.*;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Supplier;
-import java.util.stream.Stream;
 
 class JdbcCarRequestService extends GenericEntityService<CarRequest> implements CarRequestService {
     private static final JdbcCarRequestService instance = new JdbcCarRequestService();

@@ -53,20 +53,20 @@ class CrudCarFlowCommand extends GenericCrudCommand<CarFlow> {
 
     @Override
     CarFlow parseToEntity(RequestWrapper req) throws InvalidParameterException {
-        int carId = 0;
+        int carId;
         try {
             carId = Integer.valueOf(req.getParameter("car"));
         } catch (NumberFormatException e) {
             throw new RequiredParameterException("car");
         }
-        CarFlow.CarFlowType carFlowType = CarFlow.CarFlowType.IN;
+        CarFlow.CarFlowType carFlowType;
         try {
             carFlowType = CarFlow.CarFlowType.valueOf(req.getParameter("carFlowType"));
         } catch (Exception e) {
             logger.debug(e);
             throw new RequiredParameterException("carFlowType");
         }
-        int responsiblePersonId = 0;
+        int responsiblePersonId;
         try {
             responsiblePersonId = Integer.valueOf(req.getParameter("responsibleUser"));
         } catch (NumberFormatException e) {

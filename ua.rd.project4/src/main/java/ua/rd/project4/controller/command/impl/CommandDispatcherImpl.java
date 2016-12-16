@@ -7,7 +7,6 @@ import ua.rd.project4.controller.command.CommandDispatcher;
 import ua.rd.project4.controller.exceptions.InsufficientPermissionsException;
 import ua.rd.project4.controller.exceptions.NotFoundException;
 import ua.rd.project4.controller.util.RequestWrapper;
-import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.User;
 
 

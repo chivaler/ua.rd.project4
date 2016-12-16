@@ -4,7 +4,7 @@ import ua.rd.project4.domain.*;
 import ua.rd.project4.model.dao.DaoFactory;
 
 public class CarFlowHolder extends CarFlow {
-    final DaoFactory daoFactory;
+    private final DaoFactory daoFactory;
     private int carId;
     private int carRequestId;
     private int responsiblePersonId;

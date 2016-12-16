@@ -18,7 +18,7 @@ public class CarRequest implements Entity {
     private Timestamp dateCreated;
 
     public enum RequestStatus {
-        NEW, APPROVED, REJECTED, PROGRESS, DONE;
+        NEW, APPROVED, REJECTED, PROGRESS, DONE
     }
 
     public CarRequest(Car car,

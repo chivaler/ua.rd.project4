@@ -14,11 +14,9 @@ import java.net.URI;
 import org.eclipse.jetty.http.HttpStatus;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
-import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.webapp.WebAppContext;
-import org.eclipse.jetty.jsp.JettyJspServlet;
 import ua.rd.project4.controller.MainController;
 
 import static org.hamcrest.CoreMatchers.is;

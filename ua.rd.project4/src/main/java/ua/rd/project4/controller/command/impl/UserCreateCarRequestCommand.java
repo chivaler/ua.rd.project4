@@ -34,7 +34,7 @@ class UserCreateCarRequestCommand implements Command {
         try {
             if (user.getClient()==null)
                 throw new InsufficientPermissionsException();
-            int carId = 0;
+            int carId;
             try {
                 carId = Integer.valueOf(req.getParameter("car"));
             } catch (NumberFormatException e) {

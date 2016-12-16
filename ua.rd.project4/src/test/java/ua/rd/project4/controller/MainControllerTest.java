@@ -7,14 +7,10 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.io.File;
-
-import org.apache.commons.io.FileUtils;
 import ua.rd.project4.controller.util.ViewJsp;
 
 import java.io.PrintWriter;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class MainControllerTest {

@@ -1,6 +1,5 @@
 package ua.rd.project4.model.dao;
 
-import ua.rd.project4.domain.Car;
 import ua.rd.project4.domain.CarFlow;
 
 import java.util.List;
@@ -18,6 +17,6 @@ public interface CarFlowDao extends EntityDao<CarFlow> {
 
     boolean isCarInBox(int carId);
 
-    public CarFlow findLastCarFlowOutOfCar(int carId);
+    CarFlow findLastCarFlowOutOfCar(int carId);
 
 }

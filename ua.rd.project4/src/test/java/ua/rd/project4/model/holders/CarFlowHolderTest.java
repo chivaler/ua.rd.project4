@@ -11,7 +11,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class CarFlowHolderTest {
-    ServiceFactory serviceFactory = JdbcServiceFactory.getInstance();
+    private ServiceFactory serviceFactory = JdbcServiceFactory.getInstance();
 
     @Test
     public void equalsTest() throws Exception {

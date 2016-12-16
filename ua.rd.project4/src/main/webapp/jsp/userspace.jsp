@@ -24,7 +24,7 @@
         <input type="date" name="dateFrom" id="dateFrom1"/>
         <label for="dateTo1"><fmt:message key="dateTo" bundle="${bundle}"/></label>
         <input type="date" name="dateTo" id="dateTo1"/>
-        <input type="submit" value="<fmt:message key="foundAvailableCarsForPeriod" bundle="${bundle}"/>"></td>
+        <input type="submit" value="<fmt:message key="foundAvailableCarsForPeriod" bundle="${bundle}"/>"/></td>
     </form>
 </div>
 <br>
@@ -66,8 +66,11 @@
                             <INPUT type="submit" value="<fmt:message key="newRequest" bundle="${bundle}"/>">
                         </c:when>
                         <c:otherwise>
-                            <a href="${pageContext.request.contextPath}/jsp/register.jsp"><fmt:message key="register" bundle="${bundle}"/></a> <fmt:message key="or" bundle="${bundle}"/>
-                            <a href="${pageContext.request.contextPath}/jsp/login.jsp"><fmt:message key="Login" bundle="${bundle}"/></a>
+                            <a href="${pageContext.request.contextPath}/jsp/register.jsp"><fmt:message key="register"
+                                                                                                       bundle="${bundle}"/></a>
+                            <fmt:message key="or" bundle="${bundle}"/>
+                            <a href="${pageContext.request.contextPath}/jsp/login.jsp"><fmt:message key="Login"
+                                                                                                    bundle="${bundle}"/></a>
                             <fmt:message key="toPlaceNewRequest" bundle="${bundle}"/>
                         </c:otherwise>
                     </c:choose>
@@ -79,7 +82,7 @@
 <br>
 <c:if test="${not empty user}">
     <table class="list">
-        <caption> <fmt:message key="myRequests" bundle="${bundle}"/></caption>
+        <caption><fmt:message key="myRequests" bundle="${bundle}"/></caption>
         <tr>
             <th><fmt:message key="id" bundle="${bundle}"/></th>
             <th><fmt:message key="car" bundle="${bundle}"/></th>

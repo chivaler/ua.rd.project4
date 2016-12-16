@@ -1,6 +1,5 @@
 package ua.rd.project4.model.dao.impl;
 
-import ua.rd.project4.domain.Car;
 import ua.rd.project4.domain.CarFlow;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

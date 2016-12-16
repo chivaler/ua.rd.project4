@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import ua.rd.project4.model.dao.connection.ConnectionFactory;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
-import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,7 +24,7 @@ public class JdbcConnectionFactory implements ConnectionFactory {
     private boolean h2Used = false;
 
     enum ConnectionType {
-        POOL_PREFERRED, SINGLE;
+        POOL_PREFERRED, SINGLE
     }
 
     private JdbcConnectionFactory() {

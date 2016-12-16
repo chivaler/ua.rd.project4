@@ -25,7 +25,6 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
     private static final CrudCarRequestCommand instance = new CrudCarRequestCommand();
     private final Logger logger = LogManager.getLogger(CrudCarRequestCommand.class);
     private final CarRequestService carRequestService = getServiceFactory().getCarRequestService();
-    private final String DEFAULT_REJECT_REASON = "Sorry, impossible for now";
 
     private CrudCarRequestCommand() {
     }
@@ -61,25 +60,25 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
 
     @Override
     CarRequest parseToEntity(RequestWrapper req) throws InvalidParameterException {
-        int carId = 0;
+        int carId;
         try {
             carId = Integer.valueOf(req.getParameter("car"));
         } catch (NumberFormatException e) {
             throw new RequiredParameterException("car");
         }
-        int clientId = 0;
+        int clientId;
         try {
             clientId = Integer.valueOf(req.getParameter("client"));
         } catch (NumberFormatException e) {
             throw new RequiredParameterException("client");
         }
-        Date dateFrom = null;
+        Date dateFrom;
         try {
             dateFrom = Date.valueOf(req.getParameter("dateFrom"));
         } catch (Exception e) {
             throw new RequiredParameterException("dateFrom");
         }
-        Date dateTo = null;
+        Date dateTo;
         try {
             dateTo = Date.valueOf(req.getParameter("dateTo"));
         } catch (Exception e) {
@@ -125,7 +124,7 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
             if (id == 0) {
                 JspMessagesSetter.setOutputError(req, JspMessagesSetter.JspError.UNKNOWN_ID);
             } else
-                carRequestService.reject(id, DEFAULT_REJECT_REASON);
+                carRequestService.reject(id, Messages.DEFAULT_REJECT_REASON);
             return AdminCommand.getInstance().execute(req, user);
         } else
             return super.execute(req, user);

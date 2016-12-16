@@ -10,5 +10,5 @@ public interface CarDao extends EntityDao<Car> {
 
     List<Car> getCarsOutOfBox();
 
-    public List<Car> findAvailableCars(Date dateFrom, Date dateTo);
+    List<Car> findAvailableCars(Date dateFrom, Date dateTo);
 }

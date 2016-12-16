@@ -21,7 +21,6 @@ class JdbcCarRequestDao implements CarRequestDao {
     private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
     private final InvoiceDao invoiceDao = JdbcDaoFactory.getInstance().getInvoiceDao();
     private boolean h2Used = JdbcConnectionFactory.getInstance().isH2Used();
-    ;
 
 
     private JdbcCarRequestDao() {

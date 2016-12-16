@@ -27,7 +27,7 @@ class JdbcCarDao implements CarDao {
     @Override
     public void createTableIfNotExist() {
         try (Connection connection = connectionFactory.getConnection();
-             Statement statement = connection.createStatement();) {
+             Statement statement = connection.createStatement()) {
             statement.execute("CREATE TABLE IF NOT EXISTS `cars` (" +
                     "id INT PRIMARY KEY auto_increment," +
                     "model VARCHAR(16)," +

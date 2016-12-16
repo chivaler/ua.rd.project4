@@ -274,7 +274,7 @@ public class CarRequestServiceTest {
         for (Map<String, String> map : carRequestsWithStatuses)
             if (String.valueOf(carRequest1.getId()).equals(map.get("id")))
                 found = true;
-        assertThat(found == true, is(true));
+        assertThat(found, is(true));
     }
 
     @Test

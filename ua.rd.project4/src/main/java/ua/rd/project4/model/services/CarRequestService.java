@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 public interface CarRequestService extends EntityService<CarRequest> {
     enum CarRequestStatus {
-        POSSIBLE, CONFLICT, IMPOSSIBLE;
+        POSSIBLE, CONFLICT, IMPOSSIBLE
     }
 
     List<CarRequest> findCarRequestsByClientId(int clientId);

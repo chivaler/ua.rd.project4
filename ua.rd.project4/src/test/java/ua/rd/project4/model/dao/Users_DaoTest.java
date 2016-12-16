@@ -1,14 +1,7 @@
 package ua.rd.project4.model.dao;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
-import ua.rd.project4.RandomEntities;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
 
 public class Users_DaoTest extends EntityDaoTest<User> {
     @Override

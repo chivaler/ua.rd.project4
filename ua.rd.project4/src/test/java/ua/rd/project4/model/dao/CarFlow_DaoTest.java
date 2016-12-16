@@ -1,6 +1,5 @@
 package ua.rd.project4.model.dao;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 import ua.rd.project4.RandomEntities;
 import ua.rd.project4.domain.CarFlow;
