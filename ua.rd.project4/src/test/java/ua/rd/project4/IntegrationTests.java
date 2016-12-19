@@ -36,15 +36,6 @@ public class IntegrationTests {
         connector.setPort(0); // auto-bind to available port
         server.addConnector(connector);
 
-        ResourceHandler staticResourceHandler = new ResourceHandler();
-        staticResourceHandler.setResourceBase("./webapp/static/");
-        staticResourceHandler.setDirectoriesListed(true);
-
-        // Create context handler for static resource handler.
-        ContextHandler staticContextHandler = new ContextHandler();
-        staticContextHandler.setContextPath("/static");
-        staticContextHandler.setHandler(staticResourceHandler);
-
         // Create WebAppContext for JSP files.
         WebAppContext webAppContext = new WebAppContext();
         webAppContext.setContextPath("/jsp");
@@ -58,7 +49,7 @@ public class IntegrationTests {
 
         // Create a handler list to store our static, jsp and servlet context handlers.
         HandlerList handlers = new HandlerList();
-        handlers.setHandlers(new Handler[] { staticContextHandler, webAppContext, servletContextHandler });
+        handlers.setHandlers(new Handler[] { webAppContext, servletContextHandler });
 
         // Add the handlers to the server and start jetty.
         server.setHandler(handlers);
