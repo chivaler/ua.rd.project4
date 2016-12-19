@@ -117,7 +117,7 @@
                             <INPUT type="hidden" name="do" value="approve"/>
                             <INPUT type="hidden" name="id" value="${request.id}"/>
                             <INPUT type="submit"
-                                   value="<fmt:message key="APPROVE" bundle="${bundle}"/>" ${request.available=='IMPOSSIBLE'?'disabled="disabled"':''} ${request.status=='APPROVED'?'disabled="disabled"':''}>
+                                   value="<fmt:message key="APPROVE" bundle="${bundle}"/>" ${request.available=='IMPOSSIBLE'?'disabled="disabled"':''} ${(request.status=='APPROVED' || request.status=='PROGRESS')?'disabled="disabled"':''}>
                         </form>
                     </td>
                     <td>

@@ -55,7 +55,9 @@
     </c:forEach>
     <tr>
         <td colspan="10">
-            <form action="/jsp/car.jsp" method="get">
+            <form action="${pageContext.request.contextPath}/Controller" method="post">
+                <INPUT type="hidden" name="command" value="CARS"/>
+                <INPUT type="hidden" name="do" value="new"/>
                 <INPUT type="submit" value="<fmt:message key="createNew" bundle="${bundle}"/>">
             </form>
         </td>

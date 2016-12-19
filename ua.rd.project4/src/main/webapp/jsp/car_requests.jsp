@@ -20,6 +20,7 @@
         <th><fmt:message key="dateTo" bundle="${bundle}"/></th>
         <th><fmt:message key="totalCost" bundle="${bundle}"/></th>
         <th><fmt:message key="status" bundle="${bundle}"/></th>
+        <th width="15%"><fmt:message key="rejectReason" bundle="${bundle}"/></th>
         <th><fmt:message key="invoice" bundle="${bundle}"/></th>
         <th><fmt:message key="EDIT" bundle="${bundle}"/></th>
         <th><fmt:message key="DELETE" bundle="${bundle}"/></th>
@@ -45,6 +46,7 @@
             <td align="center"><c:out value="${carRequest.getDateTo()}"/></td>
             <td align="center"><c:out value="${carRequest.getTotalCost()}"/></td>
             <td align="center"><c:out value="${carRequest.getStatus()}"/></td>
+            <td align="center"><c:out value="${carRequest.getRejectReason()}"/></td>
             <td>
                 <c:if test="${carRequest.getInvoiceId() > 0}">
                     <a href="${pageContext.request.contextPath}/Controller?command=INVOICES&do=get&id=${carRequest.getInvoiceId()}">
@@ -73,7 +75,7 @@
     </c:forEach>
     <tr>
         <td colspan="90">
-            <form action="${pageContext.request.contextPath}/Controller" method="get">
+            <form action="${pageContext.request.contextPath}/Controller" method="post">
                 <INPUT type="hidden" name="command" value="CARREQUESTS"/>
                 <INPUT type="hidden" name="do" value="new"/>
                 <INPUT type="submit" value="<fmt:message key="createNew" bundle="${bundle}"/>">

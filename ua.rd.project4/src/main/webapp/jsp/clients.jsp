@@ -53,7 +53,7 @@
     </c:forEach>
     <tr>
         <td colspan="9">
-            <form action="/jsp/client.jsp" method="get">
+            <form action="${pageContext.request.contextPath}/jsp/client.jsp" method="get">
                 <INPUT type="submit" value="<fmt:message key="createNew" bundle="${bundle}"/>">
             </form>
         </td>

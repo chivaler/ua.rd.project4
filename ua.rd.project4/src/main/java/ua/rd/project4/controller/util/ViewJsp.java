@@ -5,7 +5,7 @@ public interface ViewJsp {
         String LOGIN_PAGE = "jsp/login.jsp";
         String LOGOFF_PAGE = "jsp/logoff.jsp";
         String REGISTER_JSP = "jsp/register.jsp";
-        String ERROR_404 = "404.html";
+        String ERROR_404 = "404.jsp";
     }
 
     interface CarsCrud {

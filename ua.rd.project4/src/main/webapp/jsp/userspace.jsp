@@ -92,6 +92,7 @@
             <th><fmt:message key="totalCost" bundle="${bundle}"/></th>
             <th><fmt:message key="status" bundle="${bundle}"/></th>
             <th><fmt:message key="invoice" bundle="${bundle}"/></th>
+            <th><fmt:message key="rejectReason" bundle="${bundle}"/></th>
             <th><fmt:message key="DELETE" bundle="${bundle}"/></th>
         </tr>
         <c:forEach var="carRequest" items="${listCarRequests}">
@@ -122,6 +123,7 @@
                         </a>
                     </c:if>
                 </td>
+                <td align="center"><c:out value="${carRequest.getRejectReason()}"/></td>
                 <td align="center">
                     <form action="${pageContext.request.contextPath}/Controller" method="post">
                         <INPUT type="hidden" name="command" value="CARREQUESTS"/>
@@ -135,6 +137,7 @@
     </table>
     <br>
     <table class="list">
+        <caption>Invoices</caption>
         <tr>
             <th><fmt:message key="id" bundle="${bundle}"/></th>
             <th><fmt:message key="Client" bundle="${bundle}"/></th>
@@ -154,7 +157,10 @@
                 </td>
                 <td align="center"><c:out value="${invoice.getTotal()}"/></td>
                 <td align="center"><c:out value="${invoice.isPaid()}"/></td>
-                <td align="center"><c:out value="${invoice.getDescription()}"/></td>
+                <td align="center">
+                    <a href="${pageContext.request.contextPath}/Controller?command=PRINTINVOICE&id=${invoice.getId()}">
+                        <c:out value="${invoice.getDescription()}"/></a>
+                </td>
             </tr>
         </c:forEach>
     </table>

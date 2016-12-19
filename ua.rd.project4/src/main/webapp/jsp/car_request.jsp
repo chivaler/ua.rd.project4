@@ -43,6 +43,11 @@
         </tr>
         <%@include file="includes/fields/invoice.jspf" %>
         <tr>
+            <td><fmt:message key="rejectReason" bundle="${bundle}"/></td>
+            <td><INPUT type=text name="rejectReason"
+                       value="${empty entity ? '' : entity.getRejectReason()}"/></td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <INPUT type="submit" value="${empty entity ? 'Create' : 'Save'}">
             </td>

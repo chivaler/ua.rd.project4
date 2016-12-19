@@ -55,7 +55,7 @@
             </tr>
         </table>
         <p>
-            <a href="<c:url value="${pageContext.request.contextPath}/jsp/register.jsp"/>"><fmt:message
+            <a href="${pageContext.request.contextPath}/jsp/register.jsp"><fmt:message
                     key="register" bundle="${bundle}"/></a> <br>
         </p>
         <p>
@@ -63,7 +63,6 @@
                     key="continueAsGuest" bundle="${bundle}"/> </a>
         </p>
     </form>
-
 </div>
 </body>
 </html>

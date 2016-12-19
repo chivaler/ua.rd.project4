@@ -14,6 +14,7 @@
 <table class="list">
     <tr>
         <th>ID</th>
+        <th><fmt:message key="dateCreated" bundle="${bundle}"/></th>
         <th><fmt:message key="car" bundle="${bundle}"/></th>
         <th><fmt:message key="carFlowType" bundle="${bundle}"/></th>
         <th><fmt:message key="Client" bundle="${bundle}"/></th>
@@ -27,6 +28,7 @@
     <c:forEach var="carFlow" items="${entities}">
         <tr>
             <td><c:out value="${carFlow.getId()}"/></td>
+            <td><c:out value="${carFlow.getDateCreated()}"/></td>
             <td>
                 <c:if test="${carFlow.getCarId() > 0}">
                     <a href="${pageContext.request.contextPath}/Controller?command=CARS&do=get&id=${carFlow.getCarId()}">
@@ -87,7 +89,9 @@
     </c:forEach>
     <tr>
         <td colspan="10">
-            <form action="/jsp/car_flow.jsp" method="post">
+            <form action="${pageContext.request.contextPath}/Controller" method="post">
+                <INPUT type="hidden" name="command" value="CARFLOWS"/>
+                <INPUT type="hidden" name="do" value="new"/>
                 <INPUT type="submit" value="<fmt:message key="createNew" bundle="${bundle}"/>">
             </form>
         </td>
