@@ -239,8 +239,9 @@ class JdbcCarFlowDao implements CarFlowDao {
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT SUM(`carFlowType`) FROM `car_flow` WHERE `car`=?")) {
             preparedStatement.setInt(1, carId);
             ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            int countedFlow = resultSet.getInt(1);
+            int countedFlow = 0;
+            if (resultSet.next())
+                countedFlow = resultSet.getInt(1);
             return (countedFlow > 0);
         } catch (SQLException e) {
             logger.error(e);
@@ -255,8 +256,8 @@ class JdbcCarFlowDao implements CarFlowDao {
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `car_flow` WHERE `car`=? AND `carFlowType`=-1 ORDER BY dateCreated DESC LIMIT 1")) {
             preparedStatement.setInt(1, carId);
             ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            carFlow = getEntityFromResultSet(resultSet);
+            if (resultSet.next())
+                carFlow = getEntityFromResultSet(resultSet);
         } catch (SQLException e) {
             logger.error(e);
         }
