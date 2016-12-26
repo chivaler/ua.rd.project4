@@ -28,16 +28,12 @@
                     <url>http://localhost:8090/manager/text</url>
                     <server>TomcatServer</server>
                     <path>/webapp</path>
-                    <systemProperties>db.properties</systemProperties>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty.version}</version>
-                <configuration>
-                    <systemPropertiesFile>db.properties</systemPropertiesFile>
-                </configuration>
             </plugin>
             <!--<plugin>-->
                 <!--<groupId>org.codehaus.mojo</groupId>-->
