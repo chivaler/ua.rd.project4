@@ -9,8 +9,8 @@ import ua.rd.project4.controller.util.SessionWrapper;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class CommandDispatcherImplTest {
-    private CommandDispatcher commandDispatcher = CommandDispatcherImpl.getInstance();
+public class DefaultCommandDispatcherTest {
+    private CommandDispatcher commandDispatcher = DefaultCommandDispatcher.getInstance();
     private RequestWrapper req = mock(RequestWrapper.class);
     private SessionWrapper sessionWrapper = mock(SessionWrapper.class);
 

@@ -3,7 +3,7 @@ package ua.rd.project4.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ua.rd.project4.controller.command.*;
-import ua.rd.project4.controller.command.impl.CommandDispatcherImpl;
+import ua.rd.project4.controller.command.impl.DefaultCommandDispatcher;
 import ua.rd.project4.controller.exceptions.InsufficientPermissionsException;
 import ua.rd.project4.controller.exceptions.NotFoundException;
 import ua.rd.project4.controller.util.JspMessagesSetter;
@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class MainController extends HttpServlet {
     private final transient Logger logger = LogManager.getLogger(MainController.class);
-    private final transient CommandDispatcher commandDispatcher = CommandDispatcherImpl.getInstance();
+    private final transient CommandDispatcher commandDispatcher = DefaultCommandDispatcher.getInstance();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

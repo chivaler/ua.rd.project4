@@ -10,14 +10,14 @@ import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.User;
 
 
-public class CommandDispatcherImpl implements CommandDispatcher {
-    private static final CommandDispatcherImpl instance = new CommandDispatcherImpl();
-    private final Logger logger = LogManager.getLogger(CommandDispatcherImpl.class);
+public class DefaultCommandDispatcher implements CommandDispatcher {
+    private static final DefaultCommandDispatcher instance = new DefaultCommandDispatcher();
+    private final Logger logger = LogManager.getLogger(DefaultCommandDispatcher.class);
 
-    private CommandDispatcherImpl() {
+    private DefaultCommandDispatcher() {
     }
 
-    public static CommandDispatcherImpl getInstance() {
+    public static DefaultCommandDispatcher getInstance() {
         return instance;
     }
 
