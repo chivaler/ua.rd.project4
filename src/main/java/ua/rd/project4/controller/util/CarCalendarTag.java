@@ -1,7 +1,7 @@
 package ua.rd.project4.controller.util;
 
 import ua.rd.project4.model.services.CarRequestService;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -13,7 +13,7 @@ import java.time.temporal.WeekFields;
 import java.util.Locale;
 
 public class CarCalendarTag extends TagSupport {
-    private final static CarRequestService carRequestService = JdbcServiceFactory.getInstance().getCarRequestService();
+    private final static CarRequestService carRequestService = DefaultServiceFactory.getInstance().getCarRequestService();
     private int carId;
 
     public void setCarId (String value) {

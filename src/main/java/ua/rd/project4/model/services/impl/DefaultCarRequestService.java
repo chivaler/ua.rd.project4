@@ -14,17 +14,17 @@ import java.sql.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-class JdbcCarRequestService extends GenericEntityService<CarRequest> implements CarRequestService {
-    private static final JdbcCarRequestService instance = new JdbcCarRequestService();
-    private final Logger logger = LogManager.getLogger(JdbcCarRequestService.class);
-    private final InvoiceService invoiceService = JdbcServiceFactory.getInstance().getInvoiceService();
-    private final CarFlowService carFlowService = JdbcServiceFactory.getInstance().getCarFlowService();
+class DefaultCarRequestService extends GenericEntityService<CarRequest> implements CarRequestService {
+    private static final DefaultCarRequestService instance = new DefaultCarRequestService();
+    private final Logger logger = LogManager.getLogger(DefaultCarRequestService.class);
+    private final InvoiceService invoiceService = DefaultServiceFactory.getInstance().getInvoiceService();
+    private final CarFlowService carFlowService = DefaultServiceFactory.getInstance().getCarFlowService();
     private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
 
-    private JdbcCarRequestService() {
+    private DefaultCarRequestService() {
     }
 
-    public static JdbcCarRequestService getInstance() {
+    public static DefaultCarRequestService getInstance() {
         return instance;
     }
 
@@ -35,7 +35,7 @@ class JdbcCarRequestService extends GenericEntityService<CarRequest> implements 
 
     @Override
     ServiceFactory getServiceFactory() {
-        return JdbcServiceFactory.getInstance();
+        return DefaultServiceFactory.getInstance();
     }
 
     @Override

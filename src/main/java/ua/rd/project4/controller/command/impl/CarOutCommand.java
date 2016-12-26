@@ -9,7 +9,7 @@ import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.exceptions.CarRequestApproveNeededException;
 import ua.rd.project4.model.exceptions.CarRequestPaymentNeededException;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 class CarOutCommand implements Command {
     private static final CarOutCommand instance = new CarOutCommand();
@@ -28,7 +28,7 @@ class CarOutCommand implements Command {
             throw new InsufficientPermissionsException();
         try {
             final int carRequestiId = Integer.parseInt(req.getParameter("carRequest"));
-            JdbcServiceFactory.getInstance().getCarRequestService().checkInCarOut(carRequestiId, user);
+            DefaultServiceFactory.getInstance().getCarRequestService().checkInCarOut(carRequestiId, user);
         } catch (NumberFormatException e) {
             logger.error(e);
         } catch (CarRequestPaymentNeededException e) {

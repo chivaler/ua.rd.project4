@@ -6,7 +6,7 @@ import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.services.ServiceFactory;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 public class UserSpaceCommand implements Command {
     private static final UserSpaceCommand instance = new UserSpaceCommand();
@@ -25,7 +25,7 @@ public class UserSpaceCommand implements Command {
     }
 
     ServiceFactory getServiceFactory() {
-        return JdbcServiceFactory.getInstance();
+        return DefaultServiceFactory.getInstance();
     }
 
     void addListsToRequest(RequestWrapper req, User user) {

@@ -8,16 +8,14 @@ import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.CarFlow;
-import ua.rd.project4.domain.Invoice;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.services.CarFlowService;
-import ua.rd.project4.model.services.InvoiceService;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 class PrintCarFlowCommand implements Command {
     private static final PrintCarFlowCommand instance = new PrintCarFlowCommand();
     private final Logger logger = LogManager.getLogger(PrintCarFlowCommand.class);
-    CarFlowService carFlowService = JdbcServiceFactory.getInstance().getCarFlowService();
+    CarFlowService carFlowService = DefaultServiceFactory.getInstance().getCarFlowService();
 
     private PrintCarFlowCommand() {
     }

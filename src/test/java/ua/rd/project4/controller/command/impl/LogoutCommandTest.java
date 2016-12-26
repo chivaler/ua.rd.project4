@@ -6,7 +6,7 @@ import ua.rd.project4.controller.util.SessionWrapper;
 import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.RandomEntities;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -20,9 +20,9 @@ public class LogoutCommandTest {
     public void execute() throws Exception {
         User user = RandomEntities.getUser();
         String randomPassword = RandomEntities.getString();
-        user.setPasswordHash(JdbcServiceFactory.getInstance().getUserService().getHashPassword(randomPassword));
+        user.setPasswordHash(DefaultServiceFactory.getInstance().getUserService().getHashPassword(randomPassword));
         user.setAdmin(false);
-        JdbcServiceFactory.getInstance().getUserService().insert(user);
+        DefaultServiceFactory.getInstance().getUserService().insert(user);
 
         when(req.getSessionWrapper()).thenReturn(sessionWrapper);
 

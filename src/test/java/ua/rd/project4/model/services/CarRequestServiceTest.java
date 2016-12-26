@@ -5,7 +5,7 @@ import ua.rd.project4.domain.*;
 import ua.rd.project4.RandomEntities;
 import ua.rd.project4.model.exceptions.CarRequestPaymentNeededException;
 import ua.rd.project4.model.exceptions.ConflictsRequestException;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -26,12 +26,12 @@ import static ua.rd.project4.domain.CarRequest.RequestStatus.PROGRESS;
 import static ua.rd.project4.domain.CarRequest.RequestStatus.REJECTED;
 
 public class CarRequestServiceTest {
-    private final InvoiceService invoiceService = JdbcServiceFactory.getInstance().getInvoiceService();
-    private final ClientService clientService = JdbcServiceFactory.getInstance().getClientService();
-    private final CarFlowService carFlowService = JdbcServiceFactory.getInstance().getCarFlowService();
-    private final CarService carService = JdbcServiceFactory.getInstance().getCarService();
-    private final CarRequestService carRequestService = JdbcServiceFactory.getInstance().getCarRequestService();
-    private final UserService userService = JdbcServiceFactory.getInstance().getUserService();
+    private final InvoiceService invoiceService = DefaultServiceFactory.getInstance().getInvoiceService();
+    private final ClientService clientService = DefaultServiceFactory.getInstance().getClientService();
+    private final CarFlowService carFlowService = DefaultServiceFactory.getInstance().getCarFlowService();
+    private final CarService carService = DefaultServiceFactory.getInstance().getCarService();
+    private final CarRequestService carRequestService = DefaultServiceFactory.getInstance().getCarRequestService();
+    private final UserService userService = DefaultServiceFactory.getInstance().getUserService();
 
     @Test
     public void findCarRequestsByClientId_Blank() throws Exception {

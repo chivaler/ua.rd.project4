@@ -10,7 +10,7 @@ import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.domain.Car;
 import ua.rd.project4.domain.User;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -48,7 +48,7 @@ class CarsAvailableCommand implements Command {
                 throw new InvalidParameterException("dateTo<dateFrom");
             if (dateFrom.compareTo(Date.valueOf(LocalDate.now())) < 0)
                 throw new InvalidParameterException("dateTo<current");
-            List<Car> listAvailableCars = JdbcServiceFactory.getInstance()
+            List<Car> listAvailableCars = DefaultServiceFactory.getInstance()
                     .getCarRequestService().findAvailableCars(dateFrom, dateTo);
             req.setAttribute("listAvailableCars", listAvailableCars);
         } catch (RequiredParameterException e) {

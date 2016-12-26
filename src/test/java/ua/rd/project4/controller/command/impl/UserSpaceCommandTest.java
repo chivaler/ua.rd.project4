@@ -5,7 +5,7 @@ import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.RandomEntities;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -24,9 +24,9 @@ public class UserSpaceCommandTest {
     public void execute_USER() throws Exception {
         User user = RandomEntities.getUser();
         String randomPassword = RandomEntities.getString();
-        user.setPasswordHash(JdbcServiceFactory.getInstance().getUserService().getHashPassword(randomPassword));
+        user.setPasswordHash(DefaultServiceFactory.getInstance().getUserService().getHashPassword(randomPassword));
         user.setAdmin(false);
-        JdbcServiceFactory.getInstance().getUserService().insert(user);
+        DefaultServiceFactory.getInstance().getUserService().insert(user);
 
         assertThat(UserSpaceCommand.getInstance().execute(req, user), is(ViewJsp.UserSpace.USER_JSP));
         verify(req, never()).setAttribute(eq("error"), any(String.class));
@@ -36,9 +36,9 @@ public class UserSpaceCommandTest {
     public void execute_ADMIN() throws Exception {
         User user = RandomEntities.getUser();
         String randomPassword = RandomEntities.getString();
-        user.setPasswordHash(JdbcServiceFactory.getInstance().getUserService().getHashPassword(randomPassword));
+        user.setPasswordHash(DefaultServiceFactory.getInstance().getUserService().getHashPassword(randomPassword));
         user.setAdmin(true);
-        JdbcServiceFactory.getInstance().getUserService().insert(user);
+        DefaultServiceFactory.getInstance().getUserService().insert(user);
 
         assertThat(UserSpaceCommand.getInstance().execute(req, user), is(ViewJsp.UserSpace.USER_JSP));
         verify(req, never()).setAttribute(eq("error"), any(String.class));

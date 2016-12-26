@@ -12,15 +12,15 @@ import ua.rd.project4.domain.User;
 import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.services.CarRequestService;
 import ua.rd.project4.model.services.CarService;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 import java.sql.Date;
 
 class UserCreateCarRequestCommand implements Command {
     private static final UserCreateCarRequestCommand instance = new UserCreateCarRequestCommand();
     private final Logger logger = LogManager.getLogger(UserCreateCarRequestCommand.class);
-    private final CarRequestService carRequestService = JdbcServiceFactory.getInstance().getCarRequestService();
-    private final CarService carService = JdbcServiceFactory.getInstance().getCarService();
+    private final CarRequestService carRequestService = DefaultServiceFactory.getInstance().getCarRequestService();
+    private final CarService carService = DefaultServiceFactory.getInstance().getCarService();
 
     private UserCreateCarRequestCommand() {
     }

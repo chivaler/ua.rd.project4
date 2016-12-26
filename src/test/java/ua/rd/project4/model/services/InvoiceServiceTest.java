@@ -4,7 +4,7 @@ import org.junit.Test;
 import ua.rd.project4.domain.Client;
 import ua.rd.project4.domain.Invoice;
 import ua.rd.project4.RandomEntities;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 import java.util.Collections;
 
@@ -13,8 +13,8 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class InvoiceServiceTest {
-    private final InvoiceService invoiceService = JdbcServiceFactory.getInstance().getInvoiceService();
-    private final ClientService clientService = JdbcServiceFactory.getInstance().getClientService();
+    private final InvoiceService invoiceService = DefaultServiceFactory.getInstance().getInvoiceService();
+    private final ClientService clientService = DefaultServiceFactory.getInstance().getClientService();
 
     @Test
     public void findInvoicesByClientId_blank() throws Exception {

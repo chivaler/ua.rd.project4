@@ -15,7 +15,7 @@ import ua.rd.project4.model.exceptions.ConflictsRequestException;
 import ua.rd.project4.model.exceptions.PaymentExistException;
 import ua.rd.project4.model.holders.CarRequestHolder;
 import ua.rd.project4.model.services.*;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -41,7 +41,7 @@ class CrudCarRequestCommand extends GenericCrudCommand<CarRequest> {
 
     @Override
     ServiceFactory getServiceFactory() {
-        return JdbcServiceFactory.getInstance();
+        return DefaultServiceFactory.getInstance();
     }
 
     @Override

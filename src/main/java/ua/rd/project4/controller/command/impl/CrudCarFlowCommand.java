@@ -10,7 +10,7 @@ import ua.rd.project4.domain.CarFlow;
 import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 import ua.rd.project4.model.holders.CarFlowHolder;
 import ua.rd.project4.model.services.*;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 import java.util.Optional;
 
@@ -33,7 +33,7 @@ class CrudCarFlowCommand extends GenericCrudCommand<CarFlow> {
 
     @Override
     ServiceFactory getServiceFactory() {
-        return JdbcServiceFactory.getInstance();
+        return DefaultServiceFactory.getInstance();
     }
 
     @Override

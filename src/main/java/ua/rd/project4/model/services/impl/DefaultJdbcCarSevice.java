@@ -6,13 +6,13 @@ import ua.rd.project4.domain.Car;
 import ua.rd.project4.model.services.ServiceFactory;
 import ua.rd.project4.model.services.CarService;
 
-class JdbcCarSevice extends GenericEntityService<Car> implements CarService {
-    private static final JdbcCarSevice instance = new JdbcCarSevice();
+class DefaultJdbcCarSevice extends GenericEntityService<Car> implements CarService {
+    private static final DefaultJdbcCarSevice instance = new DefaultJdbcCarSevice();
 
-    private JdbcCarSevice() {
+    private DefaultJdbcCarSevice() {
     }
 
-    public static JdbcCarSevice getInstance() {
+    public static DefaultJdbcCarSevice getInstance() {
         return instance;
     }
 
@@ -23,7 +23,7 @@ class JdbcCarSevice extends GenericEntityService<Car> implements CarService {
 
     @Override
     ServiceFactory getServiceFactory() {
-        return JdbcServiceFactory.getInstance();
+        return DefaultServiceFactory.getInstance();
     }
 }
 

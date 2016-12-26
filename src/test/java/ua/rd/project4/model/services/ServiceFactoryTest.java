@@ -1,13 +1,13 @@
 package ua.rd.project4.model.services;
 
 import org.junit.Test;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class ServiceFactoryTest {
-    ServiceFactory serviceFactory = JdbcServiceFactory.getInstance();
+    ServiceFactory serviceFactory = DefaultServiceFactory.getInstance();
 
     @Test
     public void getClientService() throws Exception {

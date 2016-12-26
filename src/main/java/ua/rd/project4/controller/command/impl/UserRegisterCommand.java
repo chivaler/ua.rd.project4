@@ -16,13 +16,13 @@ import ua.rd.project4.model.exceptions.LoginExistsException;
 import ua.rd.project4.model.exceptions.UniqueViolationException;
 import ua.rd.project4.model.services.ClientService;
 import ua.rd.project4.model.services.UserService;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 class UserRegisterCommand implements Command {
     private static final UserRegisterCommand instance = new UserRegisterCommand();
     private final Logger logger = LogManager.getLogger(UserRegisterCommand.class);
-    private final UserService userService = JdbcServiceFactory.getInstance().getUserService();
-    private final ClientService clientService = JdbcServiceFactory.getInstance().getClientService();
+    private final UserService userService = DefaultServiceFactory.getInstance().getUserService();
+    private final ClientService clientService = DefaultServiceFactory.getInstance().getClientService();
 
     private UserRegisterCommand() {
     }

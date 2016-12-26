@@ -17,16 +17,16 @@ import java.util.List;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlowService {
-    private static final JdbcCarFlowService instance = new JdbcCarFlowService();
-    private final Logger logger = LogManager.getLogger(JdbcCarFlowService.class);
-    private final InvoiceService invoiceService = JdbcInvoiceSevice.getInstance();
+class DefaultCarFlowService extends GenericEntityService<CarFlow> implements CarFlowService {
+    private static final DefaultCarFlowService instance = new DefaultCarFlowService();
+    private final Logger logger = LogManager.getLogger(DefaultCarFlowService.class);
+    private final InvoiceService invoiceService = DefaultInvoiceSevice.getInstance();
     private final CarDao carDao = JdbcDaoFactory.getInstance().getCarDao();
 
-    private JdbcCarFlowService() {
+    private DefaultCarFlowService() {
     }
 
-    public static JdbcCarFlowService getInstance() {
+    public static DefaultCarFlowService getInstance() {
         return instance;
     }
 
@@ -37,7 +37,7 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
 
     @Override
     ServiceFactory getServiceFactory() {
-        return JdbcServiceFactory.getInstance();
+        return DefaultServiceFactory.getInstance();
     }
 
     @Override
@@ -106,7 +106,7 @@ class JdbcCarFlowService extends GenericEntityService<CarFlow> implements CarFlo
                 invoice, "");
         CarRequest carRequest = carFlowOut.getCarRequest();
         carRequest.setStatus(CarRequest.RequestStatus.DONE);
-        CarRequestService carRequestService = JdbcCarRequestService.getInstance();
+        CarRequestService carRequestService = DefaultCarRequestService.getInstance();
         try {
             insert(carFlowIn);
             carRequestService.update(carRequest.getId(), carRequest);

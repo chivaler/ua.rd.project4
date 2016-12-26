@@ -8,13 +8,13 @@ import ua.rd.project4.model.services.InvoiceService;
 
 import java.util.List;
 
-class JdbcInvoiceSevice extends GenericEntityService<Invoice> implements InvoiceService {
-    private static final JdbcInvoiceSevice instance = new JdbcInvoiceSevice();
+class DefaultInvoiceSevice extends GenericEntityService<Invoice> implements InvoiceService {
+    private static final DefaultInvoiceSevice instance = new DefaultInvoiceSevice();
 
-    private JdbcInvoiceSevice() {
+    private DefaultInvoiceSevice() {
     }
 
-    public static JdbcInvoiceSevice getInstance() {
+    public static DefaultInvoiceSevice getInstance() {
         return instance;
     }
 
@@ -25,7 +25,7 @@ class JdbcInvoiceSevice extends GenericEntityService<Invoice> implements Invoice
 
     @Override
     ServiceFactory getServiceFactory() {
-        return JdbcServiceFactory.getInstance();
+        return DefaultServiceFactory.getInstance();
     }
 
     @Override

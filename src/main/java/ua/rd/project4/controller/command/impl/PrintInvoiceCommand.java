@@ -10,12 +10,12 @@ import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.Invoice;
 import ua.rd.project4.domain.User;
 import ua.rd.project4.model.services.InvoiceService;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 class PrintInvoiceCommand implements Command {
     private static final PrintInvoiceCommand instance = new PrintInvoiceCommand();
     private final Logger logger = LogManager.getLogger(PrintInvoiceCommand.class);
-    InvoiceService invoiceService = JdbcServiceFactory.getInstance().getInvoiceService();
+    InvoiceService invoiceService = DefaultServiceFactory.getInstance().getInvoiceService();
 
     private PrintInvoiceCommand() {
     }

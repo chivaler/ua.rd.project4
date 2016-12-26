@@ -6,17 +6,17 @@ import ua.rd.project4.domain.*;
 import ua.rd.project4.model.services.*;
 import ua.rd.project4.model.exceptions.EntityInUseException;
 
-class JdbcClientService extends GenericEntityService<Client> implements ClientService {
-    private static final JdbcClientService instance = new JdbcClientService();
-    private final InvoiceService invoiceService = JdbcInvoiceSevice.getInstance();
-    private final CarRequestService carRequestService = JdbcCarRequestService.getInstance();
-    private final UserService userService = JdbcUserSevice.getInstance();
+class DefaultClientService extends GenericEntityService<Client> implements ClientService {
+    private static final DefaultClientService instance = new DefaultClientService();
+    private final InvoiceService invoiceService = DefaultInvoiceSevice.getInstance();
+    private final CarRequestService carRequestService = DefaultCarRequestService.getInstance();
+    private final UserService userService = DefaultUserSevice.getInstance();
 
 
-    private JdbcClientService() {
+    private DefaultClientService() {
     }
 
-    public static JdbcClientService getInstance() {
+    public static DefaultClientService getInstance() {
         return instance;
     }
 
@@ -27,7 +27,7 @@ class JdbcClientService extends GenericEntityService<Client> implements ClientSe
 
     @Override
     ServiceFactory getServiceFactory() {
-        return JdbcServiceFactory.getInstance();
+        return DefaultServiceFactory.getInstance();
     }
 
     @Override

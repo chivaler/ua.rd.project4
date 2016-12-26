@@ -8,7 +8,7 @@ import ua.rd.project4.controller.util.JspMessagesSetter;
 import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.User;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 class LoginCommand implements Command {
     private static final LoginCommand instance = new LoginCommand();
@@ -26,7 +26,7 @@ class LoginCommand implements Command {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         if (login != null) {
-            User auntificatedUser = JdbcServiceFactory.getInstance().getUserService().authentication(login, password);
+            User auntificatedUser = DefaultServiceFactory.getInstance().getUserService().authentication(login, password);
             if (auntificatedUser != null) {
                 req.getSessionWrapper(true).setUser(auntificatedUser);
                 if (auntificatedUser.isAdmin()) {

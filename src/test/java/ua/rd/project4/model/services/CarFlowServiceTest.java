@@ -4,7 +4,7 @@ import org.junit.Test;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.RandomEntities;
 import ua.rd.project4.model.exceptions.WrongCarFlowDirectionException;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 import java.util.Collections;
 import java.util.stream.Collectors;
@@ -16,12 +16,12 @@ import static ua.rd.project4.domain.CarFlow.CarFlowType.IN;
 import static ua.rd.project4.domain.CarFlow.CarFlowType.OUT;
 
 public class CarFlowServiceTest {
-    private final InvoiceService invoiceService = JdbcServiceFactory.getInstance().getInvoiceService();
-    private final ClientService clientService = JdbcServiceFactory.getInstance().getClientService();
-    private final CarFlowService carFlowService = JdbcServiceFactory.getInstance().getCarFlowService();
-    private final CarService carService = JdbcServiceFactory.getInstance().getCarService();
-    private final CarRequestService carRequestService = JdbcServiceFactory.getInstance().getCarRequestService();
-    private final UserService userService = JdbcServiceFactory.getInstance().getUserService();
+    private final InvoiceService invoiceService = DefaultServiceFactory.getInstance().getInvoiceService();
+    private final ClientService clientService = DefaultServiceFactory.getInstance().getClientService();
+    private final CarFlowService carFlowService = DefaultServiceFactory.getInstance().getCarFlowService();
+    private final CarService carService = DefaultServiceFactory.getInstance().getCarService();
+    private final CarRequestService carRequestService = DefaultServiceFactory.getInstance().getCarRequestService();
+    private final UserService userService = DefaultServiceFactory.getInstance().getUserService();
 
     @Test
     public void findCarFlowsByCarId_Blank() throws Exception {

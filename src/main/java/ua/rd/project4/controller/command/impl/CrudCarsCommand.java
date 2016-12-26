@@ -8,7 +8,7 @@ import ua.rd.project4.controller.util.RequestWrapper;
 import ua.rd.project4.controller.util.ViewJsp;
 import ua.rd.project4.domain.Car;
 import ua.rd.project4.model.services.*;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -33,7 +33,7 @@ class CrudCarsCommand extends GenericCrudCommand<Car> {
 
     @Override
     ServiceFactory getServiceFactory() {
-        return JdbcServiceFactory.getInstance();
+        return DefaultServiceFactory.getInstance();
     }
 
     @Override

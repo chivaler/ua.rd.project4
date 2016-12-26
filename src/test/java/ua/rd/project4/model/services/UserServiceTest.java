@@ -3,7 +3,7 @@ package ua.rd.project4.model.services;
 import org.junit.Test;
 import ua.rd.project4.domain.*;
 import ua.rd.project4.model.exceptions.LoginExistsException;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 import ua.rd.project4.RandomEntities;
 
 import java.util.Collections;
@@ -13,8 +13,8 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class UserServiceTest {
-    private final UserService userService = JdbcServiceFactory.getInstance().getUserService();
-    private final ClientService clientService = JdbcServiceFactory.getInstance().getClientService();
+    private final UserService userService = DefaultServiceFactory.getInstance().getUserService();
+    private final ClientService clientService = DefaultServiceFactory.getInstance().getClientService();
 
     @Test
     public void findUsersByClientId_blank() throws Exception {

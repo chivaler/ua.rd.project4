@@ -13,13 +13,13 @@ import ua.rd.project4.model.exceptions.WrongCarFlowDirectionException;
 import ua.rd.project4.model.services.CarFlowService;
 import ua.rd.project4.model.services.CarService;
 import ua.rd.project4.model.services.Messages;
-import ua.rd.project4.model.services.impl.JdbcServiceFactory;
+import ua.rd.project4.model.services.impl.DefaultServiceFactory;
 
 class CarInCommand implements Command {
     private static final CarInCommand instance = new CarInCommand();
     private final Logger logger = LogManager.getLogger(CarInCommand.class);
-    private final CarFlowService carFlowService = JdbcServiceFactory.getInstance().getCarFlowService();
-    private final CarService carService = JdbcServiceFactory.getInstance().getCarService();
+    private final CarFlowService carFlowService = DefaultServiceFactory.getInstance().getCarFlowService();
+    private final CarService carService = DefaultServiceFactory.getInstance().getCarService();
 
 
     private CarInCommand() {
