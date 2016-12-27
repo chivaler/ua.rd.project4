@@ -2,8 +2,13 @@ package ua.rd.project4.model.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ua.rd.project4.domain.Entity;
+import org.junit.BeforeClass;
+import org.junit.experimental.runners.Enclosed;
+import org.junit.runner.RunWith;
+import ua.rd.project4.RandomEntities;
+import ua.rd.project4.domain.*;
 import org.junit.Test;
+import ua.rd.project4.model.dao.impl.JdbcDaoFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,22 +18,101 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.core.Is.is;
 
-public abstract class EntityDaoTest<T extends Entity> {
+@RunWith(Enclosed.class)
+public class DaoTests {
+
+    public static class CarDaoTests extends EntityDaoTest<Car> {
+
+        @Override
+        Car getElem() {
+            return RandomEntities.getCar();
+        }
+
+        @Override
+        EntityDao<Car> getDao() {
+            return JdbcDaoFactory.getInstance().getCarDao();
+        }
+    }
+
+    public static class CarFlowDaoTests extends EntityDaoTest<CarFlow> {
+
+        @Override
+        CarFlow getElem() {
+            return RandomEntities.getCarFlow();
+        }
+
+        @Override
+        EntityDao<CarFlow> getDao() {
+            return JdbcDaoFactory.getInstance().getCarFlowDao();
+        }
+    }
+
+    public static class UserDaoTests extends EntityDaoTest<User> {
+
+        @Override
+        User getElem() {
+            return RandomEntities.getUser();
+        }
+
+        @Override
+        EntityDao<User> getDao() {
+            return JdbcDaoFactory.getInstance().getUserDao();
+        }
+    }
+
+    public static class InvoiceDaoTests extends EntityDaoTest<Invoice> {
+
+        @Override
+        Invoice getElem() {
+            return RandomEntities.getInvoice();
+        }
+
+        @Override
+        EntityDao<Invoice> getDao() {
+            return JdbcDaoFactory.getInstance().getInvoiceDao();
+        }
+    }
+
+    public static class ClientDaoTests extends EntityDaoTest<Client> {
+
+        @Override
+        Client getElem() {
+            return RandomEntities.getClient();
+        }
+
+        @Override
+        EntityDao<Client> getDao() {
+            return JdbcDaoFactory.getInstance().getClientDao();
+        }
+    }
+
+    public static class CarRequestDaoTests extends EntityDaoTest<CarRequest> {
+
+        @Override
+        CarRequest getElem() {
+            return RandomEntities.getCarRequest();
+        }
+
+        @Override
+        EntityDao<CarRequest> getDao() {
+            return JdbcDaoFactory.getInstance().getCarRequestDao();
+        }
+    }
+}
+
+
+abstract class EntityDaoTest<T extends Entity> {
     private Logger logger = LogManager.getLogger(EntityDaoTest.class);
     private final EntityDao<T> dao = getDao();
-    private final T elem1 = initElem1();
-    private final T elem2 = initElem2();
-    private final T elem3 = initElem3();
+    private final T elem1 = getElem();
+    private final T elem2 = getElem();
+    private final T elem3 = getElem();
 
     {
         getDao().createTableIfNotExist();
     }
 
-    abstract T initElem1();
-
-    abstract T initElem2();
-
-    abstract T initElem3();
+    abstract T getElem();
 
     abstract EntityDao<T> getDao();
 
